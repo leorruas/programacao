@@ -1,0 +1,10 @@
+{
+  "cssTheme": "Cupertino",
+  "theme": "obsidian",
+  "accentColor": "#938cf2",
+  "textFontFamily": "Archivo",
+  "interfaceFontFamily": "Archivo",
+  "enabledCssSnippets": [
+    "archivo-font"
+  ]
+}
