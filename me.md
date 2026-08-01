@@ -24,9 +24,9 @@ Todas as interações, criações de arquivos e edições no vault devem obedece
    * Em TODOS os títulos de notas e cabeçalhos (`#`, `##`, `###`, `####`), apenas a primeira palavra deve ter a inicial maiúscula (ex: `## 1. Métodos de seleção e busca de elementos`).
    * Palavras subsequentes devem ser minúsculas, exceto se forem nomes próprios ou marcas de tecnologia (ex: `JavaScript`, `Python`, `React`, `Git`, `Figma`, `VS Code`, `Node.js`, `DOM`, `API`, `JSON`).
 
-4. **Prevenção de Links Quebrados em Tabelas do Obsidian**:
-   * Em tabelas Markdown, o caractere `|` separa colunas. Portanto, NUNCA usar o pipe simples desprotegido em wikilinks em tabelas.
-   * Usar obrigatoriamente o pipe escapado `\|` (ex: `[[javascript/03-manipulacao/Regex\|Regex]]`) para não quebrar as células da tabela.
+4. **Prevenção de Links Quebrados em Tabelas e Compatibilidade de WikiLinks**:
+   * **Fora de Tabelas**: Use o formato de link simples do Obsidian com o pipe simples (ex: `[[DOM]]` ou `[[Arrow functions|Arrow Functions]]`). Não inclua caminhos de pastas completos (ex: `[[javascript/.../DOM]]`) para manter a leitura limpa no Obsidian.
+   * **Dentro de Tabelas**: O caractere `|` separa colunas. Para adicionar WikiLinks rotulados dentro de tabelas, use obrigatoriamente o pipe escapado `\|` (ex: `[[javascript/03-manipulacao/Regex\|Regex]]`) para não quebrar a formatação da tabela.
 
 5. **Método Feynman Obrigatório**:
    * Explicar conceitos técnicos através de analogias simples e intuitivas do mundo real (baseadas em design, Figma, vida cotidiana ou tecnologia acessível).
@@ -37,6 +37,11 @@ Todas as interações, criações de arquivos e edições no vault devem obedece
 
 7. **Proibição Absoluta de Emojis**:
    * Nenhum emoji deve ser adicionado aos arquivos do vault (títulos, tabelas ou texto), mantendo a estética minimalista e textual.
+
+8. **Formatação de Listas (Evitar Marcadores Duplos e Quebras)**:
+   * Evite iniciar linhas de lista diretamente com números sequenciais em fases avançadas (ex: `11.`, `15.`) sem uma linha em branco anterior. O parser de Markdown do Web App pode agrupar os itens em um único parágrafo corrido.
+   * Para manter a formatação de lista com marcadores personalizados em diamante (`◆`) no Web App, use sempre a marcação de lista nativa (`* ` ou `- `).
+   * Se quiser exibir números manuais na lista, use `* 11. [[Link]]`. Nunca use `* 11.` aninhado de forma a gerar sub-listas que criam marcadores duplos (`◆ ◆`) no CSS do app. Prefira listas limpas sem números (`* [[Link]]`) quando a contagem não for obrigatória.
 
 ---
 
