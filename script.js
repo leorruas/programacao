@@ -3,7 +3,8 @@ const listaDeArquivos = [
     { titulo: "Introdução ao Git", path: "./git/Introdução ao Git.md" },
     { titulo: "Guia de CSS", path: "./css/Guia de CSS.md" },
     { titulo: "Flexbox", path: "./css/Flexbox.md" },
-    { titulo: "Transições e Animações", path: "./css/Transições e Animações.md" }
+    { titulo: "Transições e Animações", path: "./css/Transições e Animações.md" },
+    { titulo: "Pseudo-classes e Pseudo-elementos", path: "./css/Pseudo-classes e Pseudo-elementos.md" }
 ];
 
 
