@@ -128,3 +128,57 @@ const resposta = await fetch(`https://api.github.com/users/${usuario}/repos`, {
 ```
 
 > ⚠️ **ATENÇÃO:** Nunca faça o commit do seu Token diretamente no código se o repositório for público, pois robôs varrem o GitHub buscando tokens expostos e o GitHub irá cancelá-lo instantaneamente por segurança.
+
+---
+
+## 5. Como buscar apenas UM repositório específico
+
+Se você não quer listar todos os seus repositórios e quer trazer **apenas as informações do repositório `programacao`**, você tem duas formas de fazer isso:
+
+### Método A: Endpoint direto do Repositório (Recomendado)
+A API do GitHub tem uma URL específica para buscar detalhes de um repositório individual:
+```text
+https://api.github.com/repos/{OWNER}/{REPO}
+```
+
+Para o seu repositório de programação, o endpoint é:
+```text
+https://api.github.com/repos/leorruas/programacao
+```
+
+Como essa URL devolve um **único objeto** (e não um array/lista), o seu código JavaScript mudará ligeiramente:
+
+```javascript
+async function carregarRepositorioEspecifico() {
+    try {
+        const resposta = await fetch("https://api.github.com/repos/leorruas/programacao");
+        if (!resposta.ok) {
+            throw new Error("Erro ao carregar o repositório.");
+        }
+        
+        const repo = await resposta.json();
+        
+        // Como 'repo' é um objeto único, não usamos forEach
+        containerResultados.innerHTML = `
+            <div class="card">
+                <h2>${repo.name}</h2>
+                <div class="conteudo">
+                    <p>${repo.description || "Sem descrição disponível."}</p>
+                    <a href="${repo.html_url}" target="_blank" class="repo-link">Ver no GitHub</a>
+                </div>
+            </div>
+        `;
+    } catch (erro) {
+        console.error(erro);
+    }
+}
+```
+
+### Método B: Filtrar a lista geral no JavaScript
+Se você já buscou a lista completa de repositórios do usuário e quer filtrar para pegar apenas o de `programacao`:
+
+```javascript
+// Filtra o array retornado para encontrar o repositório correspondente
+const repoProgramacao = repos.find(repo => repo.name === "programacao");
+```
+
