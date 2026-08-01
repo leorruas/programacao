@@ -25,8 +25,9 @@ Todas as interações, criações de arquivos e edições no vault devem obedece
    * Palavras subsequentes devem ser minúsculas, exceto se forem nomes próprios ou marcas de tecnologia (ex: `JavaScript`, `Python`, `React`, `Git`, `Figma`, `VS Code`, `Node.js`, `DOM`, `API`, `JSON`).
 
 4. **Prevenção de Links Quebrados em Tabelas e Compatibilidade de WikiLinks**:
-   * **Fora de Tabelas**: Use o formato de link simples do Obsidian com o pipe simples (ex: `[[DOM]]` ou `[[Arrow functions|Arrow Functions]]`). Não inclua caminhos de pastas completos (ex: `[[javascript/.../DOM]]`) para manter a leitura limpa no Obsidian.
-   * **Dentro de Tabelas**: O caractere `|` separa colunas. Para adicionar WikiLinks rotulados dentro de tabelas, use obrigatoriamente o pipe escapado `\|` (ex: `[[javascript/03-manipulacao/Regex\|Regex]]`) para não quebrar a formatação da tabela.
+   * **Formato Geral Obrigatório**: Todos os WikiLinks devem incluir o caminho relativo da pasta e um rótulo de texto usando o pipe (ex: `[[pasta/subpasta/NomeDaNota|Nome da Nota]]`). Nunca use links diretos sem rótulo (ex: `[[pasta/subpasta/NomeDaNota]]`), pois o Obsidian exibirá o caminho bruto das pastas na visualização.
+   * **Fora de Tabelas**: Use o pipe simples (`|`) para separar o caminho e o rótulo (ex: `[[javascript/01-fundamentos/Var, let e const|Var, Let e Const]]`).
+   * **Dentro de Tabelas**: Use obrigatoriamente o pipe escapado (`\|`) para que o parser do Markdown não interprete o pipe do link como um separador de colunas (ex: `[[git/01-fundamentos/Git\|Git]]`).
 
 5. **Método Feynman Obrigatório**:
    * Explicar conceitos técnicos através de analogias simples e intuitivas do mundo real (baseadas em design, Figma, vida cotidiana ou tecnologia acessível).

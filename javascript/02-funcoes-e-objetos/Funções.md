@@ -133,7 +133,7 @@ if (true) {
 
 Nem toda máquina precisa te devolver algo físico no final. Algumas apenas fazem uma ação externa. 
 
-No [[javascript/Introdução ao JavaScript\|JavaScript]], uma função pode apenas exibir um aviso na tela ou alterar uma propriedade do [[javascript/01-fundamentos/DOM\|DOM]] (geralmente disparada por [[javascript/01-fundamentos/Eventos\|eventos]]), sem usar a palavra-chave `return`. A visibilidade das variáveis criadas dentro de uma função é protegida por regras que você pode ver em [[javascript/06-arquitetura-e-avancado/Escopo e closures]]. Além disso, funções frequentemente contêm tomadas de decisão internas usando [[javascript/01-fundamentos/Condicionais (If-Else)]] (como mudar a melodia dependendo do tom recebido nos argumentos).
+No [[javascript/Introdução ao JavaScript\|JavaScript]], uma função pode apenas exibir um aviso na tela ou alterar uma propriedade do [[javascript/01-fundamentos/DOM\|DOM]] (geralmente disparada por [[javascript/01-fundamentos/Eventos\|eventos]]), sem usar a palavra-chave `return`. A visibilidade das variáveis criadas dentro de uma função é protegida por regras que você pode ver em [[javascript/06-arquitetura-e-avancado/Escopo e closures|Escopo e closures]]. Além disso, funções frequentemente contêm tomadas de decisão internas usando [[javascript/01-fundamentos/Condicionais (if-else)|Condicionais (If-Else)]] (como mudar a melodia dependendo do tom recebido nos argumentos).
 
 ```javascript
 function exibirAviso() {

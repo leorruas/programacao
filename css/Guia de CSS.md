@@ -6,7 +6,7 @@ Bem-vindo ao guia de aprendizado prático de CSS! Aqui organizaremos todos os co
 
 ##  Conteúdos do Guia
 
-1. [[Transições e Animações]]
+1. [[css/Transições e Animações|Transições e Animações]]
    - Como funciona a propriedade `transition`
    - Onde colocar a transição (`seletor base` vs `:hover`)
    - Curvas de velocidade (`linear`, `ease`, `cubic-bezier`)
@@ -17,7 +17,7 @@ Bem-vindo ao guia de aprendizado prático de CSS! Aqui organizaremos todos os co
    - `font-size`, `font-weight`, `line-height`
    - Medidas (`px`, `em`, `rem`, `vh/vw`)
 
-2. [[Flexbox]]
+2. [[css/Flexbox|Flexbox]]
    - Alinhamento no eixo principal (`justify-content`) e cruzado (`align-items`)
    - Direção e espaçamentos (`flex-direction`, `gap`)
    - O segredo da centralização perfeita

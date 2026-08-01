@@ -1,6 +1,6 @@
 # Entendendo desestruturação e operador spread - método Feynman
 
-No [[javascript/Introdução ao JavaScript\|JavaScript]] moderno (ES6+), existem atalhos de escrita criados para facilitar a extração de dados e a cópia de [[javascript/01-fundamentos/Objetos]] ou arrays (que vimos em [[javascript/01-fundamentos/Tipos de dados]]). 
+No [[javascript/Introdução ao JavaScript\|JavaScript]] moderno (ES6+), existem atalhos de escrita criados para facilitar a extração de dados e a cópia de [[javascript/01-fundamentos/Objetos|Objetos]] ou arrays (que vimos em [[javascript/01-fundamentos/Tipos de dados|Tipos de dados]]). 
 
 Eles funcionam como **atalhos de teclado** ou comandos de **desmembramento (detach/duplicate)** que aceleram seu fluxo de trabalho no Figma.
 

@@ -85,7 +85,7 @@ Permitem combinar múltiplas comparações para criar lógicas mais complexas.
 ### Não / negação (___placeholder_64___) - inverte o valor lógico
 *   **No código:** `!valor`
 *   **Analogia econômica:** Funciona como um teste de inadimplência ou restrição fiscal (ex: se `aprovado` é verdadeiro, `!aprovado` significa que a transação foi negada).
-*   **Interação com [[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]]**: Se aplicado a dados não booleanos, ele inverte a sua equivalência lógica (converte e inverte strings, arrays, números, etc., conforme explicado em [[javascript/01-fundamentos/Truthy e Falsy]]).
+*   **Interação com [[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]]**: Se aplicado a dados não booleanos, ele inverte a sua equivalência lógica (converte e inverte strings, arrays, números, etc., conforme explicado em [[javascript/01-fundamentos/Truthy e falsy|Truthy e Falsy]]).
 
 ---
 

@@ -12,7 +12,7 @@ Imagine que você desenhou uma tela de login no Figma:
 *   **O fluxo feliz:** O usuário digita o e-mail correto, clica em entrar e acessa a conta.
 *   **O fluxo de erro (Fallback):** O usuário digita um e-mail sem a arroba `@`. O sistema não deve fechar ou travar o Figma da pessoa. Em vez disso, o sistema deve exibir uma mensagem vermelha abaixo do campo dizendo: *"E-mail inválido. Por favor, corrija"*.
 
-O bloco `try/catch` no [[javascript/Introdução ao JavaScript\|JavaScript]] é a ferramenta que permite prever que algo pode dar errado (muito comum em requisições assíncronas com [[javascript/06-arquitetura-e-avancado/Async Await]]), capturar a falha antes que ela quebre o sistema e dar uma instrução alternativa (o estado de erro) para o usuário. Para entender como achar a causa dos erros, veja [[javascript/01-fundamentos/Debug (Depuração)]].
+O bloco `try/catch` no [[javascript/Introdução ao JavaScript\|JavaScript]] é a ferramenta que permite prever que algo pode dar errado (muito comum em requisições assíncronas com [[javascript/05-assincrono/Async await|Async Await]]), capturar a falha antes que ela quebre o sistema e dar uma instrução alternativa (o estado de erro) para o usuário. Para entender como achar a causa dos erros, veja [[javascript/01-fundamentos/Debug (depuração)|Debug (Depuração)]].
 
 ---
 

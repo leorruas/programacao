@@ -13,7 +13,7 @@ Ao criar uma interação no modo de [[javascript/01-fundamentos/Protótipos e Pr
 1.  **O Gatilho (Trigger):** É a ação do usuário que dispara a mudança. Exemplos no Figma: *"On Click"* (Ao clicar), *"While Hovering"* (Enquanto passa o mouse por cima) ou *"On Drag"* (Ao arrastar).
 2.  **A Transição:** O que acontece quando o gatilho é disparado (ex: abrir um modal, ir para outra tela).
 
-No [[javascript/Introdução ao JavaScript\|JavaScript]], os **Eventos** são os gatilhos, e as [[javascript/01-fundamentos/Funções]] que associamos a eles são as transições que mudam a interface em tempo real (como ao criar [[javascript/01-fundamentos/Animações com Scroll]]).
+No [[javascript/Introdução ao JavaScript\|JavaScript]], os **Eventos** são os gatilhos, e as [[javascript/02-funcoes-e-objetos/Funções|Funções]] que associamos a eles são as transições que mudam a interface em tempo real (como ao criar [[javascript/04-dom-e-browser/Animações com scroll|Animações com Scroll]]).
 
 ---
 

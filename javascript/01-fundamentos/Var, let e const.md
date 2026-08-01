@@ -124,7 +124,7 @@ Muitas pessoas confundem esses dois comportamentos. A diferença é simples:
 
 ## O que é hoisting (içamento) na prática?
 
-Para entender detalhadamente como o [[javascript/Introdução ao JavaScript\|JavaScript]] processa essas caixas antes de rodar o código, veja a nota sobre [[javascript/01-fundamentos/Hoisting]]. Em resumo:
+Para entender detalhadamente como o [[javascript/Introdução ao JavaScript\|JavaScript]] processa essas caixas antes de rodar o código, veja a nota sobre [[javascript/01-fundamentos/Hoisting|Hoisting]]. Em resumo:
 
 *   **Com Var:** O [[javascript/Introdução ao JavaScript\|JavaScript]] é tolerante. Ele sabe que a caixa vai chegar, então ele diz "a caixa existe, mas está vazia por enquanto" (retorna undefined).
 *   **Com Let e Const:** O [[javascript/Introdução ao JavaScript\|JavaScript]] é rigoroso. Se você tentar procurar pela gaveta ou pelo cofre antes de a linha que os cria ser executada, ele gera um erro de leitura imediato. Esse período de espera entre o início do código e a criação real da gaveta é chamado de Zona Morta Temporal.

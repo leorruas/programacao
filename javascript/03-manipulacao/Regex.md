@@ -61,9 +61,9 @@ Você pode adicionar pequenas letras (flags) após a barra final do regex para a
 
 ## Conexões com o restante do vault
 
-*   O regex é a ferramenta interna por trás das validações de dados recebidos por campos de texto de formulários monitorados por **[[javascript/01-fundamentos/Eventos]]**.
-*   Ele é muito utilizado ao sanitizar strings antes de enviá-las para bases de dados através de requisições de **[[javascript/01-fundamentos/Fetch]]**.
-*   Em Javascript moderno, podemos usá-lo dentro de diversos **[[javascript/03-manipulacao/Métodos de array]]** para filtrar listas complexas de textos.
+*   O regex é a ferramenta interna por trás das validações de dados recebidos por campos de texto de formulários monitorados por **[[javascript/04-dom-e-browser/Eventos|Eventos]]**.
+*   Ele é muito utilizado ao sanitizar strings antes de enviá-las para bases de dados através de requisições de **[[javascript/05-assincrono/Fetch|Fetch]]**.
+*   Em Javascript moderno, podemos usá-lo dentro de diversos **[[javascript/03-manipulacao/Métodos de array|Métodos de array]]** para filtrar listas complexas de textos.
 
 ---
 

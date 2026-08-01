@@ -1,6 +1,6 @@
 # Entendendo classes - método Feynman
 
-Em [[javascript/Introdução ao JavaScript\|JavaScript]], uma **Classe** é uma evolução direta das [[javascript/01-fundamentos/Funções Construtoras]]. Ela é um dos blocos fundamentais para aplicar o paradigma de [[javascript/06-arquitetura-e-avancado/Programação orientada a objetos]].
+Em [[javascript/Introdução ao JavaScript\|JavaScript]], uma **Classe** é uma evolução direta das [[javascript/02-funcoes-e-objetos/Funções construtoras|Funções Construtoras]]. Ela é um dos blocos fundamentais para aplicar o paradigma de [[javascript/06-arquitetura-e-avancado/Programação orientada a objetos|Programação orientada a objetos]].
 
 Se a [[javascript/01-fundamentos/Funções\|Funções]] Construtora é a forma antiga de criar um **Componente Master** no Figma, a **Classe** é a forma moderna e organizada (como quando o Figma atualizou a interface para gerenciar componentes e variantes de um jeito muito mais limpo).
 
