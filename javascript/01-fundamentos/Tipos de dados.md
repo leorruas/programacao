@@ -80,7 +80,7 @@ const numeroGigante = 9007199254740991n; // Termina com a letra 'n'
 
 Além dos tipos primitivos simples, temos estruturas que agrupam múltiplos dados:
 
-*   **Object ([[javascript/01-fundamentos/Objetos\|Objetos]]):** Um grupo de propriedades do tipo chave e valor. Veja a nota completa em [[javascript/01-fundamentos/Objetos|Objetos]].
+*   **Object ([[javascript/01-fundamentos/Objetos\|Objetos]]):** Um grupo de propriedades do tipo chave e valor. Veja a nota completa em [[javascript/02-funcoes-e-objetos/Objetos|Objetos]].
 *   **Array (Lista):** Uma lista ordenada de valores. Veja métodos para manipulá-las em [[javascript/03-manipulacao/Métodos de array|Métodos de array]].
 
 ```javascript

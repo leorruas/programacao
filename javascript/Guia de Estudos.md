@@ -39,7 +39,7 @@ Nesta fase, você vai aprender a guardar informações e entender como o computa
 Começando a agrupar propriedades e a automatizar comportamentos e modificações de dados.
 * [[javascript/02-funcoes-e-objetos/Funções|Funções]] - Suas ações interativas (o motor das suas interações).
 * [[javascript/02-funcoes-e-objetos/Arrow functions|Arrow Functions]] - A escrita moderna e simplificada (o freelancer terceirizado).
-* [[javascript/01-fundamentos/Objetos|Objetos]] - A ficha de especificações (propriedades) de um componente.
+* [[javascript/02-funcoes-e-objetos/Objetos|Objetos]] - A ficha de especificações (propriedades) de um componente.
 * [[javascript/03-manipulacao/Arrays e métodos de array|Arrays e métodos de array]] - Como alterar propriedades de vários itens de uma vez (Map e Filter).
 
 ---
