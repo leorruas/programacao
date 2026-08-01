@@ -115,8 +115,10 @@ A API do GitHub possui regras para evitar abusos:
 * **Com autenticação**: Se você usar um token de acesso pessoal (PAT), esse limite sobe para **5.000 requisições por hora**.
 
 ### Como gerar um Token (Se precisar de mais requisições):
-1. No GitHub, vá em **Settings** > **Developer Settings** > **Personal Access Tokens** > **Tokens (classic)**.
-2. Gere um novo token apenas com permissões de leitura pública (`read:user`, `repo`).
+1. No GitHub, clique na sua **foto de perfil** no canto superior direito e selecione **Settings** (Configurações da Conta).
+2. Na barra lateral esquerda, role até o final e clique em **Developer Settings**.
+3. Selecione **Personal Access Tokens** > **Tokens (classic)**.
+4. Gere um novo token apenas com permissões de leitura pública (`read:user`, `repo`).
 3. Para usar no `fetch`, envie o token nos cabeçalhos (headers):
 
 ```javascript
