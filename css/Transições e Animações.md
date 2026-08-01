@@ -1,4 +1,4 @@
-# Transições e Animações em CSS ⚡
+# Transições e Animações em CSS 
 
 As transições no CSS permitem mudar suavemente o valor de uma propriedade ao longo de um determinado tempo (em vez de uma mudança abrupta).
 

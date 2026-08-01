@@ -1,12 +1,12 @@
-# Onde Colocar a Tag `<script>` e a Pegadinha do `null` no DOM ⚠️
+# Onde Colocar a Tag `<script>` e a Pegadinha do `null` no DOM ️
 
 Um dos erros mais comuns no desenvolvimento web é tentar capturar um elemento com `document.querySelector()` e receber **`null`**, fazendo o código quebrar com a seguinte mensagem no console:
 
-> 🛑 `Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')`
+>  `Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')`
 
 ---
 
-## 🧐 Por que isso acontece? (A Ordem de Leitura do HTML)
+##  Por que isso acontece? (A Ordem de Leitura do HTML)
 
 O navegador lê o arquivo `index.html` de **cima para baixo, em ordem sequencial**:
 
@@ -26,7 +26,7 @@ Se a tag `<script>` estiver no `<head>`, o JavaScript roda **antes** do HTML des
 
 ---
 
-## 🛠️ As 3 Formas de Resolver Esse Problema
+## ️ As 3 Formas de Resolver Esse Problema
 
 ### Solução 1: Colocar o `<script>` no Final do `<body>` (A Mais Recomendada)
 
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 ---
 
-## 💡 Dica Bônus: Sintaxe dos Seletores no `querySelector`
+##  Dica Bônus: Sintaxe dos Seletores no `querySelector`
 
 Sempre preste atenção no prefixo do seletor:
 

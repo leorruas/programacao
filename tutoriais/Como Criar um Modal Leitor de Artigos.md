@@ -4,7 +4,7 @@ Neste tutorial passo a passo, você aprenderá como transformar os cards da sua 
 
 ---
 
-## 🎯 O Objetivo
+##  O Objetivo
 
 Quando o usuário buscar um termo e clicar em qualquer card de resultado, uma janela pop-up (Modal) deve abrir exibindo o título completo e o texto do artigo Markdown formatado, com uma opção para fechar no botão `×` ou pressionando a tecla `Esc`.
 
@@ -25,7 +25,7 @@ Abra o seu arquivo `index.html`. Logo abaixo da tag `</main>` e **antes** da tag
     </div>
 ```
 
-### 💡 O que cada parte faz:
+###  O que cada parte faz:
 - `<div id="modal">`: A tela preta de fundo que cobre o site inteiro.
 - `modal-fechado`: Classe CSS que esconde o modal quando não estamos lendo nada (`display: none`).
 - `<span class="modal-fechar">&times;</span>`: O caractere especial `&times;` renderiza o X de fechar.
@@ -203,7 +203,7 @@ if (temNoTitulo || temNoConteudo) {
 
 ---
 
-## 🚀 Pronto!
+##  Pronto!
 
 Agora é só testar:
 1. Digite um termo na busca e clique em **Pesquisar**.

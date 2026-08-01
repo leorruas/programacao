@@ -92,7 +92,7 @@ Muitas pessoas confundem esses dois comportamentos. A diferença é simples:
     
     // Com let (Proibido):
     let idade = 20;
-    let idade = 25; // ❌ Erro: Identifier 'idade' has already been declared
+    let idade = 25; //  Erro: Identifier 'idade' has already been declared
     ```
 
 *   **Reatribuição (Substituir o valor dentro da gaveta existente):**
@@ -107,7 +107,7 @@ Muitas pessoas confundem esses dois comportamentos. A diferença é simples:
     
     // Com const (Proíbe reatribuição):
     const pi = 3.14;
-    pi = 3.1415; // ❌ Erro: Assignment to constant variable.
+    pi = 3.1415; //  Erro: Assignment to constant variable.
     ```
 
 ---

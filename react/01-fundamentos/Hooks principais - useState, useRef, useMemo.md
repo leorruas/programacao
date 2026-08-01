@@ -29,7 +29,7 @@ function Contador() {
 }
 ```
 
-### ⚠️ Por que você NÃO deve abusar do `useState`?
+### ️ Por que você NÃO deve abusar do `useState`?
 
 Embora o `useState` seja fundamental, usá-lo em excesso ou de forma errada é um dos principais motivos de lentidão e bugs em aplicações React. Eis os porquês:
 

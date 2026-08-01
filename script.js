@@ -94,7 +94,8 @@ async function obterListaDeArquivos() {
             { titulo: "Como Criar um Modal Leitor de Artigos", path: "./tutoriais/Como Criar um Modal Leitor de Artigos.md" },
             { titulo: "Como Substituir os Resultados pelo Artigo no Main", path: "./tutoriais/Como Substituir os Resultados pelo Artigo no Main.md" },
             { titulo: "Como Converter Markdown do Obsidian em HTML", path: "./javascript/03-manipulacao/Como Converter Markdown do Obsidian em HTML.md" },
-            { titulo: "Posicionamento e Alinhamento no CSS", path: "./css/Posicionamento e Alinhamento no CSS.md" }
+            { titulo: "Posicionamento e Alinhamento no CSS", path: "./css/Posicionamento e Alinhamento no CSS.md" },
+            { titulo: "Como Disparar a Busca com a Tecla Enter", path: "./tutoriais/Como Disparar a Busca com a Tecla Enter.md" }
         ];
     }
 }
@@ -109,36 +110,13 @@ botao.addEventListener("click", () => {
     buscar(pesquise);
 });
 
-
-
-
-
-function converterMarkdownParaHTML(markdown) {
-    let html = markdown;
-    html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-    html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-    html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-
-    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-
-    html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
-
-    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-
-    html = html.replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>');
-    html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
-
-    return html.split('\n\n').map(bloco => {
-        const blocoLimpo = bloco.trim();
-        if (blocoLimpo.startsWith('<h') ||
-            blocoLimpo.startsWith('<pre') ||
-            blocoLimpo.startsWith('<blockquote')) {
-            return blocoLimpo;
-        }
-        return `<p>${blocoLimpo.replace(/\n/g, '<br>')}</p>`;
-    }).join('');
-}
+campoTexto.addEventListener("keyup", (evento) => {
+    // Verifica se a tecla pressionada foi especificamente o Enter
+    if (evento.key === "Enter") {
+        const pesquise = campoTexto.value;
+        buscar(pesquise);
+    }
+});
 
 
 
@@ -149,6 +127,22 @@ const leitorDeArtigo = document.getElementById("leitor-artigo");
 const artigoTitulo = document.getElementById("artigo-titulo");
 const artigoCorpo = document.getElementById("artigo-corpo");
 const btnVoltar = document.getElementById("btn-voltar");
+
+
+
+// Remove os símbolos do Markdown e transforma em texto corrido
+function limparMarkdown(texto) {
+    return texto
+        .replace(/```[\s\S]*?```/g, "")       // Remove blocos de código inteiros
+        .replace(/^#+\s+/gm, "")              // Remove os # dos títulos
+        .replace(/(\*\*|__|\*|_)(.*?)\1/g, "$2") // Remove **negrito** e *itálico*
+        .replace(/`([^`]+)`/g, "$1")          // Remove código em linha ` `
+        .replace(/^\>\s+/gm, "")              // Remove citações >
+        .replace(/\[(.*?)\]\((.*?)\)/g, "$1")  // Mantém só o texto dos links
+        .replace(/\n+/g, " ")                 // Troca quebras de linha por espaços (texto corrido!)
+        .trim();
+}
+
 
 function abrirArtigo(titulo, conteudo) {
     artigoTitulo.textContent = titulo;
@@ -172,7 +166,6 @@ async function buscar(termo) {
     containerResultados.innerHTML = `<h2>Buscando...</h2>`;
 
     const arquivos = await obterListaDeArquivos();
-
     let encontrouResultado = false;
     containerResultados.innerHTML = "";
 
@@ -185,8 +178,8 @@ async function buscar(termo) {
 
             if (temNoTitulo || temNoConteudo) {
                 encontrouResultado = true;
-                const resumo = conteudoTexto.substring(0, 150) + "...";
-
+                const resumoBruto = conteudoTexto.substring(0, 250) + "...";
+                const resumo = limparMarkdown(resumoBruto);
                 // Criamos a div do card via JavaScript
                 const card = document.createElement("div");
                 card.className = "card";

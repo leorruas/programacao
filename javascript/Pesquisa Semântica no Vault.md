@@ -1,9 +1,9 @@
-# Guia Definitivo: Criando um Motor de Busca Semântica em JavaScript 🧠🔍
+# Guia Definitivo: Criando um Motor de Busca Semântica em JavaScript 
 *(Para quem está desatualizado e quer entender TUDO do zero, no Método Feynman)*
 
 ---
 
-## 🧭 Introdução: Por que criar seu próprio mecanismo de busca?
+##  Introdução: Por que criar seu próprio mecanismo de busca?
 
 Se você ficou um tempo longe da programação, o mundo mudou bastante. Hoje não fazemos mais buscas simples apenas comparando se uma palavra é idêntica a outra.
 
@@ -15,7 +15,7 @@ Neste guia, vamos dissecar **cada conceito moderno de JavaScript**, **cada linha
 
 ---
 
-## 🍿 Parte 1: As 3 Analogias Feynman do Nosso Algoritmo
+##  Parte 1: As 3 Analogias Feynman do Nosso Algoritmo
 
 Para entender qualquer código complexo, precisamos de boas analogias do mundo real.
 
@@ -41,7 +41,7 @@ Assim, mesmo que o arquivo não contenha a palavra "fonte", mas fale de `font-fa
 
 ---
 
-## 🔬 Parte 2: Dessecando o Código JavaScript Linha por Linha
+##  Parte 2: Dessecando o Código JavaScript Linha por Linha
 
 Vamos examinar todo o mecanismo dividindo-o em 5 blocos fundamentais.
 
@@ -222,7 +222,7 @@ async function realizarPesquisa() {
 
 ---
 
-## 🤖 Parte 3: Como Evoluir para uma IA Real (Embeddings & Vetores)
+##  Parte 3: Como Evoluir para uma IA Real (Embeddings & Vetores)
 
 Se você quiser transformar a sua busca em uma **Inteligência Artificial real** (do nível de sistemas como ChatGPT, Gemini, Notion AI ou Pinecone), você precisa entender como os computadores convertem **linguagem humana em números**.
 
@@ -234,21 +234,21 @@ Um computador não entende o sentimento ou a ideia das palavras `"cachorro"`, `"
 
 Um **Embedding** é o processo de transformar um texto (uma palavra, uma frase ou um arquivo `.md` inteiro) em uma lista de números chamada **Vetor**.
 
-#### 🗺️ A Analogia do Mapa de Conceitos (2D vs N-Dimensões)
+#### ️ A Analogia do Mapa de Conceitos (2D vs N-Dimensões)
 
 Imagine um gráfico com 2 eixos simples:
 - **Eixo X**: Nível de "Animalidade" (0 = Objeto inanimado, 10 = Animal vivo)
 - **Eixo Y**: Tamanho físico (0 = Minúsculo, 10 = Enorme)
 
 Se colocarmos palavras nesse gráfico, elas ganham coordenadas `[X, Y]`:
-- `"Cachorro"` ➔ `[9, 4]`
-- `"Gato"` ➔ `[9, 3]`
-- `"Elefante"` ➔ `[9, 9]`
-- `"Mesa"` ➔ `[1, 5]`
+- `"Cachorro"`  `[9, 4]`
+- `"Gato"`  `[9, 3]`
+- `"Elefante"`  `[9, 9]`
+- `"Mesa"`  `[1, 5]`
 
 Note algo mágico: as coordenadas do `"Cachorro"` `[9, 4]` e do `"Gato"` `[9, 3]` estão **extremamente próximas no mapa**! Já a `"Mesa"` `[1, 5]` está distante.
 
-#### 🌌 Do 2D para as 1536 Dimensões das IAs
+####  Do 2D para as 1536 Dimensões das IAs
 Modelos de IA modernos (como o `text-embedding-3-small` da OpenAI ou o Google Gemini) não usam apenas 2 eixos ($X, Y$). Eles usam **768 a 1536 dimensões**!
 
 Cada dimensão mede uma nuance invisível da linguagem humana:
@@ -340,7 +340,7 @@ Existe uma biblioteca incrível chamada **`Transformers.js`** (criada pela Huggi
 
 ---
 
-### 🗄️ 5. O que são Bancos de Dados Vetoriais (Vector Databases)?
+### ️ 5. O que são Bancos de Dados Vetoriais (Vector Databases)?
 
 Quando seu Vault ou site tem milhares de arquivos, calcular a similaridade de cosseno um por um pode ficar lento.
 
@@ -354,7 +354,7 @@ Eles criam "árvores de busca vetorial" que encontram o vetor mais próximo entr
 
 ---
 
-## 🎯 Resumo da Ópera
+##  Resumo da Ópera
 
 Você construiu uma arquitetura completa de busca que:
 1. Pega os textos puros do seu Obsidian (`.md`).

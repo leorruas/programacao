@@ -114,6 +114,7 @@ button:hover {
 
 .card h2 {
     font-size: 1em;
+    line-height: 80%;
     font-weight: 600;
     margin-bottom: 5px;
     text-transform: lowercase;
@@ -138,8 +139,27 @@ button:hover {
 }
 
 .artigo-corpo {
-    max-width: 800px;
+    max-width: 700px;
     margin-left: auto;
+}
+
+.artigo-corpo p {
+    font-size: .8em;
+
+}
+
+.artigo-corpo li {
+    font-size: .9em;
+    margin-bottom: 10px;
+}
+
+#artigo-corpo pre code {
+    font-size: .7em;
+}
+
+.artigo-corpo code {
+    font-size: 1em;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #artigo-corpo h1 {
@@ -160,11 +180,15 @@ button:hover {
 }
 
 #artigo-corpo h3 {
-    font-size: .6em;
+    font-size: .7em;
     color: pink;
     text-transform: uppercase;
     margin-bottom: 0px;
     margin-top: 20px;
+}
+
+.artigo-corpo td {
+    font-size: .8em;
 }
 
 .btn-voltar {

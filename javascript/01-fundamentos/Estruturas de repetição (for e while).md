@@ -92,9 +92,9 @@ for (let i = videoGames.length - 1; i >= 0; i--) {
 > 
 > Se o `item++` não existir, a variável `item` ficará **presa no número 0 para sempre**. A condição `0 < 4` continuará sendo `true` eternamente. O JavaScript tentará rodar o código bilhões de vezes por segundo sem parar, resultando no **Loop Infinito Horroroso**:
 > 
-> * ❌ A aba do navegador trava completamente e para de responder.
-> * ❌ O uso de CPU do computador vai para 100%.
-> * ❌ O navegador é forçado a fechar a aba ou exibir o aviso "A página não está respondendo".
+> *  A aba do navegador trava completamente e para de responder.
+> *  O uso de CPU do computador vai para 100%.
+> *  O navegador é forçado a fechar a aba ou exibir o aviso "A página não está respondendo".
 
 ---
 

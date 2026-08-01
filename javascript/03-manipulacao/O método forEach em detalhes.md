@@ -129,7 +129,7 @@ listaComVazio.forEach(item => console.log(item));
 | :--- | :--- | :--- | :--- |
 | **Retorno** | `undefined` | Novo Array transformado | Nenhum (ou o que você definir) |
 | **Uso Principal** | Efeitos colaterais (logs, eventos) | Transformação de dados | Loops com controle preciso |
-| **Aceita `break`/`continue`?** | Não ❌ | Não ❌ | Sim ✅ |
+| **Aceita `break`/`continue`?** | Não  | Não  | Sim  |
 | **Acesso ao `index`** | Sim (2º parâmetro) | Sim (2º parâmetro) | Manualmente via contador |
 | **Controle de Passo** | Apenas de 1 em 1 | Apenas de 1 em 1 | Livre (`i++`, `i += 5`, `i--`) |
 

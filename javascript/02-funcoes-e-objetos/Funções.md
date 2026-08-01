@@ -113,7 +113,7 @@ O `return` serve para duas tarefas principais:
 
 ### Exemplo:
 ```javascript
-// ✅ Correto: O return está contido dentro da função
+//  Correto: O return está contido dentro da função
 function verificarAprovacao(nota) {
   if (nota >= 7) {
     return "Aprovado"; // A função para aqui se a nota for maior ou igual a 7
@@ -121,7 +121,7 @@ function verificarAprovacao(nota) {
   return "Reprovado"; // Só é executado se o return de cima não rodar
 }
 
-// ❌ Incorreto (Gera Erro):
+//  Incorreto (Gera Erro):
 if (true) {
   return "Algo"; // SyntaxError: Illegal return statement
 }

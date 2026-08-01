@@ -96,7 +96,7 @@ Estes métodos não são chamados na instância `'texto'.metodo()`, mas sim no c
     ```
 *   **`String.fromCodePoint(code1, code2...)`**: Cria uma string a partir de pontos de código Unicode (incluindo emojis).
     ```javascript
-    String.fromCodePoint(0x1F600); // 😀
+    String.fromCodePoint(0x1F600); // 
     ```
 *   **`String.raw`**: Retorna a string bruta sem processar sequências de escape (`\n`, `\t`).
 

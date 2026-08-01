@@ -28,12 +28,12 @@ function calcularTotal() {
 calcularTotal();
 
 // Tentando acessar a variável do lado de fora:
-console.log(preco); // ❌ ERRO: ReferenceError: preco is not defined
+console.log(preco); //  ERRO: ReferenceError: preco is not defined
 ```
 
 O console do navegador (DevTools) também opera sob as regras do **Escopo Global**. Por estar "do lado de fora", ele não consegue ler nada que foi criado temporariamente dentro de uma [[javascript/01-fundamentos/Funções\|Funções]] durante a execução dela. 
 
-#### 💡 a conexão com o hoisting:
+####  a conexão com o hoisting:
 O [[javascript/01-fundamentos/Hoisting\|Hoisting]] (içamento) faz com que as declarações sejam "puxadas" para o topo. No entanto, o hoisting respeita os limites de escopo: uma variável criada dentro de uma [[javascript/01-fundamentos/Funções\|Funções]] é elevada **apenas para o topo da própria [[javascript/01-fundamentos/Funções\|Funções]]** (o topo do seu escopo local), e não para o topo do arquivo inteiro. Por isso, ela continua inacessível do lado de fora.
 
 ### O "Modo Estrito" (`'use strict'`)

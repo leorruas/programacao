@@ -129,7 +129,7 @@ const resposta = await fetch(`https://api.github.com/users/${usuario}/repos`, {
 });
 ```
 
-> ⚠️ **ATENÇÃO:** Nunca faça o commit do seu Token diretamente no código se o repositório for público, pois robôs varrem o GitHub buscando tokens expostos e o GitHub irá cancelá-lo instantaneamente por segurança.
+> ️ **ATENÇÃO:** Nunca faça o commit do seu Token diretamente no código se o repositório for público, pois robôs varrem o GitHub buscando tokens expostos e o GitHub irá cancelá-lo instantaneamente por segurança.
 
 ---
 

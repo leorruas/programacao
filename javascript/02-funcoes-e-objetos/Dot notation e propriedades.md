@@ -118,10 +118,10 @@ const usuario = {
 
 const campoBuscado = "funcao";
 
-// ❌ Procura literalmente pela propriedade chamada "campoBuscado" (retorna undefined)
+//  Procura literalmente pela propriedade chamada "campoBuscado" (retorna undefined)
 console.log(usuario.campoBuscado); // undefined
 
-// ✅ Lê o VALOR da variável campoBuscado ("funcao") e acessa usuario.funcao
+//  Lê o VALOR da variável campoBuscado ("funcao") e acessa usuario.funcao
 console.log(usuario[campoBuscado]); // Saída: "Desenvolvedora"
 ```
 

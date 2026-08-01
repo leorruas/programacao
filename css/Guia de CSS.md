@@ -1,10 +1,10 @@
-# Guia Completo de CSS 🎨
+# Guia Completo de CSS 
 
 Bem-vindo ao guia de aprendizado prático de CSS! Aqui organizaremos todos os conceitos essenciais do CSS com explicações simples, exemplos interativos e dicas de produtividade.
 
 ---
 
-## 📂 Conteúdos do Guia
+##  Conteúdos do Guia
 
 1. [[Transições e Animações]]
    - Como funciona a propriedade `transition`
@@ -32,4 +32,4 @@ Bem-vindo ao guia de aprendizado prático de CSS! Aqui organizaremos todos os co
 
 ---
 
-> 💡 **Dica de estudo**: À medida que avançarmos nos seus projetos, atualizaremos esta pasta com novos arquivos e resumos práticos.
+>  **Dica de estudo**: À medida que avançarmos nos seus projetos, atualizaremos esta pasta com novos arquivos e resumos práticos.
