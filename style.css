@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 body {
     background-color: #000;
@@ -148,19 +148,61 @@ button:hover {
 
 }
 
+.artigo-corpo table {
+    width: 100%;
+}
+
+.artigo-corpo ul {
+    padding-left: 10px;
+}
+
+
 .artigo-corpo li {
     font-size: .9em;
     margin-bottom: 10px;
+    list-style: none;
+    padding-left: 20px;
+}
+
+.artigo-corpo li::before {
+    content: "◆ ";
+    color: pink;
+    font-size: 1.1em;
 }
 
 #artigo-corpo pre code {
     font-size: .7em;
+    font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+    background-color: transparent;
 }
 
 .artigo-corpo code {
     font-size: 1em;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+    background-color: #333;
+    padding: 3px;
 }
+
+.artigo-corpo a,
+.obsidian-link {
+    color: pink;
+    text-decoration: none;
+    border-bottom: 1px dashed pink;
+    /* Linha pontilhada embaixo do link */
+    padding-bottom: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.artigo-corpo a:hover,
+.obsidian-link:hover {
+    color: white;
+    border-bottom-style: solid;
+    /* Transforma a linha pontilhada em contínua no hover */
+    background-color: rgba(255, 192, 203, 0.15);
+    /* Fundo sutil */
+}
+
 
 #artigo-corpo h1 {
     font-size: 1em;

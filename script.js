@@ -95,7 +95,13 @@ async function obterListaDeArquivos() {
             { titulo: "Como Substituir os Resultados pelo Artigo no Main", path: "./tutoriais/Como Substituir os Resultados pelo Artigo no Main.md" },
             { titulo: "Como Converter Markdown do Obsidian em HTML", path: "./javascript/03-manipulacao/Como Converter Markdown do Obsidian em HTML.md" },
             { titulo: "Posicionamento e Alinhamento no CSS", path: "./css/Posicionamento e Alinhamento no CSS.md" },
-            { titulo: "Como Disparar a Busca com a Tecla Enter", path: "./tutoriais/Como Disparar a Busca com a Tecla Enter.md" }
+            { titulo: "Como Disparar a Busca com a Tecla Enter", path: "./tutoriais/Como Disparar a Busca com a Tecla Enter.md" },
+            { titulo: "Marcadores de Lista e Glifos no CSS", path: "./css/Marcadores de Lista e Glifos no CSS.md" },
+            { titulo: "Como Suportar WikiLinks do Obsidian", path: "./tutoriais/Como Suportar WikiLinks do Obsidian.md" },
+            { titulo: "Decifrando Regex e Flags no JavaScript", path: "./javascript/03-manipulacao/Decifrando Regex e Flags no JavaScript.md" },
+            { titulo: "Entendendo encodeURI e decodeURIComponent no JavaScript", path: "./javascript/03-manipulacao/Entendendo encodeURI e decodeURIComponent no JavaScript.md" },
+            { titulo: "Como Renderizar Diagramas Mermaid no Web App", path: "./tutoriais/Como Renderizar Diagramas Mermaid no Web App.md" },
+            { titulo: "Guia de tutoriais", path: "./tutoriais/Guia de tutoriais.md" }
         ];
     }
 }
@@ -130,6 +136,18 @@ const btnVoltar = document.getElementById("btn-voltar");
 
 
 
+function decodificarEntidadesHTML(str) {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = str;
+    return txt.value;
+}
+
+function processarWikiLinksObsidian(markdown) {
+    return markdown
+        .replace(/\[\[(.*?)\|(.*?)\]\]/g, '<a class="obsidian-link" data-artigo="$1">$2</a>')
+        .replace(/\[\[(.*?)\]\]/g, '<a class="obsidian-link" data-artigo="$1">$1</a>');
+}
+
 // Remove os símbolos do Markdown e transforma em texto corrido
 function limparMarkdown(texto) {
     return texto
@@ -143,13 +161,57 @@ function limparMarkdown(texto) {
         .trim();
 }
 
+// Configuração do Mermaid.js para combinar com a identidade visual (Dark / Rosa)
+if (window.mermaid) {
+    mermaid.initialize({
+        startOnLoad: false,
+        theme: 'dark',
+        themeVariables: {
+            darkMode: true,
+            background: '#0d0d0d',
+            primaryColor: '#ffb6c1',
+            primaryTextColor: '#ffffff',
+            primaryBorderColor: '#ffb6c1',
+            lineColor: '#ffb6c1',
+            secondaryColor: '#1a1a1a',
+            tertiaryColor: '#222222'
+        }
+    });
+}
 
 function abrirArtigo(titulo, conteudo) {
     artigoTitulo.textContent = titulo;
 
-    artigoCorpo.innerHTML = marked.parse(conteudo);
+    // 1. Transforma o Markdown em HTML
+    const htmlGerado = marked.parse(conteudo);
+
+    // 2. Converte os blocos de código ```mermaid em <div class="mermaid">
+    // AND decodes the HTML entities (like &gt; or &lt;) so Mermaid can parse it correctly!
+    const htmlComMermaid = htmlGerado.replace(
+        /<pre><code class="language-mermaid">([\s\S]*?)<\/code><\/pre>/g,
+        (match, codigoMermaid) => {
+            const codigoLimpo = decodificarEntidadesHTML(codigoMermaid);
+            return `<div class="mermaid">${codigoLimpo}</div>`;
+        }
+    );
+
+    // 3. Transforma os [[WikiLinks]] do Obsidian
+    artigoCorpo.innerHTML = processarWikiLinksObsidian(htmlComMermaid);
+
+    // 4. Renderiza os diagramas Mermaid automaticamente com o tema rosa!
+    if (window.mermaid) {
+        setTimeout(() => {
+            try {
+                mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
+            } catch (e) {
+                console.warn("Erro ao renderizar diagrama Mermaid:", e);
+            }
+        }, 50);
+    }
+
     divResultados.classList.add("escondido");
     leitorDeArtigo.classList.remove("escondido");
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 btnVoltar.addEventListener("click", () => {
@@ -209,4 +271,48 @@ async function buscar(termo) {
         `;
     }
 }
+
+artigoCorpo.addEventListener("click", async (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+
+    e.preventDefault();
+
+    let alvo = link.getAttribute("data-artigo") || link.getAttribute("href");
+    if (!alvo) return;
+
+    if (alvo.startsWith("http://") || alvo.startsWith("https://")) {
+        window.open(alvo, "_blank");
+        return;
+    }
+
+    const alvoDecodificado = decodeURIComponent(alvo);
+    const nomeLimpo = alvoDecodificado.split("/").pop().replace(".md", "").toLowerCase().trim();
+
+    console.log("Buscando pela nota:", nomeLimpo);
+
+    const arquivos = await obterListaDeArquivos();
+
+    const arquivoEncontrado = arquivos.find(a => {
+        const tLimpo = decodeURIComponent(a.titulo).toLowerCase().replace(".md", "").trim();
+        const pLimpo = decodeURIComponent(a.path).toLowerCase().replace(".md", "").trim();
+        return tLimpo === nomeLimpo ||
+            pLimpo.endsWith("/" + nomeLimpo) ||
+            pLimpo === nomeLimpo ||
+            tLimpo.includes(nomeLimpo) ||
+            nomeLimpo.includes(tLimpo);
+    });
+
+    if (arquivoEncontrado) {
+        try {
+            const resposta = await fetch(arquivoEncontrado.path);
+            const conteudo = await resposta.text();
+            abrirArtigo(arquivoEncontrado.titulo, conteudo);
+        } catch (erro) {
+            console.error("Erro ao carregar nota:", erro);
+        }
+    } else {
+        alert(`A nota "${alvoDecodificado}" não foi encontrada no Vault de notas.`);
+    }
+});
 
