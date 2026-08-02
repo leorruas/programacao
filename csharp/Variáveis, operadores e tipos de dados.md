@@ -7,7 +7,7 @@ Para dar instruções ao computador, você precisa saber duas coisas: como guard
 
 ## 1. Variáveis são caixas com formatos diferentes
 
-Uma **variável** é apenas uma caixinha com uma etiqueta na memória do computador. Graças à [Segurança de tipos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Seguran%C3%A7a%20de%20tipos.md), você precisa escolher o formato certo da caixa para cada objeto:
+Uma **variável** é apenas uma caixinha com uma etiqueta na memória do computador. Graças à [Segurança de tipos](Seguran%C3%A7a%20de%20tipos.md), você precisa escolher o formato certo da caixa para cada objeto:
 
 * **Caixa `int` (inteiros):** Pense nela como um pote de vidro para guardar bolinhas de gude inteiras. Guarda números como `5`, `10` ou `-3`. Não dá para guardar meia bolinha.
 * **Caixa `double` (decimais):** Pense nela como um copo de medição de água. Você pode guardar valores quebrados como `1.75` (sua altura) ou `3.5` (litros).
@@ -37,7 +37,7 @@ bool possoComprarDoce = (total > 10); // Guarda true (verdadeiro)!
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Segurança de tipos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Seguran%C3%A7a%20de%20tipos.md)**
-* **[Estruturas condicionais e de repetição](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md)**
-* **[Arrays em C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md)**
+* **[Introdução ao C#](Introducao.md)**
+* **[Segurança de tipos](Seguran%C3%A7a%20de%20tipos.md)**
+* **[Estruturas condicionais e de repetição](Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md)**
+* **[Arrays em C#](Arrays.md)**

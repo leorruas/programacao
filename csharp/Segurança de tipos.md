@@ -32,6 +32,6 @@ Isso é ótimo! É muito melhor o fiscal te avisar enquanto você está escreven
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Variáveis, operadores e tipos de dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20operadores%20e%20tipos%20de%20dados.md)**
-* **[Arrays em C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md)**
+* **[Introdução ao C#](Introducao.md)**
+* **[Variáveis, operadores e tipos de dados](Vari%C3%A1veis,%20operadores%20e%20tipos%20de%20dados.md)**
+* **[Arrays em C#](Arrays.md)**

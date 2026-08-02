@@ -43,6 +43,6 @@ São **instruções extras** (uma coleção de palavras) que você pode mandar p
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Métodos (funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)**
-* **[Programação orientada a objetos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**
+* **[Introdução ao C#](Introducao.md)**
+* **[Métodos (funções)](M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)**
+* **[Programação orientada a objetos](Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**

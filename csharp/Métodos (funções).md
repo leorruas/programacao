@@ -54,6 +54,6 @@ void Latir()
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Variáveis, operadores e tipos de dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20operadores%20e%20tipos%20de%20dados.md)**
-* **[Programação orientada a objetos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**
+* **[Introdução ao C#](Introducao.md)**
+* **[Variáveis, operadores e tipos de dados](Vari%C3%A1veis,%20operadores%20e%20tipos%20de%20dados.md)**
+* **[Programação orientada a objetos](Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**

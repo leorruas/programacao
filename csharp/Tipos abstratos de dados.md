@@ -49,11 +49,11 @@ Muitas pessoas confundem esses dois nomes, mas a diferença é simples:
 * **TAD (A ideia / A casca):** É o desenho do controle remoto. Diz que ele tem os botões de volume e canal. É abstrato.
 * **Estrutura de dados (A implementação real / A fiação):** É o circuito físico dentro do controle que faz a luz infravermelha acender. É o código C# real rodando na máquina.
 
-Você pode implementar o TAD **Pilha** usando um [Array](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md) fixo por baixo dos panos, ou usando uma [Lista elástica](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Cole%C3%A7%C3%B5es.md). A ideia da pilha (só tirar do topo) continua a mesma, não importa a fiação escolhida!
+Você pode implementar o TAD **Pilha** usando um [Array](Arrays.md) fixo por baixo dos panos, ou usando uma [Lista elástica](Cole%C3%A7%C3%B5es.md). A ideia da pilha (só tirar do topo) continua a mesma, não importa a fiação escolhida!
 
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Coleções em C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Cole%C3%A7%C3%B5es.md)**
-* **[Programação orientada a objetos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**
+* **[Introdução ao C#](Introducao.md)**
+* **[Coleções em C#](Cole%C3%A7%C3%B5es.md)**
+* **[Programação orientada a objetos](Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**

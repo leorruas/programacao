@@ -157,6 +157,6 @@ Console.WriteLine(gaveteiro[1][2]); // Gaveta 1, Divisória 2 = Saída: 5
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Estruturas condicionais e de repetição](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md)**
+* **[Introdução ao C#](Introducao.md)**
+* **[Estruturas condicionais e de repetição](Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md)**
 
