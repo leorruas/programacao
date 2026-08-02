@@ -101,7 +101,9 @@ async function obterListaDeArquivos() {
             { titulo: "Decifrando Regex e Flags no JavaScript", path: "./javascript/03-manipulacao/Decifrando Regex e Flags no JavaScript.md" },
             { titulo: "Entendendo encodeURI e decodeURIComponent no JavaScript", path: "./javascript/03-manipulacao/Entendendo encodeURI e decodeURIComponent no JavaScript.md" },
             { titulo: "Como Renderizar Diagramas Mermaid no Web App", path: "./tutoriais/Como Renderizar Diagramas Mermaid no Web App.md" },
-            { titulo: "Guia de tutoriais", path: "./tutoriais/Guia de tutoriais.md" }
+            { titulo: "Guia de tutoriais", path: "./tutoriais/Guia de tutoriais.md" },
+            { titulo: "Introdução ao C#", path: "./csharp/Introducao.md" },
+            { titulo: "Arrays em C#", path: "./csharp/Arrays.md" }
         ];
     }
 }
@@ -315,4 +317,136 @@ artigoCorpo.addEventListener("click", async (e) => {
         alert(`A nota "${alvoDecodificado}" não foi encontrada no Vault de notas.`);
     }
 });
+
+// Funções para listar e filtrar pastas no Index
+function obterPastaDoCaminho(caminho) {
+    let limpo = caminho.replace(/^\.\//, "");
+    const partes = limpo.split("/");
+    if (partes.length > 1) {
+        return partes[0];
+    }
+    return "geral";
+}
+
+async function mostrarArtigosDaPasta(pastaNome) {
+    divResultados.classList.remove("escondido");
+    leitorDeArtigo.classList.add("escondido");
+    containerResultados.innerHTML = `<h2>Carregando artigos de "${pastaNome}"...</h2>`;
+
+    const arquivos = await obterListaDeArquivos();
+    containerResultados.innerHTML = "";
+
+    const arquivosDaPasta = arquivos.filter(arquivo => {
+        const pasta = obterPastaDoCaminho(arquivo.path);
+        return pasta.toLowerCase() === pastaNome.toLowerCase();
+    });
+
+    for (const arquivo of arquivosDaPasta) {
+        try {
+            const resposta = await fetch(arquivo.path);
+            const conteudoTexto = await resposta.text();
+            
+            const resumoBruto = conteudoTexto.substring(0, 250) + "...";
+            const resumo = limparMarkdown(resumoBruto);
+            
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+                <h2>${arquivo.titulo}</h2>
+                <div class="conteudo">${resumo}</div>
+            `;
+
+            card.addEventListener("click", () => {
+                abrirArtigo(arquivo.titulo, conteudoTexto);
+            });
+
+            containerResultados.appendChild(card);
+        } catch (erro) {
+            console.error("Erro ao ler arquivo: ", arquivo.path, erro);
+        }
+    }
+
+    if (containerResultados.innerHTML === "") {
+        containerResultados.innerHTML = `<h2>Nenhum artigo encontrado nesta pasta.</h2>`;
+    }
+}
+
+async function mostrarTodosOsArtigos() {
+    divResultados.classList.remove("escondido");
+    leitorDeArtigo.classList.add("escondido");
+    containerResultados.innerHTML = `<h2>Carregando todos os artigos...</h2>`;
+
+    const arquivos = await obterListaDeArquivos();
+    containerResultados.innerHTML = "";
+
+    for (const arquivo of arquivos) {
+        try {
+            const resposta = await fetch(arquivo.path);
+            const conteudoTexto = await resposta.text();
+            
+            const resumoBruto = conteudoTexto.substring(0, 250) + "...";
+            const resumo = limparMarkdown(resumoBruto);
+            
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+                <h2>${arquivo.titulo}</h2>
+                <div class="conteudo">${resumo}</div>
+            `;
+
+            card.addEventListener("click", () => {
+                abrirArtigo(arquivo.titulo, conteudoTexto);
+            });
+
+            containerResultados.appendChild(card);
+        } catch (erro) {
+            console.error("Erro ao ler arquivo: ", arquivo.path, erro);
+        }
+    }
+}
+
+async function renderizarPastas() {
+    const pastasContainer = document.getElementById("pastas-container");
+    if (!pastasContainer) return;
+
+    pastasContainer.innerHTML = "<span>Carregando pastas...</span>";
+
+    const arquivos = await obterListaDeArquivos();
+    const pastasUnicas = new Set();
+
+    arquivos.forEach(arquivo => {
+        const pasta = obterPastaDoCaminho(arquivo.path);
+        pastasUnicas.add(pasta);
+    });
+
+    pastasContainer.innerHTML = "";
+
+    // Botão de mostrar todos
+    const linkTudo = document.createElement("button");
+    linkTudo.className = "pasta-link ativa";
+    linkTudo.textContent = "todos";
+    linkTudo.addEventListener("click", () => {
+        document.querySelectorAll(".pasta-link").forEach(el => el.classList.remove("ativa"));
+        linkTudo.classList.add("ativa");
+        mostrarTodosOsArtigos();
+    });
+    pastasContainer.appendChild(linkTudo);
+
+    // Adiciona botão para cada pasta
+    Array.from(pastasUnicas).sort().forEach(pasta => {
+        const link = document.createElement("button");
+        link.className = "pasta-link";
+        link.textContent = pasta;
+        link.addEventListener("click", () => {
+            document.querySelectorAll(".pasta-link").forEach(el => el.classList.remove("ativa"));
+            link.classList.add("ativa");
+            mostrarArtigosDaPasta(pasta);
+        });
+        pastasContainer.appendChild(link);
+    });
+}
+
+// Inicializar na carga da página
+renderizarPastas();
+mostrarTodosOsArtigos();
 
