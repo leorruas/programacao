@@ -8,7 +8,7 @@ async function obterListaDeArquivos() {
 
         // Filtra apenas os arquivos Markdown (.md), ignorando pastas internas do Obsidian/Git
         return dados.tree
-            .filter(item => item.path.endsWith(".md") && !item.path.startsWith(".obsidian") && !item.path.startsWith(".git") && !item.path.startsWith(".gemini") && item.path !== "me.md")
+            .filter(item => item.path.endsWith(".md") && !item.path.includes(".obsidian") && !item.path.includes(".git") && !item.path.includes(".gemini") && item.path !== "me.md")
             .map(item => {
                 const nomeSemExtensao = item.path.split("/").pop().replace(".md", "");
                 return {
