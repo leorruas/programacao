@@ -270,9 +270,11 @@ async function buscar(termo) {
                 const resumoBruto = conteudoTexto.substring(0, 250) + "...";
                 const resumo = limparMarkdown(resumoBruto);
                 // Criamos a div do card via JavaScript
+                const pasta = obterPastaDoCaminho(arquivo.path);
                 const card = document.createElement("div");
                 card.className = "card";
                 card.innerHTML = `
+        <span class="card-tag">${pasta}</span>
         <h2>${arquivo.titulo}</h2>
         <div class="conteudo">${resumo}</div>
     `;
@@ -369,9 +371,11 @@ async function mostrarTodosOsArtigos() {
             const resumoBruto = conteudoTexto.substring(0, 250) + "...";
             const resumo = limparMarkdown(resumoBruto);
             
+            const pasta = obterPastaDoCaminho(arquivo.path);
             const card = document.createElement("div");
             card.className = "card";
             card.innerHTML = `
+                <span class="card-tag">${pasta}</span>
                 <h2>${arquivo.titulo}</h2>
                 <div class="conteudo">${resumo}</div>
             `;
