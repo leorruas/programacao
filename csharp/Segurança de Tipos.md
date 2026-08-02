@@ -1,42 +1,32 @@
-# Segurança de Tipos (C# é Strongly Typed!)
+# Segurança de Tipos (Por que o C# é tão protetor?)
 
-Imagine que você está brincando com aqueles brinquedos de criança de encaixar formas geométricas. O triângulo só entra no buraco triangular, o círculo no buraco circular, e o quadrado no quadrado. 
+Sabe aqueles brinquedos de bebê que têm uma caixa com buracos em formato de estrela, círculo e quadrado? Se você tentar colocar a estrela de plástico no buraco do círculo, ela simplesmente não entra. 
 
-Se você tentar empurrar à força um quadrado no buraco do círculo, simplesmente não dá certo.
-
-A **Segurança de Tipos** (ou o fato do C# ser uma linguagem *Strongly Typed*) funciona exatamente assim!
+O C# faz exatamente isso com as informações do seu computador! Ele é uma linguagem **fortemente tipada** (ou *Strongly Typed*).
 
 ---
 
-## 1. O que isso significa na prática?
+## 1. O Guarda das Caixas
 
-Em linguagens "fracamente tipadas" (como JavaScript), você pode criar uma caixa, colocar um número lá dentro e, logo depois, substituir esse número por um texto sem que ninguém te impeça. É como ter uma caixa onde cabe qualquer coisa, mas que pode causar uma bagunça se você esquecer o que colocou lá dentro.
+Em outras línguas de computador, as caixas são "mágicas" e aceitam qualquer coisa. Você pode guardar um número lá dentro e, logo depois, jogar o número fora e colocar uma palavra. Isso parece legal, mas causa uma bagunça danada quando você esquece o que colocou lá dentro e o programa trava.
 
-No **C#**, quando você diz que uma "caixa" (uma [variável](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20Operadores%20e%20Tipos%20de%20Dados.md)) serve para guardar números inteiros (`int`), **ela só poderá guardar números inteiros**. O computador não vai deixar você colocar um texto nela de jeito nenhum.
+No C#, quando você cria uma caixa para guardar números, **ela só aceita números**. Se você tentar colocar uma palavra lá dentro, o C# impede você na hora.
 
 ---
 
-## 2. Um exemplo do dia a dia do código
+## 2. O Fiscal de Regras (Compilador)
 
-Veja o que acontece se tentarmos misturar as coisas:
+O C# tem um ajudante muito chato chamado **Compilador**. Ele é como um fiscal que lê o seu código antes de o programa rodar.
 
+Se você escrever isso:
 ```csharp
-// Criamos uma caixa rotulada para guardar a idade (número inteiro)
-int idade = 25;
-
-// O compilador (o fiscal de regras do C#) vai dar erro se você tentar fazer isso:
-idade = "Vinte e cinco"; // ERRO! Texto não cabe em caixa de número.
+int idade = 12; // Criou uma caixa de número inteiro
+idade = "doze"; // Tentou colocar uma palavra lá dentro
 ```
 
-O fiscal do C# vai gritar imediatamente: *"Ei! Você não pode colocar um texto (string) dentro de uma caixa de número inteiro (int)!"*
+O fiscal vai parar tudo e gritar: *"Ei! Você não pode colocar texto em uma caixa de números!"*. 
 
----
-
-## 3. Por que isso é ótimo? (Erros antes de rodar o programa)
-
-A maior vantagem disso é que os erros são descobertos em **tempo de compilação** (antes mesmo de o programa começar a funcionar) e não em **tempo de execução** (quando o usuário já está usando o aplicativo e ele quebra do nada).
-
-É muito melhor o seu editor de códigos piscar uma luz vermelha avisando que você errou, do que o seu aplicativo fechar na cara do seu cliente, certo?
+Isso é ótimo! É muito melhor o fiscal te avisar enquanto você está escrevendo o código do que o aplicativo quebrar na mão da pessoa que estiver usando o seu jogo ou programa.
 
 ---
 
