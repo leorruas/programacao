@@ -8,7 +8,7 @@ async function obterListaDeArquivos() {
 
         // Filtra apenas os arquivos Markdown (.md), ignorando pastas internas do Obsidian/Git
         return dados.tree
-            .filter(item => item.path.endsWith(".md") && !item.path.startsWith(".obsidian") && !item.path.startsWith(".git") && !item.path.startsWith(".gemini"))
+            .filter(item => item.path.endsWith(".md") && !item.path.startsWith(".obsidian") && !item.path.startsWith(".git") && !item.path.startsWith(".gemini") && item.path !== "me.md")
             .map(item => {
                 const nomeSemExtensao = item.path.split("/").pop().replace(".md", "");
                 return {
@@ -23,7 +23,6 @@ async function obterListaDeArquivos() {
             { titulo: "Atalhos VS Code", path: "./Atalhos VS Code.md" },
             { titulo: "Evolução da Programação", path: "./Evolução da Programação.md" },
             { titulo: "log", path: "./log.md" },
-            { titulo: "me", path: "./me.md" },
             { titulo: "Guia de CSS", path: "./css/Guia de CSS.md" },
             { titulo: "Flexbox", path: "./css/Flexbox.md" },
             { titulo: "Transições e Animações", path: "./css/Transições e Animações.md" },
@@ -505,5 +504,4 @@ if (navLinkPastas) {
 
 // Inicializar na carga da página
 renderizarPastas();
-mostrarTodosOsArtigos();
 
