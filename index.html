@@ -11,12 +11,20 @@
 </head>
 
 <body>
+    <nav class="sticky-nav" id="sticky-nav">
+        <span class="nav-logo" id="nav-logo">pesquisa de programação</span>
+        <div class="nav-search-container">
+            <input type="text" id="nav-search-input" placeholder="pesquisar...">
+        </div>
+        <a href="#pastas-container" class="nav-link-pastas" id="nav-link-pastas">pastas</a>
+    </nav>
+
     <header>
         <h1> pesquisa de programação</h1>
 
     </header>
     <main>
-        <input type="text" placeholder="o que você quer pesquisar hoje? ">
+        <input type="text" id="main-search-input" placeholder="o que você quer pesquisar hoje? ">
         <button>Pesquisar</button>
         <div class="pastas-container" id="pastas-container">
             <!-- As pastas serão listadas aqui dinamicamente -->

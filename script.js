@@ -109,21 +109,36 @@ async function obterListaDeArquivos() {
 }
 
 const botao = document.querySelector("button");
-const campoTexto = document.querySelector("input");
+const campoTexto = document.getElementById("main-search-input");
+const campoTextoNav = document.getElementById("nav-search-input");
 const containerResultados = document.querySelector(".cards-container");
 
-botao.addEventListener("click", () => {
-    const pesquise = campoTexto.value;
-    console.log(pesquise);
-    buscar(pesquise);
-});
+function sincronizarBusca(valor) {
+    if (campoTexto) campoTexto.value = valor;
+    if (campoTextoNav) campoTextoNav.value = valor;
+}
 
-campoTexto.addEventListener("keyup", (evento) => {
-    // Verifica se a tecla pressionada foi especificamente o Enter
-    if (evento.key === "Enter") {
-        const pesquise = campoTexto.value;
-        buscar(pesquise);
-    }
+if (campoTexto) {
+    campoTexto.addEventListener("input", (e) => sincronizarBusca(e.target.value));
+    campoTexto.addEventListener("keyup", (evento) => {
+        if (evento.key === "Enter") {
+            buscar(campoTexto.value);
+        }
+    });
+}
+
+if (campoTextoNav) {
+    campoTextoNav.addEventListener("input", (e) => sincronizarBusca(e.target.value));
+    campoTextoNav.addEventListener("keyup", (evento) => {
+        if (evento.key === "Enter") {
+            buscar(campoTextoNav.value);
+        }
+    });
+}
+
+botao.addEventListener("click", () => {
+    const pesquise = campoTexto ? campoTexto.value : "";
+    buscar(pesquise);
 });
 
 
@@ -328,49 +343,6 @@ function obterPastaDoCaminho(caminho) {
     return "geral";
 }
 
-async function mostrarArtigosDaPasta(pastaNome) {
-    divResultados.classList.remove("escondido");
-    leitorDeArtigo.classList.add("escondido");
-    containerResultados.innerHTML = `<h2>Carregando artigos de "${pastaNome}"...</h2>`;
-
-    const arquivos = await obterListaDeArquivos();
-    containerResultados.innerHTML = "";
-
-    const arquivosDaPasta = arquivos.filter(arquivo => {
-        const pasta = obterPastaDoCaminho(arquivo.path);
-        return pasta.toLowerCase() === pastaNome.toLowerCase();
-    });
-
-    for (const arquivo of arquivosDaPasta) {
-        try {
-            const resposta = await fetch(arquivo.path);
-            const conteudoTexto = await resposta.text();
-            
-            const resumoBruto = conteudoTexto.substring(0, 250) + "...";
-            const resumo = limparMarkdown(resumoBruto);
-            
-            const card = document.createElement("div");
-            card.className = "card";
-            card.innerHTML = `
-                <h2>${arquivo.titulo}</h2>
-                <div class="conteudo">${resumo}</div>
-            `;
-
-            card.addEventListener("click", () => {
-                abrirArtigo(arquivo.titulo, conteudoTexto);
-            });
-
-            containerResultados.appendChild(card);
-        } catch (erro) {
-            console.error("Erro ao ler arquivo: ", arquivo.path, erro);
-        }
-    }
-
-    if (containerResultados.innerHTML === "") {
-        containerResultados.innerHTML = `<h2>Nenhum artigo encontrado nesta pasta.</h2>`;
-    }
-}
-
 async function mostrarTodosOsArtigos() {
     divResultados.classList.remove("escondido");
     leitorDeArtigo.classList.add("escondido");
@@ -412,37 +384,109 @@ async function renderizarPastas() {
     pastasContainer.innerHTML = "<span>Carregando pastas...</span>";
 
     const arquivos = await obterListaDeArquivos();
-    const pastasUnicas = new Set();
-
+    
+    // Agrupa os arquivos por pasta
+    const pastasAgrupadas = {};
     arquivos.forEach(arquivo => {
         const pasta = obterPastaDoCaminho(arquivo.path);
-        pastasUnicas.add(pasta);
+        if (!pastasAgrupadas[pasta]) {
+            pastasAgrupadas[pasta] = [];
+        }
+        pastasAgrupadas[pasta].push(arquivo);
     });
 
     pastasContainer.innerHTML = "";
 
-    // Botão de mostrar todos
-    const linkTudo = document.createElement("button");
-    linkTudo.className = "pasta-link ativa";
-    linkTudo.textContent = "todos";
-    linkTudo.addEventListener("click", () => {
-        document.querySelectorAll(".pasta-link").forEach(el => el.classList.remove("ativa"));
-        linkTudo.classList.add("ativa");
-        mostrarTodosOsArtigos();
-    });
-    pastasContainer.appendChild(linkTudo);
+    // Para cada pasta, cria o item do Accordion
+    Object.keys(pastasAgrupadas).sort().forEach(pasta => {
+        const pastaItem = document.createElement("div");
+        pastaItem.className = "pasta-item";
 
-    // Adiciona botão para cada pasta
-    Array.from(pastasUnicas).sort().forEach(pasta => {
-        const link = document.createElement("button");
-        link.className = "pasta-link";
-        link.textContent = pasta;
-        link.addEventListener("click", () => {
-            document.querySelectorAll(".pasta-link").forEach(el => el.classList.remove("ativa"));
-            link.classList.add("ativa");
-            mostrarArtigosDaPasta(pasta);
+        const header = document.createElement("div");
+        header.className = "pasta-header";
+        header.innerHTML = `
+            <span class="pasta-nome">${pasta}</span>
+            <span class="pasta-icone">&plus;</span>
+        `;
+
+        const conteudo = document.createElement("div");
+        conteudo.className = "pasta-conteudo";
+
+        // Ordena os artigos pelo título e renderiza
+        pastasAgrupadas[pasta].sort((a, b) => a.titulo.localeCompare(b.titulo)).forEach(arquivo => {
+            const linkArtigo = document.createElement("a");
+            linkArtigo.className = "artigo-lista-link";
+            linkArtigo.textContent = arquivo.titulo.toLowerCase();
+            
+            linkArtigo.addEventListener("click", async (e) => {
+                e.stopPropagation(); // Evita que feche o accordion no clique do link
+                try {
+                    const resposta = await fetch(arquivo.path);
+                    const conteudoTexto = await resposta.text();
+                    abrirArtigo(arquivo.titulo, conteudoTexto);
+                } catch (erro) {
+                    console.error("Erro ao carregar artigo:", erro);
+                }
+            });
+            
+            conteudo.appendChild(linkArtigo);
         });
-        pastasContainer.appendChild(link);
+
+        pastaItem.appendChild(header);
+        pastaItem.appendChild(conteudo);
+
+        // Evento de clique para abrir/fechar o accordion
+        header.addEventListener("click", () => {
+            const jaAberta = pastaItem.classList.contains("aberta");
+            
+            // Fecha todos os outros accordions
+            document.querySelectorAll(".pasta-item").forEach(item => {
+                item.classList.remove("aberta");
+            });
+
+            // Se não estava aberta, abre esta
+            if (!jaAberta) {
+                pastaItem.classList.add("aberta");
+            }
+        });
+
+        pastasContainer.appendChild(pastaItem);
+    });
+}
+
+// Configuração do Sticky Navbar baseada no scroll
+const headerEl = document.querySelector("header");
+const stickyNav = document.getElementById("sticky-nav");
+
+window.addEventListener("scroll", () => {
+    if (!headerEl || !stickyNav) return;
+    const headerHeight = headerEl.offsetHeight;
+    if (window.scrollY > headerHeight) {
+        stickyNav.classList.add("visible");
+    } else {
+        stickyNav.classList.remove("visible");
+    }
+});
+
+// Logo da nav clica e rola para o topo
+const navLogo = document.getElementById("nav-logo");
+if (navLogo) {
+    navLogo.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+}
+
+// Link de pastas na nav retorna para a tela inicial e foca nas pastas
+const navLinkPastas = document.getElementById("nav-link-pastas");
+if (navLinkPastas) {
+    navLinkPastas.addEventListener("click", (e) => {
+        e.preventDefault();
+        leitorDeArtigo.classList.add("escondido");
+        divResultados.classList.remove("escondido");
+        const pastasContainer = document.getElementById("pastas-container");
+        if (pastasContainer) {
+            pastasContainer.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
     });
 }
 
