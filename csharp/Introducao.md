@@ -83,5 +83,13 @@ else
 ---
 
 ## 5. Próximos Passos
-Agora que você já conhece o básico de como dar ordens para o computador, que tal ver como guardar várias caixas juntas?
-* **[Aprender sobre Arrays (Gaveteiros de caixas)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md)**
+
+Agora que você já conhece o básico de como dar ordens para o computador, aqui está o fluxo ideal de tópicos sugeridos para você continuar sua jornada no C#:
+
+1. **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/VariaveisOperadoresTipos.md)** (As caixas e as ferramentas matemáticas)
+2. **[Segurança de Tipos (Strongly Typed)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/SegurancaDeTipos.md)** (Por que as caixas são rígidas?)
+3. **[Estruturas Condicionais e de Repetição](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/EstruturasCondicionaisRepeticao.md)** (Tomando decisões e repetindo tarefas)
+4. **[Arrays (Gaveteiros de caixas)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md)** (Guardando várias caixas juntas)
+5. **[Métodos (Funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/MetodosFuncoes.md)** (Automatizando passos repetitivos no robô)
+6. **[Programação Orientada a Objetos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/ProgramacaoOrientadaObjetos.md)** (Organizando o código como a vida real)
+
