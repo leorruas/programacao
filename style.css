@@ -469,21 +469,27 @@ button:hover {
     }
 
     h1 {
-        font-size: 2.5em;
-        margin-top: 40px;
+        font-size: 1.8em;
+        margin-top: 30px;
     }
 
     /* Ajuste dos inputs e botão de busca */
     #main-search-input {
-        width: 100%;
-        margin-bottom: 15px;
+        width: 72%;
+        font-size: 0.65em;
+        margin-bottom: 0;
+        display: inline-block;
+        vertical-align: middle;
     }
 
     button {
-        width: 100%;
+        width: 24%;
         border-radius: 50px;
-        padding: 12px;
-        font-size: 0.8em;
+        padding: 10px 5px;
+        font-size: 0.55em;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
     }
 
     /* Cartões de resultado ocupam largura total */

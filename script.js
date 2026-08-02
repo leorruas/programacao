@@ -240,7 +240,14 @@ btnVoltar.addEventListener("click", () => {
     leitorDeArtigo.classList.add("escondido");    // Esconde o leitor
     divResultados.classList.remove("escondido"); // Mostra os cards da busca de volta
     const pastasContainer = document.getElementById("pastas-container");
-    if (pastasContainer) pastasContainer.classList.remove("escondido");
+    if (pastasContainer) {
+        const termo = campoTexto ? campoTexto.value.trim() : "";
+        if (termo === "") {
+            pastasContainer.classList.remove("escondido");
+        } else {
+            pastasContainer.classList.add("escondido");
+        }
+    }
 });
 
 async function buscar(termo) {
@@ -249,7 +256,7 @@ async function buscar(termo) {
     divResultados.classList.remove("escondido");
     leitorDeArtigo.classList.add("escondido");
     const pastasContainer = document.getElementById("pastas-container");
-    if (pastasContainer) pastasContainer.classList.remove("escondido");
+    if (pastasContainer) pastasContainer.classList.add("escondido");
 
     containerResultados.innerHTML = `<h2>Buscando...</h2>`;
 

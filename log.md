@@ -6,6 +6,13 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-02
 
+* **Comportamento de Busca no Web App**:
+  * Modificada a função de busca no [[script.js]] para ocultar automaticamente o contêiner de pastas (`#pastas-container`) ao disparar pesquisas, evitando poluição visual.
+
+* **Ajustes de Responsividade no Web App**:
+  * Reduzido o tamanho da fonte do título `h1` ("pesquisa de programação") e do input de busca no mobile.
+  * Mantido o alinhamento horizontal lado a lado (estilo desktop) para o input e botão de busca em telas móveis.
+
 * **Atualização de Nota**: [[csharp/Introducao\|Introdução ao C#]]
   * Adicionada a contextualização histórica de sua origem, áreas de uso prático (como Unity para jogos, mobile e corporativo) e a relevância de mercado da linguagem.
 
