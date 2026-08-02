@@ -6,6 +6,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-02
 
+* **Melhoria no Layout de Código do Web App**:
+  * Implementadas quebras de linha automáticas (`pre-wrap`) nos blocos de código (`pre`) para evitar barras de rolagem horizontais no mobile e desktop.
+  * Criada numeração de linhas dinâmica e flexível integrada nos blocos de código de artigos do leitor.
+
 * **Criação de Nota**: [[csharp/Guia de estudos\|Guia de estudos de C#]]
   * Criação do mapa e roteiro de aprendizagem sequencial sugerido para C#, interligando todos os artigos do vault.
 

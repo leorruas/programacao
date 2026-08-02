@@ -272,9 +272,42 @@ button:hover {
     border: 1px solid pink;
     padding: 15px;
     border-radius: 5px;
-    overflow-x: auto;
     color: pink;
     font-family: monospace;
+    white-space: pre-wrap !important;
+    word-break: break-word;
+}
+
+.code-line {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+    margin-bottom: 2px;
+}
+
+.line-number {
+    width: 30px;
+    min-width: 30px;
+    text-align: right;
+    margin-right: 15px;
+    color: rgba(255, 192, 203, 0.4);
+    user-select: none;
+    font-size: 0.7em;
+    font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+    border-right: 1px solid rgba(255, 182, 193, 0.2);
+    padding-right: 10px;
+}
+
+.code-line code {
+    font-size: 0.7em !important;
+    font-family: 'IBM Plex Mono', 'Space Mono', monospace;
+    background-color: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: pink;
+    white-space: pre-wrap !important;
+    word-break: break-word;
+    flex-grow: 1;
 }
 
 /* Sticky Navbar */

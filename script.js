@@ -222,6 +222,39 @@ function abrirArtigo(titulo, conteudo) {
     // 3. Transforma os [[WikiLinks]] do Obsidian
     artigoCorpo.innerHTML = processarWikiLinksObsidian(htmlComMermaid);
 
+    // 3.5. Formata os blocos de código com quebra de linha e numeração
+    artigoCorpo.querySelectorAll("pre").forEach(pre => {
+        const codeElement = pre.querySelector("code");
+        if (!codeElement) return;
+
+        const rawText = codeElement.textContent;
+        const lines = rawText.split("\n");
+
+        if (lines.length > 1 && lines[lines.length - 1].trim() === "") {
+            lines.pop();
+        }
+
+        pre.innerHTML = "";
+        lines.forEach((lineText, index) => {
+            const lineDiv = document.createElement("div");
+            lineDiv.className = "code-line";
+
+            const numSpan = document.createElement("span");
+            numSpan.className = "line-number";
+            numSpan.textContent = index + 1;
+
+            const codeSpan = document.createElement("code");
+            if (codeElement.className) {
+                codeSpan.className = codeElement.className;
+            }
+            codeSpan.textContent = lineText || " ";
+
+            lineDiv.appendChild(numSpan);
+            lineDiv.appendChild(codeSpan);
+            pre.appendChild(lineDiv);
+        });
+    });
+
     // 4. Renderiza os diagramas Mermaid automaticamente com o tema rosa!
     if (window.mermaid) {
         setTimeout(() => {
