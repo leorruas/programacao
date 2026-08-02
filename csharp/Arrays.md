@@ -128,3 +128,10 @@ gaveteiro[1] = new int[] { 3, 4, 5 };    // Gaveta 1 tem 3 espaços
 // Acessamos informando primeiro a gaveta e depois a divisória: [gaveta][divisoria]
 Console.WriteLine(gaveteiro[1][2]); // Gaveta 1, Divisória 2 = Saída: 5
 ```
+
+---
+
+## Artigos relacionados:
+* **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
+* **[Estruturas condicionais e de repetição](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md)**
+

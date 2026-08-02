@@ -6,6 +6,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-02
 
+* **Correção de Links de Artigos**:
+  * Ajuste na codificação de caracteres de parênteses (`(` para `%28` e `)` para `%29`) nas URIs de markdown para corrigir links quebrados para o arquivo `Métodos (funções).md`.
+  * Adicionado rodapé de artigos relacionados ao arquivo [[csharp/Arrays\|Arrays em C#]].
+
 * **Atualização de Nota**: [[csharp/Arrays\|Arrays em C#]]
   * Adicionadas explicações intuitivas sob o Método Feynman (tabuleiros vs gaveteiros irregulares) e as finalidades práticas para Arrays multidimensionais e Jagged Arrays.
 

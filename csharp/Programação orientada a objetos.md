@@ -76,5 +76,5 @@ Dinossauro rex = new Dinossauro("Rex", "Verde");
 
 ## Artigos relacionados:
 * **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Métodos (funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/M%C3%A9todos%20(fun%C3%A7%C3%B5es).md)**
+* **[Métodos (funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)**
 * **[Variáveis, operadores e tipos de dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20operadores%20e%20tipos%20de%20dados.md)**
