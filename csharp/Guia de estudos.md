@@ -33,6 +33,7 @@ Aqui você aprende a lidar com grandes volumes de dados ao mesmo tempo.
 
 1. **[Arrays em C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md):** Saiba como criar grandes gaveteiros de tamanho fixo. Entenda o que é o erro de estouro de índice (`IndexOutOfRangeException`), além de aprender a diferença entre matrizes perfeitas (multidimensionais) e gaveteiros irregulares (jagged arrays).
 2. **[Métodos de arrays](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/M%C3%A9todos%20de%20arrays.md):** A sua caixa de ferramentas para ordenar (`Sort`), inverter (`Reverse`) e fazer buscas rápidas com o LINQ (`Min`, `Max`, `Where`).
+3. **[Coleções em C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Cole%C3%A7%C3%B5es.md):** Conheça os gaveteiros mágicos flexíveis que esticam e encolhem sozinhos (`List<T>`, `Dictionary<K, V>` e `HashSet<T>`).
 
 ---
 
@@ -47,6 +48,7 @@ Aqui você aprende a organizar códigos gigantescos dividindo-os em partes menor
 
 ## Próximos passos (A construir)
 Para continuar sua jornada após dominar os passos acima, os próximos assuntos recomendados são:
-* **Coleções dinâmicas:** Diferença entre arrays de tamanho fixo e gaveteiros flexíveis que esticam sozinhos (`List<T>`, `Dictionary<TKey, TValue>`).
 * **Tratamento de erros:** Como evitar que o programa quebre usando blocos de segurança (`try`, `catch`, `finally`).
-* **Interface e Herança:** O nível avançado da programação orientada a objetos para criar moldes genéricos.
+* **Arquivos e entrada/saída:** Como ler e salvar informações em arquivos de texto no computador.
+* **Interface e herança:** O nível avançado da programação orientada a objetos para criar moldes genéricos.
+

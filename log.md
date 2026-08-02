@@ -6,6 +6,12 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-02
 
+* **Criação de Notas de C#**:
+  * [[csharp/Coleções\|Coleções em C#]]: Explicação sobre coleções flexíveis (`List<T>`, `Dictionary<K, V>`, `HashSet<T>`).
+  * [[csharp/Tipos abstratos de dados\|Tipos abstratos de dados]]: Introdução conceitual sobre TADs (Filas, Pilhas e Dicionários) e sua representação no código.
+* **Atualização de Nota**: [[csharp/Guia de estudos\|Guia de estudos de C#]]
+  * Atualização da nota para incluir Coleções em C# e ajustar a ordenação de roteiro de estudos sugerido.
+
 * **Melhoria no Layout de Código do Web App**:
   * Implementadas quebras de linha automáticas (`pre-wrap`) nos blocos de código (`pre`) para evitar barras de rolagem horizontais no mobile e desktop.
   * Criada numeração de linhas dinâmica e flexível integrada nos blocos de código de artigos do leitor.
