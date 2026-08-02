@@ -106,7 +106,10 @@ async function obterListaDeArquivos() {
             { titulo: "Variáveis, Operadores e Tipos de Dados", path: "./csharp/Variáveis, operadores e tipos de dados.md" },
             { titulo: "Estruturas Condicionais e de Repetição", path: "./csharp/Estruturas condicionais e de repetição.md" },
             { titulo: "Métodos (Funções)", path: "./csharp/Métodos (funções).md" },
-            { titulo: "Programação Orientada a Objetos", path: "./csharp/Programação orientada a objetos.md" }
+            { titulo: "Programação Orientada a Objetos", path: "./csharp/Programação orientada a objetos.md" },
+            { titulo: "O método Main", path: "./csharp/O método Main.md" },
+            { titulo: "Estruturas de repetição (for e while)", path: "./csharp/Estruturas de repetição (for e while).md" },
+            { titulo: "Métodos de arrays", path: "./csharp/Métodos de arrays.md" }
         ];
     }
 }

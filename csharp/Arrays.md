@@ -37,6 +37,31 @@ frutas[1] = "Pêra";
 Console.WriteLine(frutas[1]); // Saída: Pêra
 ```
 
+### O perigo do estouro de índice (`IndexOutOfRangeException`)
+
+Imagine que você tem um **gaveteiro organizador com exatamente 3 gavetas** (marcadas como `0`, `1` e `2`). 
+Se você pedir para um robô: *"Robô, abra a gaveta número 3 e pegue o casaco"*, o robô vai travar na hora. Por quê? Porque a gaveta 3 simplesmente **não existe**! As únicas gavetas válidas são `0`, `1` e `2`.
+
+No C#, se você tentar acessar uma posição que está fora dos limites do seu array, o programa trava imediatamente na linha do erro e gera a famosa exceção:
+`System.IndexOutOfRangeException: Index was outside the bounds of the array.`
+
+#### Quando acontece isso?
+1. **Confundir tamanho com índice:** Um array de tamanho 5 tem os índices válidos de `0` a `4`. Tentar ler ou escrever no índice `5` vai dar erro.
+2. **Loops com limite errado:** Usar `i <= array.Length` no loop `for` em vez de `i < array.Length`. Como o último índice é sempre `Length - 1`, o loop vai tentar ler a gaveta de número `Length` e quebrará.
+
+```csharp
+string[] nomes = { "Ana", "Carlos" }; // Tamanho: 2. Índices válidos: 0 e 1.
+
+// Exemplo 1: Tentar acessar índice que não existe
+Console.WriteLine(nomes[2]); // QUEBRA O PROGRAMA AQUI!
+
+// Exemplo 2: Loop que vai longe demais
+for (int i = 0; i <= nomes.Length; i++) // ERRO! O correto é usar 'i < nomes.Length'
+{
+    Console.WriteLine(nomes[i]); // Vai ler o índice 2 no final e travar!
+}
+```
+
 ---
 
 ## 3. Propriedades e métodos úteis
