@@ -6,6 +6,9 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-02
 
+* **Atualização de Nota**: [[csharp/Arrays\|Arrays em C#]]
+  * Adicionadas explicações intuitivas sob o Método Feynman (tabuleiros vs gaveteiros irregulares) e as finalidades práticas para Arrays multidimensionais e Jagged Arrays.
+
 * **Comportamento de Busca no Web App**:
   * Modificada a função de busca no [[script.js]] para ocultar automaticamente o contêiner de pastas (`#pastas-container`) ao disparar pesquisas, evitando poluição visual.
 
