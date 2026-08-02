@@ -227,6 +227,8 @@ function abrirArtigo(titulo, conteudo) {
     }
 
     divResultados.classList.add("escondido");
+    const pastasContainer = document.getElementById("pastas-container");
+    if (pastasContainer) pastasContainer.classList.add("escondido");
     leitorDeArtigo.classList.remove("escondido");
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -234,6 +236,8 @@ function abrirArtigo(titulo, conteudo) {
 btnVoltar.addEventListener("click", () => {
     leitorDeArtigo.classList.add("escondido");    // Esconde o leitor
     divResultados.classList.remove("escondido"); // Mostra os cards da busca de volta
+    const pastasContainer = document.getElementById("pastas-container");
+    if (pastasContainer) pastasContainer.classList.remove("escondido");
 });
 
 async function buscar(termo) {
@@ -241,6 +245,8 @@ async function buscar(termo) {
     if (termoLimpo === "") return;
     divResultados.classList.remove("escondido");
     leitorDeArtigo.classList.add("escondido");
+    const pastasContainer = document.getElementById("pastas-container");
+    if (pastasContainer) pastasContainer.classList.remove("escondido");
 
     containerResultados.innerHTML = `<h2>Buscando...</h2>`;
 
@@ -419,6 +425,7 @@ async function renderizarPastas() {
             linkArtigo.textContent = arquivo.titulo.toLowerCase();
             
             linkArtigo.addEventListener("click", async (e) => {
+                e.preventDefault();
                 e.stopPropagation(); // Evita que feche o accordion no clique do link
                 try {
                     const resposta = await fetch(arquivo.path);
@@ -485,6 +492,7 @@ if (navLinkPastas) {
         divResultados.classList.remove("escondido");
         const pastasContainer = document.getElementById("pastas-container");
         if (pastasContainer) {
+            pastasContainer.classList.remove("escondido");
             pastasContainer.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     });
