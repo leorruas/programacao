@@ -112,7 +112,8 @@ async function obterListaDeArquivos() {
             { titulo: "Métodos de arrays", path: "./csharp/Métodos de arrays.md" },
             { titulo: "Guia de estudos", path: "./csharp/Guia de estudos.md" },
             { titulo: "Coleções em C#", path: "./csharp/Coleções.md" },
-            { titulo: "Tipos abstratos de dados", path: "./csharp/Tipos abstratos de dados.md" }
+            { titulo: "Tipos abstratos de dados", path: "./csharp/Tipos abstratos de dados.md" },
+            { titulo: "Lista, pilha e fila", path: "./csharp/Lista, pilha e fila.md" }
         ];
     }
 }

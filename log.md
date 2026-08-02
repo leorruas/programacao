@@ -6,6 +6,9 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-02
 
+* **Criação de Nota**: [[csharp/Lista, pilha e fila\|Lista, pilha e fila em C#]]
+  * Criação do guia de implementação prática contendo sintaxes, operações (Enqueue, Dequeue, Push, Pop, Add, Insert) e analogias do Método Feynman.
+
 * **Criação de Notas de C#**:
   * [[csharp/Coleções\|Coleções em C#]]: Explicação sobre coleções flexíveis (`List<T>`, `Dictionary<K, V>`, `HashSet<T>`).
   * [[csharp/Tipos abstratos de dados\|Tipos abstratos de dados]]: Introdução conceitual sobre TADs (Filas, Pilhas e Dicionários) e sua representação no código.
