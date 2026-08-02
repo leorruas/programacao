@@ -483,12 +483,28 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// Logo da nav clica e rola para o topo
+function voltarParaHome() {
+    leitorDeArtigo.classList.add("escondido");
+    divResultados.classList.remove("escondido");
+    const pastasContainer = document.getElementById("pastas-container");
+    if (pastasContainer) {
+        pastasContainer.classList.remove("escondido");
+    }
+    if (campoTexto) campoTexto.value = "";
+    if (campoTextoNav) campoTextoNav.value = "";
+    containerResultados.innerHTML = "";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// Logo da nav e título principal clicam e retornam à página inicial
 const navLogo = document.getElementById("nav-logo");
 if (navLogo) {
-    navLogo.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    navLogo.addEventListener("click", voltarParaHome);
+}
+
+const mainTitle = document.querySelector("header h1");
+if (mainTitle) {
+    mainTitle.addEventListener("click", voltarParaHome);
 }
 
 // Link de pastas na nav retorna para a tela inicial e foca nas pastas

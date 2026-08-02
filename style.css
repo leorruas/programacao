@@ -11,6 +11,7 @@ h1 {
     font-size: 4em;
     transition: color 2s cubic-bezier(0.075, 0.82, 0.165, 1);
     line-height: 82%;
+    cursor: pointer;
 }
 
 h1:hover {
