@@ -4,6 +4,26 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ---
 
+## 2026-08-02
+
+* **Criação de Pasta e Notas de C#**:
+  * Criação da pasta [[csharp/]] contendo os primeiros artigos explicativos.
+  * [[csharp/Introducao\|Introdução ao C#]]: Guia conceitual sobre a linguagem.
+  * [[csharp/Arrays\|Arrays em C#]]: Explicação sobre vetores.
+  * [[csharp/Segurança de Tipos\|Segurança de Tipos]]: Detalhamento didático sobre tipagem estática e forte.
+  * [[csharp/Variáveis, Operadores e Tipos de Dados\|Variáveis, Operadores e Tipos de Dados]]: Dicionário das caixas de tipos de dados.
+  * [[csharp/Estruturas Condicionais e de Repetição\|Estruturas Condicionais e de Repetição]]: Tomada de decisões e loops.
+  * [[csharp/Métodos (Funções)\|Métodos (Funções)]]: Automatização de blocos de comando.
+  * [[csharp/Programação Orientada a Objetos\|Programação Orientada a Objetos]]: Moldes e fôrmas (classes), objetos e construtores.
+  * Todas as notas de C# foram escritas sob o rigor do **Método Feynman** e interconectadas com links bidirecionais/cruzados.
+
+* **Melhorias e Ajustes no Web App**:
+  * Adicionado suporte a **Accordions** para a listagem categorizada por pastas na tela inicial.
+  * Criada a barra de navegação flutuante **`sticky-nav`** contendo busca sincronizada, logo clicável e link direto para focar nas pastas.
+  * Otimizado todo o CSS para tornar o layout **mobile friendly** (responsivo para celulares/tablets).
+  * Ocultação dos arquivos de sistema (`me.md`, `log.md` e pasta `.gemini/`) na listagem de visualização do index.
+  * Adicionadas tags de linguagem/pasta estilizadas nos cards de resultados de busca.
+
 ## 2026-07-25
 
 * **Criação de Nota**: [[javascript/03-manipulacao/O método forEach em detalhes\|O método forEach em detalhes]]
