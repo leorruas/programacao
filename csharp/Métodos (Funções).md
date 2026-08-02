@@ -1,4 +1,5 @@
 # Métodos (Como ensinar truques ao computador)
+#csharp
 
 Imagine que você tem um cachorro de estimação. Toda vez que você quiser que ele dê a patinha, você não quer ter que explicar passo a passo: *"Levante a perna direita, dobre o joelho, estique para a minha mão"*. 
 

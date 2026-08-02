@@ -9,6 +9,9 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Atualização de Nota**: [[csharp/Introducao\|Introdução ao C#]]
   * Adicionada a contextualização histórica de sua origem, áreas de uso prático (como Unity para jogos, mobile e corporativo) e a relevância de mercado da linguagem.
 
+* **Atualização de Notas**: Todas as notas da pasta [[csharp/]]
+  * Adicionada a hashtag `#csharp` logo abaixo do título de cada um dos 7 artigos de C# para categorização nativa no Obsidian.
+
 * **Criação de Pasta e Notas de C#**:
   * Criação da pasta [[csharp/]] contendo os primeiros artigos explicativos.
   * [[csharp/Introducao\|Introdução ao C#]]: Guia conceitual sobre a linguagem.

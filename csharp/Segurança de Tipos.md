@@ -1,4 +1,5 @@
 # Segurança de Tipos (Por que o C# é tão protetor?)
+#csharp
 
 Sabe aqueles brinquedos de bebê que têm uma caixa com buracos em formato de estrela, círculo e quadrado? Se você tentar colocar a estrela de plástico no buraco do círculo, ela simplesmente não entra. 
 

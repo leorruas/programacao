@@ -1,4 +1,5 @@
 # Introdução ao C# (Como se fosse para uma criança de 12 anos!)
+#csharp
 
 Imagine que o computador é um assistente super obediente, mas que não sabe fazer nada sozinho. Para falar com ele e dar instruções, precisamos de uma língua que ambos entendam. O **C#** (pronuncia-se *C-Sharp*) é exatamente essa língua!
 
