@@ -6,6 +6,9 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-02
 
+* **Atualização de Regra do Vault**:
+  * Atualizada a regra [[.gemini/rules/linking_articles\|linking_articles.md]] para proibir caminhos locais absolutos do sistema e impor o uso exclusivo de links relativos ou Wikilinks para portabilidade em dispositivos móveis.
+
 * **Padronização de Links do Vault**:
   * Conversão coletiva de todos os links de markdown locais absolutos (iCloud / Local paths) nas notas de C# para caminhos relativos de alta compatibilidade multi-dispositivo no Obsidian.
 
