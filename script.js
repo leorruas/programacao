@@ -109,7 +109,8 @@ async function obterListaDeArquivos() {
             { titulo: "Programação Orientada a Objetos", path: "./csharp/Programação orientada a objetos.md" },
             { titulo: "O método Main", path: "./csharp/O método Main.md" },
             { titulo: "Estruturas de repetição (for e while)", path: "./csharp/Estruturas de repetição (for e while).md" },
-            { titulo: "Métodos de arrays", path: "./csharp/Métodos de arrays.md" }
+            { titulo: "Métodos de arrays", path: "./csharp/Métodos de arrays.md" },
+            { titulo: "Guia de estudos", path: "./csharp/Guia de estudos.md" }
         ];
     }
 }

@@ -6,6 +6,9 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-02
 
+* **Criação de Nota**: [[csharp/Guia de estudos\|Guia de estudos de C#]]
+  * Criação do mapa e roteiro de aprendizagem sequencial sugerido para C#, interligando todos os artigos do vault.
+
 * **Criação de Notas de C#**:
   * [[csharp/O método Main\|O método Main]]: Explicação detalhada sobre a estrutura `public static void Main(string[] args)`.
   * [[csharp/Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]: Explicação detalhada sobre loops `for`, `while` e `do while`.
