@@ -6,6 +6,9 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-02
 
+* **Atualização de Nota**: [[csharp/Introducao\|Introdução ao C#]]
+  * Adicionada a contextualização histórica de sua origem, áreas de uso prático (como Unity para jogos, mobile e corporativo) e a relevância de mercado da linguagem.
+
 * **Criação de Pasta e Notas de C#**:
   * Criação da pasta [[csharp/]] contendo os primeiros artigos explicativos.
   * [[csharp/Introducao\|Introdução ao C#]]: Guia conceitual sobre a linguagem.

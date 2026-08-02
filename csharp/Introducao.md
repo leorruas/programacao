@@ -4,6 +4,22 @@ Imagine que o computador é um assistente super obediente, mas que não sabe faz
 
 ---
 
+## 1. De onde ele veio, para que serve e por que é importante?
+
+### Para que ele foi criado?
+No início dos anos 2000, a Microsoft queria criar uma ferramenta moderna, fácil de usar e muito segura para ajudar os programadores a criarem programas de computador sem dor de cabeça. Antes, programar para Windows era como montar um quebra-cabeça com peças faltando. O C# nasceu para ser o "kit de blocos definitivo" para organizar tudo isso.
+
+### Para que ele é utilizado hoje?
+Hoje, o C# está em quase todas as tecnologias que você consome:
+* **Jogos de Videogame:** Se você já jogou *Hollow Knight*, *Among Us* ou *Cuphead*, você jogou algo feito em C#! Ele é a principal língua usada na **Unity**, a ferramenta de criação de jogos mais famosa do mundo.
+* **Aplicativos de Celular:** Com ele, você consegue construir aplicativos que rodam no Android e no iPhone ao mesmo tempo.
+* **Sistemas de Bancos e Empresas Gigantes:** Sites de compras, aplicativos de bancos e portais que precisam rodar muito rápido e sem travar usam C# para processar dados de milhões de pessoas com total segurança.
+
+### Por que ele é tão importante?
+O C# é mantido pela Microsoft e por milhões de programadores no mundo todo. Aprender C# é como aprender inglês: é uma língua universal que abre as portas para criar jogos, sites, robôs e aplicativos comerciais de alto nível, sendo extremamente valorizada no mercado de trabalho.
+
+---
+
 ## 1. O que faz o C# ser tão legal?
 
 * **Fácil de ler:** O código se parece muito com o inglês do dia a dia.
