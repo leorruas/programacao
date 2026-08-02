@@ -103,7 +103,12 @@ async function obterListaDeArquivos() {
             { titulo: "Como Renderizar Diagramas Mermaid no Web App", path: "./tutoriais/Como Renderizar Diagramas Mermaid no Web App.md" },
             { titulo: "Guia de tutoriais", path: "./tutoriais/Guia de tutoriais.md" },
             { titulo: "Introdução ao C#", path: "./csharp/Introducao.md" },
-            { titulo: "Arrays em C#", path: "./csharp/Arrays.md" }
+            { titulo: "Arrays em C#", path: "./csharp/Arrays.md" },
+            { titulo: "Segurança de Tipos", path: "./csharp/SegurancaDeTipos.md" },
+            { titulo: "Variáveis, Operadores e Tipos de Dados", path: "./csharp/VariaveisOperadoresTipos.md" },
+            { titulo: "Estruturas Condicionais e de Repetição", path: "./csharp/EstruturasCondicionaisRepeticao.md" },
+            { titulo: "Métodos (Funções)", path: "./csharp/MetodosFuncoes.md" },
+            { titulo: "Programação Orientada a Objetos", path: "./csharp/ProgramacaoOrientadaObjetos.md" }
         ];
     }
 }
