@@ -9,6 +9,12 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Atualização de Nota**: [[csharp/Introducao\|Introdução ao C#]]
   * Adicionada a contextualização histórica de sua origem, áreas de uso prático (como Unity para jogos, mobile e corporativo) e a relevância de mercado da linguagem.
 
+* **Padronização de Títulos e Cabeçalhos (Sentence Case)**:
+  * Criação da regra [[.gemini/rules/title_capitalization\|title_capitalization.md]] exigindo que títulos e cabeçalhos em português mantenham apenas a primeira letra em maiúsculo (Sentence Case).
+  * Renomeação dos 5 arquivos do C# para seguir a grafia Sentence Case.
+  * Revisão e atualização de todos os cabeçalhos internos e links cruzados em todas as 7 notas na pasta [[csharp/]].
+  * Sincronização da lista de caminhos de fallback no [[script.js]].
+
 * **Atualização de Notas**: Todas as notas da pasta [[csharp/]]
   * Adicionada a hashtag `#csharp` logo abaixo do título de cada um dos 7 artigos de C# para categorização nativa no Obsidian.
 

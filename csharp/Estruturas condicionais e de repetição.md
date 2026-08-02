@@ -1,11 +1,11 @@
-# Tomando Decisões e Repetindo Tarefas (Condicionais e Loops)
+# Tomando decisões e repetindo tarefas (condicionais e loops)
 #csharp
 
 Programar é como dar ordens a um robozinho. Às vezes você quer que ele faça escolhas, e às vezes quer que ele repita a mesma tarefa várias vezes.
 
 ---
 
-## 1. Condicionais: O caminho do GPS (`if` e `else`)
+## 1. Condicionais: o caminho do GPS (if e else)
 
 Imagine que você está jogando videogame e chega numa bifurcação. O jogo diz: **Se** você tiver a chave, a porta abre. **Senão**, você precisa dar a volta.
 
@@ -26,11 +26,11 @@ else
 
 ---
 
-## 2. Repetição (Loops): Lavando a Louça
+## 2. Repetição (loops): lavando a louça
 
 Se sua mãe te mandar lavar 5 pratos, você não vai ler uma instrução diferente para cada prato. Você faz um loop: lava um prato, conta "1", lava outro, conta "2"... até chegar a 5.
 
-### O Loop `for` (Sabendo a quantidade exata)
+### O loop for (sabendo a quantidade exata)
 Usamos o `for` quando sabemos exatamente quantas vezes vamos repetir a tarefa.
 
 ```csharp
@@ -41,7 +41,7 @@ for (int prato = 1; prato <= 5; prato++)
 }
 ```
 
-### O Loop `while` (Enquanto uma regra for verdade)
+### O loop while (enquanto uma regra for verdade)
 Usamos o `while` quando não sabemos quantas vezes vamos repetir, apenas que devemos continuar até a regra mudar.
 *Analogia: Continue correndo ENQUANTO você não estiver cansado.*
 
@@ -61,7 +61,7 @@ while (cansado == false)
 }
 ```
 
-### O Loop `foreach` (Para cada item de um gaveteiro)
+### O loop foreach (para cada item de um gaveteiro)
 Usamos o `foreach` para vasculhar uma coleção inteira, como um [Array](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md), sem precisar contar de 1 em 1.
 *Analogia: Abra e coma cada chocolate que está dentro de uma caixa.*
 
@@ -76,8 +76,8 @@ foreach (string fruta in frutas)
 
 ---
 
-## Artigos Relacionados:
+## Artigos relacionados:
 * **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20Operadores%20e%20Tipos%20de%20Dados.md)**
+* **[Variáveis, operadores e tipos de dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20operadores%20e%20tipos%20de%20dados.md)**
 * **[Arrays em C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md)**
-* **[Métodos (Funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/M%C3%A9todos%20(Fun%C3%A7%C3%B5es).md)**
+* **[Métodos (funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/M%C3%A9todos%20(fun%C3%A7%C3%B5es).md)**

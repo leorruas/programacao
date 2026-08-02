@@ -102,11 +102,11 @@ async function obterListaDeArquivos() {
             { titulo: "Guia de tutoriais", path: "./tutoriais/Guia de tutoriais.md" },
             { titulo: "Introdução ao C#", path: "./csharp/Introducao.md" },
             { titulo: "Arrays em C#", path: "./csharp/Arrays.md" },
-            { titulo: "Segurança de Tipos", path: "./csharp/Segurança de Tipos.md" },
-            { titulo: "Variáveis, Operadores e Tipos de Dados", path: "./csharp/Variáveis, Operadores e Tipos de Dados.md" },
-            { titulo: "Estruturas Condicionais e de Repetição", path: "./csharp/Estruturas Condicionais e de Repetição.md" },
-            { titulo: "Métodos (Funções)", path: "./csharp/Métodos (Funções).md" },
-            { titulo: "Programação Orientada a Objetos", path: "./csharp/Programação Orientada a Objetos.md" }
+            { titulo: "Segurança de Tipos", path: "./csharp/Segurança de tipos.md" },
+            { titulo: "Variáveis, Operadores e Tipos de Dados", path: "./csharp/Variáveis, operadores e tipos de dados.md" },
+            { titulo: "Estruturas Condicionais e de Repetição", path: "./csharp/Estruturas condicionais e de repetição.md" },
+            { titulo: "Métodos (Funções)", path: "./csharp/Métodos (funções).md" },
+            { titulo: "Programação Orientada a Objetos", path: "./csharp/Programação orientada a objetos.md" }
         ];
     }
 }

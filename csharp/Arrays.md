@@ -5,7 +5,7 @@ Um **Array** (ou vetor) é uma estrutura de dados que armazena uma coleção de 
 
 ---
 
-## 1. Declaração e Inicialização
+## 1. Declaração e inicialização
 
 Existem várias formas de declarar e inicializar um array em C#:
 
@@ -22,7 +22,7 @@ string[] nomes = { "Ana", "Carlos", "Beatriz" };
 
 ---
 
-## 2. Acesso aos Elementos
+## 2. Acesso aos elementos
 
 Os arrays em C# utilizam **índice baseado em zero** (o primeiro elemento fica no índice `0` e o último no índice `tamanho - 1`).
 
@@ -39,16 +39,16 @@ Console.WriteLine(frutas[1]); // Saída: Pêra
 
 ---
 
-## 3. Propriedades e Métodos Úteis
+## 3. Propriedades e métodos úteis
 
-### Tamanho do Array (`Length`)
+### Tamanho do array (Length)
 Para saber quantos elementos o array possui:
 ```csharp
 int[] numeros = { 10, 20, 30, 40 };
 Console.WriteLine(numeros.Length); // Saída: 4
 ```
 
-### Classe `System.Array`
+### Classe System.Array
 O C# fornece a classe utilitária `Array` com vários métodos estáticos úteis:
 
 ```csharp
@@ -66,9 +66,9 @@ int indice = Array.IndexOf(numeros, 5); // Retorna 1
 
 ---
 
-## 4. Percorrendo Arrays (Loops)
+## 4. Percorrendo arrays (loops)
 
-### Usando o Loop `for` (Útil se precisar do índice)
+### Usando o loop for (útil se precisar do índice)
 ```csharp
 string[] nomes = { "Ana", "Carlos", "Beatriz" };
 
@@ -78,7 +78,7 @@ for (int i = 0; i < nomes.Length; i++)
 }
 ```
 
-### Usando o Loop `foreach` (Mais limpo, ideal para leitura)
+### Usando o loop foreach (mais limpo, ideal para leitura)
 ```csharp
 string[] nomes = { "Ana", "Carlos", "Beatriz" };
 
@@ -90,9 +90,9 @@ foreach (string nome in nomes)
 
 ---
 
-## 5. Arrays Multidimensionais e Jagged Arrays
+## 5. Arrays multidimensionais e jagged arrays
 
-### Array Bidimensional (Matriz)
+### Array bidimensional (matriz)
 ```csharp
 // Linhas e Colunas definidas
 int[,] matriz = new int[2, 3] 
@@ -104,7 +104,7 @@ int[,] matriz = new int[2, 3]
 Console.WriteLine(matriz[0, 1]); // Linha 0, Coluna 1 = Saída: 2
 ```
 
-### Jagged Array (Array de Arrays - tamanhos de linhas diferentes)
+### Jagged array (array de arrays - tamanhos de linhas diferentes)
 ```csharp
 int[][] jaggedArray = new int[2][];
 jaggedArray[0] = new int[] { 1, 2 };

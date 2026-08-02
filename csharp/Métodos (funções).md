@@ -1,4 +1,4 @@
-# Métodos (Como ensinar truques ao computador)
+# Métodos (como ensinar truques ao computador)
 #csharp
 
 Imagine que você tem um cachorro de estimação. Toda vez que você quiser que ele dê a patinha, você não quer ter que explicar passo a passo: *"Levante a perna direita, dobre o joelho, estique para a minha mão"*. 
@@ -9,7 +9,7 @@ Um **Método** (também chamado de Função) é exatamente esse comando ou truqu
 
 ---
 
-## 1. Os Três Passos do Truque
+## 1. Os três passos do truque
 
 Um método geralmente funciona em três etapas:
 1. **Ingredientes (Parâmetros):** O que você dá ao método (ex: um petisco).
@@ -18,7 +18,7 @@ Um método geralmente funciona em três etapas:
 
 ---
 
-## 2. Criando o Comando no Código
+## 2. Criando o comando no código
 
 Vamos criar um método para somar dois números:
 
@@ -40,20 +40,20 @@ int total = Somar(5, 7); // Apertamos o botão e guardamos o 12 na caixa 'total'
 
 ---
 
-## 3. Comandos sem Recompensa (`void`)
+## 3. Comandos sem recompensa (`void`)
 
 Alguns métodos servem apenas para fazer uma tarefa sem precisar te devolver nada. É o caso de mandar o cachorro sentar (ele só senta, não te devolve um objeto). No código, chamamos isso de `void` (vazio).
 
 ```csharp
 void Latir()
 {
-    Console.WriteLine("Au Au!"); // Só faz barulho, não devolve nenhum dado!
+    Console.WriteLine("Au Au!"); // Só faz barulho, não devolve nenhum dada!
 }
 ```
 
 ---
 
-## Artigos Relacionados:
+## Artigos relacionados:
 * **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20Operadores%20e%20Tipos%20de%20Dados.md)**
-* **[Programação Orientada a Objetos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Programa%C3%A7%C3%A3o%20Orientada%20a%20Objetos.md)**
+* **[Variáveis, operadores e tipos de dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20operadores%20e%20tipos%20de%20dados.md)**
+* **[Programação orientada a objetos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**
