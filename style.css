@@ -127,7 +127,7 @@ button:hover {
 }
 
 .escondido {
-    display: none;
+    display: none !important;
 }
 
 .leitor-artigo {
