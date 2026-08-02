@@ -6,7 +6,7 @@ Aprender programação é muito parecido com aprender matemática básica e orga
 
 ## 1. O que são Variáveis e Tipos de Dados?
 
-Uma **variável** é uma caixinha na memória do computador onde guardamos alguma informação útil. Como o C# se preocupa muito com a [Segurança de Tipos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/SegurancaDeTipos.md), cada caixa tem um formato rígido (o **tipo de dado**).
+Uma **variável** é uma caixinha na memória do computador onde guardamos alguma informação útil. Como o C# se preocupa muito com a [Segurança de Tipos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Seguran%C3%A7a%20de%20Tipos.md), cada caixa tem um formato rígido (o **tipo de dado**).
 
 Aqui estão os formatos de caixas mais comuns:
 
@@ -60,6 +60,6 @@ bool consigoComprarChocolate = (totalMoedas > 12); // Guarda true ou false
 
 ## Artigos Relacionados:
 * **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Segurança de Tipos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/SegurancaDeTipos.md)**
-* **[Estruturas Condicionais e de Repetição](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/EstruturasCondicionaisRepeticao.md)**
+* **[Segurança de Tipos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Seguran%C3%A7a%20de%20Tipos.md)**
+* **[Estruturas Condicionais e de Repetição](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Estruturas%20Condicionais%20e%20de%20Repeti%C3%A7%C3%A3o.md)**
 * **[Arrays em C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md)**

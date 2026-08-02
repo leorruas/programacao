@@ -6,7 +6,7 @@ Programar computadores é basicamente ensinar o seu código a tomar decisões e 
 
 ## 1. Condicionais: Tomando Decisões (O "GPS" do Código)
 
-Imagine que você está dirigindo e o GPS avisa: *"Se a ponte estiver aberta, continue reto. Senão, pegue o desvio à direita"*. No código, usamos `if` (Se) e `else` (Senão) para representar isso baseados em [Variáveis e Operadores](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/VariaveisOperadoresTipos.md).
+Imagine que você está dirigindo e o GPS avisa: *"Se a ponte estiver aberta, continue reto. Senão, pegue o desvio à direita"*. No código, usamos `if` (Se) e `else` (Senão) para representar isso baseados em [Variáveis e Operadores](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20Operadores%20e%20Tipos%20de%20Dados.md).
 
 ```csharp
 bool ponteAberta = true;
@@ -89,6 +89,6 @@ foreach (string convidado in convidados)
 
 ## Artigos Relacionados:
 * **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/VariaveisOperadoresTipos.md)**
+* **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20Operadores%20e%20Tipos%20de%20Dados.md)**
 * **[Arrays em C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md)**
-* **[Métodos (Funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/MetodosFuncoes.md)**
+* **[Métodos (Funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/M%C3%A9todos%20(Fun%C3%A7%C3%B5es).md)**

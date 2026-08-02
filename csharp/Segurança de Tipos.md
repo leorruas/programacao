@@ -12,7 +12,7 @@ A **Segurança de Tipos** (ou o fato do C# ser uma linguagem *Strongly Typed*) f
 
 Em linguagens "fracamente tipadas" (como JavaScript), você pode criar uma caixa, colocar um número lá dentro e, logo depois, substituir esse número por um texto sem que ninguém te impeça. É como ter uma caixa onde cabe qualquer coisa, mas que pode causar uma bagunça se você esquecer o que colocou lá dentro.
 
-No **C#**, quando você diz que uma "caixa" (uma [variável](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/VariaveisOperadoresTipos.md)) serve para guardar números inteiros (`int`), **ela só poderá guardar números inteiros**. O computador não vai deixar você colocar um texto nela de jeito nenhum.
+No **C#**, quando você diz que uma "caixa" (uma [variável](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20Operadores%20e%20Tipos%20de%20Dados.md)) serve para guardar números inteiros (`int`), **ela só poderá guardar números inteiros**. O computador não vai deixar você colocar um texto nela de jeito nenhum.
 
 ---
 
@@ -42,5 +42,5 @@ A maior vantagem disso é que os erros são descobertos em **tempo de compilaç�
 
 ## Artigos Relacionados:
 * **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/VariaveisOperadoresTipos.md)**
+* **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20Operadores%20e%20Tipos%20de%20Dados.md)**
 * **[Arrays em C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md)**

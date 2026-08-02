@@ -4,7 +4,7 @@ A **Programação Orientada a Objetos** (POO) é apenas uma forma de programar q
 
 Cada um desses objetos tem:
 1. **Características** (Atributos/Propriedades): Cores, marcas, tamanhos.
-2. **Ações** (Comportamentos/[Métodos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/MetodosFuncoes.md)): Ligar, correr, latir.
+2. **Ações** (Comportamentos/[Métodos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/M%C3%A9todos%20(Fun%C3%A7%C3%B5es).md)): Ligar, correr, latir.
 
 ---
 
@@ -78,6 +78,6 @@ Celular meuCelular = new Celular("Apple", "iPhone 15");
 
 ## Artigos Relacionados:
 * **[Introdução ao C#](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Introducao.md)**
-* **[Métodos (Funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/MetodosFuncoes.md)**
-* **[Segurança de Tipos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/SegurancaDeTipos.md)**
-* **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/VariaveisOperadoresTipos.md)**
+* **[Métodos (Funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/M%C3%A9todos%20(Fun%C3%A7%C3%B5es).md)**
+* **[Segurança de Tipos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Seguran%C3%A7a%20de%20Tipos.md)**
+* **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20Operadores%20e%20Tipos%20de%20Dados.md)**

@@ -86,10 +86,10 @@ else
 
 Agora que você já conhece o básico de como dar ordens para o computador, aqui está o fluxo ideal de tópicos sugeridos para você continuar sua jornada no C#:
 
-1. **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/VariaveisOperadoresTipos.md)** (As caixas e as ferramentas matemáticas)
-2. **[Segurança de Tipos (Strongly Typed)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/SegurancaDeTipos.md)** (Por que as caixas são rígidas?)
-3. **[Estruturas Condicionais e de Repetição](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/EstruturasCondicionaisRepeticao.md)** (Tomando decisões e repetindo tarefas)
+1. **[Variáveis, Operadores e Tipos de Dados](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Vari%C3%A1veis,%20Operadores%20e%20Tipos%20de%20Dados.md)** (As caixas e as ferramentas matemáticas)
+2. **[Segurança de Tipos (Strongly Typed)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Seguran%C3%A7a%20de%20Tipos.md)** (Por que as caixas são rígidas?)
+3. **[Estruturas Condicionais e de Repetição](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Estruturas%20Condicionais%20e%20de%20Repeti%C3%A7%C3%A3o.md)** (Tomando decisões e repetindo tarefas)
 4. **[Arrays (Gaveteiros de caixas)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Arrays.md)** (Guardando várias caixas juntas)
-5. **[Métodos (Funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/MetodosFuncoes.md)** (Automatizando passos repetitivos no robô)
-6. **[Programação Orientada a Objetos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/ProgramacaoOrientadaObjetos.md)** (Organizando o código como a vida real)
+5. **[Métodos (Funções)](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/M%C3%A9todos%20(Fun%C3%A7%C3%B5es).md)** (Automatizando passos repetitivos no robô)
+6. **[Programação Orientada a Objetos](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/csharp/Programa%C3%A7%C3%A3o%20Orientada%20a%20Objetos.md)** (Organizando o código como a vida real)
 
