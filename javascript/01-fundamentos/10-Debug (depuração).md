@@ -29,13 +29,13 @@ Assim como no Figma você usa o painel de inspeção e as guias visuais, na prog
     ```
 
 ### 2 - breakpoints / pontos de parada (pausar o protótipo)
-*   **O que é:** Uma ferramenta do navegador (DevTools) que permite pausar a execução do seu código no [[javascript/01-fundamentos/DOM\|DOM]] ou em uma linha específica para que você possa inspecionar o estado de todas as variáveis naquele exato instante.
+*   **O que é:** Uma ferramenta do navegador (DevTools) que permite pausar a execução do seu código no [[javascript/04-dom-e-browser/01-DOM\|DOM]] ou em uma linha específica para que você possa inspecionar o estado de todas as variáveis naquele exato instante.
 *   **Analogia de Design:** É como pausar uma animação de transição do Figma frame a frame para ver exatamente o momento em que um elemento sai do lugar ou some da tela.
 
 ### 3 - ler as ___placeholder_4___ (o inspetor de alertas)
 O navegador nos diz exatamente onde a lógica falhou. Aprender a ler essas mensagens economiza horas de trabalho:
 *   **ReferenceError (Variável não encontrada):** É como tentar usar um componente no Figma que você deletou do arquivo de bibliotecas.
-*   **TypeError (Erro de tipo em [[javascript/01-fundamentos/Tipos de dados\|Tipos de Dados]]):** É como tentar aplicar uma transição de "clique" em uma imagem estática que não é interativa, ou tentar tratar um texto como se fosse um número em um cálculo.
+*   **TypeError (Erro de tipo em [[javascript/01-fundamentos/03-Tipos de dados\|Tipos de Dados]]):** É como tentar aplicar uma transição de "clique" em uma imagem estática que não é interativa, ou tentar tratar um texto como se fosse um número em um cálculo.
 
 ---
 

@@ -54,6 +54,6 @@ Isso significa juntar as suas alterações da branch de testes de volta para a b
 
 *   **Git:** Ferramenta que gerencia o histórico de alterações dos seus arquivos sem precisar duplicá-los.
 *   **Commit:** Um registro permanente das alterações salvas com uma mensagem explicativa.
-*   **Branch:** Uma ramificação segura para criar novas [[javascript/01-fundamentos/Funções\|Funções]] sem quebrar o código principal.
+*   **Branch:** Uma ramificação segura para criar novas [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] sem quebrar o código principal.
 *   **Merge:** A ação de combinar as novidades de uma branch de volta para a principal.
 *   **GitHub:** O servidor na nuvem usado para guardar e compartilhar os repositórios Git.

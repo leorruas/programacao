@@ -1,6 +1,6 @@
 # Programação orientada a objetos (poo) - método Feynman
 
-A **Programação Orientada a [[javascript/01-fundamentos/Objetos\|Objetos]] (POO)** é um paradigma (uma forma de pensar e organizar o código) baseado no conceito de "[[javascript/01-fundamentos/Objetos\|Objetos]]" que contêm dados (propriedades) e ações (métodos). Em [[javascript/Introdução ao JavaScript\|JavaScript]], implementamos esse conceito principalmente usando [[javascript/02-funcoes-e-objetos/09-Classes|Classes]] (e antigamente com [[javascript/02-funcoes-e-objetos/06-Funções construtoras|Funções Construtoras]]).
+A **Programação Orientada a [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] (POO)** é um paradigma (uma forma de pensar e organizar o código) baseado no conceito de "[[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]" que contêm dados (propriedades) e ações (métodos). Em [[javascript/Introdução ao JavaScript\|JavaScript]], implementamos esse conceito principalmente usando [[javascript/02-funcoes-e-objetos/09-Classes|Classes]] (e antigamente com [[javascript/02-funcoes-e-objetos/06-Funções construtoras|Funções Construtoras]]).
 
 Para um designer, a POO é exatamente como construir e gerenciar um **Design System no Figma**. Em vez de escrever códigos soltos, você agrupa tudo em componentes estruturados que podem ser reutilizados, customizados e combinados.
 
@@ -8,7 +8,7 @@ Para um designer, a POO é exatamente como construir e gerenciar um **Design Sys
 
 ## O paradigma poo como um design system
 
-No desenvolvimento de software tradicional sem POO, as variáveis e [[javascript/01-fundamentos/Funções\|Funções]] ficam espalhadas (código procedural). Com a POO, estruturamos o código em blocos organizados e interconectados:
+No desenvolvimento de software tradicional sem POO, as variáveis e [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] ficam espalhadas (código procedural). Com a POO, estruturamos o código em blocos organizados e interconectados:
 
 ```mermaid
 flowchart TD
@@ -25,7 +25,7 @@ flowchart TD
 Para dominar a POO, precisamos entender seus quatro pilares fundamentais. Vamos associar cada um a recursos que você já usa no Figma:
 
 ### 1 - abstração (simplificação)
-*   **O que é no código:** Isolar apenas os aspectos essenciais de um [[javascript/01-fundamentos/Objetos\|Objetos]], ignorando detalhes complexos que não importam para o usuário daquele [[javascript/01-fundamentos/Objetos\|Objetos]].
+*   **O que é no código:** Isolar apenas os aspectos essenciais de um [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]], ignorando detalhes complexos que não importam para o usuário daquele [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]].
 *   **Analogia no Figma:** Quando você usa um componente de "Card", você só precisa interagir com as propriedades dele (como título e imagem). Você não precisa ver ou ajustar manualmente cada linha do Auto Layout interno para que ele funcione.
 *   **Exemplo Prático:**
     ```javascript
@@ -37,7 +37,7 @@ Para dominar a POO, precisamos entender seus quatro pilares fundamentais. Vamos 
     ```
 
 ### 2 - encapsulamento (proteção e organização)
-*   **O que é no código:** Esconder os detalhes internos de como o [[javascript/01-fundamentos/Objetos\|Objetos]] funciona e proteger seus dados, expondo apenas o que for estritamente necessário por meio de interfaces controladas (como métodos [[javascript/01-fundamentos/Get e Set\|get e set]]).
+*   **O que é no código:** Esconder os detalhes internos de como o [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] funciona e proteger seus dados, expondo apenas o que for estritamente necessário por meio de interfaces controladas (como métodos [[javascript/02-funcoes-e-objetos/10-Get e set\|get e set]]).
 *   **Analogia no Figma:** É como bloquear camadas internas de um componente master. O usuário da instância só pode alterar o conteúdo do texto ou a cor do botão através do painel lateral de propriedades (Component Properties), impedindo que ele delete acidentalmente a estrutura do Auto Layout por dentro.
 *   **Exemplo Prático:**
     ```javascript
@@ -72,7 +72,7 @@ Para dominar a POO, precisamos entender seus quatro pilares fundamentais. Vamos 
     ```
 
 ### 4 - polimorfismo (múltiplas formas)
-*   **O que é no código:** A capacidade de [[javascript/01-fundamentos/Objetos\|Objetos]] diferentes responderem à mesma mensagem ou método de maneiras diferentes.
+*   **O que é no código:** A capacidade de [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] diferentes responderem à mesma mensagem ou método de maneiras diferentes.
 *   **Analogia no Figma:** Imagine a ação de "Clique" na prototipagem. Se você clica em um botão "Play", ele toca um vídeo. Se você clica em um botão "Fechar", ele fecha a janela. A ação de entrada é a mesma (um clique), mas a resposta visual (saída) se comporta de maneira diferente baseada no componente.
 *   **Exemplo Prático:**
     ```javascript
@@ -93,7 +93,7 @@ Para dominar a POO, precisamos entender seus quatro pilares fundamentais. Vamos 
 
 ## Resumo para memorizar
 
-*   **POO:** Paradigma de organização baseado em componentes dinâmicos ([[javascript/01-fundamentos/Objetos\|Objetos]]) em vez de scripts lineares soltos.
+*   **POO:** Paradigma de organização baseado em componentes dinâmicos ([[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]) em vez de scripts lineares soltos.
 *   **Abstração:** Focar na interface essencial, escondendo a complexidade técnica.
 *   **Encapsulamento:** Trancar o interior do componente, permitindo edições apenas pelas propriedades expostas.
 *   **Herança:** Criar variações a partir de um componente base (pai e filho).

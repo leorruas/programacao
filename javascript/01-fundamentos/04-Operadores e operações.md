@@ -1,6 +1,6 @@
 # Operações e operadores - método Feynman
 
-Em [[javascript/Introdução ao JavaScript\|JavaScript]], **Operadores** são símbolos especiais que usamos para realizar **Operações** com nossos [[javascript/01-fundamentos/Tipos de dados\|dados]] (somar, comparar, validar condições, etc.).
+Em [[javascript/Introdução ao JavaScript\|JavaScript]], **Operadores** são símbolos especiais que usamos para realizar **Operações** com nossos [[javascript/01-fundamentos/03-Tipos de dados\|dados]] (somar, comparar, validar condições, etc.).
 
 Sob a perspectiva da **Economia**, os operadores funcionam como as **fórmulas de transações e fluxo de caixa**. Toda operação financeira exige ferramentas para calcular saldos (adição/subtração), projetar lucros (multiplicação) ou testar condições fiscais (ex: se o saldo é maior ou igual ao preço da compra para liberar a liberação do produto).
 
@@ -26,7 +26,7 @@ Em [[javascript/Introdução ao JavaScript\|JavaScript]], existe um atalho de es
     
     console.log(larguraNumero + 10); // Saída: 330 (matemática funciona!)
     ```
-*   **Por que usar:** Evita ter que escrever [[javascript/01-fundamentos/Funções\|Funções]] maiores como `Number(texto)` ou `parseInt(texto)`. Mas atenção: se a string contiver letras (ex: `"320px"`), o operador retornará `NaN` (Not a Number/Não é um Número).
+*   **Por que usar:** Evita ter que escrever [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] maiores como `Number(texto)` ou `parseInt(texto)`. Mas atenção: se a string contiver letras (ex: `"320px"`), o operador retornará `NaN` (Not a Number/Não é um Número).
 
 ---
 
@@ -52,11 +52,11 @@ Permitem combinar múltiplas comparações para criar lógicas mais complexas.
 
 ### E (___placeholder_37___) - ambas as condições precisam ser verdadeiras
 *   **No código:** `condicaoA && condicaoB`
-*   **A analogia da estrada (Avaliação de curto-circuito):** Funciona como passar por uma série de cabines de pedágio em uma estrada. O operador `&&` exige que todas as cabines estejam liberadas (valores verdadeiros ou [[javascript/01-fundamentos/Truthy e Falsy\|truthy]]) para que a viagem prossiga até o final:
-    *   **O curto-circuito (Falsy barra na hora):** Se o operador encontrar qualquer cabine bloqueada (um valor **[[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]]**, ex: `0` ou `""`), a viagem é interrompida imediatamente. O [[javascript/Introdução ao JavaScript\|JavaScript]] para a leitura na hora e **retorna o valor [[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]] que causou o bloqueio** (ex: `'Gato' && false` retorna `false`; `(5 - 5) && (5 + 5)` calcula `0` no primeiro termo, que é [[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]], e retorna `0` de imediato, sem calcular o segundo).
-    *   **A chegada ao destino (Tudo liberado):** Se todas as cabines forem aprovadas (todos os termos forem [[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]]), a viagem vai até o final da estrada e o [[javascript/Introdução ao JavaScript\|JavaScript]] **retorna o último valor verificado** na ponta direita (ex: `'Gato' && 'Cão'` retorna `'Cão'`; `(5 >= 5) && (3 < 6)` retorna `true` porque ambos são verdadeiros e o último é o booleano `true`).
+*   **A analogia da estrada (Avaliação de curto-circuito):** Funciona como passar por uma série de cabines de pedágio em uma estrada. O operador `&&` exige que todas as cabines estejam liberadas (valores verdadeiros ou [[javascript/01-fundamentos/07-Truthy e falsy\|truthy]]) para que a viagem prossiga até o final:
+    *   **O curto-circuito (Falsy barra na hora):** Se o operador encontrar qualquer cabine bloqueada (um valor **[[javascript/01-fundamentos/07-Truthy e falsy\|Truthy e Falsy]]**, ex: `0` ou `""`), a viagem é interrompida imediatamente. O [[javascript/Introdução ao JavaScript\|JavaScript]] para a leitura na hora e **retorna o valor [[javascript/01-fundamentos/07-Truthy e falsy\|Truthy e Falsy]] que causou o bloqueio** (ex: `'Gato' && false` retorna `false`; `(5 - 5) && (5 + 5)` calcula `0` no primeiro termo, que é [[javascript/01-fundamentos/07-Truthy e falsy\|Truthy e Falsy]], e retorna `0` de imediato, sem calcular o segundo).
+    *   **A chegada ao destino (Tudo liberado):** Se todas as cabines forem aprovadas (todos os termos forem [[javascript/01-fundamentos/07-Truthy e falsy\|Truthy e Falsy]]), a viagem vai até o final da estrada e o [[javascript/Introdução ao JavaScript\|JavaScript]] **retorna o último valor verificado** na ponta direita (ex: `'Gato' && 'Cão'` retorna `'Cão'`; `(5 >= 5) && (3 < 6)` retorna `true` porque ambos são verdadeiros e o último é o booleano `true`).
     *   **Por que o [[javascript/Introdução ao JavaScript\|JavaScript]] retorna o último valor em vez de apenas "true"?**
-        *   **A analogia da linha de montagem (Culinária):** Pense em um prato que precisa passar por três aprovações na cozinha: o Auxiliar, o Cozinheiro e o Chef Final. O operador `&&` atua como o inspetor. Se todas as etapas aprovam (são [[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]]), o processo foi um sucesso completo. Em vez de escrever um relatório dizendo "Sucesso", o inspetor simplesmente pega o prato pronto da mão do Chef (o último valor verificado na ponta direita) e entrega para você.
+        *   **A analogia da linha de montagem (Culinária):** Pense em um prato que precisa passar por três aprovações na cozinha: o Auxiliar, o Cozinheiro e o Chef Final. O operador `&&` atua como o inspetor. Se todas as etapas aprovam (são [[javascript/01-fundamentos/07-Truthy e falsy\|Truthy e Falsy]]), o processo foi um sucesso completo. Em vez de escrever um relatório dizendo "Sucesso", o inspetor simplesmente pega o prato pronto da mão do Chef (o último valor verificado na ponta direita) e entrega para você.
         *   **Utilidade prática:** Isso permite reduzir a quantidade de código para renderizar e extrair variáveis de forma dinâmica. Em vez de criar um bloco `if` completo, fazemos a checagem e atribuição na mesma linha:
             ```javascript
             const usuarioLogado = true;
@@ -69,9 +69,9 @@ Permitem combinar múltiplas comparações para criar lógicas mais complexas.
 
 ### Ou (___placeholder_54___) - apenas uma das condições precisa ser verdadeira
 *   **No código:** `condicaoA || condicaoB`
-*   **A analogia dos ingredientes substitutos (Curto-circuito do OU):** Funciona como uma lista de substituições de ingredientes em uma receita. O operador `||` quer encontrar **apenas uma** opção disponível (valores verdadeiros ou [[javascript/01-fundamentos/Truthy e Falsy\|truthy]]) para prosseguir:
-    *   **O curto-circuito (O primeiro [[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]] vence):** Conforme lê da esquerda para a direita, assim que o `||` encontra o **primeiro valor verdadeiro ([[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]])**, ele para a busca imediatamente. Ele ignora o restante do código à direita e **retorna o primeiro valor verdadeiro encontrado** (ex: `'Gato' || 'Cão'` retorna `'Gato'`; `false || "Óleo" || "Banha"` retorna `"Óleo"`, pois ignora a banha após achar o óleo).
-    *   **O pior cenário (Tudo bloqueado):** Se todas as opções forem inválidas (todos os termos forem [[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]]), ele vai até o final da linha e **retorna o último valor [[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]] verificado** na ponta direita (ex: `null || undefined || 0` retorna `0`).
+*   **A analogia dos ingredientes substitutos (Curto-circuito do OU):** Funciona como uma lista de substituições de ingredientes em uma receita. O operador `||` quer encontrar **apenas uma** opção disponível (valores verdadeiros ou [[javascript/01-fundamentos/07-Truthy e falsy\|truthy]]) para prosseguir:
+    *   **O curto-circuito (O primeiro [[javascript/01-fundamentos/07-Truthy e falsy\|Truthy e Falsy]] vence):** Conforme lê da esquerda para a direita, assim que o `||` encontra o **primeiro valor verdadeiro ([[javascript/01-fundamentos/07-Truthy e falsy\|Truthy e Falsy]])**, ele para a busca imediatamente. Ele ignora o restante do código à direita e **retorna o primeiro valor verdadeiro encontrado** (ex: `'Gato' || 'Cão'` retorna `'Gato'`; `false || "Óleo" || "Banha"` retorna `"Óleo"`, pois ignora a banha após achar o óleo).
+    *   **O pior cenário (Tudo bloqueado):** Se todas as opções forem inválidas (todos os termos forem [[javascript/01-fundamentos/07-Truthy e falsy\|Truthy e Falsy]]), ele vai até o final da linha e **retorna o último valor [[javascript/01-fundamentos/07-Truthy e falsy\|Truthy e Falsy]] verificado** na ponta direita (ex: `null || undefined || 0` retorna `0`).
     *   **Utilidade prática (Valores padrão/Fallback):** É muito usado para definir um valor padrão caso o usuário não preencha uma informação:
         ```javascript
         const nomeDigitado = ""; // Falsy
@@ -85,7 +85,7 @@ Permitem combinar múltiplas comparações para criar lógicas mais complexas.
 ### Não / negação (___placeholder_64___) - inverte o valor lógico
 *   **No código:** `!valor`
 *   **Analogia econômica:** Funciona como um teste de inadimplência ou restrição fiscal (ex: se `aprovado` é verdadeiro, `!aprovado` significa que a transação foi negada).
-*   **Interação com [[javascript/01-fundamentos/Truthy e Falsy\|Truthy e Falsy]]**: Se aplicado a dados não booleanos, ele inverte a sua equivalência lógica (converte e inverte strings, arrays, números, etc., conforme explicado em [[javascript/01-fundamentos/07-Truthy e falsy|Truthy e Falsy]]).
+*   **Interação com [[javascript/01-fundamentos/07-Truthy e falsy\|Truthy e Falsy]]**: Se aplicado a dados não booleanos, ele inverte a sua equivalência lógica (converte e inverte strings, arrays, números, etc., conforme explicado em [[javascript/01-fundamentos/07-Truthy e falsy|Truthy e Falsy]]).
 
 ---
 

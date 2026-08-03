@@ -1,6 +1,6 @@
 # Entendendo o JSON - método Feynman
 
-JSON significa [[javascript/Introdução ao JavaScript\|JavaScript]] Object Notation (Notação de [[javascript/01-fundamentos/Objetos\|Objetos]] [[javascript/Introdução ao JavaScript\|JavaScript]]). 
+JSON significa [[javascript/Introdução ao JavaScript\|JavaScript]] Object Notation (Notação de [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] [[javascript/Introdução ao JavaScript\|JavaScript]]). 
 
 Para entender de forma simples: o JSON é a **Ficha de Cadastro Universal** da internet, baseado na estrutura de [[javascript/02-funcoes-e-objetos/03-Objetos|Objetos]] do [[javascript/Introdução ao JavaScript\|JavaScript]]. Ele é o formato de texto padrão usado para transmitir dados entre computadores e consultar dados de uma [[javascript/05-assincrono/02-API|API]] usando o [[javascript/05-assincrono/03-Fetch|Fetch]].
 
@@ -51,7 +51,7 @@ Diferente do [[javascript/Introdução ao JavaScript\|JavaScript]], o JSON é ap
 }
 ```
 
-Observe que o JSON aceita textos, números, valores verdadeiro/falso (booleanos), listas (arrays) e até mesmo outras fichas menores dentro dele ([[javascript/01-fundamentos/Objetos\|Objetos]] aninhados).
+Observe que o JSON aceita textos, números, valores verdadeiro/falso (booleanos), listas (arrays) e até mesmo outras fichas menores dentro dele ([[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] aninhados).
 
 ---
 

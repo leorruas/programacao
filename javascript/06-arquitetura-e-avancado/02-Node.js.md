@@ -1,8 +1,8 @@
 # Entendendo o Node.js - método Feynman
 
-É muito comum as pessoas pensarem que o [[javascript/06-arquitetura-e-avancado/Node.js\|Node.js]].js é uma nova linguagem de programação ou um framework, mas não é. 
+É muito comum as pessoas pensarem que o [[javascript/06-arquitetura-e-avancado/02-Node.js\|Node.js]].js é uma nova linguagem de programação ou um framework, mas não é. 
 
-O [[javascript/06-arquitetura-e-avancado/Node.js\|Node.js]].js é um **Ambiente de Execução (Runtime)** que permite rodar [[javascript/Introdução ao JavaScript\|JavaScript]] diretamente no computador ou servidor, sem depender de um navegador web.
+O [[javascript/06-arquitetura-e-avancado/02-Node.js\|Node.js]].js é um **Ambiente de Execução (Runtime)** que permite rodar [[javascript/Introdução ao JavaScript\|JavaScript]] diretamente no computador ou servidor, sem depender de um navegador web.
 
 ---
 
@@ -32,7 +32,7 @@ Junto com o Node.js, você ganha acesso ao **NPM**, que é a maior biblioteca de
 Fazendo uma analogia com o design: o NPM é a **Comunidade do Figma (Figma Community)**.
 Quando você precisa de um ícone ou de um efeito de desfoque complexo no Figma, você não cria do zero; você vai à comunidade e baixa um plugin ou biblioteca pronta. 
 
-No desenvolvimento, quando você precisa de uma [[javascript/01-fundamentos/Funções\|Funções]] para enviar e-mails ou criptografar senhas, você usa o NPM para baixar uma biblioteca criada e testada por outros desenvolvedores.
+No desenvolvimento, quando você precisa de uma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] para enviar e-mails ou criptografar senhas, você usa o NPM para baixar uma biblioteca criada e testada por outros desenvolvedores.
 
 ---
 
@@ -40,5 +40,5 @@ No desenvolvimento, quando você precisa de uma [[javascript/01-fundamentos/Fun�
 
 *   **Node.js:** Não é uma linguagem, é um ambiente que permite executar [[javascript/Introdução ao JavaScript\|JavaScript]] diretamente no computador ou servidor.
 *   **Engine V8:** O motor de leitura do Google Chrome que o Node.js retirou do navegador para rodar no sistema operacional.
-*   **Back-end com [[javascript/Introdução ao JavaScript\|JavaScript]]:** Permite criar servidores, [[javascript/01-fundamentos/API\|API]] e ler arquivos locais usando a mesma sintaxe do [[javascript/Introdução ao JavaScript\|JavaScript]] de navegador.
+*   **Back-end com [[javascript/Introdução ao JavaScript\|JavaScript]]:** Permite criar servidores, [[javascript/05-assincrono/02-API\|API]] e ler arquivos locais usando a mesma sintaxe do [[javascript/Introdução ao JavaScript\|JavaScript]] de navegador.
 *   **NPM:** O gerenciador de pacotes (como a Comunidade do Figma) para baixar códigos prontos feitos por terceiros.

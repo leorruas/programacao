@@ -13,7 +13,7 @@ No [[javascript/Introdução ao JavaScript\|JavaScript]], os tipos de dados func
 O [[javascript/Introdução ao JavaScript\|JavaScript]] possui tipos básicos que representam valores simples e imutáveis:
 
 ### 1. String (texto)
-Representa qualquer sequência de caracteres de texto. Deve ser escrita sempre entre aspas (duplas, simples ou crases). Veja também [[javascript/03-manipulacao/Template strings\|Template Strings]] para criação de textos dinâmicos.
+Representa qualquer sequência de caracteres de texto. Deve ser escrita sempre entre aspas (duplas, simples ou crases). Veja também [[javascript/03-manipulacao/01-Template strings\|Template Strings]] para criação de textos dinâmicos.
 ```javascript
 const nome = "Ana";
 const textoBotao = 'Clique aqui';
@@ -80,7 +80,7 @@ const numeroGigante = 9007199254740991n; // Termina com a letra 'n'
 
 Além dos tipos primitivos simples, temos estruturas que agrupam múltiplos dados:
 
-*   **Object ([[javascript/01-fundamentos/Objetos\|Objetos]]):** Um grupo de propriedades do tipo chave e valor. Veja a nota completa em [[javascript/02-funcoes-e-objetos/03-Objetos|Objetos]].
+*   **Object ([[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]):** Um grupo de propriedades do tipo chave e valor. Veja a nota completa em [[javascript/02-funcoes-e-objetos/03-Objetos|Objetos]].
 *   **Array (Lista):** Uma lista ordenada de valores. Veja métodos para manipulá-las em [[javascript/03-manipulacao/03-Métodos de array|Métodos de array]].
 
 ```javascript

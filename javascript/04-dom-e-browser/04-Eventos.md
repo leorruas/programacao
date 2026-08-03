@@ -2,13 +2,13 @@
 
 Em desenvolvimento web, um **Evento** é qualquer ação ou acontecimento detectado pelo navegador, geralmente provocado pelo usuário (como um clique em um botão, a rolagem da página ou o ato de digitar no teclado).
 
-Pense nos eventos como os **Gatilhos de [[javascript/01-fundamentos/Protótipos e Proto\|Protótipos e Proto]] (Triggers)** do Figma.
+Pense nos eventos como os **Gatilhos de [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] (Triggers)** do Figma.
 
 ---
 
 ## A analogia da prototipagem no Figma
 
-Ao criar uma interação no modo de [[javascript/01-fundamentos/Protótipos e Proto\|Protótipos e Proto]] do Figma, você puxa uma linha azul de um elemento para outro e define duas coisas essenciais:
+Ao criar uma interação no modo de [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] do Figma, você puxa uma linha azul de um elemento para outro e define duas coisas essenciais:
 
 1.  **O Gatilho (Trigger):** É a ação do usuário que dispara a mudança. Exemplos no Figma: *"On Click"* (Ao clicar), *"While Hovering"* (Enquanto passa o mouse por cima) ou *"On Drag"* (Ao arrastar).
 2.  **A Transição:** O que acontece quando o gatilho é disparado (ex: abrir um modal, ir para outra tela).
@@ -66,7 +66,7 @@ Assim como no Figma temos diferentes opções de triggers, no desenvolvimento we
 *   **blur:** Quando o cursor sai de um campo de texto (fim da digitação/foco perdido).
 
 ### Eventos de carregamento e janela
-*   **DOMContentLoaded:** Quando o navegador terminou de carregar e montar a árvore do [[javascript/01-fundamentos/DOM\|DOM]] (o HTML), antes de baixar imagens ou estilos externos.
+*   **DOMContentLoaded:** Quando o navegador terminou de carregar e montar a árvore do [[javascript/04-dom-e-browser/01-DOM\|DOM]] (o HTML), antes de baixar imagens ou estilos externos.
 *   **load:** Quando a página inteira carregou completamente (incluindo imagens, CSS e arquivos externos).
 *   **scroll:** Quando o usuário rola a página para cima ou para baixo (usado para animar elementos no scroll).
 *   **resize:** Quando o tamanho da janela do navegador é alterado (útil para adaptar layouts de forma responsiva).
@@ -103,5 +103,5 @@ Assim como no Figma temos diferentes opções de triggers, no desenvolvimento we
 ## Resumo para memorizar
 
 *   **Evento:** O sinal que o navegador emite quando algo relevante acontece (o gatilho/trigger).
-*   **Event Listener:** A [[javascript/01-fundamentos/Funções\|Funções]] que fica ativamente "escutando" e vigiando um elemento na tela para disparar uma ação.
-*   **Event Handler:** A [[javascript/01-fundamentos/Funções\|Funções]] que é executada como resposta direta ao evento que aconteceu.
+*   **Event Listener:** A [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] que fica ativamente "escutando" e vigiando um elemento na tela para disparar uma ação.
+*   **Event Handler:** A [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] que é executada como resposta direta ao evento que aconteceu.

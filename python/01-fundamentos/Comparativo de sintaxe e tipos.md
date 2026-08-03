@@ -8,7 +8,7 @@ Este documento serve como um dicionário de tradução entre o [[javascript/Intr
 
 ## 1 - declaração de variáveis (criação de termos)
 
-No [[javascript/Introdução ao JavaScript\|JavaScript]], precisamos de palavras-chave para criar variáveis e definir suas regras de [[javascript/06-arquitetura-e-avancado/Escopo e closures\|Escopo e Closures]]. No [[python/Introdução ao Python\|Python]], a declaração é direta e implícita.
+No [[javascript/Introdução ao JavaScript\|JavaScript]], precisamos de palavras-chave para criar variáveis e definir suas regras de [[javascript/06-arquitetura-e-avancado/03-Escopo e closures\|Escopo e Closures]]. No [[python/Introdução ao Python\|Python]], a declaração é direta e implícita.
 
 | Ação | [[javascript/Introdução ao JavaScript\|JavaScript]] | [[python/Introdução ao Python\|Python]] |
 | :--- | :--- | :--- |

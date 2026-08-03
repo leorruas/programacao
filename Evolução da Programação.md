@@ -35,7 +35,7 @@ flowchart TD
 *   **Analogia de Design:** É o equivalente a criar um software de desenho vetorial no computador, automatizando a tarefa de renderizar curvas e formas matemáticas em vez de pintar pixel por pixel à mão.
 
 ## 3 - C++: a era dos objetos (1985)
-*   **O que resolveu:** Com o crescimento dos sistemas (como softwares de texto e jogos), organizar milhares de linhas de código linear em C ficou inviável. C++ introduziu a Programação Orientada a [[javascript/01-fundamentos/Objetos\|Objetos]] ([[javascript/06-arquitetura-e-avancado/Programação orientada a objetos\|POO]]), permitindo agrupar características e ações dentro de "[[javascript/01-fundamentos/Objetos\|Objetos]]" reutilizáveis.
+*   **O que resolveu:** Com o crescimento dos sistemas (como softwares de texto e jogos), organizar milhares de linhas de código linear em C ficou inviável. C++ introduziu a Programação Orientada a [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] ([[javascript/06-arquitetura-e-avancado/01-Programação orientada a objetos\|POO]]), permitindo agrupar características e ações dentro de "[[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]" reutilizáveis.
 *   **Analogia de Design:** É o momento em que os softwares de design começaram a permitir que você criasse Componentes (gabaritos reutilizáveis) em vez de desenhar elementos idênticos soltos na tela repetidas vezes.
 
 ## 4 - HTML (1990) & CSS (1996): a fachada visual da web
@@ -60,11 +60,11 @@ flowchart TD
 *   **Analogia de Design:** É como trabalhar dentro do pacote Adobe completo: um ambiente corporativo ultra profissional, integrado, rígido em suas especificações e seguro para grandes projetos de escala internacional.
 
 ## 9 - TypeScript: o design system rígido (2012)
-*   **O que resolveu:** O [[javascript/Introdução ao JavaScript\|JavaScript]] cresceu tanto que passou a gerenciar sistemas inteiros de escala industrial. A ausência de regras rígidas de tipagem causava bugs frequentes de lógica. O [[javascript/06-arquitetura-e-avancado/TypeScript introdução\|TypeScript]] adicionou Tipagem Estática sobre o [[javascript/Introdução ao JavaScript\|JavaScript]].
+*   **O que resolveu:** O [[javascript/Introdução ao JavaScript\|JavaScript]] cresceu tanto que passou a gerenciar sistemas inteiros de escala industrial. A ausência de regras rígidas de tipagem causava bugs frequentes de lógica. O [[javascript/06-arquitetura-e-avancado/08-TypeScript introdução\|TypeScript]] adicionou Tipagem Estática sobre o [[javascript/Introdução ao JavaScript\|JavaScript]].
 *   **Analogia de Design:** É a criação de um **Design System rigoroso**. Você não pode simplesmente arrastar qualquer botão e aplicar qualquer cor à mão livre: o software bloqueia a ação e te força a usar as propriedades e variantes exatas permitidas pelo sistema.
 
 ## 10 - React (2013) & Vue (2014): os componentes reativos
-*   **O que resolveram:** Atualizar o HTML de forma manual através do [[javascript/Introdução ao JavaScript\|JavaScript]] tradicional ([[javascript/01-fundamentos/DOM\|DOM]]) se tornou muito lento para aplicativos complexos como feeds de redes sociais. [[react/Introdução ao React\|React]] (do Facebook) e Vue surgiram trazendo a arquitetura baseada em Componentes Reativos que se atualizam automaticamente em lote conforme os dados mudam.
+*   **O que resolveram:** Atualizar o HTML de forma manual através do [[javascript/Introdução ao JavaScript\|JavaScript]] tradicional ([[javascript/04-dom-e-browser/01-DOM\|DOM]]) se tornou muito lento para aplicativos complexos como feeds de redes sociais. [[react/Introdução ao React\|React]] (do Facebook) e Vue surgiram trazendo a arquitetura baseada em Componentes Reativos que se atualizam automaticamente em lote conforme os dados mudam.
 *   **Analogia de Design:** É o motor de componentes masters e instâncias do Figma. Em vez de abrir 50 telas para alterar a foto do avatar do usuário, você altera o componente master ou atualiza a variável global de imagem, e o sistema atualiza todas as instâncias instantaneamente na tela.
 
 ## 11 - Next.js: o servidor inteligente (2016)

@@ -12,7 +12,7 @@ Imagine que você está usando o Figma para desenhar uma interface:
 
 *   **O [[react/Introdução ao React\|React]]:** É o aplicativo do Figma básico. Ele te dá as ferramentas essenciais para desenhar retângulos, textos e criar componentes.
 *   **Os Pacotes (Packages):** São os **plugins** que você instala por fora (ex: um plugin para gerar avatares aleatórios, um plugin de ícones ou um plugin de gráficos). Você não precisa desenhar o ícone do zero; você instala o plugin e arrasta o ícone pronto para a tela.
-*   **O NPM ([[javascript/06-arquitetura-e-avancado/Node.js\|Node.js]] Package Manager):** É a **App Store / Figma Community** onde esses pacotes ficam guardados e de onde você os baixa usando uma linha de comando (ex: `npm install nome-do-pacote`).
+*   **O NPM ([[javascript/06-arquitetura-e-avancado/02-Node.js\|Node.js]] Package Manager):** É a **App Store / Figma Community** onde esses pacotes ficam guardados e de onde você os baixa usando uma linha de comando (ex: `npm install nome-do-pacote`).
 
 ---
 
@@ -25,7 +25,7 @@ Para usar qualquer pacote no seu projeto [[react/Introdução ao React\|React]],
     npm install lucide-react
     ```
 2.  **Importar no seu componente:**
-    Usando a sintaxe de [[javascript/06-arquitetura-e-avancado/Módulos import e export\|import/export]]:
+    Usando a sintaxe de [[javascript/06-arquitetura-e-avancado/05-Módulos import e export\|import/export]]:
     ```javascript
     import { User, ShoppingCart } from 'lucide-react';
     ```
@@ -89,8 +89,8 @@ Para conectar seu React a servidores externos e gerenciar cache e carregamento:
 
 | Pacote | O que faz? | Comando de Instalação |
 | :--- | :--- | :--- |
-| **Axios** | Cliente HTTP simples para fazer requisições para [[javascript/01-fundamentos/API\|APIs]]. | `npm install axios` |
-| **TanStack Query (React Query)** | Gerencia cache automático, refetching e estado de loading de [[javascript/01-fundamentos/API\|API]]. | `npm install @tanstack/react-query` |
+| **Axios** | Cliente HTTP simples para fazer requisições para [[javascript/05-assincrono/02-API\|APIs]]. | `npm install axios` |
+| **TanStack Query (React Query)** | Gerencia cache automático, refetching e estado de loading de [[javascript/05-assincrono/02-API\|API]]. | `npm install @tanstack/react-query` |
 
 ---
 

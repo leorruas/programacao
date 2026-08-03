@@ -1,6 +1,6 @@
 # Entendendo objetos - método Feynman
 
-Em [[javascript/Introdução ao JavaScript\|JavaScript]], um **Objeto** é um dos [[javascript/01-fundamentos/03-Tipos de dados|Tipos de dados]] complexos. Ele é uma estrutura que permite agrupar variáveis (propriedades) e [[javascript/01-fundamentos/Funções\|funções]] (métodos) que pertencem a uma mesma entidade em um único lugar. Para criá-los em lote, usamos [[javascript/02-funcoes-e-objetos/09-Classes|Classes]] ou [[javascript/02-funcoes-e-objetos/06-Funções construtoras|Funções Construtoras]].
+Em [[javascript/Introdução ao JavaScript\|JavaScript]], um **Objeto** é um dos [[javascript/01-fundamentos/03-Tipos de dados|Tipos de dados]] complexos. Ele é uma estrutura que permite agrupar variáveis (propriedades) e [[javascript/02-funcoes-e-objetos/01-Funções\|funções]] (métodos) que pertencem a uma mesma entidade em um único lugar. Para criá-los em lote, usamos [[javascript/02-funcoes-e-objetos/09-Classes|Classes]] ou [[javascript/02-funcoes-e-objetos/06-Funções construtoras|Funções Construtoras]].
 
 Pense em um objeto como a **Ficha de Propriedades de um Componente** do Figma.
 
@@ -45,7 +45,7 @@ const usuario = {
 
 ### Acessando os dados do objeto
 
-Para ler um dado ou ativar uma [[javascript/01-fundamentos/Funções\|Funções]] de dentro do objeto, usamos a **[[javascript/01-fundamentos/Dot Notation e Propriedades\|notação de ponto]]** (`.`):
+Para ler um dado ou ativar uma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] de dentro do objeto, usamos a **[[javascript/02-funcoes-e-objetos/04-Dot notation e propriedades\|notação de ponto]]** (`.`):
 
 ```javascript
 // Lendo propriedades
@@ -86,6 +86,6 @@ console.log(usuario.profissao); // Saída: Designer
 
 *   **Objeto:** Uma estrutura usada para agrupar características (propriedades) e ações (métodos) de um elemento.
 *   **Propriedades:** As variáveis internas do objeto, escritas em pares de chave e valor.
-*   **Métodos:** As [[javascript/01-fundamentos/Funções\|Funções]] salvas dentro do objeto que descrevem ações que ele pode realizar.
-*   **[[javascript/01-fundamentos/Dot Notation e Propriedades\|Dot Notation]]:** O uso do ponto (`objeto.propriedade`) para acessar ou alterar informações dele.
-*   **Objetos Embutidos:** O [[javascript/Introdução ao JavaScript\|JavaScript]] possui objetos nativos pré-configurados, como [[javascript/01-fundamentos/Math\|Math]] para [[javascript/01-fundamentos/Funções\|Funções]] matemáticas e [[javascript/01-fundamentos/JSON\|JSON]] para estruturação de dados.
+*   **Métodos:** As [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] salvas dentro do objeto que descrevem ações que ele pode realizar.
+*   **[[javascript/02-funcoes-e-objetos/04-Dot notation e propriedades\|Dot Notation]]:** O uso do ponto (`objeto.propriedade`) para acessar ou alterar informações dele.
+*   **Objetos Embutidos:** O [[javascript/Introdução ao JavaScript\|JavaScript]] possui objetos nativos pré-configurados, como [[javascript/03-manipulacao/06-Math\|Math]] para [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] matemáticas e [[javascript/03-manipulacao/08-JSON\|JSON]] para estruturação de dados.

@@ -35,26 +35,26 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Padronização de Links do Vault**:
   * Conversão coletiva de todos os links de markdown locais absolutos (iCloud / Local paths) nas notas de C# para caminhos relativos de alta compatibilidade multi-dispositivo no Obsidian.
 
-* **Criação de Nota**: [[csharp/Lista, pilha e fila\|Lista, pilha e fila em C#]]
+* **Criação de Nota**: [[csharp/11-Lista, pilha e fila\|Lista, pilha e fila em C#]]
   * Criação do guia de implementação prática contendo sintaxes, operações (Enqueue, Dequeue, Push, Pop, Add, Insert) e analogias do Método Feynman.
 
 * **Criação de Notas de C#**:
   * [[csharp/Coleções\|Coleções em C#]]: Explicação sobre coleções flexíveis (`List<T>`, `Dictionary<K, V>`, `HashSet<T>`).
-  * [[csharp/Tipos abstratos de dados\|Tipos abstratos de dados]]: Introdução conceitual sobre TADs (Filas, Pilhas e Dicionários) e sua representação no código.
-* **Atualização de Nota**: [[csharp/Guia de estudos\|Guia de estudos de C#]]
+  * [[csharp/10-Tipos abstratos de dados\|Tipos abstratos de dados]]: Introdução conceitual sobre TADs (Filas, Pilhas e Dicionários) e sua representação no código.
+* **Atualização de Nota**: [[javascript/00-Guia de Estudos\|Guia de estudos de C#]]
   * Atualização da nota para incluir Coleções em C# e ajustar a ordenação de roteiro de estudos sugerido.
 
 * **Melhoria no Layout de Código do Web App**:
   * Implementadas quebras de linha automáticas (`pre-wrap`) nos blocos de código (`pre`) para evitar barras de rolagem horizontais no mobile e desktop.
   * Criada numeração de linhas dinâmica e flexível integrada nos blocos de código de artigos do leitor.
 
-* **Criação de Nota**: [[csharp/Guia de estudos\|Guia de estudos de C#]]
+* **Criação de Nota**: [[javascript/00-Guia de Estudos\|Guia de estudos de C#]]
   * Criação do mapa e roteiro de aprendizagem sequencial sugerido para C#, interligando todos os artigos do vault.
 
 * **Criação de Notas de C#**:
-  * [[csharp/O método Main\|O método Main]]: Explicação detalhada sobre a estrutura `public static void Main(string[] args)`.
-  * [[csharp/Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]: Explicação detalhada sobre loops `for`, `while` e `do while`.
-  * [[csharp/Métodos de arrays\|Métodos de arrays]]: Dicionário exaustivo de funções para arrays.
+  * [[csharp/02-O método Main\|O método Main]]: Explicação detalhada sobre a estrutura `public static void Main(string[] args)`.
+  * [[javascript/01-fundamentos/09-Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]: Explicação detalhada sobre loops `for`, `while` e `do while`.
+  * [[csharp/08-Métodos de arrays\|Métodos de arrays]]: Dicionário exaustivo de funções para arrays.
 * **Atualização de Nota**: [[csharp/Arrays\|Arrays em C#]]
   * Adicionada seção detalhada sobre o erro `IndexOutOfRangeException` (estouro de índice), explicando causas comuns e como evitar.
 
@@ -88,11 +88,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Criação da pasta [[csharp/]] contendo os primeiros artigos explicativos.
   * [[csharp/Introducao\|Introdução ao C#]]: Guia conceitual sobre a linguagem.
   * [[csharp/Arrays\|Arrays em C#]]: Explicação sobre vetores.
-  * [[csharp/Segurança de Tipos\|Segurança de Tipos]]: Detalhamento didático sobre tipagem estática e forte.
-  * [[csharp/Variáveis, Operadores e Tipos de Dados\|Variáveis, Operadores e Tipos de Dados]]: Dicionário das caixas de tipos de dados.
-  * [[csharp/Estruturas Condicionais e de Repetição\|Estruturas Condicionais e de Repetição]]: Tomada de decisões e loops.
-  * [[csharp/Métodos (Funções)\|Métodos (Funções)]]: Automatização de blocos de comando.
-  * [[csharp/Programação Orientada a Objetos\|Programação Orientada a Objetos]]: Moldes e fôrmas (classes), objetos e construtores.
+  * [[csharp/04-Segurança de tipos\|Segurança de Tipos]]: Detalhamento didático sobre tipagem estática e forte.
+  * [[csharp/03-Variáveis, operadores e tipos de dados\|Variáveis, Operadores e Tipos de Dados]]: Dicionário das caixas de tipos de dados.
+  * [[csharp/05-Estruturas condicionais e de repetição\|Estruturas Condicionais e de Repetição]]: Tomada de decisões e loops.
+  * [[csharp/12-Métodos (funções)\|Métodos (Funções)]]: Automatização de blocos de comando.
+  * [[javascript/06-arquitetura-e-avancado/01-Programação orientada a objetos\|Programação Orientada a Objetos]]: Moldes e fôrmas (classes), objetos e construtores.
   * Todas as notas de C# foram escritas sob o rigor do **Método Feynman** e interconectadas com links bidirecionais/cruzados.
 
 * **Melhorias e Ajustes no Web App**:
@@ -104,7 +104,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-07-25
 
-* **Criação de Nota**: [[javascript/03-manipulacao/O método forEach em detalhes\|O método forEach em detalhes]]
+* **Criação de Nota**: [[javascript/03-manipulacao/04-O método forEach em detalhes\|O método forEach em detalhes]]
   * Guia 100% exaustivo sobre o método `forEach()` no JavaScript.
   * Análise exaustiva dos 4 parâmetros: `currentValue` (`item`), `index`, `array` (array original) e `thisArg`.
   * Regras de ouro (retorno `undefined`, proibição de `break`/`continue`, comportamento com slots vazios).
@@ -112,23 +112,23 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Mini-projeto real de Central de Notificações de Pedidos no DOM.
   * Validação pós-processada: 734 wikilinks 100% válidos.
 
-* **Atualização de Nota**: [[javascript/01-fundamentos/Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]
+* **Atualização de Nota**: [[javascript/01-fundamentos/09-Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]
   * Adicionados exemplos explícitos de uso do **`break`** e do **`continue`** diretamente dentro do loop `for` tradicional varrendo um array.
   * Validação pós-processada: 729 wikilinks 100% válidos.
 
-* **Atualização de Nota**: [[javascript/01-fundamentos/Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]
+* **Atualização de Nota**: [[javascript/01-fundamentos/09-Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]
   * Adicionadas 3 estratégias avançadas de iteração com arrays:
     1. **Interrupção antecipada com `break`** (para parar o loop assim que encontrar o item desejado, como o `'PS4'`, otimizando performance).
     2. **Iteração funcional com `forEach`** (passando automaticamente item, índice e array).
     3. **Contagem regressiva decremental** (`i = array.length - 1; i >= 0; i--`).
   * Pós-processamento automatizado aplicado com sucesso (728 wikilinks válidos).
 
-* **Atualização de Nota**: [[javascript/01-fundamentos/Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]
+* **Atualização de Nota**: [[javascript/01-fundamentos/09-Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]
   * Adicionado o padrão clássico de iteração em arrays (`videoGames[item]`) usando `.length`.
   * Adicionada seção de alerta `> [!CAUTION]` sobre o **Perigo do Loop Infinito** se o `item++` ou `i = i + 5` for omitido.
   * Validação pós-processada: 727 wikilinks 100% válidos.
 
-* **Criação de Nota**: [[javascript/01-fundamentos/Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]
+* **Criação de Nota**: [[javascript/01-fundamentos/09-Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]
   * Guia completo e exaustivo sobre estruturas de repetição no JavaScript (`for`, `while`, `do...while`, `for...of`, `for...in`, `break` e `continue`).
   * Incluído um **Mini-projeto Prático Real** de Gerador de Galeria e Processador de Estoque de Loja Virtual.
   * Pós-processamento automatizado aplicado com sucesso (Sentence Case estrito e Linter com 726 wikilinks válidos).
@@ -137,11 +137,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Atualizado o script `fix_title_capitalization.py` para tratar automaticamente palavras após dois-pontos (`:`) nos subcabeçalhos (`## 1. Tailwind CSS: estilização por classes utilitárias`).
   * Aplicada a regra estrita em todas as notas e salvos os testes com **721 wikilinks 100% validados**.
 
-* **Expansão Exaustiva de Nota**: [[javascript/03-manipulacao/Arrays e métodos de array\|Arrays e métodos de array]]
+* **Expansão Exaustiva de Nota**: [[javascript/03-manipulacao/02-Arrays e métodos de array\|Arrays e métodos de array]]
   * Atualizada a nota para conter a lista exaustiva de mais de **40 métodos e propriedades de Array** (estáticos, mutáveis, busca, iteração, transformação e novidades imutáveis do ES2023 como `toSorted`, `toReversed`, `toSpliced` e `with`).
   * Preservado o **Mini-projeto Prático Real** de Motor de Carrinho de E-commerce.
 
-* **Criação de Nota**: [[javascript/03-manipulacao/Arrays e métodos de array\|Arrays e métodos de array]]
+* **Criação de Nota**: [[javascript/03-manipulacao/02-Arrays e métodos de array\|Arrays e métodos de array]]
   * Guia exaustivo de Arrays e seus métodos divididos por categorias (Mutação, Busca, Iteração/Transformação e Ordenação/Fatiamento).
   * Incluído um **Mini-projeto Prático Real** de Motor de Carrinho de Compras de E-commerce utilizando `filter`, `map`, `find`, `reduce` e `join`.
   * Aplicação do Método Feynman (analogia da Prateleira de Estoque Numerada).
@@ -154,7 +154,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Detalhada a formação acadêmica completa no perfil: **Comunicação (Publicidade)**, **Design de Produto**, **MBA em Gestão de Negócios** e **Análise e Desenvolvimento de Sistemas (ADS)**.
   * Refinado o superpoder para unir pensamento visual, experiência do usuário (UX/UI), código e visão estratégica de negócios.
 
-* **Interconexão Bidirecional**: [[javascript/04-dom-e-browser/DOM\|DOM]] <-> [[javascript/04-dom-e-browser/Métodos do objeto document\|Métodos do objeto document]]
+* **Interconexão Bidirecional**: [[javascript/04-dom-e-browser/01-DOM\|DOM]] <-> [[javascript/04-dom-e-browser/02-Métodos do objeto document\|Métodos do objeto document]]
   * Adicionados links cruzados bidirecionais entre a nota conceitual do DOM (árvore de camadas) e a nota exaustiva dos métodos de `document`.
   * Validação pelo linter: 721 wikilinks 100% válidos.
 
@@ -166,7 +166,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Correção automatizada dos cabeçalhos internos (`#`, `##`, `###`) em 30 arquivos do vault (incluindo `Métodos do objeto document.md`).
   * Todos os títulos secundários foram ajustados para manter apenas a primeira palavra com a inicial maiúscula (ex: `## 1. Métodos de seleção e busca de elementos`), preservando nomes próprios e tecnologias.
 
-* **Criação de Nota**: [[javascript/04-dom-e-browser/Métodos do objeto document\|Métodos do objeto document]]
+* **Criação de Nota**: [[javascript/04-dom-e-browser/02-Métodos do objeto document\|Métodos do objeto document]]
   * Dicionário exaustivo de todos os métodos e propriedades do objeto `document` (seleção, criação, eventos, geometria, escrita e propriedades globais).
   * Aplicação do Método Feynman (analogia do Gerente Geral de Edifício).
 

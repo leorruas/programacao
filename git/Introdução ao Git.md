@@ -1,8 +1,8 @@
 # Introdução ao Git - método Feynman
 
-O **[[git/Git\|Git]]** é um sistema de controle de versão distribuído que permite acompanhar o histórico de alterações no seu código, trabalhar em equipe sem sobrescrever arquivos e retornar a qualquer versão anterior do projeto a qualquer momento.
+O **[[git/01-fundamentos/Git\|Git]]** é um sistema de controle de versão distribuído que permite acompanhar o histórico de alterações no seu código, trabalhar em equipe sem sobrescrever arquivos e retornar a qualquer versão anterior do projeto a qualquer momento.
 
-Sob a perspectiva do **Dia a Dia**, o [[git/Git\|Git]] funciona exatamente como uma **Máquina do Tempo com Diário de Bordo**.
+Sob a perspectiva do **Dia a Dia**, o [[git/01-fundamentos/Git\|Git]] funciona exatamente como uma **Máquina do Tempo com Diário de Bordo**.
 
 ---
 
@@ -21,7 +21,7 @@ Imagine um projeto de escrita de um livro:
 A organização dos estudos de [[git/01-fundamentos/Git\|Git]] no seu vault segue esta estrutura:
 
 *   **[[git/Introdução ao Git\|Introdução ao Git]]**: Visão geral e primeiros passos.
-*   **[[git/conceitos/Git\|Git (Conceitos Básicos)]]**: Detalhamento sobre commits, branches, merges e GitHub.
+*   **[[git/01-fundamentos/Git\|Git (Conceitos Básicos)]]**: Detalhamento sobre commits, branches, merges e GitHub.
 
 ---
 

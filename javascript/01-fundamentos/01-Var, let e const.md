@@ -12,7 +12,7 @@ A forma como essa referência se comporta e a região do texto onde ela é váli
 
 Imagine escrever uma redação onde um pronome usado dentro de uma citação específica vaza para fora e muda o sentido de todo o restante do texto da página.
 
-*   **[[javascript/06-arquitetura-e-avancado/Escopo e closures\|Escopo e Closures]] de [[javascript/01-fundamentos/Funções\|Funções]] (Vazamento):** O `var` ignora blocos de código locais (como blocos `if`). Se você cria um `var` dentro de uma condição temporária, ele vaza para o resto do arquivo, podendo ser lido e alterado de qualquer lugar, gerando bugs difíceis de rastrear.
+*   **[[javascript/06-arquitetura-e-avancado/03-Escopo e closures\|Escopo e Closures]] de [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] (Vazamento):** O `var` ignora blocos de código locais (como blocos `if`). Se você cria um `var` dentro de uma condição temporária, ele vaza para o resto do arquivo, podendo ser lido e alterado de qualquer lugar, gerando bugs difíceis de rastrear.
 *   **Redeclaração sem Alertas:** Se você acidentalmente declarar duas variáveis com o mesmo nome usando `var`, o [[javascript/Introdução ao JavaScript\|JavaScript]] aceita silenciosamente e sobrescreve o valor anterior sem emitir avisos de erro.
 
 ### Exemplo prático:
@@ -28,9 +28,9 @@ console.log(brinquedo); // Saída: Bola
 
 ## 2. Let: o pronome local (contexto de parágrafo)
 
-O `let` respeita estritamente o parágrafo ou o bloco `{}` onde foi escrito (o chamado [[javascript/06-arquitetura-e-avancado/Escopo e closures\|Escopo e Closures]] de bloco).
+O `let` respeita estritamente o parágrafo ou o bloco `{}` onde foi escrito (o chamado [[javascript/06-arquitetura-e-avancado/03-Escopo e closures\|Escopo e Closures]] de bloco).
 
-*   **[[javascript/06-arquitetura-e-avancado/Escopo e closures\|Escopo e Closures]] Protegido:** A variável só existe e faz sentido dentro das chaves `{}` onde foi criada. Se você tentar lê-la fora do bloco, o sistema acusa erro, garantindo que as informações fiquem isoladas.
+*   **[[javascript/06-arquitetura-e-avancado/03-Escopo e closures\|Escopo e Closures]] Protegido:** A variável só existe e faz sentido dentro das chaves `{}` onde foi criada. Se você tentar lê-la fora do bloco, o sistema acusa erro, garantindo que as informações fiquem isoladas.
 *   **Sem Sobrescrita Acidental:** O sistema impede que você crie duas gavetas de nomes idênticos no mesmo bloco, evitando colisões de nomes.
 *   **Conteúdo Mutável:** O valor ao qual o `let` aponta pode ser alterado ao longo do tempo (você pode reatribuir o pronome para apontar para outra palavra).
 
@@ -51,7 +51,7 @@ if (true) {
 O `const` funciona como o `let` (respeita os limites do bloco `{}`), mas com uma trava rígida: a referência que você criou é permanente e inalterável.
 
 *   **Inalterável:** Uma vez definida para apontar para um valor, a variável não pode ser reatribuída para apontar para outro valor.
-*   **O Caso Especial ([[javascript/01-fundamentos/Objetos\|Objetos]] e Arrays):** Pense na variável como um documento em papel guardado no cofre. Você não pode trocar o papel por outro documento, mas pode escrever novas anotações nas linhas em branco daquele mesmo papel (ou seja, você pode alterar as propriedades internas de [[javascript/01-fundamentos/Objetos\|Objetos]] e arrays declarados com `const`).
+*   **O Caso Especial ([[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] e Arrays):** Pense na variável como um documento em papel guardado no cofre. Você não pode trocar o papel por outro documento, mas pode escrever novas anotações nas linhas em branco daquele mesmo papel (ou seja, você pode alterar as propriedades internas de [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] e arrays declarados com `const`).
 
 ### Exemplo prático:
 ```javascript

@@ -32,7 +32,7 @@ Abaixo está o guia completo de todas as 40+ propriedades, métodos estáticos e
 | Método | Descrição | Exemplo de Uso |
 | :--- | :--- | :--- |
 | **`Array.isArray(valor)`** | Retorna `true` se o valor passado for um Array válido. | `Array.isArray([1, 2])` -> `true` |
-| **`Array.from(iteravel, mapFn)`** | Cria um novo Array a partir de um objeto iterável (ex: NodeList do [[javascript/04-dom-e-browser/DOM\|DOM]], Set ou String). | `Array.from('ABC')` -> `["A", "B", "C"]` |
+| **`Array.from(iteravel, mapFn)`** | Cria um novo Array a partir de um objeto iterável (ex: NodeList do [[javascript/04-dom-e-browser/01-DOM\|DOM]], Set ou String). | `Array.from('ABC')` -> `["A", "B", "C"]` |
 | **`Array.fromAsync(iteravelAsync)`** | Cria um novo Array a partir de um iterável assíncrono (ES2024). | `await Array.fromAsync(asyncIterable)` |
 | **`Array.of(el1, el2...)`** | Cria uma nova instância de Array com os argumentos passados, independentemente do tipo. | `Array.of(7)` -> `[7]` |
 
@@ -68,7 +68,7 @@ Abaixo está o guia completo de todas as 40+ propriedades, métodos estáticos e
 ---
 
 ### E. Métodos de iteração e transformação (os pilares do mercado)
-Estes métodos recebem uma [[javascript/02-funcoes-e-objetos/Arrow functions\|arrow function]] de [[javascript/05-assincrono/Callbacks\|callback]] para processar os elementos:
+Estes métodos recebem uma [[javascript/02-funcoes-e-objetos/02-Arrow functions\|arrow function]] de [[javascript/05-assincrono/01-Callbacks\|callback]] para processar os elementos:
 
 | Método | Descrição | Retorno |
 | :--- | :--- | :--- |
@@ -86,7 +86,7 @@ Estes métodos recebem uma [[javascript/02-funcoes-e-objetos/Arrow functions\|ar
 | :--- | :--- | :--- |
 | **`slice(inicio, fim)`** | Retorna uma cópia de parte do array em um novo array (não modifica o original). | `[1, 2, 3, 4].slice(1, 3)` -> `[2, 3]` |
 | **`concat(arr2, arr3...)`** | Retorna um novo array reunindo todos os arrays passados. | `[1].concat([2])` -> `[1, 2]` |
-| **`join(separador)`** | Junta todos os elementos do array em uma [[javascript/03-manipulacao/Propriedades e métodos de string\|String]] com o separador. | `["A", "B"].join("-")` -> `"A-B"` |
+| **`join(separador)`** | Junta todos os elementos do array em uma [[javascript/03-manipulacao/05-Propriedades e métodos de string\|String]] com o separador. | `["A", "B"].join("-")` -> `"A-B"` |
 | **`sort(compareFunc)`** | Ordena os elementos do array **mutando o original**. | `[3, 1, 2].sort((a,b) => a - b)` -> `[1, 2, 3]` |
 | **`reverse()`** | Inverte a ordem dos elementos **mutando o original**. | `[1, 2, 3].reverse()` -> `[3, 2, 1]` |
 | **`flat(profundidade)`** | Achata sub-arrays aninhados até a profundidade especificada. | `[1, [2, [3]]].flat(2)` -> `[1, 2, 3]` |

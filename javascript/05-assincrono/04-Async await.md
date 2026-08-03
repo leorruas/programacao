@@ -10,7 +10,7 @@ O **Async/Await** é a forma moderna e legível de gerenciar esse tempo de esper
 
 Imagine que você está em um restaurante self-service versus um restaurante à la carte com um garçom (o [[javascript/05-assincrono/03-Fetch|Fetch]]):
 
-*   **Com [[javascript/01-fundamentos/Fetch\|Fetch]] e Promessas tradicionais (.then):** Você faz o pedido ao garçom. Ele vai para a cozinha. Você precisa programar uma resposta para quando ele voltar: *"Quando (then) ele trouxer a comida, eu como. Se (catch) ele derrubar o prato, eu reclamo"*. O código pode ficar cheio de blocos encadeados e difíceis de ler.
+*   **Com [[javascript/05-assincrono/03-Fetch\|Fetch]] e Promessas tradicionais (.then):** Você faz o pedido ao garçom. Ele vai para a cozinha. Você precisa programar uma resposta para quando ele voltar: *"Quando (then) ele trouxer a comida, eu como. Se (catch) ele derrubar o prato, eu reclamo"*. O código pode ficar cheio de blocos encadeados e difíceis de ler.
 *   **Com Async/Await (A pausa inteligente):** Você escreve o código como se estivesse vivendo uma conversa normal. Você diz ao garçom: *"Vou fazer o pedido"* e, na linha seguinte, você adiciona uma regra de **espera (await)**. O seu código congela temporariamente naquela linha exata até que o prato chegue, e depois continua a execução de forma linear.
 
 ---
@@ -18,7 +18,7 @@ Imagine que você está em um restaurante self-service versus um restaurante à 
 ## Como funciona no JavaScript
 
 Para usar essa estrutura, precisamos de duas palavras-chave:
-1.  **async:** Colocamos antes da declaração da [[javascript/01-fundamentos/Funções\|Funções]] para avisar ao [[javascript/Introdução ao JavaScript\|JavaScript]] que dentro dela haverá tarefas demoradas.
+1.  **async:** Colocamos antes da declaração da [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] para avisar ao [[javascript/Introdução ao JavaScript\|JavaScript]] que dentro dela haverá tarefas demoradas.
 2.  **await:** Colocamos logo antes da instrução que precisa esperar a resposta (como a busca com o [[javascript/05-assincrono/03-Fetch|Fetch]]).
 
 ```javascript
@@ -43,7 +43,7 @@ buscarDadosDoUsuario();
 
 ## Como capturar erros com async/Await?
 
-Como não usamos o método `.catch()` diretamente, usamos uma estrutura padrão de controle chamada **[[javascript/06-arquitetura-e-avancado/Tratamento de erros\|Tratamento de Erros]]** (tentar/capturar), explicada em [[javascript/06-arquitetura-e-avancado/06-Tratamento de erros|Tratamento de erros]]:
+Como não usamos o método `.catch()` diretamente, usamos uma estrutura padrão de controle chamada **[[javascript/06-arquitetura-e-avancado/06-Tratamento de erros\|Tratamento de Erros]]** (tentar/capturar), explicada em [[javascript/06-arquitetura-e-avancado/06-Tratamento de erros|Tratamento de erros]]:
 
 ```javascript
 async function carregarDesign() {
@@ -63,6 +63,6 @@ async function carregarDesign() {
 
 ## Resumo para memorizar
 
-*   **async:** Indica que uma [[javascript/01-fundamentos/Funções\|Funções]] é assíncrona e permite o uso da palavra `await` dentro dela.
-*   **await:** Pausa a leitura da [[javascript/01-fundamentos/Funções\|Funções]] até que a promessa (Promise) seja resolvida (dados entregues).
-*   **[[javascript/06-arquitetura-e-avancado/Tratamento de erros\|Tratamento de Erros]]:** A estrutura usada para envelopar o código assíncrono e gerenciar erros de forma limpa.
+*   **async:** Indica que uma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] é assíncrona e permite o uso da palavra `await` dentro dela.
+*   **await:** Pausa a leitura da [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] até que a promessa (Promise) seja resolvida (dados entregues).
+*   **[[javascript/06-arquitetura-e-avancado/06-Tratamento de erros\|Tratamento de Erros]]:** A estrutura usada para envelopar o código assíncrono e gerenciar erros de forma limpa.

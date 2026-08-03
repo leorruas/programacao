@@ -87,7 +87,7 @@ console.log(somarNumeros(10, 20, 30)); // Saída: 60
 ```
 
 ### 3. Argumentos nomeados (simulados via objeto)
-O [[javascript/Introdução ao JavaScript\|JavaScript]] não tem argumentos nomeados nativos (como [[python/Introdução ao Python\|Python]]). No entanto, simulamos isso passando um **[[javascript/01-fundamentos/Objetos\|Objetos]]** e fazendo a desestruturação nos parâmetros. É ideal para quando há muitos parâmetros, eliminando a dependência da ordem deles.
+O [[javascript/Introdução ao JavaScript\|JavaScript]] não tem argumentos nomeados nativos (como [[python/Introdução ao Python\|Python]]). No entanto, simulamos isso passando um **[[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]** e fazendo a desestruturação nos parâmetros. É ideal para quando há muitos parâmetros, eliminando a dependência da ordem deles.
 ```javascript
 function criarUsuario({ nome, idade, cargo }) {
   console.log(`Usuário ${nome}, ${idade} anos, trabalha como ${cargo}.`);
@@ -133,7 +133,7 @@ if (true) {
 
 Nem toda máquina precisa te devolver algo físico no final. Algumas apenas fazem uma ação externa. 
 
-No [[javascript/Introdução ao JavaScript\|JavaScript]], uma função pode apenas exibir um aviso na tela ou alterar uma propriedade do [[javascript/01-fundamentos/DOM\|DOM]] (geralmente disparada por [[javascript/01-fundamentos/Eventos\|eventos]]), sem usar a palavra-chave `return`. A visibilidade das variáveis criadas dentro de uma função é protegida por regras que você pode ver em [[javascript/06-arquitetura-e-avancado/03-Escopo e closures|Escopo e closures]]. Além disso, funções frequentemente contêm tomadas de decisão internas usando [[javascript/01-fundamentos/05-Condicionais (if-else)|Condicionais (If-Else)]] (como mudar a melodia dependendo do tom recebido nos argumentos).
+No [[javascript/Introdução ao JavaScript\|JavaScript]], uma função pode apenas exibir um aviso na tela ou alterar uma propriedade do [[javascript/04-dom-e-browser/01-DOM\|DOM]] (geralmente disparada por [[javascript/04-dom-e-browser/04-Eventos\|eventos]]), sem usar a palavra-chave `return`. A visibilidade das variáveis criadas dentro de uma função é protegida por regras que você pode ver em [[javascript/06-arquitetura-e-avancado/03-Escopo e closures|Escopo e closures]]. Além disso, funções frequentemente contêm tomadas de decisão internas usando [[javascript/01-fundamentos/05-Condicionais (if-else)|Condicionais (If-Else)]] (como mudar a melodia dependendo do tom recebido nos argumentos).
 
 ```javascript
 function exibirAviso() {
@@ -151,6 +151,6 @@ exibirAviso(); // Apenas executa a ação de escrever no console
 *   **Parâmetro:** O espaço reservado para os dados de entrada na definição da função.
 *   **Argumento:** O valor real enviado à função no momento da sua chamada.
 *   **Return:** A instrução que finaliza a função e envia o resultado de volta para quem a chamou.
-*   **[[javascript/01-fundamentos/Callbacks\|Callbacks]]:** Funções passadas como argumentos para outras funções serem executadas posteriormente.
-*   **[[javascript/01-fundamentos/Funções Construtoras\|Funções Construtoras]]:** Funções usadas para gerar novos [[javascript/01-fundamentos/Objetos\|Objetos]]/instâncias.
-*   **[[javascript/01-fundamentos/Protótipos e Proto\|Protótipos e Proto]]:** O mecanismo de herança no [[javascript/Introdução ao JavaScript\|JavaScript]] baseado nos [[javascript/01-fundamentos/Protótipos e Proto\|Protótipos e Proto]] de funções e [[javascript/01-fundamentos/Objetos\|Objetos]].
+*   **[[javascript/05-assincrono/01-Callbacks\|Callbacks]]:** Funções passadas como argumentos para outras funções serem executadas posteriormente.
+*   **[[javascript/02-funcoes-e-objetos/06-Funções construtoras\|Funções Construtoras]]:** Funções usadas para gerar novos [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]/instâncias.
+*   **[[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]:** O mecanismo de herança no [[javascript/Introdução ao JavaScript\|JavaScript]] baseado nos [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] de funções e [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]].

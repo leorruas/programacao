@@ -290,9 +290,65 @@ btnVoltar.addEventListener("click", () => {
     }
 });
 
+function normalizarTexto(texto) {
+    return texto
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+}
+
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function calcularScore(titulo, conteudo, termo) {
+    const tituloNorm = normalizarTexto(titulo);
+    const conteudoNorm = normalizarTexto(conteudo);
+    const termoNorm = normalizarTexto(termo);
+
+    if (termoNorm === "") return 0;
+
+    let score = 0;
+
+    // 1. Termo exato no título (maior relevância)
+    if (tituloNorm === termoNorm) {
+        score += 150;
+    } else if (tituloNorm.includes(termoNorm)) {
+        score += 80;
+    }
+
+    // 2. Termo exato no conteúdo
+    if (conteudoNorm.includes(termoNorm)) {
+        score += 40;
+        const regexTermo = new RegExp(escapeRegExp(termoNorm), "g");
+        const matchesTermo = conteudoNorm.match(regexTermo);
+        if (matchesTermo) {
+            score += matchesTermo.length * 10;
+        }
+    }
+
+    // 3. Palavras individuais do termo de busca (busca parcial)
+    const palavras = termoNorm.split(/\s+/).filter(p => p.length > 1);
+    palavras.forEach(palavra => {
+        if (tituloNorm.includes(palavra)) {
+            score += 25;
+        }
+        if (conteudoNorm.includes(palavra)) {
+            const regexPalavra = new RegExp(escapeRegExp(palavra), "g");
+            const matchesPalavra = conteudoNorm.match(regexPalavra);
+            if (matchesPalavra) {
+                score += matchesPalavra.length * 2;
+            }
+        }
+    });
+
+    return score;
+}
+
 async function buscar(termo) {
-    const termoLimpo = termo.trim().toLowerCase();
+    const termoLimpo = termo.trim();
     if (termoLimpo === "") return;
+    
     divResultados.classList.remove("escondido");
     leitorDeArtigo.classList.add("escondido");
     const pastasContainer = document.getElementById("pastas-container");
@@ -301,50 +357,95 @@ async function buscar(termo) {
     containerResultados.innerHTML = `<h2>Buscando...</h2>`;
 
     const arquivos = await obterListaDeArquivos();
-    let encontrouResultado = false;
-    containerResultados.innerHTML = "";
+    const resultados = [];
 
+    // Busca e calcula scores para cada arquivo
     for (const arquivo of arquivos) {
         try {
             const resposta = await fetch(arquivo.path);
             const conteudoTexto = await resposta.text();
-            const temNoTitulo = arquivo.titulo.toLowerCase().includes(termoLimpo);
-            const temNoConteudo = conteudoTexto.toLowerCase().includes(termoLimpo);
-
-            if (temNoTitulo || temNoConteudo) {
-                encontrouResultado = true;
-                const resumoBruto = conteudoTexto.substring(0, 250) + "...";
-                const resumo = limparMarkdown(resumoBruto);
-                // Criamos a div do card via JavaScript
-                const pasta = obterPastaDoCaminho(arquivo.path);
-                const card = document.createElement("div");
-                card.className = "card";
-                card.innerHTML = `
-        <span class="card-tag">${pasta}</span>
-        <h2>${arquivo.titulo}</h2>
-        <div class="conteudo">${resumo}</div>
-    `;
-
-                // Quando clicar no card, troca a visão para o artigo completo!
-                card.addEventListener("click", () => {
-                    abrirArtigo(arquivo.titulo, conteudoTexto);
+            
+            const score = calcularScore(arquivo.titulo, conteudoTexto, termoLimpo);
+            if (score > 0) {
+                resultados.push({
+                    arquivo,
+                    conteudoTexto,
+                    score
                 });
-
-                containerResultados.appendChild(card);
             }
         } catch (erro) {
             console.error("Erro ao ler arquivo: ", arquivo.path, erro);
         }
     }
 
-    if (!encontrouResultado) {
+    if (resultados.length === 0) {
         containerResultados.innerHTML = `
-            
-                <h2>Nenhum resultado encontrado</h2>
-                <p>Tente pesquisar por outra palavra.</p>
-            
+            <h2>Nenhum resultado encontrado</h2>
+            <p>Tente pesquisar por outra palavra.</p>
         `;
+        return;
     }
+
+    // Ordena os resultados pelo score de forma decrescente (Ranking)
+    resultados.sort((a, b) => b.score - a.score);
+
+    // Agrupa por assunto (pasta)
+    const grupos = {};
+    resultados.forEach(item => {
+        const pasta = obterPastaDoCaminho(item.arquivo.path);
+        if (!grupos[pasta]) {
+            grupos[pasta] = {
+                nome: pasta,
+                maxScore: 0,
+                itens: []
+            };
+        }
+        grupos[pasta].itens.push(item);
+        if (item.score > grupos[pasta].maxScore) {
+            grupos[pasta].maxScore = item.score;
+        }
+    });
+
+    // Ordena os grupos pelo maior score de seus itens
+    const gruposOrdenados = Object.values(grupos).sort((a, b) => b.maxScore - a.maxScore);
+
+    // Renderiza os resultados agrupados
+    containerResultados.innerHTML = "";
+    gruposOrdenados.forEach(grupo => {
+        const grupoDiv = document.createElement("div");
+        grupoDiv.className = "busca-grupo-assunto";
+
+        const grupoTitulo = document.createElement("h3");
+        grupoTitulo.className = "busca-assunto-titulo";
+        grupoTitulo.textContent = `${grupo.nome} (${grupo.itens.length})`;
+        grupoDiv.appendChild(grupoTitulo);
+
+        const cardsContainer = document.createElement("div");
+        cardsContainer.className = "cards-container";
+
+        grupo.itens.forEach(item => {
+            const resumoBruto = item.conteudoTexto.substring(0, 250) + "...";
+            const resumo = limparMarkdown(resumoBruto);
+            const pasta = obterPastaDoCaminho(item.arquivo.path);
+            
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+                <span class="card-tag">${pasta}</span>
+                <h2>${item.arquivo.titulo}</h2>
+                <div class="conteudo">${resumo}</div>
+            `;
+
+            card.addEventListener("click", () => {
+                abrirArtigo(item.arquivo.titulo, item.conteudoTexto);
+            });
+
+            cardsContainer.appendChild(card);
+        });
+
+        grupoDiv.appendChild(cardsContainer);
+        containerResultados.appendChild(grupoDiv);
+    });
 }
 
 artigoCorpo.addEventListener("click", async (e) => {

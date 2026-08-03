@@ -14,7 +14,7 @@ Tudo o que você precisa fazer é conectar o plugue do seu aparelho na tomada da
 
 A tomada é a **Interface** (o ponto de contato). Ela estabelece uma regra simples: se você tiver um plugue compatível, você receberá energia elétrica. 
 
-A API faz exatamente a mesma coisa para o software: ela é uma porta padronizada que permite que um sistema use as [[javascript/01-fundamentos/Funções\|Funções]] ou dados de outro sistema sem precisar entender como ele foi construído por dentro.
+A API faz exatamente a mesma coisa para o software: ela é uma porta padronizada que permite que um sistema use as [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] ou dados de outro sistema sem precisar entender como ele foi construído por dentro.
 
 ---
 

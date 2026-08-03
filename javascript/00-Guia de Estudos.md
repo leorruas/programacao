@@ -46,7 +46,7 @@ Começando a agrupar propriedades e a automatizar comportamentos e modificaçõe
 
 ### Fase 3: organização avançada (o design system - poo)
 Como organizar o código usando o paradigma mais forte do desenvolvimento, baseado em modelos e instâncias de componentes.
-* [[javascript/02-funcoes-e-objetos/06-Funções construtoras|Funções Construtoras]] - A maneira clássica de criar moldes de [[javascript/02-funcoes-e-objetos/Objetos\|Objetos]].
+* [[javascript/02-funcoes-e-objetos/06-Funções construtoras|Funções Construtoras]] - A maneira clássica de criar moldes de [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]].
 * [[javascript/02-funcoes-e-objetos/09-Classes|Classes]] - O equivalente moderno aos Componentes Master no Figma.
 * [[javascript/02-funcoes-e-objetos/10-Get e set|Get e Set]] - Controlando e travando propriedades de componentes.
 * [[javascript/06-arquitetura-e-avancado/01-Programação orientada a objetos|Programação orientada a objetos]] - O ecossistema completo e seus 4 pilares explicados.
@@ -65,9 +65,9 @@ Hora de conectar a lógica do [[javascript/Introdução ao JavaScript\|JavaScrip
 ---
 
 ### Fase 5: js avançado & resolução de problemas
-Como o [[javascript/06-arquitetura-e-avancado/Escopo e closures\|Escopo e Closures]] protege as variáveis, atalhos de código para agilizar a criação, e como consertar erros.
+Como o [[javascript/06-arquitetura-e-avancado/03-Escopo e closures\|Escopo e Closures]] protege as variáveis, atalhos de código para agilizar a criação, e como consertar erros.
 * [[javascript/06-arquitetura-e-avancado/03-Escopo e closures|Escopo e closures]] - Onde as variáveis podem ou não ser vistas.
-* [[javascript/06-arquitetura-e-avancado/04-Desestruturação e spread|Desestruturação e spread]] - Atalhos rápidos para destrinchar e duplicar [[javascript/02-funcoes-e-objetos/Objetos\|Objetos]]/arrays.
+* [[javascript/06-arquitetura-e-avancado/04-Desestruturação e spread|Desestruturação e spread]] - Atalhos rápidos para destrinchar e duplicar [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]/arrays.
 * [[javascript/03-manipulacao/07-Regex|Regex]] - Os filtros inteligentes de texto (gabarito e descriptografia).
 * [[javascript/06-arquitetura-e-avancado/05-Módulos import e export|Módulos import e export]] - Como quebrar o código em múltiplos arquivos e componentes separados.
 * [[javascript/01-fundamentos/10-Debug (depuração)|Debug (Depuração)]] - O modo de inspeção frame a frame para arrumar o que quebrou.
@@ -79,7 +79,7 @@ Como o [[javascript/06-arquitetura-e-avancado/Escopo e closures\|Escopo e Closur
 Como carregar dados dinâmicos da internet (como a previsão do tempo ou lista de produtos) sem travar a tela do usuário.
 * [[javascript/03-manipulacao/08-JSON|JSON]] - O formato padrão universal de transporte de textos e dados.
 * [[javascript/05-assincrono/02-API|API]] - A ponte de comunicação com serviços externos.
-* [[javascript/05-assincrono/03-Fetch|Fetch]] - O carteiro do JS que vai buscar as informações das [[javascript/05-assincrono/API\|API]].
+* [[javascript/05-assincrono/03-Fetch|Fetch]] - O carteiro do JS que vai buscar as informações das [[javascript/05-assincrono/02-API\|API]].
 * [[javascript/05-assincrono/04-Async await|Async Await]] - Lógica assíncrona ("espere carregar antes de mostrar").
 * [[javascript/06-arquitetura-e-avancado/07-Event loop e call stack|Event loop e call stack]] - Como o JS gerencia essa fila de tarefas paralelas.
 * [[javascript/04-dom-e-browser/07-Local storage|Local Storage]] - Salvando dados no navegador do usuário (como preferência de Tema Escuro).

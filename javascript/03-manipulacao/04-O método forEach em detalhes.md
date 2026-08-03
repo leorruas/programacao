@@ -1,6 +1,6 @@
 # O método foreach em detalhes no JavaScript - método Feynman
 
-O método **`forEach()`** é uma função de iteração do protótipo de [[javascript/03-manipulacao/Arrays e métodos de array\|Array]] no JavaScript usada para executar uma função de [[javascript/05-assincrono/Callbacks\|callback]] em cada elemento de uma lista, um a um, de forma sequencial.
+O método **`forEach()`** é uma função de iteração do protótipo de [[javascript/03-manipulacao/02-Arrays e métodos de array\|Array]] no JavaScript usada para executar uma função de [[javascript/05-assincrono/01-Callbacks\|callback]] em cada elemento de uma lista, um a um, de forma sequencial.
 
 Sob a perspectiva do **Design e Automação**, o `forEach()` funciona exatamente como um **Inspetor de Qualidade na Esteira de Produção** ou a execução de um script que varre todas as camadas selecionadas no Figma para disparar uma ação em cada uma delas.
 
@@ -34,7 +34,7 @@ array.forEach(function(currentValue, index, array) {
 | **`currentValue`** (ou `item`) | Qualquer | **Obrigatório** | O valor do elemento atual que está sendo processado na volta do loop. |
 | **`index`** | Número | Opcional | a posição numérica (índice `0`, `1`, `2`...) do elemento atual no array. |
 | **`array`** | Array | Opcional | O próprio array original que está sendo percorrido (útil para consultar a propriedade `.length` ou elementos vizinhos). |
-| **`thisArg`** | Objeto | Opcional | Objeto a ser usado como contexto do [[javascript/02-funcoes-e-objetos/Entendendo o this\|this]] dentro da função callback. |
+| **`thisArg`** | Objeto | Opcional | Objeto a ser usado como contexto do [[javascript/02-funcoes-e-objetos/05-Entendendo o this\|this]] dentro da função callback. |
 
 ---
 

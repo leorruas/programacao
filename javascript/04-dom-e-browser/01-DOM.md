@@ -25,7 +25,7 @@ No desenvolvimento web, o **DOM** é a árvore de camadas que permite ao [[javas
 
 ## Como o JavaScript enxerga o DOM
 
-O navegador lê o seu código HTML e cria um mapa de [[javascript/01-fundamentos/Objetos\|Objetos]] estruturado em árvore. Cada elemento do seu HTML vira um "nó" nessa árvore (veja a nota sobre [[javascript/06-arquitetura-e-avancado/Node.js\|Nodes]]).
+O navegador lê o seu código HTML e cria um mapa de [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] estruturado em árvore. Cada elemento do seu HTML vira um "nó" nessa árvore (veja a nota sobre [[javascript/06-arquitetura-e-avancado/02-Node.js\|Nodes]]).
 
 Aqui está uma representação simples de como o HTML vira o DOM:
 
@@ -46,7 +46,7 @@ graph TD
 Para interagir com qualquer elemento na tela, você sempre segue três passos básicos que equivalem às suas ações no software de design:
 
 ### 1. Selecionar o elemento (clicar na camada)
-Antes de alterar qualquer coisa, você precisa dizer ao [[javascript/Introdução ao JavaScript\|JavaScript]] qual elemento quer mexer. Para ver todos os métodos de busca disponíveis, consulte a nota exaustiva sobre [[javascript/04-dom-e-browser/Métodos do objeto document\|Métodos do objeto document]].
+Antes de alterar qualquer coisa, você precisa dizer ao [[javascript/Introdução ao JavaScript\|JavaScript]] qual elemento quer mexer. Para ver todos os métodos de busca disponíveis, consulte a nota exaustiva sobre [[javascript/04-dom-e-browser/02-Métodos do objeto document\|Métodos do objeto document]].
 ```javascript
 // Clicando na camada que tem a identificação "botao-salvar"
 const botao = document.getElementById("botao-salvar");
@@ -63,7 +63,7 @@ botao.style.backgroundColor = "blue";
 ```
 
 ### 3. Ouvir eventos (criar protótipo interativo)
-No Figma, você puxa uma seta azul de um botão para outra tela e define "On Click -> Navigate to". No [[javascript/Introdução ao JavaScript\|JavaScript]], você faz a mesma coisa usando escutadores de [[javascript/04-dom-e-browser/Eventos\|eventos]]:
+No Figma, você puxa uma seta azul de um botão para outra tela e define "On Click -> Navigate to". No [[javascript/Introdução ao JavaScript\|JavaScript]], você faz a mesma coisa usando escutadores de [[javascript/04-dom-e-browser/04-Eventos\|eventos]]:
 ```javascript
 // Quando o usuário clicar no botão, execute uma ação
 botao.addEventListener("click", function() {
@@ -76,6 +76,6 @@ botao.addEventListener("click", function() {
 ## Resumo para memorizar
 
 *   **DOM (Document Object Model):** É a representação do seu HTML estruturada como uma árvore de camadas interativas.
-*   **[[javascript/04-dom-e-browser/Métodos do objeto document\|document]]:** O ponto de partida de tudo (o arquivo aberto e sua biblioteca de métodos).
+*   **[[javascript/04-dom-e-browser/02-Métodos do objeto document\|document]]:** O ponto de partida de tudo (o arquivo aberto e sua biblioteca de métodos).
 *   **Elemento/Nó:** Cada caixa, texto ou imagem individual dentro das camadas.
 *   **O papel do [[javascript/Introdução ao JavaScript\|JavaScript]]:** É a ferramenta que seleciona e altera essas camadas em tempo real enquanto o usuário navega.

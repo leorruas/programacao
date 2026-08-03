@@ -1,6 +1,6 @@
 # Métodos do objeto document no JavaScript - método Feynman
 
-No desenvolvimento web, o objeto **`document`** é o ponto de entrada principal para interagir com o [[javascript/04-dom-e-browser/DOM\|DOM]] (Modelo de Objeto do Documento). Ele representa a página web carregada no navegador e contém dezenas de métodos para buscar, criar, modificar e deletar elementos HTML.
+No desenvolvimento web, o objeto **`document`** é o ponto de entrada principal para interagir com o [[javascript/04-dom-e-browser/01-DOM\|DOM]] (Modelo de Objeto do Documento). Ele representa a página web carregada no navegador e contém dezenas de métodos para buscar, criar, modificar e deletar elementos HTML.
 
 Sob a perspectiva da **Administração de Edifícios**, o `document` funciona exatamente como o **Gerente Geral de um Prédio com a Planta Baixa na Mesa**.
 
@@ -51,7 +51,7 @@ Usados para criar novos elementos e conteúdos em tempo de execução antes de i
 
 ## 3. Métodos de evento (sensores do documento)
 
- herdados da interface `EventTarget`, permitem escutar e disparar [[javascript/04-dom-e-browser/Eventos\|Eventos]] em nível global na página:
+ herdados da interface `EventTarget`, permitem escutar e disparar [[javascript/04-dom-e-browser/04-Eventos\|Eventos]] em nível global na página:
 
 *   **`document.addEventListener(tipo, callback, opcoes)`**: Adiciona um escutador de eventos no documento inteiro (ex: escutar teclas pressionadas ou cliques globais).
     ```javascript
@@ -107,7 +107,7 @@ Além dos métodos, o `document` possui propriedades fundamentais que dão acess
 
 ## Resumo para memorizar
 
-*   **Visão Geral:** Para entender a árvore de camadas completa da página, veja a nota sobre [[javascript/04-dom-e-browser/DOM\|DOM]].
+*   **Visão Geral:** Para entender a árvore de camadas completa da página, veja a nota sobre [[javascript/04-dom-e-browser/01-DOM\|DOM]].
 *   **Seleção:** Use `querySelector` (para um único item) e `querySelectorAll` (para múltiplos).
 *   **Criação:** Use `createElement` para gerar novas tags na memória antes de usar `appendChild` ou `append`.
 *   **Eventos:** Use `addEventListener` no `document` para capturar interações globais de teclado e mouse.

@@ -65,7 +65,7 @@ for (let item = 0; item < videoGames.length; item++) {
 ```
 
 #### B. Iteração funcional moderna com `foreach`
-Passa automaticamente o item atual, o seu índice numérico e a lista completa sem precisar gerenciar contadores (veja a nota exaustiva sobre **[[javascript/03-manipulacao/O método forEach em detalhes\|O método forEach em detalhes]]**):
+Passa automaticamente o item atual, o seu índice numérico e a lista completa sem precisar gerenciar contadores (veja a nota exaustiva sobre **[[javascript/03-manipulacao/04-O método forEach em detalhes\|O método forEach em detalhes]]**):
 
 ```javascript
 videoGames.forEach(function(item, index) {
@@ -146,7 +146,7 @@ do {
 
 ## 4. Loops modernos para coleções (for...of e for...in)
 
-No desenvolvimento moderno de software, o [[javascript/Introdução ao JavaScript\|JavaScript]] oferece formas muito mais limpas para percorrer [[javascript/03-manipulacao/Arrays e métodos de array\|Arrays]] e [[javascript/02-funcoes-e-objetos/Objetos\|Objetos]]:
+No desenvolvimento moderno de software, o [[javascript/Introdução ao JavaScript\|JavaScript]] oferece formas muito mais limpas para percorrer [[javascript/03-manipulacao/02-Arrays e métodos de array\|Arrays]] e [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]:
 
 ### A. `For...of` (para percorrer valores de arrays)
 Usado para iterar diretamente sobre os elementos de um Array sem precisar gerenciar o contador manualmente.
@@ -225,8 +225,8 @@ for (let i = 0; i < videoGames.length; i++) {
 | **`for`** | Quando o número exato de repetições é conhecido com antecedência. | No início de cada repetição. |
 | **`while`** | Quando a repetição depende de uma condição dinâmica (número de voltas incerto). | No início de cada repetição. |
 | **`do...while`** | Quando o bloco precisa rodar obrigatoriamente pelo menos uma vez. | No final de cada repetição. |
-| **`for...of`** | Para iterar sobre valores de [[javascript/03-manipulacao/Arrays e métodos de array\|Arrays]] e coleções iteráveis. | Automática para cada item. |
-| **`for...in`** | Para percorrer as chaves/propriedades de um [[javascript/02-funcoes-e-objetos/Objetos\|Objeto]]. | Automática para cada chave. |
+| **`for...of`** | Para iterar sobre valores de [[javascript/03-manipulacao/02-Arrays e métodos de array\|Arrays]] e coleções iteráveis. | Automática para cada item. |
+| **`for...in`** | Para percorrer as chaves/propriedades de um [[javascript/02-funcoes-e-objetos/03-Objetos\|Objeto]]. | Automática para cada chave. |
 
 ---
 

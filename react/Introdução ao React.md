@@ -27,7 +27,7 @@ Para entender como cultivar esse ecossistema, você precisa dominar três concei
 É o ato de dividir a interface em pequenas peças isoladas e reutilizáveis de código. Em vez de escrever uma página de 1000 linhas, você cria componentes pequenos de 50 linhas e os monta como um quebra-cabeça.
 
 ### 2 - reatividade (virtual DOM)
-O [[react/Introdução ao React\|React]] mantém uma cópia do seu ecossistema em memória (o Virtual [[javascript/01-fundamentos/DOM\|DOM]]). Quando um dado muda, o [[react/Introdução ao React\|React]] calcula de forma extremamente rápida o que mudou e atualiza na tela física do navegador apenas o que é estritamente necessário, sem precisar recriar a página do zero.
+O [[react/Introdução ao React\|React]] mantém uma cópia do seu ecossistema em memória (o Virtual [[javascript/04-dom-e-browser/01-DOM\|DOM]]). Quando um dado muda, o [[react/Introdução ao React\|React]] calcula de forma extremamente rápida o que mudou e atualiza na tela física do navegador apenas o que é estritamente necessário, sem precisar recriar a página do zero.
 
 ### 3 - fluxo de dados unidirecional
 No [[react/Introdução ao React\|React]], os dados sempre fluem de cima para baixo (do componente pai para o componente filho) através de `props`. Isso garante previsibilidade: você sabe exatamente de onde veio um recurso ou informação.
@@ -58,5 +58,5 @@ A principal diferença entre programar com **JavaScript Vanilla** (JS puro) e **
 
 *   **[[react/Introdução ao React\|React]]:** Uma biblioteca para criar interfaces de usuário reativas baseadas em componentes.
 *   **Componente:** A unidade básica de sobrevivência da interface (como um organismo independente).
-*   **Virtual [[javascript/01-fundamentos/DOM\|DOM]]:** A simulação ambiental onde o [[react/Introdução ao React\|React]] calcula as alterações mais eficientes antes de realizá-las na tela.
+*   **Virtual [[javascript/04-dom-e-browser/01-DOM\|DOM]]:** A simulação ambiental onde o [[react/Introdução ao React\|React]] calcula as alterações mais eficientes antes de realizá-las na tela.
 *   **Próximo Passo:** Para entender como controlar e dar "vida" a esses componentes, veja a nota sobre os [[react/01-fundamentos/Hooks principais - useState, useRef, useMemo|Hooks principais (useState, useRef, useMemo)]].

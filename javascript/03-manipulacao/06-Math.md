@@ -1,6 +1,6 @@
 # O objeto math: a calculadora científica do JavaScript - método Feynman
 
-No [[javascript/Introdução ao JavaScript\|JavaScript]], o **Math** é um [[javascript/01-fundamentos/Objetos\|Objetos]] embutido (built-in) que fornece propriedades e métodos para realizar operações matemáticas e trabalhar com constantes.
+No [[javascript/Introdução ao JavaScript\|JavaScript]], o **Math** é um [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] embutido (built-in) que fornece propriedades e métodos para realizar operações matemáticas e trabalhar com constantes.
 
 Sob a perspectiva da **Tecnologia do Dia a Dia**, o `Math` funciona exatamente como um aplicativo de **Calculadora Científica do Celular**.
 
@@ -10,7 +10,7 @@ Sob a perspectiva da **Tecnologia do Dia a Dia**, o `Math` funciona exatamente c
 
 Imagine que você precisa resolver uma equação de engenharia ou calcular a raiz de um número:
 
-*   **A Calculadora Física (O [[javascript/01-fundamentos/Objetos\|Objetos]] Math):** Você não precisa "construir" uma calculadora do zero toda vez que quer fazer uma conta (você não usa `new Math()`). A calculadora já vem pronta de fábrica instalada no celular. Você só a abre e usa.
+*   **A Calculadora Física (O [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] Math):** Você não precisa "construir" uma calculadora do zero toda vez que quer fazer uma conta (você não usa `new Math()`). A calculadora já vem pronta de fábrica instalada no celular. Você só a abre e usa.
 *   **Os Botões de Constantes (Propriedades):** São botões pré-programados na sua calculadora, como o botão **π (PI)** ou **e (Euler)**. Ao apertá-los, a calculadora te entrega o número exato imediatamente.
 *   **Os Botões de Operação (Métodos):** São os botões como **raiz quadrada (√)**, **seno (sin)** ou **arredondamento**. Você insere um número (argumento), aperta o botão e ele te cospe o resultado processado.
 

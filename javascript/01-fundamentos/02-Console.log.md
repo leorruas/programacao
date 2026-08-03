@@ -1,6 +1,6 @@
 # O console.log: a telemetria do seu código - método Feynman
 
-O **`console.log()`** é uma [[javascript/01-fundamentos/Funções\|Funções]] interna do [[javascript/Introdução ao JavaScript\|JavaScript]] que usamos para imprimir mensagens, textos ou valores de variáveis (explicadas em [[javascript/01-fundamentos/01-Var, let e const|Var, Let e Const]]) no console do navegador (ou no terminal do computador). Ele é o seu maior aliado para entender o que está acontecendo por baixo dos panos no seu código.
+O **`console.log()`** é uma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] interna do [[javascript/Introdução ao JavaScript\|JavaScript]] que usamos para imprimir mensagens, textos ou valores de variáveis (explicadas em [[javascript/01-fundamentos/01-Var, let e const|Var, Let e Const]]) no console do navegador (ou no terminal do computador). Ele é o seu maior aliado para entender o que está acontecendo por baixo dos panos no seu código.
 
 Sob a perspectiva da **Telemetria de voo (painel de instrumentos de aeronaves)**, o `console.log()` funciona exatamente como os **monitores e sensores da cabine do piloto**.
 
@@ -20,7 +20,7 @@ Se você remover todos os `console.log()` do seu arquivo, o programa continuará
 
 ## Como usar o console.log no JavaScript
 
-Podemos enviar qualquer [[javascript/01-fundamentos/Tipos de dados\|tipo de dado]] para ser impresso no console: textos, números, variáveis ou até mesmo [[javascript/01-fundamentos/Objetos\|Objetos]] complexos.
+Podemos enviar qualquer [[javascript/01-fundamentos/03-Tipos de dados\|tipo de dado]] para ser impresso no console: textos, números, variáveis ou até mesmo [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] complexos.
 
 ### 1 - imprimindo mensagens simples
 ```javascript
@@ -50,6 +50,6 @@ console.log("Velocidade atual da aeronave:", velocidade, "km/h");
 
 ## Resumo para memorizar
 
-*   **`console.log()`:** Uma [[javascript/01-fundamentos/Funções\|Funções]] de telemetria para exibir dados no painel de desenvolvimento (console).
-*   **Finalidade:** Diagnóstico e depuração, sendo a ferramenta básica número um de [[javascript/01-fundamentos/Debug (Depuração)\|debug]]. Serve apenas para o desenvolvedor enxergar o estado interno das variáveis durante a execução.
+*   **`console.log()`:** Uma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] de telemetria para exibir dados no painel de desenvolvimento (console).
+*   **Finalidade:** Diagnóstico e depuração, sendo a ferramenta básica número um de [[javascript/01-fundamentos/10-Debug (depuração)\|debug]]. Serve apenas para o desenvolvedor enxergar o estado interno das variáveis durante a execução.
 *   **Impacto zero:** Não altera a lógica, os valores ou o funcionamento do programa final.
