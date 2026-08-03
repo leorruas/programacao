@@ -1,7 +1,7 @@
 # Coleções em C# (Os gaveteiros mágicos)
 #csharp
 
-Até agora, vimos os [Arrays](07-Arrays em C#.md), que servem para guardar uma lista de itens. Mas os arrays têm um problema: eles são como gaveteiros de madeira rígidos. Se você construiu um com 5 gavetas, terá 5 gavetas para sempre. Se precisar de uma sexta, terá que construir um armário novo do zero.
+Até agora, vimos os [Arrays](07-Arrays%20em%20C#.md), que servem para guardar uma lista de itens. Mas os arrays têm um problema: eles são como gaveteiros de madeira rígidos. Se você construiu um com 5 gavetas, terá 5 gavetas para sempre. Se precisar de uma sexta, terá que construir um armário novo do zero.
 
 No C#, as **Coleções** (do pacote `System.Collections.Generic`) resolvem isso. Elas são como **gaveteiros elásticos mágicos** que esticam e encolhem sozinhos conforme você adiciona ou remove itens!
 
@@ -93,6 +93,6 @@ Console.WriteLine(convidados.Count); // Saída: 2
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](01-Introdução ao C#.md)**
-* **[Arrays em C#](07-Arrays em C#.md)**
+* **[Introdução ao C#](01-Introdu%C3%A7%C3%A3o%20ao%20C#.md)**
+* **[Arrays em C#](07-Arrays%20em%20C#.md)**
 * **[Guia de estudos de C#](00-Guia%20de%20estudos.md)**

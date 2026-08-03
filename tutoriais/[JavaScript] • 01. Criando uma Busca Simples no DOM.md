@@ -1,4 +1,5 @@
-# Guia Intermediário: Buscando nos Arquivos `.md` Reais do Vault 
+# [JavaScript] • Buscando nos Arquivos `.md` Reais do Vault
+
 
 Neste guia, você vai aprender a fazer o JavaScript ler os **arquivos Markdown de verdade** da sua pasta usando a função `fetch()`.
 

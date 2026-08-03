@@ -37,7 +37,7 @@ bool possoComprarDoce = (total > 10); // Guarda true (verdadeiro)!
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](01-Introdução ao C#.md)**
+* **[Introdução ao C#](01-Introdu%C3%A7%C3%A3o%20ao%20C#.md)**
 * **[Segurança de tipos](04-Seguran%C3%A7a%20de%20tipos.md)**
 * **[Estruturas condicionais e de repetição](05-Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md)**
-* **[Arrays em C#](07-Arrays em C#.md)**
+* **[Arrays em C#](07-Arrays%20em%20C#.md)**

@@ -1,4 +1,5 @@
-# Tutorial: Como Disparar a Busca com a Tecla Enter
+# [JavaScript] • Como Disparar a Busca com a Tecla Enter
+
 
 Melhorar a experiência do usuário (UX) inclui permitir que ele pesquise apenas pressionando a tecla **Enter** no teclado, sem a obrigação de clicar manualmente no botão "Pesquisar".
 

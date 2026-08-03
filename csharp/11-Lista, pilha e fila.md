@@ -95,4 +95,4 @@ Console.WriteLine($"Nova página no topo: {historicoNavegador.Peek()}"); // Saí
 ## Artigos relacionados:
 * **[Tipos abstratos de dados](10-Tipos%20abstratos%20de%20dados.md)**
 * **[Coleções em C#](09-Cole%C3%A7%C3%B5es%20em%20C%23.md)**
-* **[Arrays em C#](07-Arrays em C#.md)**
+* **[Arrays em C#](07-Arrays%20em%20C#.md)**

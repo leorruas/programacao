@@ -1,4 +1,5 @@
-# Tutorial: Como Criar um Modal Leitor de Artigos
+# [JavaScript] • Como Criar um Modal Leitor de Artigos
+
 
 Neste tutorial passo a passo, você aprenderá como transformar os cards da sua busca em elementos clicáveis que abrem o artigo completo em uma janela flutuante (**Modal**), sem sair da página.
 

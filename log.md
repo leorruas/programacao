@@ -9,6 +9,13 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Reorganização de C#**:
   * Renomeação e numeração lógica dos 13 arquivos de C# (`00-` a `13-`) conforme recomendação do Guia de Estudos.
   * Atualização de todos os links e referências cruzadas internos no vault.
+* **Codificação de URLs em Links**:
+  * Codificados todos os caminhos (URLs) em links markdown (`[texto](caminho)`) que contêm espaços e caracteres especiais em todas as notas do C# para garantir compatibilidade com o leitor do Web App (`marked.js`).
+* **Regra de Codificação de URLs**:
+  * Criada a regra [[.gemini/rules/link_url_encoding\|link_url_encoding.md]] para tornar obrigatória a codificação de caminhos de links.
+* **Organização de Tutoriais**:
+  * Renomeados os 4 arquivos na pasta `tutoriais/` adicionando o prefixo da linguagem correspondente (ex: `[JavaScript] • `) no nome dos arquivos e nos títulos principais (H1).
+  * Atualizados os respectivos títulos e caminhos de arquivos no `script.js`.
 * **Reorganização de JavaScript**:
   * Renomeação e numeração de todos os arquivos de notas dentro das subpastas lógicas (`01-fundamentos`, `02-funcoes-e-objetos`, `03-manipulacao`, `04-dom-e-browser`, `05-assincrono` e `06-arquitetura-e-avancado`) seguindo a sequência de fases do Guia de Estudos.
   * Atualização de todos os links internos, Wikilinks e caminhos de fallback no script `script.js`.

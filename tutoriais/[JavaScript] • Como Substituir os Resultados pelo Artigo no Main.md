@@ -1,4 +1,5 @@
-# Tutorial: Como Substituir os Resultados pelo Artigo no Main (Navegação SPA)
+# [JavaScript] • Como Substituir os Resultados pelo Artigo no Main (Navegação SPA)
+
 
 Neste tutorial passo a passo, você aprenderá como exibir o artigo completo **direto na página principal (`<main>`)**, substituindo temporariamente a lista de resultados quando o usuário clicar em um card.
 
