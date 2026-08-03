@@ -6,6 +6,15 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-03
 
+* **Reorganização de C#**:
+  * Renomeação e numeração lógica dos 13 arquivos de C# (`00-` a `13-`) conforme recomendação do Guia de Estudos.
+  * Atualização de todos os links e referências cruzadas internos no vault.
+* **Criação de Notas Avançadas de C#**:
+  * [[csharp/14-Tratamento de erros\|14-Tratamento de erros]]: Tratamento com `try`, `catch`, `finally` e `throw`.
+  * [[csharp/15-Manipulação de arquivos\|15-Manipulação de arquivos]]: Manipulação de diretórios e arquivos com `System.IO`.
+  * [[csharp/16-Herança e interfaces\|16-Herança e interfaces]]: Conceitos avançados de POO, herança de classes e contratos de interface.
+  * [[csharp/17-LINQ buscas e filtros\|17-LINQ buscas e filtros]]: Consultas eficientes em coleções com métodos LINQ (`Where`, `Select`, `OrderBy`, etc.).
+
 * **Atualização de Nota**: [[csharp/Arrays\|Arrays em C#]]
   * Adicionada dica explicativa diferenciando as condições de limite do loop (`i < nomes.Length` vs `i < nomes.Length - 1`) para evitar confusões comuns com índices de array.
 
