@@ -29,7 +29,7 @@ O console tem quatro finalidades principais:
 
 Uma das maiores dúvidas de quem está começando é: *"Dá para alterar a página de verdade pelo console?"* 
 
-**Sim!** Tudo o que você digita no console é executado no contexto da página atual. Você pode manipular o [[javascript/04-dom-e-browser/DOM|DOM]] e o [[javascript/04-dom-e-browser/O objeto window|objeto window]] livremente. 
+**Sim!** Tudo o que você digita no console é executado no contexto da página atual. Você pode manipular o [[javascript/04-dom-e-browser/01-DOM|DOM]] e o [[javascript/04-dom-e-browser/03-O objeto window|objeto window]] livremente. 
 
 Aqui estão alguns testes práticos para você abrir o console em qualquer site (como no Google) e rodar:
 

@@ -69,7 +69,7 @@ if (listaDeItens) {
 
 ## O operador lógico de negação (invertendo a autorização)
 
-O operador `!` (NÃO lógico, detalhado em [[javascript/01-fundamentos/Operadores e operações|Operadores e Operações]]) serve para inverter a avaliação de um valor. Quando você coloca um único `!` antes de qualquer dado, o [[javascript/Introdução ao JavaScript\|JavaScript]] primeiro descobre se ele é truthy ou falsy, e depois devolve o oposto:
+O operador `!` (NÃO lógico, detalhado em [[javascript/01-fundamentos/04-Operadores e operações|Operadores e Operações]]) serve para inverter a avaliação de um valor. Quando você coloca um único `!` antes de qualquer dado, o [[javascript/Introdução ao JavaScript\|JavaScript]] primeiro descobre se ele é truthy ou falsy, e depois devolve o oposto:
 *   Aplicar `!` a um valor **truthy** retorna `false`.
 *   Aplicar `!` a um valor **falsy** retorna `true`.
 

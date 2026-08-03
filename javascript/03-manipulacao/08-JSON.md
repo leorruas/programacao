@@ -2,7 +2,7 @@
 
 JSON significa [[javascript/Introdução ao JavaScript\|JavaScript]] Object Notation (Notação de [[javascript/01-fundamentos/Objetos\|Objetos]] [[javascript/Introdução ao JavaScript\|JavaScript]]). 
 
-Para entender de forma simples: o JSON é a **Ficha de Cadastro Universal** da internet, baseado na estrutura de [[javascript/02-funcoes-e-objetos/Objetos|Objetos]] do [[javascript/Introdução ao JavaScript\|JavaScript]]. Ele é o formato de texto padrão usado para transmitir dados entre computadores e consultar dados de uma [[javascript/05-assincrono/API|API]] usando o [[javascript/05-assincrono/Fetch|Fetch]].
+Para entender de forma simples: o JSON é a **Ficha de Cadastro Universal** da internet, baseado na estrutura de [[javascript/02-funcoes-e-objetos/03-Objetos|Objetos]] do [[javascript/Introdução ao JavaScript\|JavaScript]]. Ele é o formato de texto padrão usado para transmitir dados entre computadores e consultar dados de uma [[javascript/05-assincrono/02-API|API]] usando o [[javascript/05-assincrono/03-Fetch|Fetch]].
 
 ---
 

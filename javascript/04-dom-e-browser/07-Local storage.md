@@ -20,7 +20,7 @@ O Figma armazena essas pequenas preferências locais no seu próprio computador.
 
 ## Como usar o local storage no JavaScript
 
-O funcionamento do Local Storage é baseado em chave e valor, de forma muito semelhante a um dicionário de dados ([[javascript/01-fundamentos/JSON\|JSON]], explicado em [[javascript/03-manipulacao/JSON|JSON]]). Ele armazena apenas dados em formato de **texto (string)**.
+O funcionamento do Local Storage é baseado em chave e valor, de forma muito semelhante a um dicionário de dados ([[javascript/01-fundamentos/JSON\|JSON]], explicado em [[javascript/03-manipulacao/08-JSON|JSON]]). Ele armazena apenas dados em formato de **texto (string)**.
 
 Temos três comandos fundamentais para interagir com o Local Storage:
 

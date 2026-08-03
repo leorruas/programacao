@@ -26,7 +26,7 @@ Todas as interações, criações de arquivos e edições no vault devem obedece
 
 4. **Prevenção de Links Quebrados em Tabelas e Compatibilidade de WikiLinks**:
    * **Formato Geral Obrigatório**: Todos os WikiLinks devem incluir o caminho relativo da pasta e um rótulo de texto usando o pipe (ex: `[[pasta/subpasta/NomeDaNota|Nome da Nota]]`). Nunca use links diretos sem rótulo (ex: `[[pasta/subpasta/NomeDaNota]]`), pois o Obsidian exibirá o caminho bruto das pastas na visualização.
-   * **Fora de Tabelas**: Use o pipe simples (`|`) para separar o caminho e o rótulo (ex: `[[javascript/01-fundamentos/Var, let e const|Var, Let e Const]]`).
+   * **Fora de Tabelas**: Use o pipe simples (`|`) para separar o caminho e o rótulo (ex: `[[javascript/01-fundamentos/01-Var, let e const|Var, Let e Const]]`).
    * **Dentro de Tabelas**: Use obrigatoriamente o pipe escapado (`\|`) para que o parser do Markdown não interprete o pipe do link como um separador de colunas (ex: `[[git/01-fundamentos/Git\|Git]]`).
 
 5. **Método Feynman Obrigatório**:

@@ -1,6 +1,6 @@
 # Entendendo objetos - método Feynman
 
-Em [[javascript/Introdução ao JavaScript\|JavaScript]], um **Objeto** é um dos [[javascript/01-fundamentos/Tipos de dados|Tipos de dados]] complexos. Ele é uma estrutura que permite agrupar variáveis (propriedades) e [[javascript/01-fundamentos/Funções\|funções]] (métodos) que pertencem a uma mesma entidade em um único lugar. Para criá-los em lote, usamos [[javascript/02-funcoes-e-objetos/Classes|Classes]] ou [[javascript/02-funcoes-e-objetos/Funções construtoras|Funções Construtoras]].
+Em [[javascript/Introdução ao JavaScript\|JavaScript]], um **Objeto** é um dos [[javascript/01-fundamentos/03-Tipos de dados|Tipos de dados]] complexos. Ele é uma estrutura que permite agrupar variáveis (propriedades) e [[javascript/01-fundamentos/Funções\|funções]] (métodos) que pertencem a uma mesma entidade em um único lugar. Para criá-los em lote, usamos [[javascript/02-funcoes-e-objetos/09-Classes|Classes]] ou [[javascript/02-funcoes-e-objetos/06-Funções construtoras|Funções Construtoras]].
 
 Pense em um objeto como a **Ficha de Propriedades de um Componente** do Figma.
 

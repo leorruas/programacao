@@ -58,8 +58,8 @@ Use **`if-else`** quando:
 
 ## Conexões com o restante do vault
 
-*   O `switch` recebe avaliações baseadas nos operadores de igualdade estrita (`===`) detalhados em **[[javascript/01-fundamentos/Operadores e operações|Operadores e Operações]]**.
-*   Ele é a estrutura ideal para gerenciar modificações de estados simples, frequentemente chamados por **[[javascript/04-dom-e-browser/Eventos|Eventos]]** na tela.
+*   O `switch` recebe avaliações baseadas nos operadores de igualdade estrita (`===`) detalhados em **[[javascript/01-fundamentos/04-Operadores e operações|Operadores e Operações]]**.
+*   Ele é a estrutura ideal para gerenciar modificações de estados simples, frequentemente chamados por **[[javascript/04-dom-e-browser/04-Eventos|Eventos]]** na tela.
 
 ---
 

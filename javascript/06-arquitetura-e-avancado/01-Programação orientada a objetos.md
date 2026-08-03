@@ -1,6 +1,6 @@
 # Programação orientada a objetos (poo) - método Feynman
 
-A **Programação Orientada a [[javascript/01-fundamentos/Objetos\|Objetos]] (POO)** é um paradigma (uma forma de pensar e organizar o código) baseado no conceito de "[[javascript/01-fundamentos/Objetos\|Objetos]]" que contêm dados (propriedades) e ações (métodos). Em [[javascript/Introdução ao JavaScript\|JavaScript]], implementamos esse conceito principalmente usando [[javascript/02-funcoes-e-objetos/Classes|Classes]] (e antigamente com [[javascript/02-funcoes-e-objetos/Funções construtoras|Funções Construtoras]]).
+A **Programação Orientada a [[javascript/01-fundamentos/Objetos\|Objetos]] (POO)** é um paradigma (uma forma de pensar e organizar o código) baseado no conceito de "[[javascript/01-fundamentos/Objetos\|Objetos]]" que contêm dados (propriedades) e ações (métodos). Em [[javascript/Introdução ao JavaScript\|JavaScript]], implementamos esse conceito principalmente usando [[javascript/02-funcoes-e-objetos/09-Classes|Classes]] (e antigamente com [[javascript/02-funcoes-e-objetos/06-Funções construtoras|Funções Construtoras]]).
 
 Para um designer, a POO é exatamente como construir e gerenciar um **Design System no Figma**. Em vez de escrever códigos soltos, você agrupa tudo em componentes estruturados que podem ser reutilizados, customizados e combinados.
 

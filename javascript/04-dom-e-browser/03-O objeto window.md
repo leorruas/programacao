@@ -2,7 +2,7 @@
 
 No desenvolvimento web, o objeto **`window`** é o elemento mais alto na hierarquia do navegador. Ele representa a janela do navegador que contém o documento da página web. Em JavaScript executado no browser, ele é o **objeto global** — o que significa que qualquer variável ou função declarada globalmente torna-se, automaticamente, uma propriedade ou método do `window`.
 
-Sob a perspectiva da **Infraestrutura Urbana**, se o [[javascript/04-dom-e-browser/Métodos do objeto document|document]] é o **Gerente de um Prédio**, o `window` é o **Shopping Mall (ou o Complexo Inteiro)** onde esse prédio está inserido.
+Sob a perspectiva da **Infraestrutura Urbana**, se o [[javascript/04-dom-e-browser/02-Métodos do objeto document|document]] é o **Gerente de um Prédio**, o `window` é o **Shopping Mall (ou o Complexo Inteiro)** onde esse prédio está inserido.
 
 ---
 

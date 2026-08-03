@@ -1,6 +1,6 @@
 # Entendendo escopo e closures - método Feynman
 
-Em [[javascript/Introdução ao JavaScript\|JavaScript]], onde e como você cria suas variáveis define quem pode ter acesso a elas. As regras de declaração com `var`, `let` e `const` explicadas em [[javascript/01-fundamentos/Var, let e const|Var, Let e Const]] são a base disso.
+Em [[javascript/Introdução ao JavaScript\|JavaScript]], onde e como você cria suas variáveis define quem pode ter acesso a elas. As regras de declaração com `var`, `let` e `const` explicadas em [[javascript/01-fundamentos/01-Var, let e const|Var, Let e Const]] são a base disso.
 
 Os conceitos de **Escopo** e **Closures** determinam o nível de visibilidade das suas informações e como as [[javascript/01-fundamentos/Funções\|funções]] gerenciam essa memória, funcionando de forma muito parecida com as permissões de visibilidade de arquivos do Figma.
 

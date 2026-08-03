@@ -1,6 +1,6 @@
 # O console.log: a telemetria do seu código - método Feynman
 
-O **`console.log()`** é uma [[javascript/01-fundamentos/Funções\|Funções]] interna do [[javascript/Introdução ao JavaScript\|JavaScript]] que usamos para imprimir mensagens, textos ou valores de variáveis (explicadas em [[javascript/01-fundamentos/Var, let e const|Var, Let e Const]]) no console do navegador (ou no terminal do computador). Ele é o seu maior aliado para entender o que está acontecendo por baixo dos panos no seu código.
+O **`console.log()`** é uma [[javascript/01-fundamentos/Funções\|Funções]] interna do [[javascript/Introdução ao JavaScript\|JavaScript]] que usamos para imprimir mensagens, textos ou valores de variáveis (explicadas em [[javascript/01-fundamentos/01-Var, let e const|Var, Let e Const]]) no console do navegador (ou no terminal do computador). Ele é o seu maior aliado para entender o que está acontecendo por baixo dos panos no seu código.
 
 Sob a perspectiva da **Telemetria de voo (painel de instrumentos de aeronaves)**, o `console.log()` funciona exatamente como os **monitores e sensores da cabine do piloto**.
 

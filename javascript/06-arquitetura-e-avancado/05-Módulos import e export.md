@@ -1,6 +1,6 @@
 # Entendendo módulos (import e export) - método Feynman
 
-Conforme o seu projeto web cresce, colocar todo o código [[javascript/Introdução ao JavaScript\|JavaScript]] dentro de um único arquivo gigante se torna inviável. Módulos são a solução para dividir o seu código em arquivos menores, organizados e especializados, onde exportamos e importamos [[javascript/01-fundamentos/Funções\|funções]] e [[javascript/01-fundamentos/Classes\|classes]] (um padrão essencial ao migrar para [[javascript/06-arquitetura-e-avancado/TypeScript introdução|TypeScript introdução]]).
+Conforme o seu projeto web cresce, colocar todo o código [[javascript/Introdução ao JavaScript\|JavaScript]] dentro de um único arquivo gigante se torna inviável. Módulos são a solução para dividir o seu código em arquivos menores, organizados e especializados, onde exportamos e importamos [[javascript/01-fundamentos/Funções\|funções]] e [[javascript/01-fundamentos/Classes\|classes]] (um padrão essencial ao migrar para [[javascript/06-arquitetura-e-avancado/08-TypeScript introdução|TypeScript introdução]]).
 
 Pense nos módulos como a **Publicação e Uso de Bibliotecas** no Figma.
 

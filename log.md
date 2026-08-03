@@ -9,6 +9,9 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Reorganização de C#**:
   * Renomeação e numeração lógica dos 13 arquivos de C# (`00-` a `13-`) conforme recomendação do Guia de Estudos.
   * Atualização de todos os links e referências cruzadas internos no vault.
+* **Reorganização de JavaScript**:
+  * Renomeação e numeração de todos os arquivos de notas dentro das subpastas lógicas (`01-fundamentos`, `02-funcoes-e-objetos`, `03-manipulacao`, `04-dom-e-browser`, `05-assincrono` e `06-arquitetura-e-avancado`) seguindo a sequência de fases do Guia de Estudos.
+  * Atualização de todos os links internos, Wikilinks e caminhos de fallback no script `script.js`.
 * **Criação de Notas Avançadas de C#**:
   * [[csharp/14-Tratamento de erros\|14-Tratamento de erros]]: Tratamento com `try`, `catch`, `finally` e `throw`.
   * [[csharp/15-Manipulação de arquivos\|15-Manipulação de arquivos]]: Manipulação de diretórios e arquivos com `System.IO`.

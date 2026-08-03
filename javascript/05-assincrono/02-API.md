@@ -34,7 +34,7 @@ Você não precisou programar um sistema de satélites nem um mapa interativo. O
 
 ## Como funciona na prática do desenvolvimento
 
-As APIs na web costumam funcionar por meio de requisições HTTP enviando e recebendo dados em formato [[javascript/03-manipulacao/JSON|JSON]] (usando ferramentas como o [[javascript/05-assincrono/Fetch|Fetch]] para buscar e processar as informações). 
+As APIs na web costumam funcionar por meio de requisições HTTP enviando e recebendo dados em formato [[javascript/03-manipulacao/08-JSON|JSON]] (usando ferramentas como o [[javascript/05-assincrono/03-Fetch|Fetch]] para buscar e processar as informações). 
 
 Pense nisso como um menu de restaurante: a API te dá uma lista de opções de pedidos que você pode fazer ao servidor.
 

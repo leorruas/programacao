@@ -1,6 +1,6 @@
 # Hoisting (elevação) - método Feynman
 
-**Hoisting** (elevação ou içamento) é um comportamento padrão do [[javascript/Introdução ao JavaScript\|JavaScript]] onde as declarações de variáveis (como `var`, `let` e `const` explicadas em [[javascript/01-fundamentos/Var, let e const|Var, Let e Const]]) e [[javascript/01-fundamentos/Funções\|funções]] são "puxadas" para o topo do seu [[javascript/06-arquitetura-e-avancado/Escopo e closures\|escopo]] de execução antes do código começar a rodar.
+**Hoisting** (elevação ou içamento) é um comportamento padrão do [[javascript/Introdução ao JavaScript\|JavaScript]] onde as declarações de variáveis (como `var`, `let` e `const` explicadas em [[javascript/01-fundamentos/01-Var, let e const|Var, Let e Const]]) e [[javascript/01-fundamentos/Funções\|funções]] são "puxadas" para o topo do seu [[javascript/06-arquitetura-e-avancado/Escopo e closures\|escopo]] de execução antes do código começar a rodar.
 
 Para um designer, o hoisting é muito parecido com a **indexação automática de Componentes no Figma**: 
 * Se você cria um Componente Master no rodapé de uma página, você ainda consegue arrastar instâncias dele no topo da página. O Figma "sabe" que ele existe porque indexou (elevou) a existência daquele componente antes de renderizar a visualização.
