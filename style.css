@@ -490,6 +490,23 @@ button:hover {
     border-color: pink;
 }
 
+
+/* Agrupamento por Assunto na Busca */
+.busca-grupo-assunto {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.busca-assunto-titulo {
+    color: pink;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    text-transform: lowercase;
+}
+
 /* Responsividade para Celulares e Tablets */
 @media (max-width: 768px) {
     body {
