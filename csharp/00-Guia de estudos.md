@@ -31,10 +31,10 @@ Aqui você ensina o programa a pensar, escolher caminhos e fazer tarefas repetit
 
 Aqui você aprende a lidar com grandes volumes de dados ao mesmo tempo.
 
-1. **[[07-Arrays em Csharp.md|Arrays em Csharp]]:** Saiba como criar grandes gaveteiros de tamanho fixo. Entenda o que é o erro de estouro de índice (`IndexOutOfRangeException`), além de aprender a diferença entre matrizes perfeitas (multidimensionais) e gaveteiros irregulares (jagged arrays).
-2. **[[08-Métodos de arrays|Métodos de arrays]]:** A sua caixa de ferramentas para ordenar (`Sort`), inverter (`Reverse`) e fazer buscas rápidas com o LINQ (`Min`, `Max`, `Where`).
+1. **[[07-Arrays em Csharp.md|Arrays em Csharp]]:** Saiba como criar grandes gaveteiros de tamanho fixo. Entenda o que é o erro de estouro de índice (`IndexOutOfRangeException`), além de aprender a diferença entre matrizes perfeitas (multidimensionais) e gaveteiros irregulares (jagged [[07-Arrays em Csharp|arrays]]).
+2. **[[08-Métodos de arrays|Métodos de arrays]]:** A sua caixa de ferramentas para ordenar (`Sort`), inverter (`Reverse`) e fazer buscas rápidas com o [[17-LINQ buscas e filtros|LINQ]] (`Min`, `Max`, `Where`).
 3. **[[09-Coleções em Csharp.md|Coleções em Csharp]]:** Conheça os gaveteiros mágicos flexíveis que esticam e encolhem sozinhos (`List<T>`, `Dictionary<K, V>` e `HashSet<T>`).
-4. **[[10-Tipos abstratos de dados|Tipos abstratos de dados]]:** Introdução conceitual a Filas, Pilhas e Dicionários.
+4. **[[10-Tipos abstratos de dados|Tipos abstratos de dados]]:** Introdução conceitual a Filas, [[11-Lista, pilha e fila|Pilhas]] e Dicionários.
 5. **[[11-Lista, pilha e fila|Lista, pilha e fila]]:** Guia prático de implementação de estruturas de dados lineares.
 
 ---
@@ -44,7 +44,7 @@ Aqui você aprende a lidar com grandes volumes de dados ao mesmo tempo.
 Aqui você aprende a organizar códigos gigantescos dividindo-os em partes menores e imitando a vida real.
 
 1. **[[12-Métodos (funções|Métodos (funções)]].md):** Crie comandos personalizados para automatizar ações repetitivas (como ensinar truques a um cachorro).
-2. **[[13-Programação orientada a objetos|Programação orientada a objetos]]:** Aprenda a usar fôrmas de bolo (classes) para assar objetos reais com características e comportamentos próprios.
+2. **[[13-Programação orientada a objetos|Programação orientada a objetos]]:** Aprenda a usar fôrmas de bolo ([[13-Programação orientada a objetos|classes]]) para assar objetos reais com características e comportamentos próprios.
 
 ---
 

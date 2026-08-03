@@ -3,7 +3,7 @@
 
 Quando você clica no botão "Executar" de um programa em C#, o computador precisa saber exatamente por onde começar. Imagine que o seu programa é um shopping gigante: tem várias lojas, elevadores e corredores, mas você só consegue entrar se passar pela **porta da frente**. 
 
-Em C#, essa porta da frente é o método **`Main`**.
+Em C#, essa porta da frente é o [[12-Métodos (funções)|método]] **`Main`**.
 
 ---
 
@@ -20,7 +20,7 @@ Para uma criança entender, vamos quebrar essa frase palavra por palavra:
 Significa que qualquer um tem acesso a essa porta. Ela está aberta e destrancada na rua. O computador precisa que ela seja pública para conseguir abrir o programa do lado de fora.
 
 ### `static` (Estático)
-Em C#, para usar um molde (Classe), geralmente precisamos criar um objeto real na memória (usando `new`). Mas o `static` diz: **"Você não precisa criar nada antes para usar este botão"**. O computador pode apertar o botão `Main` imediatamente, mesmo se o programa estiver completamente vazio.
+Em C#, para usar um molde ([[13-Programação orientada a objetos|Classe]]), geralmente precisamos criar um objeto real na memória (usando `new`). Mas o `static` diz: **"Você não precisa criar nada antes para usar este botão"**. O computador pode apertar o botão `Main` imediatamente, mesmo se o programa estiver completamente vazio.
 
 ### `void` (Vazio / Sem retorno)
 Diz que esse método faz as suas tarefas, mas **não devolve nenhum objeto físico** de volta para quem o chamou. Ele apenas realiza a ação e encerra.
@@ -29,7 +29,7 @@ Diz que esse método faz as suas tarefas, mas **não devolve nenhum objeto físi
 É o nome oficial da porta. C# é rigoroso: ele sempre vai procurar por um método com a primeira letra maiúscula escrita exatamente como **`Main`**. Se você escrever `main` (com "m" minúsculo), o compilador vai ficar confuso e o programa não vai ligar.
 
 ### `(string[] args)` (Os argumentos)
-São **instruções extras** (uma coleção de palavras) que você pode mandar para o programa no exato momento em que você o inicia pelo terminal do computador.
+São **instruções extras** (uma [[09-Coleções em Csharp|coleção]] de palavras) que você pode mandar para o programa no exato momento em que você o inicia pelo terminal do computador.
 * *Exemplo real:* Ao digitar no terminal `meuapp.exe leonardo`, o valor `"leonardo"` entra no programa dentro dessa gaveta `args` e pode ser usado pelo código!
 
 ---

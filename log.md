@@ -9,6 +9,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Reorganização de C#**:
   * Renomeação e numeração lógica dos 13 arquivos de C# (`00-` a `13-`) conforme recomendação do Guia de Estudos.
   * Atualização de todos os links e referências cruzadas internos no vault.
+* **Interligação de Artigos de Csharp**:
+  * Realizada uma varredura geral e inseridos Wikilinks cruzados em **15 arquivos de Csharp** conectando termos-chave (como arrays, POO, métodos, coleções, exceções, etc.) às suas respectivas notas explicativas.
+* **Regra de Interligação Automática (Modus Operandi)**:
+  * Criada a regra [[.gemini/rules/auto_interlinking\|auto_interlinking.md]] definindo o comportamento padrão de linkagem inteligente cruzada para qualquer nova criação ou atualização de notas no vault.
 * **Atualização de Nota**: [[csharp/01-Introdução ao Csharp\|Introdução ao Csharp]]
   * Adicionada seção explicativa com exemplos cotidianos e práticos de utilização do C# (McDonald's, Pix e automação) sob a ótica do Método Feynman.
 * **Codificação de URLs em Links**:

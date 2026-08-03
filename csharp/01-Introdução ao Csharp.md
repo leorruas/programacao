@@ -66,7 +66,7 @@ O `using System;` no início do código serve para abrir a caixa de ferramentas 
 Em C#, essas caixas de ferramentas são chamadas de **Namespaces**. Nós podemos importar várias outras de acordo com o que o programa precisa fazer:
 
 * **`using System.Collections.Generic;`**
-  * **O que faz:** Traz ferramentas para criar listas dinâmicas, filas ou pilhas de coisas (como uma lista de compras ou um inventário de itens de um jogo).
+  * **O que faz:** Traz ferramentas para criar listas dinâmicas, filas ou [[11-Lista, pilha e fila|pilhas]] de coisas (como uma lista de compras ou um inventário de itens de um jogo).
 * **`using System.IO;`**
   * **O que faz:** Permite trabalhar com arquivos do computador (Input/Output). Serve para ler textos de arquivos, salvar novos arquivos ou criar pastas.
 * **`using System.Linq;`**
@@ -80,7 +80,7 @@ Sempre que você precisar de uma funcionalidade especial, basta colocar o `using
 
 ## 4. Caixas de guardar coisas (variáveis)
 
-Pense nas variáveis como **caixas organizadoras** com etiquetas. Você apenas pode guardar o objeto certo dentro da caixa com a etiqueta correspondente:
+Pense nas [[03-Variáveis, operadores e tipos de dados|variáveis]] como **caixas organizadoras** com etiquetas. Você apenas pode guardar o [[13-Programação orientada a objetos|objeto]] certo dentro da caixa com a etiqueta correspondente:
 
 ```csharp
 // Caixa para perguntas de Sim ou Não (Verdadeiro ou Falso)

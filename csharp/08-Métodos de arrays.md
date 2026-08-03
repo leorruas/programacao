@@ -1,9 +1,9 @@
 # Métodos de arrays (O dicionário de ferramentas)
 #csharp
 
-Em C#, os arrays não são apenas gaveteiros estáticos para guardar coisas. Eles vêm acompanhados de uma caixa de ferramentas muito poderosa! A classe **`System.Array`** e os métodos de extensão do **`LINQ`** (ferramentas de consulta de dados) facilitam muito a nossa vida.
+Em C#, os [[07-Arrays em Csharp|arrays]] não são apenas gaveteiros estáticos para guardar coisas. Eles vêm acompanhados de uma caixa de ferramentas muito poderosa! A [[13-Programação orientada a objetos|classe]] **`System.Array`** e os [[12-Métodos (funções)|métodos]] de extensão do **`LINQ`** (ferramentas de consulta de dados) facilitam muito a nossa vida.
 
-Aqui está a lista exaustiva dos métodos mais utilizados, o que cada um faz e como usá-los:
+Aqui está a [[11-Lista, pilha e fila|lista]] exaustiva dos métodos mais utilizados, o que cada um faz e como usá-los:
 
 ---
 
@@ -63,7 +63,7 @@ Esses métodos pertencem à própria caixa de ferramentas do C# e são chamados 
 
 ## 2. Métodos de busca LINQ (Extensões)
 
-Para usar estes métodos, você deve importar a biblioteca LINQ escrevendo `using System.Linq;` no topo do código. Eles são chamados diretamente a partir da variável do array (ex: `meuArray.NomeDoMetodo()`).
+Para usar estes métodos, você deve importar a biblioteca [[17-LINQ buscas e filtros|LINQ]] escrevendo `using System.Linq;` no topo do código. Eles são chamados diretamente a partir da [[03-Variáveis, operadores e tipos de dados|variável]] do array (ex: `meuArray.NomeDoMetodo()`).
 
 ### `Min()`
 * **Para que serve:** Encontra o menor valor numérico do array.

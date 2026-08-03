@@ -1,7 +1,7 @@
 # Arrays em Csharp
 #csharp
 
-Um **Array** (ou vetor) é uma estrutura de dados que armazena uma coleção de elementos de mesmo tipo em uma sequência de tamanho fixo.
+Um **Array** (ou vetor) é uma estrutura de dados que armazena uma [[09-Coleções em Csharp|coleção]] de elementos de mesmo tipo em uma sequência de tamanho fixo.
 
 ---
 
@@ -42,7 +42,7 @@ Console.WriteLine(frutas[1]); // Saída: Pêra
 Imagine que você tem um **gaveteiro organizador com exatamente 3 gavetas** (marcadas como `0`, `1` e `2`). 
 Se você pedir para um robô: *"Robô, abra a gaveta número 3 e pegue o casaco"*, o robô vai travar na hora. Por quê? Porque a gaveta 3 simplesmente **não existe**! As únicas gavetas válidas são `0`, `1` e `2`.
 
-No C#, se você tentar acessar uma posição que está fora dos limites do seu array, o programa trava imediatamente na linha do erro e gera a famosa exceção:
+No C#, se você tentar acessar uma posição que está fora dos limites do seu array, o programa trava imediatamente na linha do erro e gera a famosa [[14-Tratamento de erros|exceção]]:
 `System.IndexOutOfRangeException: Index was outside the bounds of the array.`
 
 #### Quando acontece isso?
@@ -81,7 +81,7 @@ Console.WriteLine(numeros.Length); // Saída: 4
 ```
 
 ### Classe System.Array
-O C# fornece a classe utilitária `Array` com vários métodos estáticos úteis:
+O C# fornece a [[13-Programação orientada a objetos|classe]] utilitária `Array` com vários [[12-Métodos (funções)|métodos]] estáticos úteis:
 
 ```csharp
 int[] numeros = { 5, 2, 8, 1 };

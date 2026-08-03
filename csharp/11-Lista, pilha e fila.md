@@ -3,7 +3,7 @@
 
 Agora que você já conhece o conceito teórico de [[10-Tipos abstratos de dados|Tipos abstratos de dados]], vamos ver como criar e mexer com as três estruturas de dados mais famosas do C#: a **Lista**, a **Pilha** e a **Fila**.
 
-Todas elas servem para guardar coleções de dados, mas cada uma tem a sua própria regra de organização.
+Todas elas servem para guardar [[09-Coleções em Csharp|coleções]] de dados, mas cada uma tem a sua própria regra de organização.
 
 ---
 

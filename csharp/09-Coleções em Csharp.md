@@ -1,7 +1,7 @@
 # Coleções em Csharp (Os gaveteiros mágicos)
 #csharp
 
-Até agora, vimos os [[07-Arrays em Csharp.md|Arrays]], que servem para guardar uma lista de itens. Mas os arrays têm um problema: eles são como gaveteiros de madeira rígidos. Se você construiu um com 5 gavetas, terá 5 gavetas para sempre. Se precisar de uma sexta, terá que construir um armário novo do zero.
+Até agora, vimos os [[07-Arrays em Csharp.md|Arrays]], que servem para guardar uma lista de itens. Mas os [[07-Arrays em Csharp|arrays]] têm um problema: eles são como gaveteiros de madeira rígidos. Se você construiu um com 5 gavetas, terá 5 gavetas para sempre. Se precisar de uma sexta, terá que construir um armário novo do zero.
 
 No C#, as **Coleções** (do pacote `System.Collections.Generic`) resolvem isso. Elas são como **gaveteiros elásticos mágicos** que esticam e encolhem sozinhos conforme você adiciona ou remove itens!
 
@@ -9,7 +9,7 @@ No C#, as **Coleções** (do pacote `System.Collections.Generic`) resolvem isso.
 
 ## 1. A Coleção mais usada: `List<T>` (A lista elástica)
 
-A `List<T>` (pronuncia-se *List de T*) é uma lista ordenada onde os itens ficam em fila, muito parecida com um array, mas sem tamanho fixo. O `[T]` representa o tipo de dado que a lista vai aceitar.
+A `List<T>` (pronuncia-se *List de T*) é uma lista ordenada onde os itens ficam em [[11-Lista, pilha e fila|fila]], muito parecida com um array, mas sem tamanho fixo. O `[T]` representa o tipo de dado que a lista vai aceitar.
 
 ***Analogia:** Uma lista de compras no papel. Você pode riscar itens ou adicionar novos no final da folha a qualquer momento.*
 

@@ -1,7 +1,7 @@
 # Herança e interfaces em Csharp
 #csharp
 
-Na Programação Orientada a Objetos, conforme nosso código cresce, começamos a ter muitos moldes (classes) parecidos. Para evitar que a gente tenha que redigitar as mesmas coisas várias vezes, usamos dois superpoderes de organização: **Herança** e **Interfaces**.
+Na [[13-Programação orientada a objetos|Programação Orientada a Objetos]], conforme nosso código cresce, começamos a ter muitos moldes (classes) parecidos. Para evitar que a gente tenha que redigitar as mesmas coisas várias vezes, usamos dois superpoderes de organização: **Herança** e **Interfaces**.
 
 ---
 
@@ -57,7 +57,7 @@ class Program
 ## 2. Interfaces: O contrato de obrigações
 
 Enquanto a herança define o que um objeto **É** (um guerreiro é um personagem), a **Interface** define o que um objeto **CONSEGUE FAZER**.
-Uma interface é como um contrato ou manual de instruções que diz: *"Quem assinar este contrato é obrigado a criar estes métodos!"*. Ela não tem código dentro, apenas os nomes das regras.
+Uma interface é como um contrato ou manual de instruções que diz: *"Quem assinar este contrato é obrigado a criar estes [[12-Métodos (funções)|métodos]]!"*. Ela não tem código dentro, apenas os nomes das regras.
 
 Por exemplo, coisas diferentes como um `Carro`, um `Jogador` e uma `Porta` podem ser fechadas/abertas. Nós criamos a interface `IAbrivel` (por convenção, sempre começamos o nome com a letra `I` maiúscula):
 

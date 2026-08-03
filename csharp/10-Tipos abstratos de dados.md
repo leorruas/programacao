@@ -18,7 +18,7 @@ Isso é exatamente o que chamamos de **Tipo Abstrato de Dados (TAD)**!
 
 Um **Tipo Abstrato de Dados (TAD)** é um conceito teórico. Ele é a descrição de uma estrutura de dados focando apenas em **o que ela faz** (seus botões e funções públicas) e **o que ela guarda**, e ignorando completamente **como ela faz** por baixo dos panos (a fiação elétrica interna).
 
-No C#, nós criamos e representamos TADs usando **Classes** (com seus métodos públicos) ou **Interfaces** (que são literalmente contratos/listas de botões sem nenhuma fiação dentro).
+No C#, nós criamos e representamos TADs usando **[[13-Programação orientada a objetos|Classes]]** (com seus [[12-Métodos (funções)|métodos]] públicos) ou **[[16-Herança e interfaces|Interfaces]]** (que são literalmente contratos/listas de botões sem nenhuma fiação dentro).
 
 ---
 
@@ -33,7 +33,7 @@ Existem estruturas de dados teóricas famosas na computação que representam TA
 
 ### B. Pilha (Stack)
 * **Como funciona:** O último que entra é o primeiro que sai (LIFO - *Last In, First Out*).
-* **Analogia:** Uma **pilha de pratos para lavar**. Você só consegue pegar o prato que está no topo (o último que foi colocado lá). Se tentar pegar o de baixo, a pilha cai e quebra.
+* **Analogia:** Uma **[[11-Lista, pilha e fila|pilha]] de pratos para lavar**. Você só consegue pegar o prato que está no topo (o último que foi colocado lá). Se tentar pegar o de baixo, a pilha cai e quebra.
 * **Operações do TAD:** `Empilhar` (colocar no topo) e `Desempilhar` (tirar do topo).
 
 ### C. Dicionário (Map / Dictionary)

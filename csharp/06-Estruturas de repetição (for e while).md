@@ -24,7 +24,7 @@ for (int i = 1; i <= 10; i++)
 ```
 
 ### Quando usar o `for`?
-Use o `for` sempre que você souber **exatamente o limite** ou a quantidade de vezes que precisa repetir antes mesmo de começar (ex: ler 5 nomes, repetir 10 vezes, varrer um array de tamanho fixo).
+Use o `for` sempre que você souber **exatamente o limite** ou a quantidade de vezes que precisa repetir antes mesmo de começar (ex: ler 5 nomes, repetir 10 vezes, varrer um [[07-Arrays em Csharp|array]] de tamanho fixo).
 
 ---
 

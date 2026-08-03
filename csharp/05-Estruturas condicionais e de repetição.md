@@ -62,7 +62,7 @@ while (cansado == false)
 ```
 
 ### O loop foreach (para cada item de um gaveteiro)
-Usamos o `foreach` para vasculhar uma coleção inteira, como um [[07-Arrays em Csharp.md|Array]], sem precisar contar de 1 em 1.
+Usamos o `foreach` para vasculhar uma [[09-Coleções em Csharp|coleção]] inteira, como um [[07-Arrays em Csharp.md|Array]], sem precisar contar de 1 em 1.
 *Analogia: Abra e coma cada chocolate que está dentro de uma caixa.*
 
 ```csharp
