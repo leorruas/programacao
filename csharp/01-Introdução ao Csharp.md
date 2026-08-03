@@ -16,6 +16,13 @@ Hoje, o C# está em quase todas as tecnologias que você consome:
 * **Aplicativos de celular:** Com ele, você consegue construir aplicativos que rodam no Android e no iPhone ao mesmo tempo.
 * **Sistemas de bancos e empresas gigantes:** Sites de compras, aplicativos de bancos e portais que precisam rodar muito rápido e sem travar usam C# para processar dados de milhões de pessoas com total segurança.
 
+#### 🛒 Onde você esbarra com o C# no seu dia a dia?
+Se você prestar atenção na sua rotina, você usa sistemas feitos em C# quase de hora em hora:
+
+1. **No totem de autoatendimento do McDonald's ou no caixa do supermercado:** Aquela tela de toque onde você escolhe os hambúrgueres, adiciona batata frita, faz o pagamento com cartão e imprime a nota fiscal. Toda a inteligência por trás dessa tela (que soma os preços, manda o pedido para a cozinha e avisa a máquina de cartão) costuma rodar em C#.
+2. **Ao fazer um Pix no banco:** Quando você digita uma chave Pix no celular e clica em enviar, o sistema do banco precisa validar em menos de 2 segundos se você tem saldo, mandar o dinheiro para a conta certa e garantir que nada seja duplicado ou roubado. Esses computadores gigantes dos bancos (os servidores) rodam C# para fazer essa transação pesada com total segurança.
+3. **Na automação de carros e eletrodomésticos inteligentes:** Sistemas de painéis digitais de carros modernos, catracas eletrônicas de metrô ou leitores de crachá de empresas usam a segurança e a velocidade do C# para funcionar sem engasgar.
+
 ### Por que ele é tão importante?
 O C# é mantido pela Microsoft e por milhões de programadores no mundo todo. Aprender C# é como aprender inglês: é uma língua universal que abre as portas para criar jogos, sites, robôs e aplicativos comerciais de alto nível, sendo extremamente valorizada no mercado de trabalho.
 

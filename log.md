@@ -9,6 +9,8 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Reorganização de C#**:
   * Renomeação e numeração lógica dos 13 arquivos de C# (`00-` a `13-`) conforme recomendação do Guia de Estudos.
   * Atualização de todos os links e referências cruzadas internos no vault.
+* **Atualização de Nota**: [[csharp/01-Introdução ao Csharp\|Introdução ao C#]]
+  * Adicionada seção explicativa com exemplos cotidianos e práticos de utilização do C# (McDonald's, Pix e automação) sob a ótica do Método Feynman.
 * **Codificação de URLs em Links**:
   * Codificados todos os caminhos (URLs) em links markdown (`[[caminho|texto]]`) que contêm espaços e caracteres especiais em todas as notas do C# para garantir compatibilidade com o leitor do Web App (`marked.js`).
 * **Regra de Preferência de Wikilinks**:
