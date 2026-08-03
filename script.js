@@ -171,7 +171,7 @@ function decodificarEntidadesHTML(str) {
 
 function processarWikiLinksObsidian(markdown) {
     return markdown
-        .replace(/\[\[(.*?)\|(.*?)\]\]/g, '<a class="obsidian-link" data-artigo="$1">$2</a>')
+        .replace(/\[\[(.*?)(?:\||&#124;)(.*?)\]\]/g, '<a class="obsidian-link" data-artigo="$1">$2</a>')
         .replace(/\[\[(.*?)\]\]/g, '<a class="obsidian-link" data-artigo="$1">$1</a>');
 }
 
