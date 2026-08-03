@@ -112,5 +112,5 @@ class Bau : IAbrivel
 ---
 
 ## Artigos relacionados:
-* **[13-Programação orientada a objetos.md](13-Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**
-* **[12-Métodos (funções).md](12-M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)**
+* **[[13-Programação orientada a objetos|13-Programação orientada a objetos.md]]**
+* **[[12-Métodos (funções)|12-Métodos (funções).md]]**

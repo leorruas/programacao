@@ -55,7 +55,7 @@ function converterMarkdownParaHTML(markdown) {
     // 5. Citações (> citação)
     html = html.replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>');
 
-    // 6. Links ([texto](url))
+    // 6. Links ([[url|texto]])
     html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
 
     // 7. Parágrafos (separa blocos de texto por quebras de linha duplas)

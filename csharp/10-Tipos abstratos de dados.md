@@ -49,11 +49,11 @@ Muitas pessoas confundem esses dois nomes, mas a diferença é simples:
 * **TAD (A ideia / A casca):** É o desenho do controle remoto. Diz que ele tem os botões de volume e canal. É abstrato.
 * **Estrutura de dados (A implementação real / A fiação):** É o circuito físico dentro do controle que faz a luz infravermelha acender. É o código C# real rodando na máquina.
 
-Você pode implementar o TAD **Pilha** usando um [Array](07-Arrays%20em%20C#.md) fixo por baixo dos panos, ou usando uma [Lista elástica](09-Cole%C3%A7%C3%B5es%20em%20C%23.md). A ideia da pilha (só tirar do topo) continua a mesma, não importa a fiação escolhida!
+Você pode implementar o TAD **Pilha** usando um [[07-Arrays em C#.md|Array]] fixo por baixo dos panos, ou usando uma [[09-Coleções em C#.md|Lista elástica]]. A ideia da pilha (só tirar do topo) continua a mesma, não importa a fiação escolhida!
 
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](01-Introdu%C3%A7%C3%A3o%20ao%20C#.md)**
-* **[Coleções em C#](09-Cole%C3%A7%C3%B5es%20em%20C%23.md)**
-* **[Programação orientada a objetos](13-Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**
+* **[[01-Introdução ao C#.md|Introdução ao C#]]**
+* **[[09-Coleções em C#.md|Coleções em C#]]**
+* **[[13-Programação orientada a objetos|Programação orientada a objetos]]**

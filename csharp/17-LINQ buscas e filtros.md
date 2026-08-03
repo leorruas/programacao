@@ -106,5 +106,5 @@ class Program
 ---
 
 ## Artigos relacionados:
-* **[09-Coleções em C#.md](09-Cole%C3%A7%C3%B5es%20em%20C%23.md)**
-* **[08-Métodos de arrays.md](08-M%C3%A9todos%20de%20arrays.md)**
+* **[[09-Coleções em C#.md|09-Coleções em C#.md]]**
+* **[[08-Métodos de arrays|08-Métodos de arrays.md]]**

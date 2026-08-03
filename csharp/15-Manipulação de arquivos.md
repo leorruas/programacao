@@ -115,5 +115,5 @@ class Program
 ---
 
 ## Artigos relacionados:
-* **[01-Introdução ao C#.md](01-Introdu%C3%A7%C3%A3o%20ao%20C%23.md)**
-* **[14-Tratamento de erros.md](14-Tratamento%20de%20erros.md)**
+* **[[01-Introdução ao C#.md|01-Introdução ao C#.md]]**
+* **[[14-Tratamento de erros|14-Tratamento de erros.md]]**

@@ -62,7 +62,7 @@ while (cansado == false)
 ```
 
 ### O loop foreach (para cada item de um gaveteiro)
-Usamos o `foreach` para vasculhar uma coleção inteira, como um [Array](07-Arrays%20em%20C#.md), sem precisar contar de 1 em 1.
+Usamos o `foreach` para vasculhar uma coleção inteira, como um [[07-Arrays em C#.md|Array]], sem precisar contar de 1 em 1.
 *Analogia: Abra e coma cada chocolate que está dentro de uma caixa.*
 
 ```csharp
@@ -77,7 +77,7 @@ foreach (string fruta in frutas)
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](01-Introdu%C3%A7%C3%A3o%20ao%20C#.md)**
-* **[Variáveis, operadores e tipos de dados](Vari%C3%A1veis%2C%20operadores%20e%20tipos%20de%20dados.md)**
-* **[Arrays em C#](07-Arrays%20em%20C#.md)**
-* **[Métodos (funções)](12-M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)**
+* **[[01-Introdução ao C#.md|Introdução ao C#]]**
+* **[[Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
+* **[[07-Arrays em C#.md|Arrays em C#]]**
+* **[[12-Métodos (funções)|Métodos (funções)]]**
