@@ -1,4 +1,4 @@
-# Arrays em C#
+# Arrays em Csharp
 #csharp
 
 Um **Array** (ou vetor) é uma estrutura de dados que armazena uma coleção de elementos de mesmo tipo em uma sequência de tamanho fixo.
@@ -169,6 +169,6 @@ Console.WriteLine(gaveteiro[1][2]); // Gaveta 1, Divisória 2 = Saída: 5
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao C#]]**
+* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
 * **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**
 

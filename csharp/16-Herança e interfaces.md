@@ -1,4 +1,4 @@
-# Herança e interfaces em C#
+# Herança e interfaces em Csharp
 #csharp
 
 Na Programação Orientada a Objetos, conforme nosso código cresce, começamos a ter muitos moldes (classes) parecidos. Para evitar que a gente tenha que redigitar as mesmas coisas várias vezes, usamos dois superpoderes de organização: **Herança** e **Interfaces**.

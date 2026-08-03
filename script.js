@@ -100,8 +100,8 @@ async function obterListaDeArquivos() {
             { titulo: "Entendendo encodeURI e decodeURIComponent no JavaScript", path: "./javascript/03-manipulacao/Entendendo encodeURI e decodeURIComponent no JavaScript.md" },
             { titulo: "Como Renderizar Diagramas Mermaid no Web App", path: "./tutoriais/Como Renderizar Diagramas Mermaid no Web App.md" },
             { titulo: "Guia de tutoriais", path: "./tutoriais/Guia de tutoriais.md" },
-            { titulo: "Introdução ao C#", path: "./csharp/01-Introdução ao Csharp.md" },
-            { titulo: "Arrays em C#", path: "./csharp/07-Arrays em C#.md" },
+            { titulo: "Introdução ao Csharp", path: "./csharp/01-Introdução ao Csharp.md" },
+            { titulo: "Arrays em Csharp", path: "./csharp/07-Arrays em Csharp.md" },
             { titulo: "Segurança de Tipos", path: "./csharp/04-Segurança de tipos.md" },
             { titulo: "Variáveis, Operadores e Tipos de Dados", path: "./csharp/03-Variáveis, operadores e tipos de dados.md" },
             { titulo: "Estruturas Condicionais e de Repetição", path: "./csharp/05-Estruturas condicionais e de repetição.md" },
@@ -111,7 +111,7 @@ async function obterListaDeArquivos() {
             { titulo: "Estruturas de repetição (for e while)", path: "./csharp/06-Estruturas de repetição (for e while).md" },
             { titulo: "Métodos de arrays", path: "./csharp/08-Métodos de arrays.md" },
             { titulo: "Guia de estudos", path: "./csharp/00-Guia de estudos.md" },
-            { titulo: "Coleções em C#", path: "./csharp/09-Coleções em C#.md" },
+            { titulo: "Coleções em Csharp", path: "./csharp/09-Coleções em Csharp.md" },
             { titulo: "Tipos abstratos de dados", path: "./csharp/10-Tipos abstratos de dados.md" },
             { titulo: "Lista, pilha e fila", path: "./csharp/11-Lista, pilha e fila.md" }
         ];

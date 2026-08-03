@@ -1,4 +1,4 @@
-# LINQ buscas e filtros em C#
+# LINQ buscas e filtros em Csharp
 #csharp
 
 Imagine que você tem uma caixa cheia de pecinhas de LEGO misturadas. Se você quiser encontrar apenas as peças vermelhas que são quadradas, de forma manual, você teria que pegar pecinha por pecinha, olhar a cor, olhar o formato, e separar em outra pilha. Dá muito trabalho!
@@ -106,5 +106,5 @@ class Program
 ---
 
 ## Artigos relacionados:
-* **[[09-Coleções em C#.md|09-Coleções em C#.md]]**
+* **[[09-Coleções em Csharp.md|09-Coleções em Csharp.md]]**
 * **[[08-Métodos de arrays|08-Métodos de arrays.md]]**

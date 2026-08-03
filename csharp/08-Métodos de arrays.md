@@ -108,6 +108,6 @@ Para usar estes métodos, você deve importar a biblioteca LINQ escrevendo `usin
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao C#]]**
-* **[[07-Arrays em C#.md|Arrays em C#]]**
+* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
+* **[[07-Arrays em Csharp.md|Arrays em Csharp]]**
 * **[[06-Estruturas de repetição (for e while)|Estruturas de repetição (for e while)]]**

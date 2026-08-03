@@ -1,4 +1,4 @@
-# Introdução ao C# (Como se fosse para uma criança de 12 anos!)
+# Introdução ao Csharp (Como se fosse para uma criança de 12 anos!)
 #csharp
 
 Imagine que o computador é um assistente super obediente, mas que não sabe fazer nada sozinho. Para falar com ele e dar instruções, precisamos de uma língua que ambos entendam. O **C#** (pronuncia-se *C-Sharp*) é exatamente essa língua!
@@ -117,9 +117,9 @@ else
 
 Agora que você já conhece o básico de como dar ordens para o computador, aqui está o fluxo ideal de tópicos sugeridos para você continuar sua jornada no C#:
 
-1. **[[Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]** (As caixas e as ferramentas matemáticas)
+1. **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]** (As caixas e as ferramentas matemáticas)
 2. **[[04-Segurança de tipos|Segurança de tipos (Strongly Typed)]]** (Por que as caixas são rígidas?)
 3. **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]** (Tomando decisões e repetindo tarefas)
-4. **[[07-Arrays em C#.md|Arrays (Gaveteiros de caixas)]]** (Guardando várias caixas juntas)
+4. **[[07-Arrays em Csharp.md|Arrays (Gaveteiros de caixas)]]** (Guardando várias caixas juntas)
 5. **[[12-Métodos (funções)|Métodos (funções)]]** (Automatizando passos repetitivos no robô)
 6. **[[13-Programação orientada a objetos|Programação orientada a objetos]]** (Organizando o código como a vida real)

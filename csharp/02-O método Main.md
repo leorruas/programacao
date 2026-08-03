@@ -1,4 +1,4 @@
-# O método Main (A porta de entrada do C#)
+# O método Main (A porta de entrada do Csharp)
 #csharp
 
 Quando você clica no botão "Executar" de um programa em C#, o computador precisa saber exatamente por onde começar. Imagine que o seu programa é um shopping gigante: tem várias lojas, elevadores e corredores, mas você só consegue entrar se passar pela **porta da frente**. 
@@ -43,6 +43,6 @@ São **instruções extras** (uma coleção de palavras) que você pode mandar p
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao C#]]**
+* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
 * **[[12-Métodos (funções)|Métodos (funções)]]**
 * **[[13-Programação orientada a objetos|Programação orientada a objetos]]**

@@ -1,4 +1,4 @@
-# Segurança de tipos (Por que o C# é tão protetor?)
+# Segurança de tipos (Por que o Csharp é tão protetor?)
 #csharp
 
 Sabe aqueles brinquedos de bebê que têm uma caixa com buracos em formato de estrela, círculo e quadrado? Se você tentar colocar a estrela de plástico no buraco do círculo, ela simplesmente não entra. 
@@ -32,6 +32,6 @@ Isso é ótimo! É muito melhor o fiscal te avisar enquanto você está escreven
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao C#]]**
-* **[[Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
-* **[[07-Arrays em C#.md|Arrays em C#]]**
+* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
+* **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
+* **[[07-Arrays em Csharp.md|Arrays em Csharp]]**

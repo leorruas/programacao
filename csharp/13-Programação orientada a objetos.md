@@ -85,6 +85,6 @@ Pense nas classes como os **Componentes Master no Figma**. Você deve criar e us
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao C#]]**
+* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
 * **[[12-Métodos (funções)|Métodos (funções)]]**
-* **[[Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
+* **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**

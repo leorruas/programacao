@@ -9,7 +9,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Reorganização de C#**:
   * Renomeação e numeração lógica dos 13 arquivos de C# (`00-` a `13-`) conforme recomendação do Guia de Estudos.
   * Atualização de todos os links e referências cruzadas internos no vault.
-* **Atualização de Nota**: [[csharp/01-Introdução ao Csharp\|Introdução ao C#]]
+* **Atualização de Nota**: [[csharp/01-Introdução ao Csharp\|Introdução ao Csharp]]
   * Adicionada seção explicativa com exemplos cotidianos e práticos de utilização do C# (McDonald's, Pix e automação) sob a ótica do Método Feynman.
 * **Codificação de URLs em Links**:
   * Codificados todos os caminhos (URLs) em links markdown (`[[caminho|texto]]`) que contêm espaços e caracteres especiais em todas as notas do C# para garantir compatibilidade com o leitor do Web App (`marked.js`).
@@ -27,13 +27,13 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * [[csharp/16-Herança e interfaces\|16-Herança e interfaces]]: Conceitos avançados de POO, herança de classes e contratos de interface.
   * [[csharp/17-LINQ buscas e filtros\|17-LINQ buscas e filtros]]: Consultas eficientes em coleções com métodos LINQ (`Where`, `Select`, `OrderBy`, etc.).
 
-* **Atualização de Nota**: [[csharp/Arrays\|Arrays em C#]]
+* **Atualização de Nota**: [[csharp/Arrays\|Arrays em Csharp]]
   * Adicionada dica explicativa diferenciando as condições de limite do loop (`i < nomes.Length` vs `i < nomes.Length - 1`) para evitar confusões comuns com índices de array.
 
 * **Atualização de Regra do Vault**:
   * Atualizada a regra [[.gemini/rules/log_changes\|log_changes.md]] para incluir a obrigatoriedade de commit e push imediato ao GitHub após qualquer alteração no vault.
 
-* **Atualização de Nota**: [[csharp/Introducao\|Introdução ao C#]]
+* **Atualização de Nota**: [[csharp/Introducao\|Introdução ao Csharp]]
   * Adicionada seção explicando o uso de namespaces extras (como `System.Collections.Generic`, `System.IO`, `System.Linq` e `System.Text`) para importar outras caixas de ferramentas no C#.
 
 ## 2026-08-02
@@ -48,10 +48,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Criação do guia de implementação prática contendo sintaxes, operações (Enqueue, Dequeue, Push, Pop, Add, Insert) e analogias do Método Feynman.
 
 * **Criação de Notas de C#**:
-  * [[csharp/Coleções\|Coleções em C#]]: Explicação sobre coleções flexíveis (`List<T>`, `Dictionary<K, V>`, `HashSet<T>`).
+  * [[csharp/Coleções\|Coleções em Csharp]]: Explicação sobre coleções flexíveis (`List<T>`, `Dictionary<K, V>`, `HashSet<T>`).
   * [[csharp/10-Tipos abstratos de dados\|Tipos abstratos de dados]]: Introdução conceitual sobre TADs (Filas, Pilhas e Dicionários) e sua representação no código.
 * **Atualização de Nota**: [[javascript/00-Guia de Estudos\|Guia de estudos de C#]]
-  * Atualização da nota para incluir Coleções em C# e ajustar a ordenação de roteiro de estudos sugerido.
+  * Atualização da nota para incluir Coleções em Csharp e ajustar a ordenação de roteiro de estudos sugerido.
 
 * **Melhoria no Layout de Código do Web App**:
   * Implementadas quebras de linha automáticas (`pre-wrap`) nos blocos de código (`pre`) para evitar barras de rolagem horizontais no mobile e desktop.
@@ -64,14 +64,14 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * [[csharp/02-O método Main\|O método Main]]: Explicação detalhada sobre a estrutura `public static void Main(string[] args)`.
   * [[javascript/01-fundamentos/09-Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]: Explicação detalhada sobre loops `for`, `while` e `do while`.
   * [[csharp/08-Métodos de arrays\|Métodos de arrays]]: Dicionário exaustivo de funções para arrays.
-* **Atualização de Nota**: [[csharp/Arrays\|Arrays em C#]]
+* **Atualização de Nota**: [[csharp/Arrays\|Arrays em Csharp]]
   * Adicionada seção detalhada sobre o erro `IndexOutOfRangeException` (estouro de índice), explicando causas comuns e como evitar.
 
 * **Correção de Links de Artigos**:
   * Ajuste na codificação de caracteres de parênteses (`(` para `%28` e `)` para `%29`) nas URIs de markdown para corrigir links quebrados para o arquivo `12-Métodos (funções).md`.
-  * Adicionado rodapé de artigos relacionados ao arquivo [[csharp/Arrays\|Arrays em C#]].
+  * Adicionado rodapé de artigos relacionados ao arquivo [[csharp/Arrays\|Arrays em Csharp]].
 
-* **Atualização de Nota**: [[csharp/Arrays\|Arrays em C#]]
+* **Atualização de Nota**: [[csharp/Arrays\|Arrays em Csharp]]
   * Adicionadas explicações intuitivas sob o Método Feynman (tabuleiros vs gaveteiros irregulares) e as finalidades práticas para Arrays multidimensionais e Jagged Arrays.
 
 * **Comportamento de Busca no Web App**:
@@ -81,7 +81,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Reduzido o tamanho da fonte do título `h1` ("pesquisa de programação") e do input de busca no mobile.
   * Mantido o alinhamento horizontal lado a lado (estilo desktop) para o input e botão de busca em telas móveis.
 
-* **Atualização de Nota**: [[csharp/Introducao\|Introdução ao C#]]
+* **Atualização de Nota**: [[csharp/Introducao\|Introdução ao Csharp]]
   * Adicionada a contextualização histórica de sua origem, áreas de uso prático (como Unity para jogos, mobile e corporativo) e a relevância de mercado da linguagem.
 
 * **Padronização de Títulos e Cabeçalhos (Sentence Case)**:
@@ -95,8 +95,8 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 * **Criação de Pasta e Notas de C#**:
   * Criação da pasta [[csharp/]] contendo os primeiros artigos explicativos.
-  * [[csharp/Introducao\|Introdução ao C#]]: Guia conceitual sobre a linguagem.
-  * [[csharp/Arrays\|Arrays em C#]]: Explicação sobre vetores.
+  * [[csharp/Introducao\|Introdução ao Csharp]]: Guia conceitual sobre a linguagem.
+  * [[csharp/Arrays\|Arrays em Csharp]]: Explicação sobre vetores.
   * [[csharp/04-Segurança de tipos\|Segurança de Tipos]]: Detalhamento didático sobre tipagem estática e forte.
   * [[csharp/03-Variáveis, operadores e tipos de dados\|Variáveis, Operadores e Tipos de Dados]]: Dicionário das caixas de tipos de dados.
   * [[csharp/05-Estruturas condicionais e de repetição\|Estruturas Condicionais e de Repetição]]: Tomada de decisões e loops.

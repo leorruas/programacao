@@ -62,6 +62,6 @@ Use o `void` sempre que seu método precisar apenas **executar uma ação**, sem
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao C#]]**
-* **[[Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
+* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
+* **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
 * **[[13-Programação orientada a objetos|Programação orientada a objetos]]**

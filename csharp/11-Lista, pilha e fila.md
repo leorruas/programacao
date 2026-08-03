@@ -1,4 +1,4 @@
-# Lista, pilha e fila em C#
+# Lista, pilha e fila em Csharp
 #csharp
 
 Agora que você já conhece o conceito teórico de [[10-Tipos abstratos de dados|Tipos abstratos de dados]], vamos ver como criar e mexer com as três estruturas de dados mais famosas do C#: a **Lista**, a **Pilha** e a **Fila**.
@@ -94,5 +94,5 @@ Console.WriteLine($"Nova página no topo: {historicoNavegador.Peek()}"); // Saí
 
 ## Artigos relacionados:
 * **[[10-Tipos abstratos de dados|Tipos abstratos de dados]]**
-* **[[09-Coleções em C#.md|Coleções em C#]]**
-* **[[07-Arrays em C#.md|Arrays em C#]]**
+* **[[09-Coleções em Csharp.md|Coleções em Csharp]]**
+* **[[07-Arrays em Csharp.md|Arrays em Csharp]]**
