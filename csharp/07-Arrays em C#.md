@@ -161,6 +161,11 @@ gaveteiro[1] = new int[] { 3, 4, 5 };    // Gaveta 1 tem 3 espaços
 Console.WriteLine(gaveteiro[1][2]); // Gaveta 1, Divisória 2 = Saída: 5
 ```
 
+> [!WARNING]
+> **Adicionar ou Remover Itens?**
+> Lembre-se: em C#, arrays convencionais têm **tamanho fixo**. Você **não pode** usar métodos para adicionar ou remover elementos após criá-los. 
+> Se você precisar de um gaveteiro elástico que cresça e encolha sozinho conforme a necessidade, você deve usar uma **`List<T>`**.
+
 ---
 
 ## Artigos relacionados:

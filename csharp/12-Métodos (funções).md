@@ -47,9 +47,17 @@ Alguns métodos servem apenas para fazer uma tarefa sem precisar te devolver nad
 ```csharp
 void Latir()
 {
-    Console.WriteLine("Au Au!"); // Só faz barulho, não devolve nenhum dada!
+    Console.WriteLine("Au Au!"); // Só faz barulho, não devolve nenhum dado!
 }
 ```
+
+### Quando usar um método `void`?
+Use o `void` sempre que seu método precisar apenas **executar uma ação**, sem a necessidade de retornar um valor para ser armazenado ou processado por outra parte do programa.
+
+* **Exibir mensagens ou logs:** Apenas imprime no console ou na tela.
+* **Alterar valores globais/estado:** Alterar a vida do jogador, aumentar o placar de pontos.
+* **Persistir informações:** Salvar um arquivo no disco, salvar no banco de dados.
+* **Disparar triggers/ações:** Tocar um efeito sonoro, enviar um e-mail.
 
 ---
 

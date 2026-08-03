@@ -74,6 +74,16 @@ Dinossauro rex = new Dinossauro("Rex", "Verde");
 
 ---
 
+## 3. Quando usar classes?
+
+Pense nas classes como os **Componentes Master no Figma**. Você deve criar e usar uma classe quando:
+
+* **Precisar de moldes reutilizáveis:** Se você precisa instanciar vários objetos com a mesma estrutura (ex: vários `Usuarios`, `Produtos` ou `Inimigos`).
+* **Agrupar dados e ações:** Em vez de ter variáveis soltas (`string produtoNome; double produtoPreco;`), você agrupa a informação com a lógica de funcionamento dela dentro de um molde só.
+* **Modelar o mundo real:** Quando precisar representar entidades complexas do negócio ou do jogo que têm propriedades (características) e realizam métodos (ações).
+
+---
+
 ## Artigos relacionados:
 * **[Introdução ao C#](01-Introdução ao C#.md)**
 * **[Métodos (funções)](12-M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)**
