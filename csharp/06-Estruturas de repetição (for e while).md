@@ -84,6 +84,6 @@ do
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao C#.md|Introdução ao C#]]**
+* **[[01-Introdução ao Csharp.md|Introdução ao C#]]**
 * **[[07-Arrays em C#.md|Arrays em C#]]**
 * **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**

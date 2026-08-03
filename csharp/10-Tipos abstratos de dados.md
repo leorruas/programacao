@@ -54,6 +54,6 @@ Você pode implementar o TAD **Pilha** usando um [[07-Arrays em C#.md|Array]] fi
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao C#.md|Introdução ao C#]]**
+* **[[01-Introdução ao Csharp.md|Introdução ao C#]]**
 * **[[09-Coleções em C#.md|Coleções em C#]]**
 * **[[13-Programação orientada a objetos|Programação orientada a objetos]]**

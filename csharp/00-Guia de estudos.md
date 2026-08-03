@@ -11,7 +11,7 @@ Para ajudar você a aprender C# de forma sólida e sem se perder, aqui está o *
 
 Aqui você aprende a conversar com o computador e a guardar informações na memória.
 
-1. **[[01-Introdução ao C#|Introdução ao C#]]:** Entenda de onde veio a linguagem, para que serve (jogos, aplicativos, empresas) e como é a estrutura inicial de um programa.
+1. **[[01-Introdução ao Csharp|Introdução ao C#]]:** Entenda de onde veio a linguagem, para que serve (jogos, aplicativos, empresas) e como é a estrutura inicial de um programa.
 2. **[[02-O método Main|O método Main]]:** Entenda a "porta da frente" clássica por onde o computador entra para rodar o seu código.
 3. **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]:** Aprenda sobre as caixas organizadoras de dados (inteiros, decimais, palavras) e como fazer contas básicas com elas.
 4. **[[04-Segurança de tipos|Segurança de tipos]]:** Descubra por que o C# é tão protetor e exige regras rígidas sobre o que guardar em cada caixa.

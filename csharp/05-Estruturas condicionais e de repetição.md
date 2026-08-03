@@ -77,7 +77,7 @@ foreach (string fruta in frutas)
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao C#.md|Introdução ao C#]]**
+* **[[01-Introdução ao Csharp.md|Introdução ao C#]]**
 * **[[Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
 * **[[07-Arrays em C#.md|Arrays em C#]]**
 * **[[12-Métodos (funções)|Métodos (funções)]]**

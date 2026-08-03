@@ -100,7 +100,7 @@ async function obterListaDeArquivos() {
             { titulo: "Entendendo encodeURI e decodeURIComponent no JavaScript", path: "./javascript/03-manipulacao/Entendendo encodeURI e decodeURIComponent no JavaScript.md" },
             { titulo: "Como Renderizar Diagramas Mermaid no Web App", path: "./tutoriais/Como Renderizar Diagramas Mermaid no Web App.md" },
             { titulo: "Guia de tutoriais", path: "./tutoriais/Guia de tutoriais.md" },
-            { titulo: "Introdução ao C#", path: "./csharp/01-Introdução ao C#.md" },
+            { titulo: "Introdução ao C#", path: "./csharp/01-Introdução ao Csharp.md" },
             { titulo: "Arrays em C#", path: "./csharp/07-Arrays em C#.md" },
             { titulo: "Segurança de Tipos", path: "./csharp/04-Segurança de tipos.md" },
             { titulo: "Variáveis, Operadores e Tipos de Dados", path: "./csharp/03-Variáveis, operadores e tipos de dados.md" },

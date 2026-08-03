@@ -113,5 +113,5 @@ class Program
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao C#.md|01-Introdução ao C#.md]]**
+* **[[01-Introdução ao Csharp.md|01-Introdução ao Csharp.md]]**
 * **[[03-Variáveis, operadores e tipos de dados|03-Variáveis, operadores e tipos de dados.md]]**
