@@ -32,6 +32,6 @@ Isso é ótimo! É muito melhor o fiscal te avisar enquanto você está escreven
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](Introducao.md)**
+* **[Introdução ao C#](01-Introdução ao C#.md)**
 * **[Variáveis, operadores e tipos de dados](Vari%C3%A1veis,%20operadores%20e%20tipos%20de%20dados.md)**
-* **[Arrays em C#](Arrays.md)**
+* **[Arrays em C#](07-Arrays em C#.md)**

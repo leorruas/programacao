@@ -43,6 +43,6 @@ São **instruções extras** (uma coleção de palavras) que você pode mandar p
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](Introducao.md)**
-* **[Métodos (funções)](M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)**
-* **[Programação orientada a objetos](Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**
+* **[Introdução ao C#](01-Introdução ao C#.md)**
+* **[Métodos (funções)](12-M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)**
+* **[Programação orientada a objetos](13-Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)**

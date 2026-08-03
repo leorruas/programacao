@@ -111,8 +111,8 @@ else
 Agora que você já conhece o básico de como dar ordens para o computador, aqui está o fluxo ideal de tópicos sugeridos para você continuar sua jornada no C#:
 
 1. **[Variáveis, operadores e tipos de dados](Vari%C3%A1veis,%20operadores%20e%20tipos%20de%20dados.md)** (As caixas e as ferramentas matemáticas)
-2. **[Segurança de tipos (Strongly Typed)](Seguran%C3%A7a%20de%20tipos.md)** (Por que as caixas são rígidas?)
-3. **[Estruturas condicionais e de repetição](Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md)** (Tomando decisões e repetindo tarefas)
-4. **[Arrays (Gaveteiros de caixas)](Arrays.md)** (Guardando várias caixas juntas)
-5. **[Métodos (funções)](M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)** (Automatizando passos repetitivos no robô)
-6. **[Programação orientada a objetos](Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)** (Organizando o código como a vida real)
+2. **[Segurança de tipos (Strongly Typed)](04-Seguran%C3%A7a%20de%20tipos.md)** (Por que as caixas são rígidas?)
+3. **[Estruturas condicionais e de repetição](05-Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md)** (Tomando decisões e repetindo tarefas)
+4. **[Arrays (Gaveteiros de caixas)](07-Arrays em C#.md)** (Guardando várias caixas juntas)
+5. **[Métodos (funções)](12-M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)** (Automatizando passos repetitivos no robô)
+6. **[Programação orientada a objetos](13-Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md)** (Organizando o código como a vida real)

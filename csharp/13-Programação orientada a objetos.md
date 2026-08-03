@@ -75,6 +75,6 @@ Dinossauro rex = new Dinossauro("Rex", "Verde");
 ---
 
 ## Artigos relacionados:
-* **[Introdução ao C#](Introducao.md)**
-* **[Métodos (funções)](M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)**
+* **[Introdução ao C#](01-Introdução ao C#.md)**
+* **[Métodos (funções)](12-M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md)**
 * **[Variáveis, operadores e tipos de dados](Vari%C3%A1veis,%20operadores%20e%20tipos%20de%20dados.md)**

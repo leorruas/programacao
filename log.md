@@ -47,7 +47,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Adicionada seção detalhada sobre o erro `IndexOutOfRangeException` (estouro de índice), explicando causas comuns e como evitar.
 
 * **Correção de Links de Artigos**:
-  * Ajuste na codificação de caracteres de parênteses (`(` para `%28` e `)` para `%29`) nas URIs de markdown para corrigir links quebrados para o arquivo `Métodos (funções).md`.
+  * Ajuste na codificação de caracteres de parênteses (`(` para `%28` e `)` para `%29`) nas URIs de markdown para corrigir links quebrados para o arquivo `12-Métodos (funções).md`.
   * Adicionado rodapé de artigos relacionados ao arquivo [[csharp/Arrays\|Arrays em C#]].
 
 * **Atualização de Nota**: [[csharp/Arrays\|Arrays em C#]]

@@ -145,7 +145,7 @@ button:hover {
 }
 
 .artigo-corpo p {
-    font-size: .8em;
+    font-size: .1em;
 
 }
 
@@ -496,7 +496,8 @@ button:hover {
         font-size: 1.5em;
     }
 
-    header, main {
+    header,
+    main {
         padding: 0 20px;
         box-sizing: border-box;
     }
