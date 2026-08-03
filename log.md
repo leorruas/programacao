@@ -6,6 +6,9 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-03
 
+* **Atualização de Nota**: [[csharp/Arrays\|Arrays em C#]]
+  * Adicionada dica explicativa diferenciando as condições de limite do loop (`i < nomes.Length` vs `i < nomes.Length - 1`) para evitar confusões comuns com índices de array.
+
 * **Atualização de Regra do Vault**:
   * Atualizada a regra [[.gemini/rules/log_changes\|log_changes.md]] para incluir a obrigatoriedade de commit e push imediato ao GitHub após qualquer alteração no vault.
 

@@ -62,6 +62,13 @@ for (int i = 0; i <= nomes.Length; i++) // ERRO! O correto é usar 'i < nomes.Le
 }
 ```
 
+> [!TIP]
+> **Por que `i < nomes.Length` e não `i < nomes.Length - 1`?**
+> Se usarmos `i < nomes.Length - 1` (que seria `i < 1` para um tamanho de 2), o loop pararia no índice `0` e deixaria de ler o último elemento (`"Carlos"`).
+> As duas únicas formas corretas de ler todo o array são:
+> * **`i < nomes.Length`** (Mais recomendada e limpa)
+> * **`i <= nomes.Length - 1`** (Menos comum, mas matematicamente correta)
+
 ---
 
 ## 3. Propriedades e métodos úteis
