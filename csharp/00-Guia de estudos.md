@@ -11,7 +11,7 @@ Para ajudar você a aprender C# de forma sólida e sem se perder, aqui está o *
 
 Aqui você aprende a conversar com o computador e a guardar informações na memória.
 
-1. **[Introdução ao C#](01-Introdu%C3%A7%C3%A3o%20ao%20C#.md):** Entenda de onde veio a linguagem, para que serve (jogos, aplicativos, empresas) e como é a estrutura inicial de um programa.
+1. **[Introdução ao C#](01-Introdu%C3%A7%C3%A3o%20ao%20C%23.md):** Entenda de onde veio a linguagem, para que serve (jogos, aplicativos, empresas) e como é a estrutura inicial de um programa.
 2. **[O método Main](02-O%20m%C3%A9todo%20Main.md):** Entenda a "porta da frente" clássica por onde o computador entra para rodar o seu código.
 3. **[Variáveis, operadores e tipos de dados](03-Vari%C3%A1veis%2C%20operadores%20e%20tipos%20de%20dados.md):** Aprenda sobre as caixas organizadoras de dados (inteiros, decimais, palavras) e como fazer contas básicas com elas.
 4. **[Segurança de tipos](04-Seguran%C3%A7a%20de%20tipos.md):** Descubra por que o C# é tão protetor e exige regras rígidas sobre o que guardar em cada caixa.
@@ -23,7 +23,7 @@ Aqui você aprende a conversar com o computador e a guardar informações na mem
 Aqui você ensina o programa a pensar, escolher caminhos e fazer tarefas repetitivas.
 
 1. **[Estruturas condicionais e de repetição](05-Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md):** Aprenda a usar o GPS do código (`if`/`else`) para fazer escolhas.
-2. **[Estruturas de repetição (for e while)](06-Estruturas%20de%20repeti%C3%A7%C3%A3o%20%28for%20e%20while).md):** Aprofunde-se nos loops de contagem (`for`) e loops baseados em regras (`while` / `do while`).
+2. **[Estruturas de repetição (for e while)](06-Estruturas%20de%20repeti%C3%A7%C3%A3o%20%28for%20e%20while%29.md):** Aprofunde-se nos loops de contagem (`for`) e loops baseados em regras (`while` / `do while`).
 
 ---
 
