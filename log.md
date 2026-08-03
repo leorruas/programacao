@@ -11,8 +11,8 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Atualização de todos os links e referências cruzadas internos no vault.
 * **Codificação de URLs em Links**:
   * Codificados todos os caminhos (URLs) em links markdown (`[[caminho|texto]]`) que contêm espaços e caracteres especiais em todas as notas do C# para garantir compatibilidade com o leitor do Web App (`marked.js`).
-* **Regra de Codificação de URLs**:
-  * Criada a regra [[.gemini/rules/link_url_encoding\|link_url_encoding.md]] para tornar obrigatória a codificação de caminhos de links.
+* **Regra de Preferência de Wikilinks**:
+  * Criada a regra [[.gemini/rules/prefer_wikilinks\|prefer_wikilinks.md]] para tornar obrigatório o uso de Wikilinks do Obsidian para links internos, garantindo compatibilidade multiplataforma.
 * **Organização de Tutoriais**:
   * Renomeados os 4 arquivos na pasta `tutoriais/` adicionando o prefixo da linguagem correspondente (ex: `[JavaScript] • `) no nome dos arquivos e nos títulos principais (H1).
   * Atualizados os respectivos títulos e caminhos de arquivos no `script.js`.
