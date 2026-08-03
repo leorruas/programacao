@@ -53,6 +53,22 @@ namespace Introducao
 }
 ```
 
+### 💡 Usando outras caixas de ferramentas (Namespaces)
+O `using System;` no início do código serve para abrir a caixa de ferramentas básica do C# (onde está o `Console` para escrever na tela). Mas e se precisarmos de outras ferramentas?
+
+Em C#, essas caixas de ferramentas são chamadas de **Namespaces**. Nós podemos importar várias outras de acordo com o que o programa precisa fazer:
+
+* **`using System.Collections.Generic;`**
+  * **O que faz:** Traz ferramentas para criar listas dinâmicas, filas ou pilhas de coisas (como uma lista de compras ou um inventário de itens de um jogo).
+* **`using System.IO;`**
+  * **O que faz:** Permite trabalhar com arquivos do computador (Input/Output). Serve para ler textos de arquivos, salvar novos arquivos ou criar pastas.
+* **`using System.Linq;`**
+  * **O que faz:** Dá superpoderes de busca e filtragem. Serve para filtrar uma lista gigante de jogadores e pegar apenas os que têm nível maior que 10 com pouquíssimas linhas de código.
+* **`using System.Text;`**
+  * **O que faz:** Traz ferramentas extras para mexer com textos, como construir textos longos de forma super rápida (`StringBuilder`).
+
+Sempre que você precisar de uma funcionalidade especial, basta colocar o `using NomeDaFerramenta;` bem lá no topo do seu arquivo!
+
 ---
 
 ## 4. Caixas de guardar coisas (variáveis)

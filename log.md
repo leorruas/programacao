@@ -4,6 +4,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ---
 
+## 2026-08-03
+
+* **Atualização de Nota**: [[csharp/Introducao\|Introdução ao C#]]
+  * Adicionada seção explicando o uso de namespaces extras (como `System.Collections.Generic`, `System.IO`, `System.Linq` e `System.Text`) para importar outras caixas de ferramentas no C#.
+
 ## 2026-08-02
 
 * **Atualização de Regra do Vault**:
