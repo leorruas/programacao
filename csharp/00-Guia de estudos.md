@@ -30,6 +30,7 @@ Aqui você ensina o programa a pensar, escolher caminhos e fazer tarefas repetit
 2. **[[06-Estruturas de repetição (for e while)|Estruturas de repetição (for, foreach e while)]]:** Aprofunde-se nos loops de contagem (`for`) e loops baseados em regras (`while` / `do while`).
 3. **[[19-O loop foreach em Csharp|O loop foreach em Csharp]]:** Domine a estrutura de leitura de [[09-Coleções em Csharp|coleções]] mais segura e limpa do C# e entenda o funcionamento do `IEnumerable` por baixo dos panos.
 4. **[[20-O loop do-while em Csharp|O loop do-while em Csharp]]:** Aprenda como garantir que um código seja executado pelo menos uma vez e como usar isso para validar inputs de usuários.
+5. **[[23-O switch em Csharp|O switch em Csharp]]:** Aprenda como tomar decisões de multipla escolha de forma elegante e a sintaxe compacta das Switch Expressions.
 
 🛠️ **Projeto Prático Recomendado:** [[[Csharp] • Projeto 2 - O Jogo de Adivinhação|Projeto 2 - O Jogo de Adivinhação]]
 

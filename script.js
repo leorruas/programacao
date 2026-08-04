@@ -113,6 +113,7 @@ async function obterListaDeArquivos() {
             { titulo: "Variáveis, Operadores e Tipos de Dados", path: "./csharp/03-Variáveis, operadores e tipos de dados.md" },
             { titulo: "Métodos de string (ToUpper e ToLower)", path: "./csharp/22-Métodos de string (ToUpper e ToLower).md" },
             { titulo: "Estruturas Condicionais e de Repetição", path: "./csharp/05-Estruturas condicionais e de repetição.md" },
+            { titulo: "O switch em Csharp", path: "./csharp/23-O switch em Csharp.md" },
             { titulo: "Métodos (Funções)", path: "./csharp/12-Métodos (funções).md" },
             { titulo: "Programação Orientada a Objetos", path: "./csharp/13-Programação orientada a objetos.md" },
             { titulo: "O método Main", path: "./csharp/02-O método Main.md" },
