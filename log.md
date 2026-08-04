@@ -13,6 +13,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * [[csharp/21-Console.Write e Console.WriteLine\|21-Console.Write e Console.WriteLine]]: Revisado com método Feynman (analogia da máquina de escrever) e emojis removidos.
   * [[csharp/22-Métodos de string (ToUpper e ToLower)\|22-Métodos de string (ToUpper e ToLower)]]: Revisado com método Feynman (analogia do filtro de voz e da foto impressa) e emojis removidos.
   * [[csharp/23-O switch em Csharp\|23-O switch em Csharp]]: Explicação com método Feynman (analogia do elevador) para controle de fluxo condicional múltiplo e Switch Expressions, sem o uso de emojis.
+  * [[csharp/24-C# no Frontend e Backend\|24-C# no Frontend e Backend]]: Visão geral do ecossistema .NET para desenvolvimento full stack com ASP.NET Core (backend/API) e Blazor (frontend).
 * **Criação de Regras (.gemini)**:
   * [[.gemini/rules/no_emojis\|no_emojis]]: Nova regra estabelecida proibindo o uso de emojis em qualquer contexto do projeto (tanto no chat quanto nos arquivos do vault).
 * **Atualização de Notas**:
