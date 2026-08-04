@@ -24,6 +24,7 @@ Aqui você ensina o programa a pensar, escolher caminhos e fazer tarefas repetit
 
 1. **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]:** Aprenda a usar o GPS do código (`if`/`else`) para fazer escolhas.
 2. **[[06-Estruturas de repetição (for e while)|Estruturas de repetição (for e while)]]:** Aprofunde-se nos loops de contagem (`for`) e loops baseados em regras (`while` / `do while`).
+3. **[[19-O loop foreach em Csharp|O loop foreach em Csharp]]:** Domine a estrutura de leitura de coleções mais segura e limpa do C# e entenda o funcionamento do `IEnumerable` por baixo dos panos.
 
 ---
 
@@ -36,6 +37,7 @@ Aqui você aprende a lidar com grandes volumes de dados ao mesmo tempo.
 3. **[[09-Coleções em Csharp.md|Coleções em Csharp]]:** Conheça os gaveteiros mágicos flexíveis que esticam e encolhem sozinhos (`List<T>`, `Dictionary<K, V>` e `HashSet<T>`).
 4. **[[10-Tipos abstratos de dados|Tipos abstratos de dados]]:** Introdução conceitual a Filas, [[11-Lista, pilha e fila|Pilhas]] e Dicionários.
 5. **[[11-Lista, pilha e fila|Lista, pilha e fila]]:** Guia prático de implementação de estruturas de dados lineares.
+6. **[[18-Capacity em coleções|Capacity em coleções]]:** Entenda a diferença de performance entre a contagem de elementos (`Count`) e a capacidade alocada de memória (`Capacity`).
 
 ---
 
@@ -43,7 +45,7 @@ Aqui você aprende a lidar com grandes volumes de dados ao mesmo tempo.
 
 Aqui você aprende a organizar códigos gigantescos dividindo-os em partes menores e imitando a vida real.
 
-1. **[[12-Métodos (funções|Métodos (funções)]].md):** Crie comandos personalizados para automatizar ações repetitivas (como ensinar truques a um cachorro).
+1. **[[12-Métodos (funções)|Métodos (funções)]]:** Crie comandos personalizados para automatizar ações repetitivas (como ensinar truques a um cachorro).
 2. **[[13-Programação orientada a objetos|Programação orientada a objetos]]:** Aprenda a usar fôrmas de bolo ([[13-Programação orientada a objetos|classes]]) para assar objetos reais com características e comportamentos próprios.
 
 ---

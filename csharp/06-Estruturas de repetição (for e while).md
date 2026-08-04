@@ -1,9 +1,9 @@
-# Estruturas de repetição (for e while)
+# Estruturas de repetição (for, foreach e while)
 #csharp
 
 Repetir tarefas é um dos maiores superpoderes dos computadores. Eles podem fazer a mesma ação milhões de vezes sem se cansar, sem errar e em frações de segundo. 
 
-No C#, as duas ferramentas mais importantes para fazer repetições são os loops **`for`** e **`while`**.
+No C#, as ferramentas mais importantes para fazer repetições são os loops **`for`**, **`foreach`** e **`while`**.
 
 ---
 
@@ -28,7 +28,28 @@ Use o `for` sempre que você souber **exatamente o limite** ou a quantidade de v
 
 ---
 
-## 2. O loop `while` (Repetição por regra)
+## 2. O loop `foreach` (Leitura simplificada de coleções)
+
+Pense no `foreach` como **folhear um álbum de figurinhas**. O álbum já tem todas as figurinhas colocadas. Sua regra é simples: *"Para cada (`foreach`) figurinha que estiver no álbum, dê uma olhada nela"*.
+
+O `foreach` dispensa qualquer controle de índice ou contador manual. Ele percorre a coleção de forma direta e segura:
+
+```csharp
+string[] nomes = { "Leonardo", "Ana", "Bia" };
+
+// Para cada nome dentro da coleção nomes:
+foreach (string nome in nomes)
+{
+    Console.WriteLine($"Nome: {nome}");
+}
+```
+
+> [!NOTE]
+> A variável usada dentro do `foreach` (no exemplo, `nome`) é de **apenas leitura**. Você não pode modificar os elementos do array usando ela. Para aprender mais detalhes de performance e regras de uso, veja o artigo exclusivo sobre o **[[19-O loop foreach em Csharp|loop foreach em Csharp]]**.
+
+---
+
+## 3. O loop `while` (Repetição por regra)
 
 Pense no `while` como **comer colheradas de sopa**. Você não conta quantas colheradas vai dar antes de sentar à mesa. Sua regra é simples: *"Enquanto (`while`) o prato não estiver vazio, continue comendo"*.
 
@@ -56,7 +77,7 @@ Use o `while` quando você **não sabe o número exato de repetições** antes d
 
 ---
 
-## 3. O loop `do while` (Garantia de rodar pelo menos uma vez)
+## 4. O loop `do while` (Garantia de rodar pelo menos uma vez)
 
 O `do while` (faça... enquanto) é muito parecido com o `while`, mas com uma diferença crucial: ele faz a ação **primeiro** e só depois checa se deve continuar.
 *Analogia: Experimente a comida primeiro, e depois decida se quer continuar comendo.*
@@ -73,17 +94,19 @@ do
 
 ---
 
-## 4. Tabela comparativa
+## 5. Tabela comparativa
 
-| Critério | `for` | `while` | `do while` |
-| :--- | :--- | :--- | :--- |
-| **Foco principal** | Contagem numérica controlada | Condição lógica simples | Executar e depois checar |
-| **Quantas vezes roda** | 0 ou mais vezes | 0 ou mais vezes | **Pelo menos 1 vez** |
-| **Saber limite antes** | Sim | Não | Não |
+| Critério | `for` | `foreach` | `while` | `do while` |
+| :--- | :--- | :--- | :--- | :--- |
+| **Foco principal** | Contagem controlada por índice | Leitura limpa de coleções | Condição lógica simples | Executar antes de checar |
+| **Quantas vezes roda** | 0 ou mais vezes | 0 ou mais vezes (tamanho da coleção) | 0 ou mais vezes | **Pelo menos 1 vez** |
+| **Saber limite antes** | Sim | Sim (percorre tudo) | Não | Não |
+| **Apenas Leitura?** | Não (pode alterar valores) | **Sim (somente leitura)** | Não | Não |
 
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
+* **[[19-O loop foreach em Csharp|O loop foreach em Csharp]]**
 * **[[07-Arrays em Csharp.md|Arrays em Csharp]]**
+* **[[09-Coleções em Csharp.md|Coleções em Csharp]]**
 * **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**

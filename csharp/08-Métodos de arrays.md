@@ -3,6 +3,10 @@
 
 Em C#, os [[07-Arrays em Csharp|arrays]] não são apenas gaveteiros estáticos para guardar coisas. Eles vêm acompanhados de uma caixa de ferramentas muito poderosa! A [[13-Programação orientada a objetos|classe]] **`System.Array`** e os [[12-Métodos (funções)|métodos]] de extensão do **`LINQ`** (ferramentas de consulta de dados) facilitam muito a nossa vida.
 
+> [!IMPORTANT]
+> **Arrays NÃO possuem o método `.Add()`!**
+> Como os arrays têm tamanho fixo na memória, você não pode "adicionar" um novo elemento dinamicamente para aumentar seu tamanho. Para inserir dados, você deve definir diretamente no índice desejado (ex: `numeros[0] = 10;`). Se precisar de um método `Add()`, você deve usar [[09-Coleções em Csharp.md|Coleções]] como a `List<T>`.
+
 Aqui está a [[11-Lista, pilha e fila|lista]] exaustiva dos métodos mais utilizados, o que cada um faz e como usá-los:
 
 ---
