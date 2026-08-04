@@ -111,6 +111,7 @@ async function obterListaDeArquivos() {
             { titulo: "Arrays em Csharp", path: "./csharp/07-Arrays em Csharp.md" },
             { titulo: "Segurança de Tipos", path: "./csharp/04-Segurança de tipos.md" },
             { titulo: "Variáveis, Operadores e Tipos de Dados", path: "./csharp/03-Variáveis, operadores e tipos de dados.md" },
+            { titulo: "Métodos de string (ToUpper e ToLower)", path: "./csharp/22-Métodos de string (ToUpper e ToLower).md" },
             { titulo: "Estruturas Condicionais e de Repetição", path: "./csharp/05-Estruturas condicionais e de repetição.md" },
             { titulo: "Métodos (Funções)", path: "./csharp/12-Métodos (funções).md" },
             { titulo: "Programação Orientada a Objetos", path: "./csharp/13-Programação orientada a objetos.md" },

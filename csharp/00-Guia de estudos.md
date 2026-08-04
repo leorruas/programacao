@@ -16,6 +16,7 @@ Aqui você aprende a conversar com o computador e a guardar informações na mem
 3. **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]:** Aprenda sobre as caixas organizadoras de dados (inteiros, decimais, palavras) e como fazer contas básicas com elas.
 4. **[[04-Segurança de tipos|Segurança de tipos]]:** Descubra por que o C# é tão protetor e exige regras rígidas sobre o que guardar em cada caixa.
 5. **[[21-Console.Write e Console.WriteLine|Console.Write e Console.WriteLine]]:** Compreenda a diferença prática entre exibir dados pulando linha ou mantendo o cursor na mesma linha para interações.
+6. **[[22-Métodos de string (ToUpper e ToLower)|Métodos de string (ToUpper e ToLower)]]:** Aprenda como converter textos em maiúsculas ou minúsculas e o conceito importantíssimo de imutabilidade.
 
 🛠️ **Projeto Prático Recomendado:** [[[Csharp] • Projeto 1 - O Assistente de Terminal|Projeto 1 - O Assistente de Terminal]]
 

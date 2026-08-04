@@ -11,6 +11,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * [[csharp/19-O loop foreach em Csharp\|19-O loop foreach em Csharp]]: Estrutura de iteração sobre coleções e funcionamento do `IEnumerable`.
   * [[csharp/20-O loop do-while em Csharp\|20-O loop do-while em Csharp]]: Garantia de execução mínima de bloco de repetição e validação.
   * [[csharp/21-Console.Write e Console.WriteLine\|21-Console.Write e Console.WriteLine]]: Explicação conceitual e casos de uso de E/S em terminal com e sem quebra de linha.
+  * [[csharp/22-Métodos de string (ToUpper e ToLower)\|22-Métodos de string (ToUpper e ToLower)]]: Conversão de capitalização de texto (caixa alta e baixa) e o conceito de imutabilidade de strings.
 * **Atualização de Nota**: [[csharp/02-O método Main\|O método Main]]
   * Adicionada seção detalhada explicando quando usar o método Main com argumentos `(string[] args)` (CLI, scripts, automações) e quando usar sem parâmetros `()` (Console simples, UI, Web).
 * **Organização de Tutoriais (Trilha Csharp Prática)**:
