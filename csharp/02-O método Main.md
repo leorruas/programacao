@@ -30,7 +30,6 @@ Diz que esse [[12-Métodos (funções)|método]] faz as suas tarefas, mas **não
 
 ### `(string[] args)` (Os argumentos)
 São **instruções extras** (uma [[09-Coleções em Csharp|coleção]] de palavras) que você pode mandar para o programa no exato momento em que você o inicia pelo terminal do computador.
-* *Exemplo real:* Ao digitar no terminal `meuapp.exe leonardo`, o valor `"leonardo"` entra no programa dentro dessa gaveta `args` e pode ser usado pelo código!
 
 ---
 
@@ -42,7 +41,47 @@ São **instruções extras** (uma [[09-Coleções em Csharp|coleção]] de palav
 
 ---
 
+## 3. Quando usar argumentos `(string[] args)` e quando usar vazio `()`?
+
+Em versões clássicas do C# e em sistemas robustos, você verá duas formas principais de declarar o método `Main`:
+* `static void Main(string[] args)` (com argumentos)
+* `static void Main()` (sem nenhum argumento)
+
+### 🟢 Quando deixar vazio: `static void Main()`
+Você pode deixar o método sem parâmetros sempre que o seu programa **não precisar receber instruções externas logo de cara** ao ser ligado pelo terminal. 
+* **Onde é usado:** Aplicativos de console simples (onde o usuário digita os dados *depois* que o programa já abriu, via `Console.ReadLine()`), aplicativos com telas visuais (Windows Forms, WPF) ou sistemas web (APIs).
+* **Exemplo do cotidiano:** Um aplicativo de calculadora simples. Você abre o aplicativo e ele te pergunta na tela: *"Digite o primeiro número"*. Ele não precisa de nenhuma informação prévia no terminal para ligar.
+
+### 🟡 Quando usar argumentos: `static void Main(string[] args)`
+Você deve declarar os argumentos quando estiver criando um programa utilitário que é chamado por outros programas, scripts automatizados ou via terminal, onde os parâmetros de entrada **devem ser passados no exato momento de ligar o app**.
+
+* **Onde é usado:** Ferramentas de linha de comando (CLI), scripts de automação, rotinas automáticas de servidor (CRON jobs) e robôs de backup.
+* **Exemplo do cotidiano:** Imagine um programa de backup automático chamado `backup.exe`. Para rodá-lo, você digita no terminal:
+  ```bash
+  backup.exe C:/fotos D:/pendrive
+  ```
+  O seu programa recebe essas duas pastas instantaneamente dentro da gaveta `args`:
+  * `args[0]` recebe `"C:/fotos"`
+  * `args[1]` recebe `"D:/pendrive"`
+  
+  O código em C# lê esses argumentos e faz o trabalho sem precisar perguntar nada na tela:
+  ```csharp
+  static void Main(string[] args)
+  {
+      if (args.Length < 2)
+      {
+          Console.WriteLine("Erro: Você precisa informar a pasta de origem e a de destino!");
+          return;
+      }
+      string origem = args[0];
+      string destino = args[1];
+      Console.WriteLine($"Copiando arquivos de {origem} para {destino}...");
+  }
+  ```
+
+---
+
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
+* **[[01-Introdução ao Csharp|Introdução ao Csharp]]**
 * **[[12-Métodos (funções)|Métodos (funções)]]**
 * **[[13-Programação orientada a objetos|Programação orientada a objetos]]**

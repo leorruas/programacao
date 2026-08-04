@@ -10,6 +10,8 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * [[csharp/18-Capacity em coleções\|18-Capacity em coleções]]: Explicação de performance e alocação de memória de coleções.
   * [[csharp/19-O loop foreach em Csharp\|19-O loop foreach em Csharp]]: Estrutura de iteração sobre coleções e funcionamento do `IEnumerable`.
   * [[csharp/20-O loop do-while em Csharp\|20-O loop do-while em Csharp]]: Garantia de execução mínima de bloco de repetição e validação.
+* **Atualização de Nota**: [[csharp/02-O método Main\|O método Main]]
+  * Adicionada seção detalhada explicando quando usar o método Main com argumentos `(string[] args)` (CLI, scripts, automações) e quando usar sem parâmetros `()` (Console simples, UI, Web).
 * **Organização de Tutoriais**:
   * Adicionado o tutorial [[tutoriais/[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias\|[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias]].
 * **Manutenção do Web App e Links**:
