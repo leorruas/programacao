@@ -209,6 +209,6 @@ catch (TaskCanceledException)
 ---
 
 ## Artigos relacionados:
-* **[[24-C# no Frontend e Backend|C# no Frontend e Backend]]**
+* **[[24-Csharp no Frontend e Backend|Csharp no Frontend e Backend]]**
 * **[[14-Tratamento de erros|Tratamento de erros]]**
 * **[[13-Programação orientada a objetos|Programacao orientada a objetos]]**
