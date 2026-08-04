@@ -15,6 +15,7 @@ Aqui você aprende a conversar com o computador e a guardar informações na mem
 2. **[[02-O método Main|O método Main]]:** Entenda a "porta da frente" clássica por onde o computador entra para rodar o seu código.
 3. **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]:** Aprenda sobre as caixas organizadoras de dados (inteiros, decimais, palavras) e como fazer contas básicas com elas.
 4. **[[04-Segurança de tipos|Segurança de tipos]]:** Descubra por que o C# é tão protetor e exige regras rígidas sobre o que guardar em cada caixa.
+5. **[[21-Console.Write e Console.WriteLine|Console.Write e Console.WriteLine]]:** Compreenda a diferença prática entre exibir dados pulando linha ou mantendo o cursor na mesma linha para interações.
 
 🛠️ **Projeto Prático Recomendado:** [[[Csharp] • Projeto 1 - O Assistente de Terminal|Projeto 1 - O Assistente de Terminal]]
 

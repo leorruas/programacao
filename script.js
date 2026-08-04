@@ -107,6 +107,7 @@ async function obterListaDeArquivos() {
             { titulo: "[Csharp] • Projeto 4 - O Simulador de Conta Bancária", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%204%20-%20O%20Simulador%20de%20Conta%20Banc%C3%A1ria.md" },
             { titulo: "[Csharp] • Projeto 5 - O Diário Digital", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%205%20-%20O%20Di%C3%A1rio%20Digital.md" },
             { titulo: "Introdução ao Csharp", path: "./csharp/01-Introdução ao Csharp.md" },
+            { titulo: "Console.Write e Console.WriteLine", path: "./csharp/21-Console.Write e Console.WriteLine.md" },
             { titulo: "Arrays em Csharp", path: "./csharp/07-Arrays em Csharp.md" },
             { titulo: "Segurança de Tipos", path: "./csharp/04-Segurança de tipos.md" },
             { titulo: "Variáveis, Operadores e Tipos de Dados", path: "./csharp/03-Variáveis, operadores e tipos de dados.md" },
