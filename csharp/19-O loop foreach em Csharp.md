@@ -7,6 +7,16 @@ Diferente do `for` tradicional, você não precisa gerenciar um índice (`i`), s
 
 ---
 
+## A Analogia da Esteira de Produção
+
+Imagine uma esteira de fábrica por onde passam caixas de bombom. Um inspetor de qualidade fica parado ao lado da esteira. Sua tarefa é simples: pegar cada bombom que passa, verificar se está correto, e deixá-lo seguir viagem.
+
+O inspetor não precisa contar: "Este é o bombom número 1, este é o 2...". Ele simplesmente repete a ação: "Para cada bombom que passar na minha frente, eu inspeciono". 
+
+O `foreach` funciona exatamente assim: ele pega cada item da sua coleção, de forma automática e sequencial, entrega para você ler e avança para o próximo até a coleção acabar.
+
+---
+
 ## 1. Como usar o `foreach`
 
 A sintaxe diz: "para cada **item** do tipo **X** dentro da **coleção**, faça algo":

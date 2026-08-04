@@ -8,10 +8,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 * **Novos Artigos de Csharp**:
   * [[csharp/18-Capacity em coleções\|18-Capacity em coleções]]: Explicação de performance e alocação de memória de coleções.
-  * [[csharp/19-O loop foreach em Csharp\|19-O loop foreach em Csharp]]: Estrutura de iteração sobre coleções e funcionamento do `IEnumerable`.
+  * [[csharp/19-O loop foreach em Csharp\|19-O loop foreach em Csharp]]: Estrutura de iteração sobre coleções e funcionamento do `IEnumerable`. Revisado com método Feynman (analogia da esteira de produção).
   * [[csharp/20-O loop do-while em Csharp\|20-O loop do-while em Csharp]]: Garantia de execução mínima de bloco de repetição e validação.
-  * [[csharp/21-Console.Write e Console.WriteLine\|21-Console.Write e Console.WriteLine]]: Explicação conceitual e casos de uso de E/S em terminal com e sem quebra de linha.
-  * [[csharp/22-Métodos de string (ToUpper e ToLower)\|22-Métodos de string (ToUpper e ToLower)]]: Conversão de capitalização de texto (caixa alta e baixa) e o conceito de imutabilidade de strings.
+  * [[csharp/21-Console.Write e Console.WriteLine\|21-Console.Write e Console.WriteLine]]: Revisado com método Feynman (analogia da máquina de escrever) e emojis removidos.
+  * [[csharp/22-Métodos de string (ToUpper e ToLower)\|22-Métodos de string (ToUpper e ToLower)]]: Revisado com método Feynman (analogia do filtro de voz e da foto impressa) e emojis removidos.
   * [[csharp/23-O switch em Csharp\|23-O switch em Csharp]]: Explicação com método Feynman (analogia do elevador) para controle de fluxo condicional múltiplo e Switch Expressions, sem o uso de emojis.
 * **Criação de Regras (.gemini)**:
   * [[.gemini/rules/no_emojis\|no_emojis]]: Nova regra estabelecida proibindo o uso de emojis em qualquer contexto do projeto (tanto no chat quanto nos arquivos do vault).
