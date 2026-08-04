@@ -12,12 +12,18 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * [[csharp/20-O loop do-while em Csharp\|20-O loop do-while em Csharp]]: Garantia de execução mínima de bloco de repetição e validação.
 * **Atualização de Nota**: [[csharp/02-O método Main\|O método Main]]
   * Adicionada seção detalhada explicando quando usar o método Main com argumentos `(string[] args)` (CLI, scripts, automações) e quando usar sem parâmetros `()` (Console simples, UI, Web).
-* **Organização de Tutoriais**:
-  * Adicionado o tutorial [[tutoriais/[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias\|[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias]].
-  * Atualizado o tutorial de médias com um guia passo a passo ensinando a rodar e compilar o código em Csharp usando comandos do terminal (.NET CLI como `dotnet new console` e `dotnet run`).
+* **Organização de Tutoriais (Trilha Csharp Prática)**:
+  * Criados **5 novos tutoriais práticos** baseados em projetos para consolidar as fases de estudo:
+    1. [[tutoriais/[Csharp] • Projeto 1 - O Assistente de Terminal|[Csharp] • Projeto 1 - O Assistente de Terminal]] (Fundamentos, Entrada/Saída).
+    2. [[tutoriais/[Csharp] • Projeto 2 - O Jogo de Adivinhação|[Csharp] • Projeto 2 - O Jogo de Adivinhação]] (Condicionais, Repetições, Random).
+    3. [[tutoriais/[Csharp] • Projeto 3 - O Gerenciador de Tarefas|[Csharp] • Projeto 3 - O Gerenciador de Tarefas]] (Menu CLI, Listas Dinâmicas, Switch).
+    4. [[tutoriais/[Csharp] • Projeto 4 - O Simulador de Conta Bancária|[Csharp] • Projeto 4 - O Simulador de Conta Bancária]] (Classes, Objetos, Construtor, Encapsulamento).
+    5. [[tutoriais/[Csharp] • Projeto 5 - O Diário Digital|[Csharp] • Projeto 5 - O Diário Digital]] (Arquivos System.IO, Try-Catch, LINQ).
+  * Adicionado o tutorial [[tutoriais/[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias\|[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias]] com guia de terminal.
 * **Manutenção do Web App e Links**:
-  * Registrados os novos arquivos e tutorial em `script.js`.
-  * Aplicada a regra de links cruzados e limpeza de extensões `.md` em todos os artigos relacionados.
+  * Registrados os novos arquivos e os 5 projetos práticos em `script.js`.
+  * Atualizado o [[csharp/00-Guia de estudos|Guia de estudos]] ligando as fases teóricas com os novos projetos recomendados.
+  * Aplicada a regra de links cruzados e limpeza de extensões `.md` em todos os artigos relacionados das novas notas.
 
 ## 2026-08-03
 

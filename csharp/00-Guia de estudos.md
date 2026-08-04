@@ -16,6 +16,8 @@ Aqui você aprende a conversar com o computador e a guardar informações na mem
 3. **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]:** Aprenda sobre as caixas organizadoras de dados (inteiros, decimais, palavras) e como fazer contas básicas com elas.
 4. **[[04-Segurança de tipos|Segurança de tipos]]:** Descubra por que o C# é tão protetor e exige regras rígidas sobre o que guardar em cada caixa.
 
+🛠️ **Projeto Prático Recomendado:** [[[Csharp] • Projeto 1 - O Assistente de Terminal|Projeto 1 - O Assistente de Terminal]]
+
 ---
 
 ## Passo 2: O controle do robô (Decisões e loops)
@@ -27,18 +29,22 @@ Aqui você ensina o programa a pensar, escolher caminhos e fazer tarefas repetit
 3. **[[19-O loop foreach em Csharp|O loop foreach em Csharp]]:** Domine a estrutura de leitura de [[09-Coleções em Csharp|coleções]] mais segura e limpa do C# e entenda o funcionamento do `IEnumerable` por baixo dos panos.
 4. **[[20-O loop do-while em Csharp|O loop do-while em Csharp]]:** Aprenda como garantir que um código seja executado pelo menos uma vez e como usar isso para validar inputs de usuários.
 
+🛠️ **Projeto Prático Recomendado:** [[[Csharp] • Projeto 2 - O Jogo de Adivinhação|Projeto 2 - O Jogo de Adivinhação]]
+
 ---
 
 ## Passo 3: Organizando caixas grandes (Coleções)
 
 Aqui você aprende a lidar com grandes volumes de dados ao mesmo tempo.
 
-1. **[[07-Arrays em Csharp.md|Arrays em Csharp]]:** Saiba como criar grandes gaveteiros de tamanho fixo. Entenda o que é o erro de estouro de índice (`IndexOutOfRangeException`), além de aprender a diferença entre [[07-Arrays em Csharp|matrizes]] perfeitas (multidimensionais) e gaveteiros irregulares (jagged [[07-Arrays em Csharp|arrays]]).
+1. **[[07-Arrays em Csharp|Arrays em Csharp]]:** Saiba como criar grandes gaveteiros de tamanho fixo. Entenda o que é o erro de estouro de índice (`IndexOutOfRangeException`), além de aprender a diferença entre [[07-Arrays em Csharp|matrizes]] perfeitas (multidimensionais) e gaveteiros irregulares (jagged [[07-Arrays em Csharp|arrays]]).
 2. **[[08-Métodos de arrays|Métodos de arrays]]:** A sua caixa de ferramentas para ordenar (`Sort`), inverter (`Reverse`) e fazer buscas rápidas com o [[17-LINQ buscas e filtros|LINQ]] (`Min`, `Max`, `Where`).
-3. **[[09-Coleções em Csharp.md|Coleções em Csharp]]:** Conheça os gaveteiros mágicos flexíveis que esticam e encolhem sozinhos (`List<T>`, `Dictionary<K, V>` e `HashSet<T>`).
+3. **[[09-Coleções em Csharp|Coleções em Csharp]]:** Conheça os gaveteiros mágicos flexíveis que esticam e encolhem sozinhos (`List<T>`, `Dictionary<K, V>` e `HashSet<T>`).
 4. **[[10-Tipos abstratos de dados|Tipos abstratos de dados]]:** Introdução conceitual a [[11-Lista, pilha e fila|Filas]], [[11-Lista, pilha e fila|Pilhas]] e Dicionários.
 5. **[[11-Lista, pilha e fila|Lista, pilha e fila]]:** Guia prático de implementação de estruturas de dados lineares.
 6. **[[18-Capacity em coleções|Capacity em coleções]]:** Entenda a diferença de performance entre a contagem de elementos (`Count`) e a capacidade alocada de memória (`Capacity`).
+
+🛠️ **Projeto Prático Recomendado:** [[[Csharp] • Projeto 3 - O Gerenciador de Tarefas|Projeto 3 - O Gerenciador de Tarefas]]
 
 ---
 
@@ -48,6 +54,8 @@ Aqui você aprende a organizar códigos gigantescos dividindo-os em partes menor
 
 1. **[[12-Métodos (funções)|Métodos (funções)]]:** Crie comandos personalizados para automatizar ações repetitivas (como ensinar truques a um cachorro).
 2. **[[13-Programação orientada a objetos|Programação orientada a objetos]]:** Aprenda a usar fôrmas de bolo ([[13-Programação orientada a objetos|classes]]) para assar [[13-Programação orientada a objetos|objetos]] reais com características e comportamentos próprios.
+
+🛠️ **Projeto Prático Recomendado:** [[[Csharp] • Projeto 4 - O Simulador de Conta Bancária|Projeto 4 - O Simulador de Conta Bancária]]
 
 ---
 
@@ -59,4 +67,6 @@ Aqui você domina as técnicas para criar programas profissionais de verdade.
 2. **[[15-Manipulação de arquivos|Manipulação de arquivos]]:** Aprenda a ler, escrever e gerenciar arquivos do computador permanentemente.
 3. **[[16-Herança e interfaces|Herança e interfaces]]:** Organize o código orientado a objetos de forma avançada e profissional.
 4. **[[17-LINQ buscas e filtros|LINQ buscas e filtros]]:** Use a peneira inteligente do C# para filtrar e ordenar dados em segundos.
+
+🛠️ **Projeto Prático Recomendado:** [[[Csharp] • Projeto 5 - O Diário Digital|Projeto 5 - O Diário Digital]]
 

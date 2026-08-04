@@ -8,7 +8,7 @@ async function obterListaDeArquivos() {
 
         // Filtra apenas os arquivos Markdown (.md), ignorando pastas internas do Obsidian/Git
         return dados.tree
-            .filter(item => item.path.endsWith(".md") && !item.path.includes(".obsidian") && !item.path.includes(".git") && !item.path.includes(".gemini") && item.path !== "me.md" && item.path !== "log.md")
+            .filter(item => item.path.endsWith(".md") && !item.path.includes(".obsidian") && !item.path.includes(".git") && !item.path.includes(".gemini") && !item.path.includes(".agents") && item.path !== "me.md" && item.path !== "log.md")
             .map(item => {
                 const nomeSemExtensao = item.path.split("/").pop().replace(".md", "");
                 return {
@@ -101,6 +101,11 @@ async function obterListaDeArquivos() {
             { titulo: "Como Renderizar Diagramas Mermaid no Web App", path: "./tutoriais/Como Renderizar Diagramas Mermaid no Web App.md" },
             { titulo: "Guia de tutoriais", path: "./tutoriais/Guia de tutoriais.md" },
             { titulo: "[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Como%20Usar%20ArrayList%2C%20For%20e%20Foreach%20para%20Calcular%20M%C3%A9dias.md" },
+            { titulo: "[Csharp] • Projeto 1 - O Assistente de Terminal", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%201%20-%20O%20Assistente%20de%20Terminal.md" },
+            { titulo: "[Csharp] • Projeto 2 - O Jogo de Adivinhação", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%202%20-%20O%20Jogo%20de%20Adivinha%C3%A7%C3%A3o.md" },
+            { titulo: "[Csharp] • Projeto 3 - O Gerenciador de Tarefas", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%203%20-%20O%20Gerenciador%20de%20Tarefas.md" },
+            { titulo: "[Csharp] • Projeto 4 - O Simulador de Conta Bancária", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%204%20-%20O%20Simulador%20de%20Conta%20Banc%C3%A1ria.md" },
+            { titulo: "[Csharp] • Projeto 5 - O Diário Digital", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%205%20-%20O%20Di%C3%A1rio%20Digital.md" },
             { titulo: "Introdução ao Csharp", path: "./csharp/01-Introdução ao Csharp.md" },
             { titulo: "Arrays em Csharp", path: "./csharp/07-Arrays em Csharp.md" },
             { titulo: "Segurança de Tipos", path: "./csharp/04-Segurança de tipos.md" },
