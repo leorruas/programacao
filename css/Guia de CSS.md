@@ -32,4 +32,23 @@ Bem-vindo ao guia de aprendizado prático de CSS! Aqui organizaremos todos os co
 
 ---
 
+## Bootstrap
+
+6. [[css/Bootstrap - Introducao|Bootstrap: O que é e por que usar]]
+   - O que o Bootstrap entrega (grid, componentes, utilitários)
+   - Como adicionar via CDN ou NPM
+   - A filosofia de classes no HTML
+
+7. [[css/Bootstrap - Sistema de Grid|Bootstrap: Sistema de Grid]]
+   - A grade de 12 colunas e a estrutura container > row > col
+   - Breakpoints responsivos (`col-md-`, `col-lg-`, etc.)
+   - Offset e divisão automática com `.col`
+
+8. [[css/Bootstrap - Componentes|Bootstrap: Componentes Prontos]]
+   - Botões, alertas, cards e navbar responsiva
+   - Formulários estilizados
+   - Classes utilitárias de espaçamento, texto e display
+
+---
+
 >  **Dica de estudo**: À medida que avançarmos nos seus projetos, atualizaremos esta pasta com novos arquivos e resumos práticos.
