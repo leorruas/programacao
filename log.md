@@ -14,6 +14,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Adicionada seção detalhada explicando quando usar o método Main com argumentos `(string[] args)` (CLI, scripts, automações) e quando usar sem parâmetros `()` (Console simples, UI, Web).
 * **Organização de Tutoriais**:
   * Adicionado o tutorial [[tutoriais/[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias\|[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias]].
+  * Atualizado o tutorial de médias com um guia passo a passo ensinando a rodar e compilar o código em Csharp usando comandos do terminal (.NET CLI como `dotnet new console` e `dotnet run`).
 * **Manutenção do Web App e Links**:
   * Registrados os novos arquivos e tutorial em `script.js`.
   * Aplicada a regra de links cruzados e limpeza de extensões `.md` em todos os artigos relacionados.

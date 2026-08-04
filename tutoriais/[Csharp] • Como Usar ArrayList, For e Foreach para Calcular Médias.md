@@ -98,7 +98,41 @@ Para exibir na tela apenas aqueles números que foram maiores que a média calcu
 
 ---
 
+## 3. Como Executar este Programa?
+
+Para ver este código funcionando no seu próprio computador, siga os passos abaixo usando a ferramenta de linha de comando oficial do C# (o **.NET SDK**):
+
+### Passo 1: Instale o .NET SDK
+Se você ainda não tem, baixe e instale a versão mais recente do [.NET SDK](https://dotnet.microsoft.com/download) direto do site oficial da Microsoft.
+
+### Passo 2: Crie um novo projeto de Console
+Abra o seu terminal (Prompt de Comando, PowerShell ou Terminal do macOS/Linux) e digite o seguinte comando para criar a pasta do projeto:
+```bash
+dotnet new console -o CalculadorDeMedias
+```
+*Isso vai gerar uma pasta chamada `CalculadorDeMedias` com uma base pronta de projeto C#.*
+
+### Passo 3: Acesse a pasta do projeto
+```bash
+cd CalculadorDeMedias
+```
+
+### Passo 4: Substitua o código
+1. Abra a pasta do projeto em um editor de texto (como o VS Code ou até mesmo o bloco de notas).
+2. Abra o arquivo chamado `Program.cs`.
+3. Apague todo o conteúdo dele e **cole o código C# completo** mostrado neste tutorial.
+
+### Passo 5: Execute o programa pelo terminal
+No terminal (dentro da pasta do projeto), basta rodar o comando mágico:
+```bash
+dotnet run
+```
+
+O .NET vai ler o arquivo, compilar todo o código e rodar o programa imediatamente! Você verá as mensagens aparecendo na tela pedindo para você digitar os números.
+
+---
+
 ## Artigos relacionados:
-* **[[09-Coleções em Csharp.md|Coleções em Csharp (Array vs List vs ArrayList)]]**
+* **[[09-Coleções em Csharp|Coleções em Csharp (Array vs List vs ArrayList)]]**
 * **[[06-Estruturas de repetição (for e while)|Estruturas de repetição (for, foreach e while)]]**
 * **[[19-O loop foreach em Csharp|O loop foreach em Csharp]]**
