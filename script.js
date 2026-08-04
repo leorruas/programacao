@@ -100,6 +100,7 @@ async function obterListaDeArquivos() {
             { titulo: "Entendendo encodeURI e decodeURIComponent no JavaScript", path: "./javascript/03-manipulacao/Entendendo encodeURI e decodeURIComponent no JavaScript.md" },
             { titulo: "Como Renderizar Diagramas Mermaid no Web App", path: "./tutoriais/Como Renderizar Diagramas Mermaid no Web App.md" },
             { titulo: "Guia de tutoriais", path: "./tutoriais/Guia de tutoriais.md" },
+            { titulo: "[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Como%20Usar%20ArrayList%2C%20For%20e%20Foreach%20para%20Calcular%20M%C3%A9dias.md" },
             { titulo: "Introdução ao Csharp", path: "./csharp/01-Introdução ao Csharp.md" },
             { titulo: "Arrays em Csharp", path: "./csharp/07-Arrays em Csharp.md" },
             { titulo: "Segurança de Tipos", path: "./csharp/04-Segurança de tipos.md" },
@@ -113,7 +114,14 @@ async function obterListaDeArquivos() {
             { titulo: "Guia de estudos", path: "./csharp/00-Guia de estudos.md" },
             { titulo: "Coleções em Csharp", path: "./csharp/09-Coleções em Csharp.md" },
             { titulo: "Tipos abstratos de dados", path: "./csharp/10-Tipos abstratos de dados.md" },
-            { titulo: "Lista, pilha e fila", path: "./csharp/11-Lista, pilha e fila.md" }
+            { titulo: "Lista, pilha e fila", path: "./csharp/11-Lista, pilha e fila.md" },
+            { titulo: "Tratamento de erros", path: "./csharp/14-Tratamento de erros.md" },
+            { titulo: "Manipulação de arquivos", path: "./csharp/15-Manipulação de arquivos.md" },
+            { titulo: "Herança e interfaces", path: "./csharp/16-Herança e interfaces.md" },
+            { titulo: "LINQ buscas e filtros", path: "./csharp/17-LINQ buscas e filtros.md" },
+            { titulo: "Capacity em coleções", path: "./csharp/18-Capacity em coleções.md" },
+            { titulo: "O loop foreach em Csharp", path: "./csharp/19-O loop foreach em Csharp.md" },
+            { titulo: "O loop do-while em Csharp", path: "./csharp/20-O loop do-while em Csharp.md" }
         ];
     }
 }

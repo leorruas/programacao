@@ -1,7 +1,7 @@
 # Coleções em Csharp (Os gaveteiros mágicos)
 #csharp
 
-Até agora, vimos os [[07-Arrays em Csharp|Arrays]], que servem para guardar uma lista de itens. Mas os arrays têm um problema: eles são como gaveteiros de madeira rígidos. Se você construiu um com 5 gavetas, terá 5 gavetas para sempre. Se precisar de uma sexta, terá que construir um armário novo do zero.
+Até agora, vimos os [[07-Arrays em Csharp|Arrays]], que servem para guardar uma lista de itens. Mas os [[07-Arrays em Csharp|arrays]] têm um problema: eles são como gaveteiros de madeira rígidos. Se você construiu um com 5 gavetas, terá 5 gavetas para sempre. Se precisar de uma sexta, terá que construir um armário novo do zero.
 
 No C#, as **Coleções** resolvem isso. Elas são divididas em dois grandes grupos:
 1. **Coleções Genéricas (`System.Collections.Generic`):** Fortemente tipadas, seguras e muito rápidas. **Sempre prefira estas.**
@@ -18,7 +18,7 @@ Uma lista ordenada onde os itens ficam em sequência, muito parecida com um arra
 
 > [!TIP]
 > **Como funciona o `.Add()`?**
-> Ao contrário dos arrays normais, as coleções dinâmicas possuem o método `.Add(item)`. Ele insere o item no fim da lista e gerencia automaticamente a alocação de memória. Se a lista estiver cheia, o C# aloca um espaço maior e copia os dados por baixo dos panos (veja mais em [[18-Capacity em coleções|Capacity em coleções]]).
+> Ao contrário dos arrays normais, as coleções dinâmicas possuem o [[12-Métodos (funções)|método]] `.Add(item)`. Ele insere o item no fim da lista e gerencia automaticamente a alocação de memória. Se a lista estiver cheia, o C# aloca um espaço maior e copia os dados por baixo dos panos (veja mais em [[18-Capacity em coleções|Capacity em coleções]]).
 
 ```csharp
 using System;
@@ -75,7 +75,7 @@ string atendido = fila.Dequeue(); // Remove e retorna o primeiro (Leonardo)
 
 ### E. A Pilha: `Stack<T>` (A lata de Pringles)
 Estrutura LIFO (*Last-In, First-Out*): o último item adicionado no topo é o primeiro a ser removido.
-* **Analogia:** Uma lata de batatas Pringles ou uma pilha de pratos.
+* **Analogia:** Uma lata de batatas Pringles ou uma [[11-Lista, pilha e fila|pilha]] de pratos.
 * **Quando usar:** Histórico de navegação (botão Voltar), função de "Desfazer" (Ctrl+Z) ou caminhos de algoritmos (backtracking).
 
 ```csharp
@@ -101,7 +101,7 @@ var no2 = playlist.AddAfter(no1, "Música 2"); // Adiciona logo após a primeira
 
 ## 2. As Coleções Não Genéricas (Legadas/Antigas)
 
-Estas coleções aceitam qualquer objeto (`object`) e devem ser evitadas em projetos novos devido à perda de performance com conversões e falta de segurança.
+Estas coleções aceitam qualquer [[13-Programação orientada a objetos|objeto]] (`object`) e devem ser evitadas em projetos novos devido à perda de performance com conversões e falta de segurança.
 
 * **`ArrayList`:** O equivalente antigo de `List<T>`. Permite misturar tipos na mesma lista (o que geralmente causa erros de execução).
 * **`Hashtable`:** O equivalente antigo de `Dictionary<TKey, TValue>`.
@@ -116,6 +116,30 @@ listaAntiga.Add(123); // Aceita tipos diferentes na mesma lista! (Perigoso)
 Hashtable tabelaAntiga = new Hashtable();
 tabelaAntiga.Add("Chave", "Valor");
 ```
+
+---
+
+## 2.1. Comparação Direta: Array vs `List<T>` vs `ArrayList`
+
+Muitas vezes surge a dúvida: *"Quando devo usar um Array, uma `List<T>` ou um `ArrayList`?"*. Aqui estão os três pontos fundamentais que diferenciam eles:
+
+### A. O tamanho (Fixo vs Dinâmico)
+*   **Array (`T[]`):** Tem tamanho **fixo**. Uma vez criado com 5 posições, ele sempre terá 5 posições. Não é possível usar `.Add()`.
+*   **`List<T>` e `ArrayList`:** Têm tamanho **dinâmico**. Eles começam vazios e esticam conforme você adiciona itens com `.Add()`.
+
+### B. A Segurança de Tipos (Genérico vs Não Genérico)
+*   **Array (`T[]`) e `List<T>`:** São **fortemente tipados (Genéricos)**. Se você cria uma `List<int>` ou um `int[]`, o C# te impede fisicamente de tentar inserir um texto (`string`) lá dentro. O erro é pego na hora de digitar o código (compilação).
+*   **`ArrayList`:** É **fracamente tipado (Não Genérico)**. Ele guarda tudo como o tipo base `object`. Isso significa que você pode colocar uma `string`, um `int` e um `double` tudo misturado na mesma lista. O problema é que, ao ler o dado, você é obrigado a fazer uma conversão manual (*cast*), e se converter errado, o programa trava no meio da execução (Runtime).
+
+### C. Performance (Boxing e Unboxing)
+*   **Array (`T[]`) e `List<T>`:** Guardam o tipo exato diretamente. Muito rápidos.
+*   **`ArrayList`:** Como guarda tudo como `object`, tipos primitivos (como `int`) precisam ser convertidos para objetos na memória heap (*boxing*) para entrar na lista, e depois convertidos de volta para número (*unboxing*) quando são lidos. Esse processo consome muito processamento.
+
+> [!IMPORTANT]
+> **Resumo da Regra Prática:**
+> * Use **`List<T>`** para quase tudo no dia a dia (flexível e segura).
+> * Use **Array (`T[]`)** apenas se o tamanho for estritamente fixo e você precisar de máxima performance de memória.
+> * **Evite ao máximo o `ArrayList`**. Ele só é usado hoje em dia para dar manutenção em códigos muito antigos (legados).
 
 ---
 

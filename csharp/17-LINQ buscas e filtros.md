@@ -60,7 +60,7 @@ class Program
 
 ## 3. Filtrando objetos reais
 
-O LINQ brilha de verdade quando filtramos listas de [[13-Programação orientada a objetos|objetos]] complexos (como contas, produtos ou jogadores de um jogo):
+O LINQ brilha de verdade quando filtramos [[11-Lista, pilha e fila|listas]] de [[13-Programação orientada a objetos|objetos]] complexos (como contas, produtos ou jogadores de um jogo):
 
 ```csharp
 using System;

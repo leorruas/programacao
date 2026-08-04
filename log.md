@@ -4,7 +4,20 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ---
 
+## 2026-08-04
+
+* **Novos Artigos de Csharp**:
+  * [[csharp/18-Capacity em coleções\|18-Capacity em coleções]]: Explicação de performance e alocação de memória de coleções.
+  * [[csharp/19-O loop foreach em Csharp\|19-O loop foreach em Csharp]]: Estrutura de iteração sobre coleções e funcionamento do `IEnumerable`.
+  * [[csharp/20-O loop do-while em Csharp\|20-O loop do-while em Csharp]]: Garantia de execução mínima de bloco de repetição e validação.
+* **Organização de Tutoriais**:
+  * Adicionado o tutorial [[tutoriais/[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias\|[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias]].
+* **Manutenção do Web App e Links**:
+  * Registrados os novos arquivos e tutorial em `script.js`.
+  * Aplicada a regra de links cruzados e limpeza de extensões `.md` em todos os artigos relacionados.
+
 ## 2026-08-03
+
 
 * **Reorganização de C#**:
   * Renomeação e numeração lógica dos 13 arquivos de C# (`00-` a `13-`) conforme recomendação do Guia de Estudos.

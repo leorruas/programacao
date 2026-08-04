@@ -80,7 +80,7 @@ Pense nas classes como os **Componentes Master no Figma**. Você deve criar e us
 
 * **Precisar de moldes reutilizáveis:** Se você precisa instanciar vários objetos com a mesma estrutura (ex: vários `Usuarios`, `Produtos` ou `Inimigos`).
 * **Agrupar dados e ações:** Em vez de ter [[03-Variáveis, operadores e tipos de dados|variáveis]] soltas (`string produtoNome; double produtoPreco;`), você agrupa a informação com a lógica de funcionamento dela dentro de um molde só.
-* **Modelar o mundo real:** Quando precisar representar entidades complexas do negócio ou do jogo que têm propriedades (características) e realizam métodos (ações).
+* **Modelar o mundo real:** Quando precisar representar entidades complexas do negócio ou do jogo que têm propriedades (características) e realizam [[12-Métodos (funções)|métodos]] (ações).
 
 ---
 

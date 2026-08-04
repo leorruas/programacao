@@ -8,7 +8,7 @@ Na [[13-Programação orientada a objetos|Programação Orientada a Objetos]], c
 ## 1. Herança: Reutilizando o que veio dos "pais"
 
 Imagine que você está criando um jogo de RPG. Você tem o molde de um `Guerreiro` e o de um `Mago`. Ambos são personagens, têm `Nome`, `Vida` e realizam a ação de `Atacar`.
-Em vez de programar vida e nome em cada um, nós criamos uma classe pai chamada `Personagem` (classe base) e fazemos as classes filhos `Guerreiro` e `Mago` (classes derivadas) **herdarem** dela usando o caractere `:`:
+Em vez de programar vida e nome em cada um, nós criamos uma [[13-Programação orientada a objetos|classe]] pai chamada `Personagem` (classe base) e fazemos as classes filhos `Guerreiro` e `Mago` (classes derivadas) **herdarem** dela usando o caractere `:`:
 
 ```csharp
 using System;

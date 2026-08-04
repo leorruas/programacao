@@ -163,7 +163,7 @@ Console.WriteLine(gaveteiro[1][2]); // Gaveta 1, Divisória 2 = Saída: 5
 
 > [!WARNING]
 > **Adicionar ou Remover Itens?**
-> Lembre-se: em C#, arrays convencionais têm **tamanho fixo**. Você **não pode** usar métodos para adicionar ou remover elementos após criá-los. 
+> Lembre-se: em C#, arrays convencionais têm **tamanho fixo**. Você **não pode** usar [[12-Métodos (funções)|métodos]] para adicionar ou remover elementos após criá-los. 
 > Se você precisar de um gaveteiro elástico que cresça e encolha sozinho conforme a necessidade, você deve usar uma **`List<T>`**.
 
 ---
