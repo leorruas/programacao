@@ -13,6 +13,8 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * [[csharp/21-Console.Write e Console.WriteLine\|21-Console.Write e Console.WriteLine]]: Explicação conceitual e casos de uso de E/S em terminal com e sem quebra de linha.
   * [[csharp/22-Métodos de string (ToUpper e ToLower)\|22-Métodos de string (ToUpper e ToLower)]]: Conversão de capitalização de texto (caixa alta e baixa) e o conceito de imutabilidade de strings.
   * [[csharp/23-O switch em Csharp\|23-O switch em Csharp]]: Controle de fluxo condicional múltiplo clássico e novas expressões switch (Switch Expressions) do C# 8.
+* **Criação de Regras (.gemini)**:
+  * [[.gemini/rules/no_emojis_in_chat\|no_emojis_in_chat]]: Nova regra estabelecida proibindo o uso de emojis nas respostas de chat direto com o usuário.
 * **Atualização de Notas**:
   * [[csharp/01-Introdução ao Csharp\|Introdução ao Csharp]]: Adicionada seção explicando por que aprender Csharp ajuda no aprendizado e transição para qualquer outra linguagem de programação (família C, tipagem, POO, gerenciamento de memória).
   * [[csharp/02-O método Main\|O método Main]]
