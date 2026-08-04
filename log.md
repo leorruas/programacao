@@ -13,7 +13,9 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * [[csharp/21-Console.Write e Console.WriteLine\|21-Console.Write e Console.WriteLine]]: Explicação conceitual e casos de uso de E/S em terminal com e sem quebra de linha.
   * [[csharp/22-Métodos de string (ToUpper e ToLower)\|22-Métodos de string (ToUpper e ToLower)]]: Conversão de capitalização de texto (caixa alta e baixa) e o conceito de imutabilidade de strings.
   * [[csharp/23-O switch em Csharp\|23-O switch em Csharp]]: Controle de fluxo condicional múltiplo clássico e novas expressões switch (Switch Expressions) do C# 8.
-* **Atualização de Nota**: [[csharp/02-O método Main\|O método Main]]
+* **Atualização de Notas**:
+  * [[csharp/01-Introdução ao Csharp\|Introdução ao Csharp]]: Adicionada seção explicando por que aprender Csharp ajuda no aprendizado e transição para qualquer outra linguagem de programação (família C, tipagem, POO, gerenciamento de memória).
+  * [[csharp/02-O método Main\|O método Main]]
   * Adicionada seção detalhada explicando quando usar o método Main com argumentos `(string[] args)` (CLI, scripts, automações) e quando usar sem parâmetros `()` (Console simples, UI, Web).
 * **Organização de Tutoriais (Trilha Csharp Prática)**:
   * Criados **5 novos tutoriais práticos** baseados em projetos para consolidar as fases de estudo:
