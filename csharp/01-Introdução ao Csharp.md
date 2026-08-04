@@ -16,7 +16,7 @@ Hoje, o C# está em quase todas as tecnologias que você consome:
 * **Aplicativos de celular:** Com ele, você consegue construir aplicativos que rodam no Android e no iPhone ao mesmo tempo.
 * **Sistemas de bancos e empresas gigantes:** Sites de compras, aplicativos de bancos e portais que precisam rodar muito rápido e sem travar usam C# para processar dados de milhões de pessoas com total segurança.
 
-#### 🛒 Onde você esbarra com o C# no seu dia a dia?
+#### Onde você esbarra com o C# no seu dia a dia?
 Se você prestar atenção na sua rotina, você usa sistemas feitos em C# quase de hora em hora:
 
 1. **No totem de autoatendimento do McDonald's ou no caixa do supermercado:** Aquela tela de toque onde você escolhe os hambúrgueres, adiciona batata frita, faz o pagamento com cartão e imprime a nota fiscal. Toda a inteligência por trás dessa tela (que soma os preços, manda o pedido para a cozinha e avisa a máquina de cartão) costuma rodar em C#.
@@ -26,7 +26,7 @@ Se você prestar atenção na sua rotina, você usa sistemas feitos em C# quase 
 ### Por que ele é tão importante?
 O C# é mantido pela Microsoft e por milhões de programadores no mundo todo. Aprender C# é como aprender inglês: é uma língua universal que abre as portas para criar jogos, sites, robôs e aplicativos comerciais de alto nível, sendo extremamente valorizada no mercado de trabalho.
 
-### 🎯 Como o Csharp te prepara para aprender qualquer outra linguagem?
+### Como o Csharp te prepara para aprender qualquer outra linguagem?
 Se o seu plano é ser um programador completo e aprender outras tecnologias no futuro (como JavaScript, Python, Java, ou C++), o C# é o **melhor ponto de partida**. Veja o porquê:
 
 1. **A Família da "Sintaxe C":** C#, Java, C++, JavaScript, PHP e Dart pertencem à mesma família de escrita. Isso significa que a estrutura básica (o uso de chaves `{}`, pontos e vírgulas `;` no fim de linhas e operadores matemáticos) é praticamente idêntica. Se você aprender a ler C#, você conseguirá ler o básico de JavaScript ou Java no mesmo dia!
@@ -68,7 +68,7 @@ namespace Introducao
 }
 ```
 
-### 💡 Usando outras caixas de ferramentas (Namespaces)
+### Usando outras caixas de ferramentas (Namespaces)
 O `using System;` no início do código serve para abrir a caixa de ferramentas básica do C# (onde está o `Console` para escrever na tela). Mas e se precisarmos de outras ferramentas?
 
 Em C#, essas caixas de ferramentas são chamadas de **Namespaces**. Nós podemos importar várias outras de acordo com o que o programa precisa fazer:

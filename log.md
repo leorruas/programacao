@@ -14,9 +14,9 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * [[csharp/22-Métodos de string (ToUpper e ToLower)\|22-Métodos de string (ToUpper e ToLower)]]: Conversão de capitalização de texto (caixa alta e baixa) e o conceito de imutabilidade de strings.
   * [[csharp/23-O switch em Csharp\|23-O switch em Csharp]]: Controle de fluxo condicional múltiplo clássico e novas expressões switch (Switch Expressions) do C# 8.
 * **Criação de Regras (.gemini)**:
-  * [[.gemini/rules/no_emojis_in_chat\|no_emojis_in_chat]]: Nova regra estabelecida proibindo o uso de emojis nas respostas de chat direto com o usuário.
+  * [[.gemini/rules/no_emojis\|no_emojis]]: Nova regra estabelecida proibindo o uso de emojis em qualquer contexto do projeto (tanto no chat quanto nos arquivos do vault).
 * **Atualização de Notas**:
-  * [[csharp/01-Introdução ao Csharp\|Introdução ao Csharp]]: Adicionada seção explicando por que aprender Csharp ajuda no aprendizado e transição para qualquer outra linguagem de programação (família C, tipagem, POO, gerenciamento de memória).
+  * [[csharp/01-Introdução ao Csharp\|Introdução ao Csharp]]: Adicionada seção de transição para outras linguagens e realizada a remoção completa de emojis decorativos dos cabeçalhos.
   * [[csharp/02-O método Main\|O método Main]]
   * Adicionada seção detalhada explicando quando usar o método Main com argumentos `(string[] args)` (CLI, scripts, automações) e quando usar sem parâmetros `()` (Console simples, UI, Web).
 * **Organização de Tutoriais (Trilha Csharp Prática)**:
