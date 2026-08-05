@@ -4,6 +4,16 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ---
 
+## 2026-08-05
+
+* **Reorganização Estrutural do Csharp**:
+  * Reordenamento e renumeração de todos os 26 artigos de Csharp em uma sequência pedagógica contínua (01 a 26), dividida em 5 fases de aprendizado (Fundamentos & E/S -> Condicionais & Loops -> Coleções -> POO & Arquivos -> Web & Full Stack).
+  * Atualização completa da lista de busca no `script.js` e do `00-Guia de estudos.md`.
+* **Novo Artigo Integrador**:
+  * [[csharp/26-Como conectar Csharp no HTML (Backend + Frontend JS)\|26-Como conectar Csharp no HTML (Backend + Frontend JS)]]: Artigo integrador explicando a arquitetura C# (Backend) + HTML/CSS/JS (Frontend), a analogia do Drive-Thru, troca de JSON via REST API e consumo com `fetch()`.
+
+---
+
 ## 2026-08-04
 
 * **Novos Artigos de Csharp**:
