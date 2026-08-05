@@ -1,21 +1,21 @@
 # C# no Frontend e Backend (Full Stack com uma linguagem so)
 #csharp
 
-A maioria das pessoas que começa a aprender programação web assume que precisa aprender pelo menos duas linguagens: uma para o **backend** (o servidor, a logica, o banco de dados) e outra para o **frontend** (a interface, o visual, o que o usuario ve). JavaScript domina o frontend, Python ou Java dominam o backend, e parece que voce sempre vai precisar de pelo menos dois mundos diferentes.
+A maioria das pessoas que começa a aprender programação web assume que precisa aprender pelo menos duas linguagens: uma para o **backend** (o servidor, a lógica, o banco de dados) e outra para o **frontend** (a interface, o visual, o que o usuário ve). JavaScript domina o frontend, Python ou Java dominam o backend, e parece que você sempre vai precisar de pelo menos dois mundos diferentes.
 
-O C# quebra essa logica. Com ele, e possivel construir o sistema inteiro, desde o servidor ate a interface do navegador, usando uma unica linguagem.
+O C# quebra essa lógica. Com ele, e possível construir o sistema inteiro, desde o servidor até a interface do navegador, usando uma única linguagem.
 
 ---
 
 ## A Analogia do Restaurante
 
-Para entender a divisao entre frontend e backend, pense em um restaurante:
+Para entender a divisão entre frontend e backend, pense em um restaurante:
 
-* **Frontend (O Salao):** E tudo que o cliente ve e interage diretamente. As mesas, o cardapio, o garcom que anota o pedido. E a experiencia visual e de navegacao.
+* **Frontend (O Salão):** E tudo que o cliente ve e interage diretamente. As mesas, o cardápio, o garçom que anota o pedido. E a experiência visual e de navegação.
 * **Backend (A Cozinha):** E tudo que acontece por baixo, longe dos olhos do cliente. O chef preparando o prato, o estoque de ingredientes, as receitas e as regras de como cada prato e feito.
-* **A Linguagem de Comunicacao:** O garcom e o intermediario. Ele leva o pedido do cliente (frontend) para a cozinha (backend) e traz de volta o resultado (os dados do servidor).
+* **A Linguagem de Comunicação:** O garçom e o intermediario. Ele leva o pedido do cliente (frontend) para a cozinha (backend) e traz de volta o resultado (os dados do servidor).
 
-Normalmente, o salao fala uma lingua (JavaScript) e a cozinha fala outra (Java, Python). Com C# e o ecossistema .NET, voce pode ter o mesmo chef gerenciando tanto a cozinha quanto treinando o garcom para falar a mesma lingua.
+Normalmente, o salão fala uma língua (JavaScript) e a cozinha fala outra (Java, Python). Com C# e o ecossistema .NET, você pode ter o mesmo chef gerenciando tanto a cozinha quanto treinando o garçom para falar a mesma língua.
 
 ---
 
@@ -25,7 +25,7 @@ A ferramenta principal para usar C# no servidor e o **ASP.NET Core**, um framewo
 
 ### O que e uma API?
 
-Uma API (Application Programming Interface) e o garcom do nosso restaurante: ela recebe pedidos do frontend (ou de qualquer outro cliente), executa a logica no servidor e devolve uma resposta, normalmente em formato JSON.
+Uma API (Application Programming Interface) e o garçom do nosso restaurante: ela recebe pedidos do frontend (ou de qualquer outro cliente), executa a lógica no servidor e devolve uma resposta, normalmente em formato JSON.
 
 ```csharp
 // Arquivo: Program.cs - Uma API minima com ASP.NET Core
@@ -38,11 +38,11 @@ app.MapGet("/saudacao", () => "Ola, mundo! Resposta do servidor C#.");
 app.Run();
 ```
 
-Com apenas esse codigo, voce tem um servidor web funcional rodando em C#. Quando alguem acessa `/saudacao` no navegador, o servidor responde.
+Com apenas esse código, você tem um servidor web funcional rodando em C#. Quando alguém acessa `/saudacao` no navegador, o servidor responde.
 
 ### Retornando dados estruturados (JSON)
 
-Na pratica, as APIs retornam dados estruturados. Em vez de texto puro, devolvemos objetos que o frontend pode interpretar:
+Na prática, as APIs retornam dados estruturados. Em vez de texto puro, devolvemos objetos que o frontend pode interpretar:
 
 ```csharp
 app.MapGet("/produto/{id}", (int id) =>
@@ -66,18 +66,18 @@ Quando o frontend acessa `/produto/1`, recebe de volta um JSON como:
 
 ## 2. C# no Frontend com Blazor
 
-O **Blazor** e a resposta da Microsoft para construir interfaces web interativas usando C# no lugar de JavaScript. Em vez de escrever scripts `.js`, voce escreve componentes `.razor` com logica em C# diretamente.
+O **Blazor** e a resposta da Microsoft para construir interfaces web interativas usando C# no lugar de JavaScript. Em vez de escrever scripts `.js`, você escreve componentes `.razor` com lógica em C# diretamente.
 
 ### Como o Blazor funciona?
 
 Existem dois modos principais:
 
-* **Blazor Server:** O C# roda no servidor. O navegador se comunica com o servidor em tempo real via uma conexao persistente (SignalR). Cada clique do usuario envia uma mensagem para o servidor que recalcula a interface e manda de volta apenas as mudancas.
-* **Blazor WebAssembly:** O C# roda **diretamente no navegador** do usuario. O .NET e compilado para WebAssembly (um formato binario que todos os navegadores modernos entendem), e o codigo C# executa na maquina do cliente, sem precisar de servidor para cada interacao.
+* **Blazor Server:** O C# roda no servidor. O navegador se comunica com o servidor em tempo real via uma conexao persistente (SignalR). Cada clique do usuário envia uma mensagem para o servidor que recalcula a interface e manda de volta apenas as mudancas.
+* **Blazor WebAssembly:** O C# roda **diretamente no navegador** do usuário. O .NET e compilado para WebAssembly (um formato binário que todos os navegadores modernos entendem), e o código C# executa na maquina do cliente, sem precisar de servidor para cada interação.
 
 ### Exemplo de um componente Blazor
 
-Um componente Blazor e como uma pagina com HTML e C# juntos no mesmo arquivo:
+Um componente Blazor e como uma página com HTML e C# juntos no mesmo arquivo:
 
 ```razor
 @* Arquivo: Contador.razor *@
@@ -95,15 +95,15 @@ Um componente Blazor e como uma pagina com HTML e C# juntos no mesmo arquivo:
 }
 ```
 
-Nesse exemplo, o botao e HTML, mas o evento de clique (`@onclick`) chama o metodo `Incrementar()`, que e C# puro. O Blazor cuida de atualizar o numero na tela automaticamente.
+Nesse exemplo, o botão e HTML, mas o evento de clique (`@onclick`) chama o método `Incrementar()`, que e C# puro. O Blazor cuida de atualizar o número na tela automaticamente.
 
 ---
 
-## 3. A Vantagem de Compartilhar Codigo
+## 3. A Vantagem de Compartilhar Código
 
-A maior vantagem de usar C# no frontend e backend nao e apenas usar a mesma linguagem: e poder **reutilizar o mesmo codigo nos dois lados**.
+A maior vantagem de usar C# no frontend e backend não e apenas usar a mesma linguagem: e poder **reutilizar o mesmo código nos dois lados**.
 
-Imagine que voce criou uma classe `Produto` para validar os dados no seu servidor. Com Blazor WebAssembly, voce pode usar essa mesma classe no frontend para validar o formulario do usuario antes mesmo de enviar para o servidor, sem duplicar nenhuma linha de codigo.
+Imagine que você criou uma classe `Produto` para validar os dados no seu servidor. Com Blazor WebAssembly, você pode usar essa mesma classe no frontend para validar o formulário do usuário antes mesmo de enviar para o servidor, sem duplicar nenhuma linha de código.
 
 ```csharp
 // Arquivo: Produto.cs - Codigo compartilhado entre frontend e backend
@@ -122,29 +122,29 @@ public class Produto
 
 ## 4. Quando usar cada abordagem?
 
-| Cenario | Ferramenta recomendada |
+| Cenário | Ferramenta recomendada |
 | :--- | :--- |
 | API para servir dados para qualquer cliente (mobile, web, etc.) | ASP.NET Core (API REST) |
-| Site com muito conteudo dinamico e foco em SEO | ASP.NET Core MVC ou Razor Pages |
+| Site com muito conteúdo dinâmico e foco em SEO | ASP.NET Core MVC ou Razor Pages |
 | Aplicativo web complexo, como um painel de controle interno | Blazor Server |
-| Aplicativo web que precisa funcionar offline ou com baixa latencia | Blazor WebAssembly |
-| Projeto que quer reutilizar codigo C# entre servidor e cliente | Blazor WebAssembly + ASP.NET Core |
+| Aplicativo web que precisa funcionar offline ou com baixa latência | Blazor WebAssembly |
+| Projeto que quer reutilizar código C# entre servidor e cliente | Blazor WebAssembly + ASP.NET Core |
 
 ---
 
 ## 5. O Ecossistema .NET como ponto de partida
 
-Ao escolher C# para full stack, voce herda todo o ecossistema .NET:
+Ao escolher C# para full stack, você herda todo o ecossistema .NET:
 
 * **Entity Framework Core:** Para se comunicar com bancos de dados (SQL Server, PostgreSQL, SQLite) escrevendo C# em vez de SQL bruto.
-* **SignalR:** Para comunicacao em tempo real entre servidor e cliente (chats, dashboards ao vivo).
-* **Identity:** Autenticacao e autorizacao de usuarios ja pronta para usar.
-* **NuGet:** O gerenciador de pacotes do .NET, com milhares de bibliotecas disponiveis.
+* **SignalR:** Para comunicação em tempo real entre servidor e cliente (chats, dashboards ao vivo).
+* **Identity:** Autenticação e autorização de usuários já pronta para usar.
+* **NuGet:** O gerenciador de pacotes do .NET, com milhares de bibliotecas disponíveis.
 
 ---
 
 ## Artigos relacionados:
 * **[[01-Introdução ao Csharp|Introdução ao Csharp]]**
-* **[[13-Programação orientada a objetos|Programacao orientada a objetos]]**
+* **[[13-Programação orientada a objetos|Programação orientada a objetos]]**
 * **[[14-Tratamento de erros|Tratamento de erros]]**
 * **[[17-LINQ buscas e filtros|LINQ buscas e filtros]]**

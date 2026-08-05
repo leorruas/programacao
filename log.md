@@ -11,6 +11,8 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Atualização completa da lista de busca no `script.js` e do `00-Guia de estudos.md`.
 * **Novo Artigo Integrador**:
   * [[csharp/26-Como conectar Csharp no HTML (Backend + Frontend JS)\|26-Como conectar Csharp no HTML (Backend + Frontend JS)]]: Artigo integrador explicando a arquitetura C# (Backend) + HTML/CSS/JS (Frontend), a analogia do Drive-Thru, troca de JSON via REST API e consumo com `fetch()`.
+* **Revisão Ortográfica Geral**:
+  * Correção e normalização automatizada de acentuação em português em 50 arquivos do vault (incluindo artigos de C#, JavaScript, CSS, Python e Git).
 
 ---
 
@@ -78,7 +80,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Atualização de Regra do Vault**:
   * Atualizada a regra [[.gemini/rules/log_changes\|log_changes.md]] para incluir a obrigatoriedade de commit e push imediato ao GitHub após qualquer alteração no vault.
 
-* **Atualização de Nota**: [[csharp/Introducao\|Introdução ao Csharp]]
+* **Atualização de Nota**: [[csharp/Introdução\|Introdução ao Csharp]]
   * Adicionada seção explicando o uso de namespaces extras (como `System.Collections.Generic`, `System.IO`, `System.Linq` e `System.Text`) para importar outras caixas de ferramentas no C#.
 
 ## 2026-08-02
@@ -126,7 +128,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Reduzido o tamanho da fonte do título `h1` ("pesquisa de programação") e do input de busca no mobile.
   * Mantido o alinhamento horizontal lado a lado (estilo desktop) para o input e botão de busca em telas móveis.
 
-* **Atualização de Nota**: [[csharp/Introducao\|Introdução ao Csharp]]
+* **Atualização de Nota**: [[csharp/Introdução\|Introdução ao Csharp]]
   * Adicionada a contextualização histórica de sua origem, áreas de uso prático (como Unity para jogos, mobile e corporativo) e a relevância de mercado da linguagem.
 
 * **Padronização de Títulos e Cabeçalhos (Sentence Case)**:
@@ -140,7 +142,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 * **Criação de Pasta e Notas de C#**:
   * Criação da pasta [[csharp/]] contendo os primeiros artigos explicativos.
-  * [[csharp/Introducao\|Introdução ao Csharp]]: Guia conceitual sobre a linguagem.
+  * [[csharp/Introdução\|Introdução ao Csharp]]: Guia conceitual sobre a linguagem.
   * [[csharp/Arrays\|Arrays em Csharp]]: Explicação sobre vetores.
   * [[csharp/04-Segurança de tipos\|Segurança de Tipos]]: Detalhamento didático sobre tipagem estática e forte.
   * [[csharp/03-Variáveis, operadores e tipos de dados\|Variáveis, Operadores e Tipos de Dados]]: Dicionário das caixas de tipos de dados.

@@ -62,7 +62,7 @@ A verdadeira força do sistema de grid está nos **breakpoints responsivos**. Vo
 | `col-xl-` | Extra large | 1200px ou mais (desktop) |
 | `col-xxl-` | Extra extra large | 1400px ou mais (monitor grande) |
 
-### Exemplo pratico: um card que se adapta
+### Exemplo prático: um card que se adapta
 
 ```html
 <div class="container">
@@ -128,7 +128,7 @@ O Bootstrap tem três tipos de container:
 
 ---
 
-## Exemplo completo: uma pagina simples com grid
+## Exemplo completo: uma página simples com grid
 
 ```html
 <!DOCTYPE html>
@@ -176,6 +176,6 @@ O Bootstrap tem três tipos de container:
 ---
 
 ## Artigos relacionados:
-* **[[css/Bootstrap - Introducao|Bootstrap: Introducao]]**
+* **[[css/Bootstrap - Introdução|Bootstrap: Introdução]]**
 * **[[css/Bootstrap - Componentes|Bootstrap: Componentes Prontos]]**
 * **[[css/Flexbox|Flexbox]]**

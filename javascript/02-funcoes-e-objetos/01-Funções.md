@@ -87,7 +87,7 @@ console.log(somarNumeros(10, 20, 30)); // Saída: 60
 ```
 
 ### 3. Argumentos nomeados (simulados via objeto)
-O [[javascript/Introdução ao JavaScript\|JavaScript]] não tem argumentos nomeados nativos (como [[python/Introdução ao Python\|Python]]). No entanto, simulamos isso passando um **[[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]** e fazendo a desestruturação nos parâmetros. É ideal para quando há muitos parâmetros, eliminando a dependência da ordem deles.
+O [[javascript/Introdução ao JavaScript\|JavaScript]] não tem argumentos nomeados nativos (como [[python/Introdução ao Python\|Python]]). No entanto, simulamos isso passando um **[[javascript/02-funções-e-objetos/03-Objetos\|Objetos]]** e fazendo a desestruturação nos parâmetros. É ideal para quando há muitos parâmetros, eliminando a dependência da ordem deles.
 ```javascript
 function criarUsuario({ nome, idade, cargo }) {
   console.log(`Usuário ${nome}, ${idade} anos, trabalha como ${cargo}.`);
@@ -152,5 +152,5 @@ exibirAviso(); // Apenas executa a ação de escrever no console
 *   **Argumento:** O valor real enviado à função no momento da sua chamada.
 *   **Return:** A instrução que finaliza a função e envia o resultado de volta para quem a chamou.
 *   **[[javascript/05-assincrono/01-Callbacks\|Callbacks]]:** Funções passadas como argumentos para outras funções serem executadas posteriormente.
-*   **[[javascript/02-funcoes-e-objetos/06-Funções construtoras\|Funções Construtoras]]:** Funções usadas para gerar novos [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]/instâncias.
-*   **[[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]:** O mecanismo de herança no [[javascript/Introdução ao JavaScript\|JavaScript]] baseado nos [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] de funções e [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]].
+*   **[[javascript/02-funções-e-objetos/06-Funções construtoras\|Funções Construtoras]]:** Funções usadas para gerar novos [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]]/instâncias.
+*   **[[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]:** O mecanismo de herança no [[javascript/Introdução ao JavaScript\|JavaScript]] baseado nos [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] de funções e [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]].

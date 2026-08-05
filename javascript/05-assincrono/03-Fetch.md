@@ -53,7 +53,7 @@ fetch("https://api.exemplo.com/produtos")
 
 ## Resumo para memorizar
 
-*   **Fetch:** A [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] do [[javascript/Introdução ao JavaScript\|JavaScript]] usada para enviar ou buscar dados de servidores externos.
+*   **Fetch:** A [[javascript/02-funções-e-objetos/01-Funções\|Funções]] do [[javascript/Introdução ao JavaScript\|JavaScript]] usada para enviar ou buscar dados de servidores externos.
 *   **Requisição (Request):** O pedido que você faz (ex: "Traga a lista de usuários").
 *   **Resposta (Response):** O que volta do servidor (pode ser um sucesso com os dados ou um aviso de erro).
 *   **Promise:** O mecanismo que garante que o código não vai travar enquanto espera os dados virem da internet.

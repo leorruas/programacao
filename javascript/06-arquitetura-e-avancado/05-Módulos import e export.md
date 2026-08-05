@@ -1,6 +1,6 @@
 # Entendendo módulos (import e export) - método Feynman
 
-Conforme o seu projeto web cresce, colocar todo o código [[javascript/Introdução ao JavaScript\|JavaScript]] dentro de um único arquivo gigante se torna inviável. Módulos são a solução para dividir o seu código em arquivos menores, organizados e especializados, onde exportamos e importamos [[javascript/02-funcoes-e-objetos/01-Funções\|funções]] e [[javascript/02-funcoes-e-objetos/09-Classes\|classes]] (um padrão essencial ao migrar para [[javascript/06-arquitetura-e-avancado/08-TypeScript introdução|TypeScript introdução]]).
+Conforme o seu projeto web cresce, colocar todo o código [[javascript/Introdução ao JavaScript\|JavaScript]] dentro de um único arquivo gigante se torna inviável. Módulos são a solução para dividir o seu código em arquivos menores, organizados e especializados, onde exportamos e importamos [[javascript/02-funções-e-objetos/01-Funções\|funções]] e [[javascript/02-funções-e-objetos/09-Classes\|classes]] (um padrão essencial ao migrar para [[javascript/06-arquitetura-e-avancado/08-TypeScript introdução|TypeScript introdução]]).
 
 Pense nos módulos como a **Publicação e Uso de Bibliotecas** no Figma.
 
@@ -21,7 +21,7 @@ No [[javascript/Introdução ao JavaScript\|JavaScript]] moderno, o conceito é 
 
 ### 1. Exportando um componente (criando no arquivo de design system)
 
-Imagine um arquivo chamado `botoes.js` contendo [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] de estilo para botões:
+Imagine um arquivo chamado `botoes.js` contendo [[javascript/02-funções-e-objetos/01-Funções\|Funções]] de estilo para botões:
 
 ```javascript
 // O termo "export" diz que esta função pode ser usada por outros arquivos
@@ -50,13 +50,13 @@ console.log(botaoHome); // Saída: Botão Entrar renderizado na cor #0a84ff
 ## Vantagens de trabalhar com módulos
 
 *   **Organização:** Cada arquivo tem uma única responsabilidade (um gerencia o banco de dados, outro cria botões, outro gerencia rotas).
-*   **Reutilização:** Você pode importar a mesma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] de botão em dez telas diferentes sem precisar duplicar o código.
+*   **Reutilização:** Você pode importar a mesma [[javascript/02-funções-e-objetos/01-Funções\|Funções]] de botão em dez telas diferentes sem precisar duplicar o código.
 *   **Evita conflitos de nomes:** Se você tiver uma variável chamada `titulo` no módulo A e outra chamada `titulo` no módulo B, elas não se misturam porque os arquivos são isolados por padrão.
 
 ---
 
 ## Resumo para memorizar
 
-*   **Export:** A palavra-chave usada no arquivo de origem para permitir que [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]], [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] ou variáveis sejam usados por outros arquivos.
-*   **Import:** A palavra-chave usada no arquivo de destino para trazer as [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] ou variáveis exportadas de outro módulo.
+*   **Export:** A palavra-chave usada no arquivo de origem para permitir que [[javascript/02-funções-e-objetos/01-Funções\|Funções]], [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] ou variáveis sejam usados por outros arquivos.
+*   **Import:** A palavra-chave usada no arquivo de destino para trazer as [[javascript/02-funções-e-objetos/01-Funções\|Funções]] ou variáveis exportadas de outro módulo.
 *   **Módulo:** Qualquer arquivo [[javascript/Introdução ao JavaScript\|JavaScript]] que exporta ou importa recursos de outro arquivo.

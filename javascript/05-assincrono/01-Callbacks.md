@@ -1,12 +1,12 @@
 # Entendendo callbacks - método Feynman
 
-Uma **[[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] Callback** é uma [[javascript/02-funcoes-e-objetos/01-Funções\|função]] que é passada como argumento para outra [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]], para ser executada ("chamada de volta") mais tarde, quando um determinado [[javascript/04-dom-e-browser/04-Eventos\|Eventos]] acontecer ou uma tarefa for concluída.
+Uma **[[javascript/02-funções-e-objetos/01-Funções\|Funções]] Callback** é uma [[javascript/02-funções-e-objetos/01-Funções\|função]] que é passada como argumento para outra [[javascript/02-funções-e-objetos/01-Funções\|Funções]], para ser executada ("chamada de volta") mais tarde, quando um determinado [[javascript/04-dom-e-browser/04-Eventos\|Eventos]] acontecer ou uma tarefa for concluída.
 
 Sob a perspectiva do **cotidiano**, imagine que você vai a uma cafeteria movimentada:
-* Você faz o pedido do café (chama a [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] principal).
-* O atendente lhe entrega um **pager / bip** (a [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] callback).
+* Você faz o pedido do café (chama a [[javascript/02-funções-e-objetos/01-Funções\|Funções]] principal).
+* O atendente lhe entrega um **pager / bip** (a [[javascript/02-funções-e-objetos/01-Funções\|Funções]] callback).
 * Você não precisa ficar parado no balcão esperando. Você pode sentar, ler um livro ou mexer no celular (código assíncrono rodando).
-* Quando o café fica pronto, o bip vibra (a [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] callback é finalmente executada).
+* Quando o café fica pronto, o bip vibra (a [[javascript/02-funções-e-objetos/01-Funções\|Funções]] callback é finalmente executada).
 
 ---
 
@@ -47,7 +47,7 @@ prepararCafe("Expresso", avisarCliente);
 
 ### 2. O uso mais comum: funções anônimas / arrow functions
 
-Geralmente, não criamos uma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] separada com nome apenas para usar como callback. Nós a escrevemos diretamente dentro dos argumentos da chamada (usando [[javascript/02-funcoes-e-objetos/02-Arrow functions\|Arrow Functions]]):
+Geralmente, não criamos uma [[javascript/02-funções-e-objetos/01-Funções\|Funções]] separada com nome apenas para usar como callback. Nós a escrevemos diretamente dentro dos argumentos da chamada (usando [[javascript/02-funções-e-objetos/02-Arrow functions\|Arrow Functions]]):
 
 ```javascript
 prepararCafe("Cappuccino", () => {

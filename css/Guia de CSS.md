@@ -34,7 +34,7 @@ Bem-vindo ao guia de aprendizado prático de CSS! Aqui organizaremos todos os co
 
 ## Bootstrap
 
-6. [[css/Bootstrap - Introducao|Bootstrap: O que é e por que usar]]
+6. [[css/Bootstrap - Introdução|Bootstrap: O que é e por que usar]]
    - O que o Bootstrap entrega (grid, componentes, utilitários)
    - Como adicionar via CDN ou NPM
    - A filosofia de classes no HTML

@@ -1,6 +1,6 @@
 # Herança e objetos aninhados no JavaScript - método Feynman
 
-Uma dúvida muito comum ao trabalhar com [[javascript/02-funcoes-e-objetos/03-Objetos\|objetos]] em [[javascript/Introdução ao JavaScript\|JavaScript]] é entender o que acontece quando criamos um [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] dentro de outro (aninhamento) versus quando fazemos um [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] **herdar** de outro (herança por [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]).
+Uma dúvida muito comum ao trabalhar com [[javascript/02-funções-e-objetos/03-Objetos\|objetos]] em [[javascript/Introdução ao JavaScript\|JavaScript]] é entender o que acontece quando criamos um [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] dentro de outro (aninhamento) versus quando fazemos um [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] **herdar** de outro (herança por [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]).
 
 Sob a perspectiva da **Organização e da Família**, a diferença entre aninhamento e herança funciona exatamente como a diferença entre uma **Mala com Compartimentos (Composição)** e uma **Árvore Genealógica (Herança)**.
 
@@ -8,16 +8,16 @@ Sob a perspectiva da **Organização e da Família**, a diferença entre aninham
 
 ## A analogia: compartimentos vs. genética
 
-*   **[[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] Aninhados (Composição - "Tem um"):** É como colocar uma **bolsa menor dentro de uma mala maior**. A mala maior contém a bolsa, mas os [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] que estão dentro da bolsa não viram propriedades da mala. A bolsa é apenas um *compartimento interno*.
-*   **Herança de [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] ([[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] - "É um"):** É a **relação entre Pai e Filho**. O filho nasce como um indivíduo separado, mas herda as características, o sobrenome e o acesso à casa do pai através da sua carga genética (o link `__proto__`).
+*   **[[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] Aninhados (Composição - "Tem um"):** É como colocar uma **bolsa menor dentro de uma mala maior**. A mala maior contém a bolsa, mas os [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] que estão dentro da bolsa não viram propriedades da mala. A bolsa é apenas um *compartimento interno*.
+*   **Herança de [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] ([[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] - "É um"):** É a **relação entre Pai e Filho**. O filho nasce como um indivíduo separado, mas herda as características, o sobrenome e o acesso à casa do pai através da sua carga genética (o link `__proto__`).
 
 ---
 
 ## 1. Objetos aninhados (composição)
 
-Quando você cria um [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] dentro da propriedade de outro [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]], você **não está criando herança**. Você está criando uma estrutura de **composição**.
+Quando você cria um [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] dentro da propriedade de outro [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]], você **não está criando herança**. Você está criando uma estrutura de **composição**.
 
-O [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] interno **não herda** automaticamente as propriedades do [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] pai que o contém.
+O [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] interno **não herda** automaticamente as propriedades do [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] pai que o contém.
 
 ```javascript
 // Objeto Pai (Mala Maior)
@@ -40,13 +40,13 @@ console.log(empresa.departamento.cidade); // Saída: undefined (Não herda!)
 ```
 
 ### Por que o objeto interno não enxerga o pai?
-No [[javascript/Introdução ao JavaScript\|JavaScript]], escopos de [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] não "vazam" para dentro de [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] aninhados. O [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] `departamento` não sabe que está dentro de `empresa`; ele é apenas um valor isolado associado à chave `departamento`.
+No [[javascript/Introdução ao JavaScript\|JavaScript]], escopos de [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] não "vazam" para dentro de [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] aninhados. O [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] `departamento` não sabe que está dentro de `empresa`; ele é apenas um valor isolado associado à chave `departamento`.
 
 ---
 
 ## 2. Criando um objeto a partir de outro com herança real (___placeholder_7___)
 
-Se o seu objetivo é fazer com que um novo [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] seja criado a partir de outro e **herde todas as propriedades e métodos** do original, devemos usar a herança prototípica via `Object.create()`.
+Se o seu objetivo é fazer com que um novo [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] seja criado a partir de outro e **herde todas as propriedades e métodos** do original, devemos usar a herança prototípica via `Object.create()`.
 
 ```javascript
 // Objeto Protótipo (O "Pai")
@@ -75,7 +75,7 @@ console.log(usuarioPremium.obterPerfil()); // Saída: "Usuário do plano VIP"
 
 ## 3. O que acontece com o ___placeholder_9___ em objetos aninhados?
 
-Quando você chama um método que está dentro de um [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] aninhado, a palavra-chave [[javascript/02-funcoes-e-objetos/05-Entendendo o this\|this]] aponta para o **[[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] imediato** que é dono daquele método, e não para o [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] externo.
+Quando você chama um método que está dentro de um [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] aninhado, a palavra-chave [[javascript/02-funções-e-objetos/05-Entendendo o this\|this]] aponta para o **[[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] imediato** que é dono daquele método, e não para o [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] externo.
 
 ```javascript
 const contaBancaria = {
@@ -99,11 +99,11 @@ contaBancaria.cartaoCredito.exibirLimite();
 
 ## 4. Tabela comparativa: aninhamento vs. herança
 
-| Característica | Objetos Aninhados (Composição) | Herança (`Object.create` / [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]) |
+| Característica | Objetos Aninhados (Composição) | Herança (`Object.create` / [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]) |
 | :--- | :--- | :--- |
 | **Relação** | "Possui um" (`empresa.departamento`) | "É um" (`gerente` herda de `funcionario`) |
-| **Acesso** | Via [[javascript/02-funcoes-e-objetos/04-Dot notation e propriedades\|notação de ponto]] encadeada (`a.b.c`) | Acesso direto (`filho.propriedadeDoPai`) |
-| **Herança de Dados** | Não herda nada do pai | Herda tudo via cadeia de [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|protótipos]] |
+| **Acesso** | Via [[javascript/02-funções-e-objetos/04-Dot notation e propriedades\|notação de ponto]] encadeada (`a.b.c`) | Acesso direto (`filho.propriedadeDoPai`) |
+| **Herança de Dados** | Não herda nada do pai | Herda tudo via cadeia de [[javascript/02-funções-e-objetos/07-Protótipos e proto\|protótipos]] |
 | **Uso Principal** | Agrupar informações estruturadas | Reutilizar código e comportamentos |
 
 ---
@@ -111,5 +111,5 @@ contaBancaria.cartaoCredito.exibirLimite();
 ## Resumo para memorizar
 
 *   **Objetos Aninhados:** São apenas dados guardados em gavetas internas. Não há herança genética de propriedades do objeto externo para o interno.
-*   **Object.create(pai):** A forma oficial de criar um novo objeto onde o objeto pai é definido como seu [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] (`__proto__`).
+*   **Object.create(pai):** A forma oficial de criar um novo objeto onde o objeto pai é definido como seu [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] (`__proto__`).
 *   **Comportamento do `this`:** Em métodos aninhados, o `this` pertence ao objeto imediatamente à esquerda do ponto na chamada.

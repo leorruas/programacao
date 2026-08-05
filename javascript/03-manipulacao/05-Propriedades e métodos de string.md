@@ -2,7 +2,7 @@
 
 Quando você digita uma palavra entre aspas no console do navegador (ex: `'Andre'`) e adiciona o ponto (`.`), o autocompletar exibe uma lista gigantesca com mais de 50 propriedades e métodos.
 
-Isso acontece devido a um fenômeno do [[javascript/Introdução ao JavaScript\|JavaScript]] chamado **Autoboxing** (Empacotamento Automático). Embora a string seja um [[javascript/01-fundamentos/03-Tipos de dados\|tipo de dado primitivo]], o [[javascript/Introdução ao JavaScript\|JavaScript]] envelopa o texto temporariamente dentro do [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] nativo `String`, liberando uma barra de ferramentas completa.
+Isso acontece devido a um fenômeno do [[javascript/Introdução ao JavaScript\|JavaScript]] chamado **Autoboxing** (Empacotamento Automático). Embora a string seja um [[javascript/01-fundamentos/03-Tipos de dados\|tipo de dado primitivo]], o [[javascript/Introdução ao JavaScript\|JavaScript]] envelopa o texto temporariamente dentro do [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] nativo `String`, liberando uma barra de ferramentas completa.
 
 Sob a perspectiva da **Edição de Texto**, os métodos de String funcionam exatamente como a **Barra de Ferramentas Completa do Microsoft Word ou Figma**.
 
@@ -20,13 +20,13 @@ Sob a perspectiva da **Edição de Texto**, os métodos de String funcionam exat
 
 ## 1. Dicionário exaustivo de todos os métodos e propriedades de string
 
-Abaixo está a lista completa de tudo o que o [[javascript/Introdução ao JavaScript\|JavaScript]] disponibiliza no [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] de String:
+Abaixo está a lista completa de tudo o que o [[javascript/Introdução ao JavaScript\|JavaScript]] disponibiliza no [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] de String:
 
 ### A. Propriedade de informação
 | Item | Tipo | Descrição e Exemplo |
 | :--- | :--- | :--- |
 | **`length`** | Propriedade | Retorna a quantidade de caracteres da string. Ex: `'Andre'.length` (Saída: `5`). |
-| **`constructor`** | Propriedade | Retorna a [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] construtora do [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] (`function String() { [native code] }`). |
+| **`constructor`** | Propriedade | Retorna a [[javascript/02-funções-e-objetos/01-Funções\|Funções]] construtora do [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] (`function String() { [native code] }`). |
 
 ---
 
@@ -124,6 +124,6 @@ Estes métodos foram criados nos anos 90 e inserem tags HTML puras envoltas da p
 
 ## Resumo para memorizar
 
-*   **Tamanho da Lista:** São mais de 50 itens disponíveis no autocompletar devido ao [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] `String.prototype`.
+*   **Tamanho da Lista:** São mais de 50 itens disponíveis no autocompletar devido ao [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] `String.prototype`.
 *   **O que usar no dia a dia:** Foque em `length`, `includes`, `slice`, `split`, `trim`, `replace`, `toLowerCase` e `toUpperCase`.
 *   **O que ignorar:** Ignore totalmente os métodos de formatação HTML (`bold`, `italics`, `blink`, etc.) e use CSS no lugar.

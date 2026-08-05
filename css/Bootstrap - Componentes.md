@@ -13,9 +13,9 @@ O Bootstrap garante que todas as peças seguem o mesmo padrão visual, então el
 
 ---
 
-## 1. Botoes (Buttons)
+## 1. Botões (Buttons)
 
-Os botoes do Bootstrap usam a classe base `btn` combinada com uma classe de cor semântica:
+Os botões do Bootstrap usam a classe base `btn` combinada com uma classe de cor semântica:
 
 ```html
 <!-- Botões por cor semântica -->
@@ -221,6 +221,6 @@ O formato é: `{propriedade}{lado}-{tamanho}`
 ---
 
 ## Artigos relacionados:
-* **[[css/Bootstrap - Introducao|Bootstrap: Introducao]]**
+* **[[css/Bootstrap - Introdução|Bootstrap: Introdução]]**
 * **[[css/Bootstrap - Sistema de Grid|Bootstrap: Sistema de Grid]]**
 * **[[css/Flexbox|Flexbox]]**

@@ -1,6 +1,6 @@
 # Introdução ao Python: a minimização do ruído mental - método Feynman
 
-O **[[python/Introdução ao Python\|Python]]** é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]], funcional e de tipagem dinâmica. Ela é hoje uma das ferramentas mais utilizadas para inteligência artificial, análise de dados e automações no mundo.
+O **[[python/Introdução ao Python\|Python]]** é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]], funcional e de tipagem dinâmica. Ela é hoje uma das ferramentas mais utilizadas para inteligência artificial, análise de dados e automações no mundo.
 
 Sob a perspectiva da **Psicologia cognitiva (a minimização da carga mental)**, o [[python/Introdução ao Python\|Python]] funciona como um **sistema projetado para reduzir o ruído visual e otimizar o foco da nossa atenção**.
 

@@ -1,6 +1,6 @@
 # [Csharp] • Projeto 3 - O Gerenciador de Tarefas
 
-#csharp #tutorial #iniciante #colecoes
+#csharp #tutorial #iniciante #coleções
 
 Neste terceiro projeto prático, você vai construir um **Gerenciador de Tarefas (ToDo List)** no terminal. O programa exibirá um menu interativo onde você poderá adicionar tarefas, listar as tarefas salvas com seus respectivos índices, e marcar tarefas como concluídas (removendo-as da lista).
 

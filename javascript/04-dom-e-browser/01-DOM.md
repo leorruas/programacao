@@ -25,7 +25,7 @@ No desenvolvimento web, o **DOM** é a árvore de camadas que permite ao [[javas
 
 ## Como o JavaScript enxerga o DOM
 
-O navegador lê o seu código HTML e cria um mapa de [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] estruturado em árvore. Cada elemento do seu HTML vira um "nó" nessa árvore (veja a nota sobre [[javascript/06-arquitetura-e-avancado/02-Node.js\|Nodes]]).
+O navegador lê o seu código HTML e cria um mapa de [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] estruturado em árvore. Cada elemento do seu HTML vira um "nó" nessa árvore (veja a nota sobre [[javascript/06-arquitetura-e-avancado/02-Node.js\|Nodes]]).
 
 Aqui está uma representação simples de como o HTML vira o DOM:
 

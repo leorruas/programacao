@@ -51,9 +51,9 @@ localStorage.removeItem("temaFavorito");
 
 ## O limite importante: apenas strings
 
-O Local Storage só aceita textos simples. Se você tentar salvar um [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] complexo (como as propriedades de um [[javascript/02-funcoes-e-objetos/03-Objetos\|objeto]] ou array), o navegador vai salvar como `"[object Object]"`, estragando os dados.
+O Local Storage só aceita textos simples. Se você tentar salvar um [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] complexo (como as propriedades de um [[javascript/02-funções-e-objetos/03-Objetos\|objeto]] ou array), o navegador vai salvar como `"[object Object]"`, estragando os dados.
 
-Para salvar [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] ou arrays no Local Storage, precisamos transformá-los em texto usando o **[[javascript/03-manipulacao/08-JSON\|JSON]]** antes de salvar, e convertê-los de volta para [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] na hora de ler:
+Para salvar [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] ou arrays no Local Storage, precisamos transformá-los em texto usando o **[[javascript/03-manipulacao/08-JSON\|JSON]]** antes de salvar, e convertê-los de volta para [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] na hora de ler:
 
 ```javascript
 const usuario = {
@@ -77,4 +77,4 @@ console.log(usuarioObjeto.nome); // Saída: Léo
 
 *   **Local Storage:** Um banco de dados simples integrado ao navegador que guarda informações em formato de texto.
 *   **Persistência:** Os dados não expiram; eles continuam lá mesmo se o usuário fechar a aba ou desligar o computador.
-*   **Armazenamento em texto:** Guarda apenas strings. Use `JSON.stringify` para salvar [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] e `JSON.parse` para convertê-los de volta.
+*   **Armazenamento em texto:** Guarda apenas strings. Use `JSON.stringify` para salvar [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] e `JSON.parse` para convertê-los de volta.

@@ -74,7 +74,7 @@ window.addEventListener('scroll', () => {
 ```
 
 > [!WARNING]
-> Evite colocar muitas [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] pesadas dentro do [[javascript/04-dom-e-browser/04-Eventos\|Eventos]] de scroll direto (Método 2), pois ele roda dezenas de vezes por segundo e pode deixar o site travado (com lag). Para detectar se elementos apareceram na tela, sempre prefira o Intersection Observer (Método 1).
+> Evite colocar muitas [[javascript/02-funções-e-objetos/01-Funções\|Funções]] pesadas dentro do [[javascript/04-dom-e-browser/04-Eventos\|Eventos]] de scroll direto (Método 2), pois ele roda dezenas de vezes por segundo e pode deixar o site travado (com lag). Para detectar se elementos apareceram na tela, sempre prefira o Intersection Observer (Método 1).
 
 ---
 
@@ -82,4 +82,4 @@ window.addEventListener('scroll', () => {
 
 *   **Animação ao Scroll:** Uma transição visual controlada pelo movimento da página.
 *   **Intersection Observer:** A ferramenta moderna e performática que detecta quando um elemento entra na tela (como um sensor de presença).
-*   **Divisão de Tarefas:** O [[javascript/Introdução ao JavaScript\|JavaScript]] apenas adiciona/remove [[javascript/02-funcoes-e-objetos/09-Classes\|Classes]] de controle (ex: .visible), enquanto as transições e movimentações de verdade são feitas no CSS (usando transition e transform).
+*   **Divisão de Tarefas:** O [[javascript/Introdução ao JavaScript\|JavaScript]] apenas adiciona/remove [[javascript/02-funções-e-objetos/09-Classes\|Classes]] de controle (ex: .visible), enquanto as transições e movimentações de verdade são feitas no CSS (usando transition e transform).

@@ -14,7 +14,7 @@ Sob a perspectiva da **Culinária**, as condicionais funcionam exatamente como *
 
 No [[javascript/Introdução ao JavaScript\|JavaScript]], usamos a palavra `if` (se) para testar uma condição (que retorna `true` ou `false`). Se for verdadeira, o bloco dentro das chaves `{}` roda. Usamos o `else` (senão) para definir o caminho alternativo caso a condição seja falsa. 
 
-Frequentemente encapsulamos essas decisões dentro de [[javascript/02-funcoes-e-objetos/01-Funções|Funções]] para reutilizar a regra em diferentes partes do código:
+Frequentemente encapsulamos essas decisões dentro de [[javascript/02-funções-e-objetos/01-Funções|Funções]] para reutilizar a regra em diferentes partes do código:
 
 ```javascript
 function verificarCozimento(temperaturaAgua) {

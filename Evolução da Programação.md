@@ -35,7 +35,7 @@ flowchart TD
 *   **Analogia de Design:** É o equivalente a criar um software de desenho vetorial no computador, automatizando a tarefa de renderizar curvas e formas matemáticas em vez de pintar pixel por pixel à mão.
 
 ## 3 - C++: a era dos objetos (1985)
-*   **O que resolveu:** Com o crescimento dos sistemas (como softwares de texto e jogos), organizar milhares de linhas de código linear em C ficou inviável. C++ introduziu a Programação Orientada a [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] ([[javascript/06-arquitetura-e-avancado/01-Programação orientada a objetos\|POO]]), permitindo agrupar características e ações dentro de "[[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]" reutilizáveis.
+*   **O que resolveu:** Com o crescimento dos sistemas (como softwares de texto e jogos), organizar milhares de linhas de código linear em C ficou inviável. C++ introduziu a Programação Orientada a [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] ([[javascript/06-arquitetura-e-avancado/01-Programação orientada a objetos\|POO]]), permitindo agrupar características e ações dentro de "[[javascript/02-funções-e-objetos/03-Objetos\|Objetos]]" reutilizáveis.
 *   **Analogia de Design:** É o momento em que os softwares de design começaram a permitir que você criasse Componentes (gabaritos reutilizáveis) em vez de desenhar elementos idênticos soltos na tela repetidas vezes.
 
 ## 4 - HTML (1990) & CSS (1996): a fachada visual da web

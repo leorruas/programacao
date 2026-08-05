@@ -26,7 +26,7 @@ Em [[javascript/Introdução ao JavaScript\|JavaScript]], existe um atalho de es
     
     console.log(larguraNumero + 10); // Saída: 330 (matemática funciona!)
     ```
-*   **Por que usar:** Evita ter que escrever [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] maiores como `Number(texto)` ou `parseInt(texto)`. Mas atenção: se a string contiver letras (ex: `"320px"`), o operador retornará `NaN` (Not a Number/Não é um Número).
+*   **Por que usar:** Evita ter que escrever [[javascript/02-funções-e-objetos/01-Funções\|Funções]] maiores como `Number(texto)` ou `parseInt(texto)`. Mas atenção: se a string contiver letras (ex: `"320px"`), o operador retornará `NaN` (Not a Number/Não é um Número).
 
 ---
 

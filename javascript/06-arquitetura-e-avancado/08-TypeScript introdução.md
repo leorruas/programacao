@@ -22,7 +22,7 @@ O [[javascript/06-arquitetura-e-avancado/08-TypeScript introdução\|TypeScript]
 
 ## Exemplo prático de diferença
 
-Veja como a mesma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] de cálculo de tamanho se comporta:
+Veja como a mesma [[javascript/02-funções-e-objetos/01-Funções\|Funções]] de cálculo de tamanho se comporta:
 
 ### Em JavaScript puro (livre de regras):
 ```javascript
@@ -53,7 +53,7 @@ Os navegadores de internet (como Chrome, Safari ou Firefox) não sabem o que é 
 
 Por conta disso, o [[javascript/06-arquitetura-e-avancado/08-TypeScript introdução\|TypeScript]] passa por um processo chamado **Transpilação**. 
 
-Fazendo uma analogia, é como você projetar um [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] complexo no Figma com centenas de guias técnicas e depois exportar um arquivo final em formato de imagem estática SVG ou PNG leve para a entrega. O compilador do [[javascript/06-arquitetura-e-avancado/08-TypeScript introdução\|TypeScript]] remove todas as anotações de regras de tipos e gera um arquivo [[javascript/Introdução ao JavaScript\|JavaScript]] limpo e tradicional para rodar no navegador.
+Fazendo uma analogia, é como você projetar um [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] complexo no Figma com centenas de guias técnicas e depois exportar um arquivo final em formato de imagem estática SVG ou PNG leve para a entrega. O compilador do [[javascript/06-arquitetura-e-avancado/08-TypeScript introdução\|TypeScript]] remove todas as anotações de regras de tipos e gera um arquivo [[javascript/Introdução ao JavaScript\|JavaScript]] limpo e tradicional para rodar no navegador.
 
 ---
 

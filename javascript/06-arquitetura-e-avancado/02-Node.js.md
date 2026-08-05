@@ -32,7 +32,7 @@ Junto com o Node.js, você ganha acesso ao **NPM**, que é a maior biblioteca de
 Fazendo uma analogia com o design: o NPM é a **Comunidade do Figma (Figma Community)**.
 Quando você precisa de um ícone ou de um efeito de desfoque complexo no Figma, você não cria do zero; você vai à comunidade e baixa um plugin ou biblioteca pronta. 
 
-No desenvolvimento, quando você precisa de uma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] para enviar e-mails ou criptografar senhas, você usa o NPM para baixar uma biblioteca criada e testada por outros desenvolvedores.
+No desenvolvimento, quando você precisa de uma [[javascript/02-funções-e-objetos/01-Funções\|Funções]] para enviar e-mails ou criptografar senhas, você usa o NPM para baixar uma biblioteca criada e testada por outros desenvolvedores.
 
 ---
 
