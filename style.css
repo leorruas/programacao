@@ -445,7 +445,7 @@ button:hover {
 }
 
 .pasta-item.aberta .pasta-conteudo {
-    max-height: 1000px;
+    max-height: 4000px;
     padding-bottom: 15px;
     border-top: 1px solid rgba(255, 182, 193, 0.1);
 }
