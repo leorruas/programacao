@@ -10,6 +10,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Ajuste de Layout Responsivo e Mobile (`style.css`)**:
   * Aplicada trava global (`overflow-x: hidden` e `box-sizing: border-box`) no `html` e `body` para resolver a rolagem horizontal indesejada em smartphones e tablets.
   * Adicionado suporte a `word-break: break-word` e rolagem horizontal em container próprio (`overflow-x: auto`) para blocos de código (`<pre>`), tabelas e elementos visuais no leitor de artigos.
+* **Padronização de Regras de IA (`AGENTS.md` & `.agents/`)**:
+  * Criado o arquivo [`AGENTS.md`](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/AGENTS.md) na raiz do repositório para centralizar as instruções globais do agente (obrigando a leitura prévia de `AGENTS.md` e `me.md`, registro em log, commit automático, uso de WikiLinks, técnica Feynman e proibição de emojis).
+  * Migrada a estrutura de regras da pasta `.gemini/` para `.agents/rules/`.
+
+
 
 ---
 
