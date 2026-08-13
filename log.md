@@ -2,9 +2,19 @@
 
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
+## 2026-08-13
+
+* **Otimização de Performance da Busca (`script.js`)**:
+  * Implementado sistema de pré-carregamento concorrente com `Promise.all` para cachear todo o conteúdo das notas `.md` na memória durante a inicialização.
+  * Adicionada busca instantânea em tempo real acionada diretamente no evento de digitação (`input`), com controle de *debounce* (150ms).
+* **Ajuste de Layout Responsivo e Mobile (`style.css`)**:
+  * Aplicada trava global (`overflow-x: hidden` e `box-sizing: border-box`) no `html` e `body` para resolver a rolagem horizontal indesejada em smartphones e tablets.
+  * Adicionado suporte a `word-break: break-word` e rolagem horizontal em container próprio (`overflow-x: auto`) para blocos de código (`<pre>`), tabelas e elementos visuais no leitor de artigos.
+
 ---
 
 ## 2026-08-05
+
 
 * **Reorganização Estrutural do Csharp**:
   * Reordenamento e renumeração de todos os 26 artigos de Csharp em uma sequência pedagógica contínua (01 a 26), dividida em 5 fases de aprendizado (Fundamentos & E/S -> Condicionais & Loops -> Coleções -> POO & Arquivos -> Web & Full Stack).

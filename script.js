@@ -1,3 +1,7 @@
+// Cache global para armazenar os conteúdos dos arquivos em memória
+let cacheArquivos = null;
+let debounceTimer = null;
+
 // Função para buscar automaticamente todos os arquivos .md do seu GitHub (sem precisar de token)
 async function obterListaDeArquivos() {
     try {
@@ -137,14 +141,55 @@ async function obterListaDeArquivos() {
     }
 }
 
+// Carrega todos os arquivos em paralelo e guarda na memória (cache)
+async function carregarTodosArquivosEmCache() {
+    if (cacheArquivos) return cacheArquivos;
+    
+    const lista = await obterListaDeArquivos();
+    
+    // Baixa todos os arquivos concorrentemente usando Promise.all
+    cacheArquivos = await Promise.all(
+        lista.map(async (arquivo) => {
+            try {
+                const resposta = await fetch(arquivo.path);
+                const conteudoTexto = await resposta.text();
+                return {
+                    arquivo,
+                    conteudoTexto
+                };
+            } catch (erro) {
+                console.error("Erro ao pré-carregar arquivo:", arquivo.path, erro);
+                return {
+                    arquivo,
+                    conteudoTexto: ""
+                };
+            }
+        })
+    );
+
+    return cacheArquivos;
+}
+
 const botao = document.querySelector("button");
 const campoTexto = document.getElementById("main-search-input");
 const campoTextoNav = document.getElementById("nav-search-input");
 const containerResultados = document.querySelector(".cards-container");
 
 function sincronizarBusca(valor) {
-    if (campoTexto) campoTexto.value = valor;
-    if (campoTextoNav) campoTextoNav.value = valor;
+    if (campoTexto && campoTexto.value !== valor) campoTexto.value = valor;
+    if (campoTextoNav && campoTextoNav.value !== valor) campoTextoNav.value = valor;
+
+    // Dispara a busca em tempo real com Debounce (150ms)
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+        if (valor.trim() === "") {
+            divResultados.classList.add("escondido");
+            const pastasContainer = document.getElementById("pastas-container");
+            if (pastasContainer) pastasContainer.classList.remove("escondido");
+        } else {
+            buscar(valor);
+        }
+    }, 150);
 }
 
 if (campoTexto) {
@@ -165,22 +210,18 @@ if (campoTextoNav) {
     });
 }
 
-botao.addEventListener("click", () => {
-    const pesquise = campoTexto ? campoTexto.value : "";
-    buscar(pesquise);
-});
-
-
-
-
+if (botao) {
+    botao.addEventListener("click", () => {
+        const pesquise = campoTexto ? campoTexto.value : "";
+        buscar(pesquise);
+    });
+}
 
 const divResultados = document.querySelector(".resultados");
 const leitorDeArtigo = document.getElementById("leitor-artigo");
 const artigoTitulo = document.getElementById("artigo-titulo");
 const artigoCorpo = document.getElementById("artigo-corpo");
 const btnVoltar = document.getElementById("btn-voltar");
-
-
 
 function decodificarEntidadesHTML(str) {
     const txt = document.createElement("textarea");
@@ -232,7 +273,6 @@ function abrirArtigo(titulo, conteudo) {
     const htmlGerado = marked.parse(conteudo);
 
     // 2. Converte os blocos de código ```mermaid em <div class="mermaid">
-    // AND decodes the HTML entities (like &gt; or &lt;) so Mermaid can parse it correctly!
     const htmlComMermaid = htmlGerado.replace(
         /<pre><code class="language-mermaid">([\s\S]*?)<\/code><\/pre>/g,
         (match, codigoMermaid) => {
@@ -277,7 +317,7 @@ function abrirArtigo(titulo, conteudo) {
         });
     });
 
-    // 4. Renderiza os diagramas Mermaid automaticamente com o tema rosa!
+    // 4. Renderiza os diagramas Mermaid
     if (window.mermaid) {
         setTimeout(() => {
             try {
@@ -296,13 +336,14 @@ function abrirArtigo(titulo, conteudo) {
 }
 
 btnVoltar.addEventListener("click", () => {
-    leitorDeArtigo.classList.add("escondido");    // Esconde o leitor
-    divResultados.classList.remove("escondido"); // Mostra os cards da busca de volta
+    leitorDeArtigo.classList.add("escondido");
+    divResultados.classList.remove("escondido");
     const pastasContainer = document.getElementById("pastas-container");
     if (pastasContainer) {
         const termo = campoTexto ? campoTexto.value.trim() : "";
         if (termo === "") {
             pastasContainer.classList.remove("escondido");
+            divResultados.classList.add("escondido");
         } else {
             pastasContainer.classList.add("escondido");
         }
@@ -366,34 +407,30 @@ function calcularScore(titulo, conteudo, termo) {
 
 async function buscar(termo) {
     const termoLimpo = termo.trim();
-    if (termoLimpo === "") return;
+    if (termoLimpo === "") {
+        divResultados.classList.add("escondido");
+        const pastasContainer = document.getElementById("pastas-container");
+        if (pastasContainer) pastasContainer.classList.remove("escondido");
+        return;
+    }
     
     divResultados.classList.remove("escondido");
     leitorDeArtigo.classList.add("escondido");
     const pastasContainer = document.getElementById("pastas-container");
     if (pastasContainer) pastasContainer.classList.add("escondido");
 
-    containerResultados.innerHTML = `<h2>Buscando...</h2>`;
-
-    const arquivos = await obterListaDeArquivos();
+    // Usa os dados já em cache (Instantâneo!)
+    const arquivosComConteudo = await carregarTodosArquivosEmCache();
     const resultados = [];
 
-    // Busca e calcula scores para cada arquivo
-    for (const arquivo of arquivos) {
-        try {
-            const resposta = await fetch(arquivo.path);
-            const conteudoTexto = await resposta.text();
-            
-            const score = calcularScore(arquivo.titulo, conteudoTexto, termoLimpo);
-            if (score > 0) {
-                resultados.push({
-                    arquivo,
-                    conteudoTexto,
-                    score
-                });
-            }
-        } catch (erro) {
-            console.error("Erro ao ler arquivo: ", arquivo.path, erro);
+    for (const item of arquivosComConteudo) {
+        const score = calcularScore(item.arquivo.titulo, item.conteudoTexto, termoLimpo);
+        if (score > 0) {
+            resultados.push({
+                arquivo: item.arquivo,
+                conteudoTexto: item.conteudoTexto,
+                score
+            });
         }
     }
 
@@ -484,13 +521,11 @@ artigoCorpo.addEventListener("click", async (e) => {
     const alvoDecodificado = decodeURIComponent(alvo);
     const nomeLimpo = alvoDecodificado.split("/").pop().replace(".md", "").toLowerCase().trim();
 
-    console.log("Buscando pela nota:", nomeLimpo);
+    const arquivosComConteudo = await carregarTodosArquivosEmCache();
 
-    const arquivos = await obterListaDeArquivos();
-
-    const arquivoEncontrado = arquivos.find(a => {
-        const tLimpo = decodeURIComponent(a.titulo).toLowerCase().replace(".md", "").trim();
-        const pLimpo = decodeURIComponent(a.path).toLowerCase().replace(".md", "").trim();
+    const itemEncontrado = arquivosComConteudo.find(item => {
+        const tLimpo = decodeURIComponent(item.arquivo.titulo).toLowerCase().replace(".md", "").trim();
+        const pLimpo = decodeURIComponent(item.arquivo.path).toLowerCase().replace(".md", "").trim();
         return tLimpo === nomeLimpo ||
             pLimpo.endsWith("/" + nomeLimpo) ||
             pLimpo === nomeLimpo ||
@@ -498,14 +533,8 @@ artigoCorpo.addEventListener("click", async (e) => {
             nomeLimpo.includes(tLimpo);
     });
 
-    if (arquivoEncontrado) {
-        try {
-            const resposta = await fetch(arquivoEncontrado.path);
-            const conteudo = await resposta.text();
-            abrirArtigo(arquivoEncontrado.titulo, conteudo);
-        } catch (erro) {
-            console.error("Erro ao carregar nota:", erro);
-        }
+    if (itemEncontrado) {
+        abrirArtigo(itemEncontrado.arquivo.titulo, itemEncontrado.conteudoTexto);
     } else {
         alert(`A nota "${alvoDecodificado}" não foi encontrada no Vault de notas.`);
     }
@@ -521,58 +550,22 @@ function obterPastaDoCaminho(caminho) {
     return "geral";
 }
 
-async function mostrarTodosOsArtigos() {
-    divResultados.classList.remove("escondido");
-    leitorDeArtigo.classList.add("escondido");
-    containerResultados.innerHTML = `<h2>Carregando todos os artigos...</h2>`;
-
-    const arquivos = await obterListaDeArquivos();
-    containerResultados.innerHTML = "";
-
-    for (const arquivo of arquivos) {
-        try {
-            const resposta = await fetch(arquivo.path);
-            const conteudoTexto = await resposta.text();
-            
-            const resumoBruto = conteudoTexto.substring(0, 250) + "...";
-            const resumo = limparMarkdown(resumoBruto);
-            
-            const pasta = obterPastaDoCaminho(arquivo.path);
-            const card = document.createElement("div");
-            card.className = "card";
-            card.innerHTML = `
-                <span class="card-tag">${pasta}</span>
-                <h2>${arquivo.titulo}</h2>
-                <div class="conteudo">${resumo}</div>
-            `;
-
-            card.addEventListener("click", () => {
-                abrirArtigo(arquivo.titulo, conteudoTexto);
-            });
-
-            containerResultados.appendChild(card);
-        } catch (erro) {
-            console.error("Erro ao ler arquivo: ", arquivo.path, erro);
-        }
-    }
-}
-
 async function renderizarPastas() {
     const pastasContainer = document.getElementById("pastas-container");
     if (!pastasContainer) return;
 
     pastasContainer.innerHTML = "<span>Carregando pastas...</span>";
 
-    const arquivos = await obterListaDeArquivos();
+    const arquivosComConteudo = await carregarTodosArquivosEmCache();
     
     // Agrupa os arquivos por pasta
     const pastasAgrupadas = {};
-    arquivos.forEach(arquivo => {
-        const pasta = obterPastaDoCaminho(arquivo.path);
+    arquivosComConteudo.forEach(item => {
+        const pasta = obterPastaDoCaminho(item.arquivo.path);
         if (!pastasAgrupadas[pasta]) {
             pastasAgrupadas[pasta] = [];
         }
-        pastasAgrupadas[pasta].push(arquivo);
+        pastasAgrupadas[pasta].push(item);
     });
 
     pastasContainer.innerHTML = "";
@@ -593,21 +586,15 @@ async function renderizarPastas() {
         conteudo.className = "pasta-conteudo";
 
         // Ordena os artigos pelo título e renderiza
-        pastasAgrupadas[pasta].sort((a, b) => a.titulo.localeCompare(b.titulo)).forEach(arquivo => {
+        pastasAgrupadas[pasta].sort((a, b) => a.arquivo.titulo.localeCompare(b.arquivo.titulo)).forEach(item => {
             const linkArtigo = document.createElement("a");
             linkArtigo.className = "artigo-lista-link";
-            linkArtigo.textContent = arquivo.titulo.toLowerCase();
+            linkArtigo.textContent = item.arquivo.titulo.toLowerCase();
             
-            linkArtigo.addEventListener("click", async (e) => {
+            linkArtigo.addEventListener("click", (e) => {
                 e.preventDefault();
-                e.stopPropagation(); // Evita que feche o accordion no clique do link
-                try {
-                    const resposta = await fetch(arquivo.path);
-                    const conteudoTexto = await resposta.text();
-                    abrirArtigo(arquivo.titulo, conteudoTexto);
-                } catch (erro) {
-                    console.error("Erro ao carregar artigo:", erro);
-                }
+                e.stopPropagation();
+                abrirArtigo(item.arquivo.titulo, item.conteudoTexto);
             });
             
             conteudo.appendChild(linkArtigo);
@@ -651,7 +638,7 @@ window.addEventListener("scroll", () => {
 
 function voltarParaHome() {
     leitorDeArtigo.classList.add("escondido");
-    divResultados.classList.remove("escondido");
+    divResultados.classList.add("escondido");
     const pastasContainer = document.getElementById("pastas-container");
     if (pastasContainer) {
         pastasContainer.classList.remove("escondido");
@@ -679,7 +666,7 @@ if (navLinkPastas) {
     navLinkPastas.addEventListener("click", (e) => {
         e.preventDefault();
         leitorDeArtigo.classList.add("escondido");
-        divResultados.classList.remove("escondido");
+        divResultados.classList.add("escondido");
         const pastasContainer = document.getElementById("pastas-container");
         if (pastasContainer) {
             pastasContainer.classList.remove("escondido");
@@ -688,6 +675,9 @@ if (navLinkPastas) {
     });
 }
 
-// Inicializar na carga da página
-renderizarPastas();
+// Inicializar pré-carregamento imediato e renderização das pastas
+carregarTodosArquivosEmCache().then(() => {
+    renderizarPastas();
+});
+
 
