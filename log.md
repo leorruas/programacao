@@ -4,6 +4,8 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-16
 
+* **Atualização Pedagógica de Tratamento de Erros**:
+  * [[javascript/06-arquitetura-e-avancado/06-Tratamento de erros|Tratamento de erros (try, catch e finally)]]: Explicação detalhada da sintaxe `try / catch / finally` com analogia da máquina de cartão por aproximação, fluxograma Mermaid, propriedades do objeto `erro` (`message`, `name`, `stack`), exemplos de UI com desligamento de loaders no `finally` e emissão de exceções com `throw`.
 * **Importação e Atualização do Web App (`index.html`, `style.css` e `script.js`)**:
   * Importadas as melhorias do motor de renderização da PUC, preservando a identidade visual Dark / Rosa (`#ffb6c1` / `var(--accent-pink)`).
   * **Sumário Dinâmico (TOC)**: Adicionada sidebar de Table of Contents (`#artigo-toc-sidebar`) à esquerda com navegação suave e destaque em tempo real via `IntersectionObserver` (ScrollSpy).

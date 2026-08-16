@@ -1,49 +1,128 @@
-# Entendendo tratamento de erros (try, catch e throw) - método Feynman
+# Tratamento de erros (try, catch e finally)
 
-Em programação, erros vão acontecer: a conexão com a internet pode cair, o usuário pode digitar dados inválidos em um formulário ou um servidor pode ficar fora do ar. Se um erro ocorre no [[javascript/Introdução ao JavaScript\|JavaScript]] e você não o gerencia, o site trava por completo.
+Em desenvolvimento de software, imprevistos acontecem o tempo todo: a internet cai durante uma requisição, um arquivo não é encontrado no disco ou uma API externa retorna dados fora do padrão. Sem um mecanismo de proteção, qualquer erro encerra a execução do programa e trava a interface do usuário.
 
-O tratamento de erros funciona como o design de **Estados de Erro (Error States)** e **Redes de Segurança** no desenvolvimento do código.
-
----
-
-## A analogia dos estados de erro em formulários
-
-Imagine que você desenhou uma tela de login no Figma:
-*   **O fluxo feliz:** O usuário digita o e-mail correto, clica em entrar e acessa a conta.
-*   **O fluxo de erro (Fallback):** O usuário digita um e-mail sem a arroba `@`. O sistema não deve fechar ou travar o Figma da pessoa. Em vez disso, o sistema deve exibir uma mensagem vermelha abaixo do campo dizendo: *"E-mail inválido. Por favor, corrija"*.
-
-O bloco `try/catch` no [[javascript/Introdução ao JavaScript\|JavaScript]] é a ferramenta que permite prever que algo pode dar errado (muito comum em requisições assíncronas com [[javascript/05-assincrono/04-Async await|Async Await]]), capturar a falha antes que ela quebre o sistema e dar uma instrução alternativa (o estado de erro) para o usuário. Para entender como achar a causa dos erros, veja [[javascript/01-fundamentos/10-Debug (depuração)|Debug (Depuração)]].
+A estrutura `try / catch / finally` é a **rede de segurança** do código, garantindo resiliência e continuidade.
 
 ---
 
-## Como funciona no JavaScript
+## Analogia do mundo real: o pagamento por aproximação
 
-Usamos três palavras-chave para criar essa rede de proteção:
+Pense na maquininha de cartão de crédito:
 
-1.  **try (tentar):** É o bloco onde você coloca o código que você espera rodar normalmente, mas que corre o risco de falhar.
-2.  **catch (capturar):** É o bloco que roda apenas se ocorrer algum erro dentro do bloco `try`. Ele recebe as informações do erro para você tratar de forma segura.
-3.  **throw (lançar/disparar):** É o comando que você usa para criar e disparar o seu próprio erro customizado de propósito quando uma regra de negócios for violada.
+* **`try` (Tentar a transação principal)**: Você aproxima o cartão e a máquina tenta processar o pagamento com o banco (fluxo padrão).
+* **`catch` (Tratar a recusa/falha)**: Se o banco recusar ou não houver saldo, a máquina não explode nem desliga. Ela captura o erro e avisa na tela: *"Transação não autorizada. Tente outro cartão"*.
+* **`finally` (Limpar a mesa e finalizar)**: Dando certo ou dando errado a transação, a máquina **sempre** imprime o comprovante, libera a conexão e volta para a tela inicial para o próximo cliente.
 
-### Exemplo prático:
+```mermaid
+flowchart TD
+    A["Início do bloco try"] --> B{"Ocorreu algum erro no código?"}
+    B -- Não --> C["Fluxo de sucesso concluído"]
+    B -- Sim --> D["Pula imediatamente para o bloco catch (captura do erro)"]
+    C --> E["Executa o bloco finally (Sempre executa)"]
+    D --> E
+    E --> F["Continua a execução normal do programa"]
+```
+
+---
+
+## 1. O bloco `try` (tentar)
+
+O `try` delimita o trecho de código onde você vai executar operações que oferecem risco de falha (como fazer um `fetch()`, ler arquivos ou validar entradas complexas do usuário).
 
 ```javascript
-function validarIdade(idade) {
-  if (idade < 18) {
-    // Disparando um erro customizado de propósito
-    throw new Error("Acesso permitido apenas para maiores de 18 anos.");
-  }
-  return "Acesso autorizado!";
-}
-
 try {
-  // Tenta executar o código que pode dar erro
-  const resultado = validarIdade(15);
-  console.log(resultado);
+    const dados = JSON.parse(respostaDoServidor); // Pode falhar se a string não for um JSON válido
+    console.log(dados);
+}
+```
+
+---
+
+## 2. O bloco `catch` (capturar e tratar)
+
+Se qualquer linha dentro do `try` disparar um erro, o [[javascript/Introdução ao JavaScript|JavaScript]] interrompe imediatamente o `try` e pula direto para o bloco `catch(erro)`.
+
+O parâmetro `erro` é um objeto que contém detalhes da falha:
+* `erro.message`: Texto descritivo do que aconteceu.
+* `erro.name`: Tipo do erro (`TypeError`, `SyntaxError`, `ReferenceError`, etc.).
+* `erro.stack`: Rastreamento exato da linha do arquivo onde a falha ocorreu.
+
+```javascript
+try {
+    const dados = JSON.parse("{ formatoInvalido ");
 } catch (erro) {
-  // Se houver erro acima, o JavaScript pula imediatamente para cá
-  // O "erro" contém a mensagem que criamos no throw
-  console.log("Erro de Validação: " + erro.message); 
-  // Saída: Erro de Validação: Acesso permitido apenas para maiores de 18 anos.
+    console.warn("Falha ao interpretar dados:", erro.message);
+    // Exibe um estado de erro amigável na UI em vez de travar o app
+}
+```
+
+---
+
+## 3. O bloco `finally` (finalizar e limpar)
+
+O `finally` é **opcional**, mas fundamental para ações de limpeza e liberação de recursos. Ele **sempre será executado**, independentemente se o código rodou com sucesso no `try` ou se caiu no `catch`.
+
+Mesmo que haja um `return` dentro do `try` ou do `catch`, o `finally` roda antes de sair da função.
+
+### Quando usar o `finally`:
+* Fechar conexões com bancos de dados.
+* Desligar spinners/loaders de carregamento na interface (`loading = false`).
+* Liberar memória ou fechar streams de arquivos abertos.
+
+---
+
+## Exemplo prático completo em UI (requisição com loader)
+
+Veja como o `try / catch / finally` é aplicado em uma chamada de API assíncrona com estado de carregamento:
+
+```javascript
+async function carregarPerfilDoUsuario(usuarioId) {
+    const loader = document.getElementById("spinner-loading");
+    const container = document.getElementById("perfil-container");
+
+    try {
+        // 1. Inicia o feedback visual
+        loader.classList.remove("escondido");
+
+        // 2. Tenta buscar os dados na API
+        const resposta = await fetch(`https://api.exemplo.com/usuarios/${usuarioId}`);
+        
+        if (!resposta.ok) {
+            throw new Error(`Erro no servidor: Status HTTP ${resposta.status}`);
+        }
+
+        const usuario = await resposta.json();
+        container.innerHTML = `<h1>${usuario.nome}</h1>`;
+
+    } catch (erro) {
+        // 3. Contingência: trata o erro de conexão ou 404/500
+        console.error("Falha ao buscar perfil:", erro.message);
+        container.innerHTML = `<p class="alerta-erro">Não foi possível carregar o perfil. Tente novamente.</p>`;
+
+    } finally {
+        // 4. Limpeza: Oculta o loader OBRIGATORIAMENTE, dando certo ou errado
+        loader.classList.add("escondido");
+    }
+}
+```
+
+---
+
+## Lançando erros manualmente com `throw`
+
+Você pode criar seus próprios erros propositalmente quando uma regra de negócio for violada:
+
+```javascript
+function debitarSaldo(conta, valor) {
+    if (valor <= 0) {
+        throw new Error("O valor de débito deve ser maior que zero.");
+    }
+    if (conta.saldo < valor) {
+        throw new Error("Saldo insuficiente para completar a transação.");
+    }
+    conta.saldo -= valor;
+    return conta.saldo;
 }
 ```
 
@@ -51,6 +130,7 @@ try {
 
 ## Resumo para memorizar
 
-*   **Try:** O bloco onde você coloca o código que pode falhar (o fluxo principal).
-*   **Catch:** O bloco de contingência que é ativado se algo der errado no Try, evitando que o site trave.
-*   **Throw:** A ação de criar e disparar manualmente um erro com uma mensagem descritiva.
+* **`try`**: Coloque o código de risco (o plano principal).
+* **`catch`**: Executa **somente se houver erro** para conter danos e mostrar mensagens ao usuário.
+* **`finally`**: Executa **sempre** (no sucesso ou na falha), ideal para desativar loaders e liberar recursos.
+* **`throw`**: Dispara uma exceção intencional quando uma regra do sistema é violada.
