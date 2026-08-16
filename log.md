@@ -11,7 +11,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * **Listas de Tarefas**: Formatação e renderização de checkboxes customizadas (`[ ]` e `[x]`).
   * **Numeração de Código e Diagramas Mermaid**: Linhas numeradas em blocos `<pre>` e integração com o motor do Mermaid configurado no tema Dark/Rosa.
 * **Novo Artigo de Sintaxe do Mermaid**:
-  * [[mermaid/Sintaxe e possibilidades com Mermaid|Sintaxe e possibilidades com Mermaid]]: Guia aprofundado com a sintaxe completa de nós geométricos, estilos de setas e conectores, sub-grafos (`subgraph`), diagramas de sequência com mensagens síncronas/assíncronas, modelagem de classes (`classDiagram`), máquinas de estado (`stateDiagram-v2`), mapas mentais (`mindmap`) e gráficos de pizza (`pie`).
+  * [[mermaid/Sintaxe e possibilidades com Mermaid|Sintaxe e possibilidades com Mermaid]]: Guia aprofundado com a sintaxe completa de nós geométricos, estilos de setas e conectores (com sintaxe de rótulo compatível com Mermaid v11+), sub-grafos (`subgraph`), diagramas de sequência com mensagens síncronas/assíncronas, modelagem de classes (`classDiagram`), máquinas de estado (`stateDiagram-v2`), mapas mentais (`mindmap`) e gráficos de pizza (`pie`).
 * **Nova Pasta e Artigo Introdutório de Mermaid**:
   * Criação da pasta `mermaid/` e da nota [[mermaid/Introdução ao Mermaid|Introdução ao Mermaid]]: Explicação conceitual de Diagrams as Code com analogia ao Auto Layout / Figma vs softwares gráficos, funcionamento do motor parser/SVG, sintaxe de `flowchart`, `sequenceDiagram`, `erDiagram` e `gantt`, com regras para o Obsidian.
 

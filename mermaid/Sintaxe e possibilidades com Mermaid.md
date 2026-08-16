@@ -48,7 +48,7 @@ flowchart LR
     C["Nó C"] --- D["Linha contínua sem ponta"]
     E["Nó E"] -.-> F["Linha pontilhada com seta"]
     G["Nó G"] ==> H["Linha grossa destacada"]
-    I["Nó I"] -- "Texto no conector" --> J["Seta com rótulo"]
+    I["Nó I"] -- Texto no conector --> J["Seta com rótulo"]
 ```
 
 ### Agrupamento em sub-grafos (`subgraph`)
