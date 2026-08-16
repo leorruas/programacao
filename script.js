@@ -136,7 +136,8 @@ async function obterListaDeArquivos() {
             { titulo: "23. LINQ buscas e filtros", path: "./csharp/23-LINQ buscas e filtros.md" },
             { titulo: "24. Csharp no Frontend e Backend", path: "./csharp/24-Csharp no Frontend e Backend.md" },
             { titulo: "25. Consumindo APIs em Csharp", path: "./csharp/25-Consumindo APIs em Csharp.md" },
-            { titulo: "26. Como conectar Csharp no HTML (Backend + Frontend JS)", path: "./csharp/26-Como conectar Csharp no HTML (Backend + Frontend JS).md" }
+            { titulo: "26. Como conectar Csharp no HTML (Backend + Frontend JS)", path: "./csharp/26-Como conectar Csharp no HTML (Backend + Frontend JS).md" },
+            { titulo: "Introdução ao Mermaid", path: "./mermaid/Introdução ao Mermaid.md" }
         ];
     }
 }

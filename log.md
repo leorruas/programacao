@@ -2,6 +2,15 @@
 
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
+## 2026-08-16
+
+* **Nova Pasta e Artigo de Mermaid**:
+  * Criação da pasta `mermaid/` e da nota [[mermaid/Introdução ao Mermaid|Introdução ao Mermaid]]: Explicação conceitual de Diagrams as Code com analogia ao Auto Layout / Figma vs softwares gráficos, funcionamento do motor parser/SVG, sintaxe de `flowchart`, `sequenceDiagram`, `erDiagram` e `gantt`, com regras para o Obsidian.
+* **Atualização do Web App (`script.js`)**:
+  * Adicionada a nova nota [[mermaid/Introdução ao Mermaid|Introdução ao Mermaid]] à lista de busca e fallback do leitor.
+
+---
+
 ## 2026-08-13
 
 * **Otimização de Performance da Busca (`script.js`)**:
