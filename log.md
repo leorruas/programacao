@@ -4,12 +4,16 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-16
 
+* **Importação e Atualização do Web App (`index.html`, `style.css` e `script.js`)**:
+  * Importadas as melhorias do motor de renderização da PUC, preservando a identidade visual Dark / Rosa (`#ffb6c1` / `var(--accent-pink)`).
+  * **Sumário Dinâmico (TOC)**: Adicionada sidebar de Table of Contents (`#artigo-toc-sidebar`) à esquerda com navegação suave e destaque em tempo real via `IntersectionObserver` (ScrollSpy).
+  * **Renderização Aprimorada do Obsidian**: Suporte a Callouts estilizados (`[!NOTE]`, `[!TIP]`, `[!IMPORTANT]`, `[!WARNING]`, `[!CAUTION]`), marcações de highlight (`==texto==`), proteção de links com pipes em tabelas e normalização de identação de listas.
+  * **Listas de Tarefas**: Formatação e renderização de checkboxes customizadas (`[ ]` e `[x]`).
+  * **Numeração de Código e Diagramas Mermaid**: Linhas numeradas em blocos `<pre>` e integração com o motor do Mermaid configurado no tema Dark/Rosa.
 * **Novo Artigo de Sintaxe do Mermaid**:
   * [[mermaid/Sintaxe e possibilidades com Mermaid|Sintaxe e possibilidades com Mermaid]]: Guia aprofundado com a sintaxe completa de nós geométricos, estilos de setas e conectores, sub-grafos (`subgraph`), diagramas de sequência com mensagens síncronas/assíncronas, modelagem de classes (`classDiagram`), máquinas de estado (`stateDiagram-v2`), mapas mentais (`mindmap`) e gráficos de pizza (`pie`).
 * **Nova Pasta e Artigo Introdutório de Mermaid**:
   * Criação da pasta `mermaid/` e da nota [[mermaid/Introdução ao Mermaid|Introdução ao Mermaid]]: Explicação conceitual de Diagrams as Code com analogia ao Auto Layout / Figma vs softwares gráficos, funcionamento do motor parser/SVG, sintaxe de `flowchart`, `sequenceDiagram`, `erDiagram` e `gantt`, com regras para o Obsidian.
-* **Atualização do Web App (`script.js`)**:
-  * Adicionadas as novas notas [[mermaid/Introdução ao Mermaid|Introdução ao Mermaid]] e [[mermaid/Sintaxe e possibilidades com Mermaid|Sintaxe e possibilidades com Mermaid]] à lista de busca e fallback do leitor.
 
 ---
 
