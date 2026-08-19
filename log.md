@@ -2,6 +2,15 @@
 
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
+## 2026-08-19
+
+* **Criação de Artigo de Infraestrutura e Redes Web**:
+  * [[web/01-fundamentos/DNS e gerenciamento de domínios|DNS e gerenciamento de domínios (A, CNAME, TXT, MX e NS)]]: Guia exaustivo e didático explicando o funcionamento do DNS (analogia da agenda de contatos), resolução recursiva e servidores raiz/TLD/autoritativos com diagramas Mermaid, dicionário completo dos tipos de registros (A, AAAA, CNAME, TXT, MX, NS, CAA, SRV, SOA), autenticação de e-mails com SPF/DKIM/DMARC, validação de posse de domínio, os 3 cenários de movimentação de DNS (apontamento simples vs troca de NS vs transferência de custódia), impacto do TTL e estratégia de migração sem queda (Zero Downtime).
+* **Atualização do Web App (`script.js`)**:
+  * Adicionada a nova nota [[web/01-fundamentos/DNS e gerenciamento de domínios|DNS e gerenciamento de domínios]] à lista de busca e fallback do leitor.
+
+---
+
 ## 2026-08-16
 
 * **Atualização Pedagógica de Tratamento de Erros**:

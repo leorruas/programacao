@@ -107,7 +107,8 @@ async function obterListaDeArquivos() {
             { titulo: "25. Consumindo APIs em Csharp", path: "./csharp/25-Consumindo%20APIs%20em%20Csharp.md" },
             { titulo: "26. Como conectar Csharp no HTML (Backend + Frontend JS)", path: "./csharp/26-Como%20conectar%20Csharp%20no%20HTML%20%28Backend%20%2B%20Frontend%20JS%29.md" },
             { titulo: "Introdução ao Mermaid", path: "./mermaid/Introdu%C3%A7%C3%A3o%20ao%20Mermaid.md" },
-            { titulo: "Sintaxe e possibilidades com Mermaid", path: "./mermaid/Sintaxe%20e%20possibilidades%20com%20Mermaid.md" }
+            { titulo: "Sintaxe e possibilidades com Mermaid", path: "./mermaid/Sintaxe%20e%20possibilidades%20com%20Mermaid.md" },
+            { titulo: "DNS e gerenciamento de domínios", path: "./web/01-fundamentos/DNS%20e%20gerenciamento%20de%20dom%C3%ADnios.md" }
         ];
     }
 }
