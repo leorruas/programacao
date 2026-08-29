@@ -294,3 +294,4 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **2026-08-29 — Navegação sequencial:** anterior e próximo entre artigos foram alinhados ao padrão editorial do Guia do Portal, com retorno separado.
 * **2026-08-29 — Busca global:** estrutura da busca na navbar foi alinhada ao padrão acessível usado no vault PUC.
 * **2026-08-29 — Navegação sequencial:** corrigida a largura da grade de anterior e próximo para ocupar todo o artigo.
+* **2026-08-29 — Retorno à página inicial:** o breadcrumb “início” passou a restaurar a grade de áreas após buscas, e o título principal recebeu o rosa de destaque do vault.

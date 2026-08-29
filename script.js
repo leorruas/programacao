@@ -1083,6 +1083,13 @@ function voltarParaHome(atualizarHash = true) {
     leitorDeDisciplina.classList.add("escondido");
     divResultados.classList.add("escondido");
     document.getElementById("explorar-pastas")?.classList.remove("escondido");
+    const pastasContainer = document.getElementById("pastas-container");
+    if (pastasContainer) {
+        pastasContainer.classList.remove("escondido");
+        // A busca oculta a grade; ao usar o breadcrumb "início", recriamos
+        // a lista para garantir que a página inicial nunca fique vazia.
+        void renderizarPastas();
+    }
     if (campoTexto) campoTexto.value = "";
     if (campoTextoNav) campoTextoNav.value = "";
     containerResultados.innerHTML = "";

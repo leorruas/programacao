@@ -981,6 +981,7 @@ html body #artigo-corpo h3::before {
 /* Entrada do vault: mesma cadência editorial do índice do PUC, com o rosa da programação. */
 .page-masthead .masthead-copy h1 {
     max-width: 540px;
+    color: var(--accent-pink);
     font-size: clamp(3.8rem, 7vw, 6.4rem);
     line-height: .84;
     word-break: normal;
