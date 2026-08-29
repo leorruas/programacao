@@ -289,3 +289,4 @@ Este arquivo registra o histórico de criações, modificações, edições e re
  * Guia de bibliotecas e pacotes terceiros para o React (Lucide, React Router, React Hook Form, Framer Motion, Zustand, etc.).
 * **2026-08-29 — Hierarquia tipográfica editorial:** h1, h2, h3 e os demais títulos internos receberam escala progressiva, espaçamento consistente e marcadores rosa nos três níveis principais.
 * **2026-08-29 — Entrada editorial:** catálogo de áreas alinhado ao ritmo visual do índice do vault PUC, mantendo a cor de destaque rosa e as descrições de cada área.
+* **2026-08-29 — Cópia de código:** blocos de código passaram a oferecer botão de cópia com confirmação visual e alternativa compatível para navegadores sem Clipboard API.

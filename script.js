@@ -448,13 +448,64 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
         }, 50);
     }
 
-    // 11. Gera a Table of Contents (TOC) com ScrollSpy
+    // 11. Inclui cópia direta nos blocos de código.
+    configurarCopiaDeCodigo();
+
+    // 12. Gera a Table of Contents (TOC) com ScrollSpy
     gerarTableOfContents();
 
     leitorDeArtigo.classList.remove("escondido");
 
     // Scroll para o topo
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+}
+
+function configurarCopiaDeCodigo() {
+    artigoCorpo.querySelectorAll("pre").forEach(pre => {
+        if (pre.querySelector(".btn-copiar-codigo")) return;
+
+        const botao = document.createElement("button");
+        botao.type = "button";
+        botao.className = "btn-copiar-codigo";
+        botao.textContent = "copiar";
+        botao.setAttribute("aria-label", "Copiar código para a área de transferência");
+
+        botao.addEventListener("click", async event => {
+            event.stopPropagation();
+            const codigo = Array.from(pre.querySelectorAll("code"))
+                .map(item => item.textContent)
+                .join("\n")
+                .trim() || pre.textContent.trim();
+
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(codigo);
+                } else {
+                    const campoTemporario = document.createElement("textarea");
+                    campoTemporario.value = codigo;
+                    campoTemporario.style.position = "fixed";
+                    campoTemporario.style.opacity = "0";
+                    document.body.appendChild(campoTemporario);
+                    campoTemporario.select();
+                    document.execCommand("copy");
+                    campoTemporario.remove();
+                }
+
+                botao.textContent = "copiado";
+                botao.classList.add("copiado");
+                setTimeout(() => {
+                    botao.textContent = "copiar";
+                    botao.classList.remove("copiado");
+                }, 1800);
+            } catch (erro) {
+                console.error("Falha ao copiar código:", erro);
+                botao.textContent = "erro";
+                setTimeout(() => { botao.textContent = "copiar"; }, 1800);
+            }
+        });
+
+        pre.appendChild(botao);
+    });
 }
 
 function removerContextoDoCorpo(markdown) {

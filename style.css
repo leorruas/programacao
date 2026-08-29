@@ -1027,6 +1027,31 @@ html body #artigo-corpo h3::before {
 .explorar-pastas .pasta-header:hover .pasta-numero,
 .explorar-pastas .pasta-header:focus-visible .pasta-numero { color: var(--accent-pink); }
 
+.artigo-corpo pre { position: relative; padding-top: 48px; }
+.btn-copiar-codigo {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: auto;
+    height: auto;
+    padding: 4px 10px;
+    border: 1px solid var(--accent-pink-alpha-30);
+    border-radius: 6px;
+    background: var(--accent-pink-alpha-05);
+    color: var(--muted);
+    font: 500 .75rem 'Archivo', sans-serif;
+    line-height: 1.3;
+    text-transform: lowercase;
+    cursor: pointer;
+    opacity: .78;
+}
+.artigo-corpo pre:hover .btn-copiar-codigo,
+.btn-copiar-codigo:hover,
+.btn-copiar-codigo:focus-visible { opacity: 1; }
+.btn-copiar-codigo:hover,
+.btn-copiar-codigo:focus-visible { border-color: var(--accent-pink); color: var(--text); outline: none; }
+.btn-copiar-codigo.copiado { border-color: #30d158; background: #30d158; color: #071209; opacity: 1; }
+
 @media (max-width: 768px) {
     .page-masthead .masthead-copy h1 { font-size: clamp(3.8rem, 18vw, 5.6rem); }
     .explorar-pastas .pasta-item,
@@ -1036,6 +1061,7 @@ html body #artigo-corpo h3::before {
     .explorar-pastas .pasta-numero { font-size: 3.15rem; }
     .explorar-pastas .pasta-nome { font-size: 1.35rem; }
     .explorar-pastas .pasta-descricao { margin-top: 0; font-size: .82rem; }
+    .artigo-corpo pre { padding-top: 46px; }
 }
 
 /* Catálogo em grade suíça: cada área abre sua própria lista numerada. */
