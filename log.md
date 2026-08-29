@@ -10,6 +10,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Substituído o acordeão por uma página de área com artigos numerados; a capa e a busca principal agora aparecem somente na home.
   * Adicionados breadcrumbs, contexto exibido somente quando presente e navegação entre o artigo anterior e o próximo da mesma área.
   * Adicionadas rotas compartilháveis para áreas e artigos e aplicada grade suíça ao catálogo inicial.
+  * Padronizada a apresentação dos títulos e áreas, preservando os nomes de arquivos e as rotas existentes.
 
 ## 2026-08-19
 

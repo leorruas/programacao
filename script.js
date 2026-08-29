@@ -208,6 +208,32 @@ const artigoNavCards = document.getElementById("artigo-nav-cards");
 const btnVoltar = document.getElementById("btn-voltar");
 const btnVoltarDisciplina = document.getElementById("btn-voltar-disciplina");
 
+const nomesDeAreas = {
+    csharp: "C#",
+    css: "CSS",
+    git: "Git",
+    javascript: "JavaScript",
+    mermaid: "Mermaid",
+    python: "Python",
+    react: "React",
+    tutoriais: "Tutoriais",
+    web: "Web"
+};
+
+function formatarTitulo(titulo) {
+    return titulo
+        .replace(/^\d+[.\-_\s]+/, "")
+        .replace(/\bCsharp\b/gi, "C#")
+        .replace(/\bJavascript\b/gi, "JavaScript")
+        .replace(/\bCss\b/g, "CSS")
+        .replace(/\bHtml\b/g, "HTML")
+        .replace(/\bApi\b/g, "API");
+}
+
+function formatarArea(area) {
+    return nomesDeAreas[area.toLowerCase()] || formatarTitulo(area);
+}
+
 function sincronizarBusca(valor) {
     if (campoTexto && campoTexto.value !== valor) campoTexto.value = valor;
     if (campoTextoNav && campoTextoNav.value !== valor) campoTextoNav.value = valor;
@@ -293,13 +319,13 @@ function protegerPipesObsidian(md) {
 function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash = true) {
     if (categoria) categoriaAtual = categoria;
     if (atualizarHash && categoriaAtual) atualizarRota(rotaDoArtigo(categoriaAtual, titulo));
-    if (btnVoltar) btnVoltar.textContent = categoriaAtual ? `← voltar para ${categoriaAtual}` : "← voltar para as áreas";
+    if (btnVoltar) btnVoltar.textContent = categoriaAtual ? `← voltar para ${formatarArea(categoriaAtual)}` : "← voltar para as áreas";
     divResultados.classList.add("escondido");
     leitorDeDisciplina.classList.add("escondido");
     const pastasContainer = document.getElementById("pastas-container");
     if (pastasContainer) pastasContainer.classList.add("escondido");
 
-    artigoTitulo.textContent = titulo;
+    artigoTitulo.textContent = formatarTitulo(titulo);
     renderizarBreadcrumbs();
     renderizarNavegacaoArtigo(titulo);
     processarContextoArtigo(conteudoMarkdown);
@@ -430,7 +456,7 @@ function processarContextoArtigo(markdown) {
 function renderizarBreadcrumbs() {
     if (!artigoBreadcrumbs) return;
     const categoria = categoriaAtual || "áreas de estudo";
-    artigoBreadcrumbs.innerHTML = `<button type="button" data-destino="home">início</button><span>/</span><button type="button" data-destino="categoria">${categoria}</button>`;
+    artigoBreadcrumbs.innerHTML = `<button type="button" data-destino="home">início</button><span>/</span><button type="button" data-destino="categoria">${formatarArea(categoria)}</button>`;
     artigoBreadcrumbs.querySelector('[data-destino="home"]')?.addEventListener("click", voltarParaHome);
     artigoBreadcrumbs.querySelector('[data-destino="categoria"]')?.addEventListener("click", () => categoriaAtual ? abrirDisciplina(categoriaAtual) : voltarParaHome());
 }
@@ -445,7 +471,7 @@ function renderizarNavegacaoArtigo(titulo) {
         const botao = document.createElement("button");
         botao.type = "button";
         botao.className = "nav-card";
-        botao.innerHTML = `<span>${rotulo}</span><strong>${artigo.titulo.toLowerCase()}</strong>`;
+        botao.innerHTML = `<span>${rotulo}</span><strong>${formatarTitulo(artigo.titulo)}</strong>`;
         botao.addEventListener("click", () => abrirArtigo(artigo.titulo, artigo.conteudoTexto, categoriaAtual));
         artigoNavCards.appendChild(botao);
     });
@@ -891,7 +917,7 @@ async function renderizarPastas() {
         header.type = "button";
         header.innerHTML = `
             <span class="pasta-numero">${String(indice + 1).padStart(2, "0")}</span>
-            <span class="pasta-nome">${pasta}</span>
+            <span class="pasta-nome">${formatarArea(pasta)}</span>
             <span class="pasta-icone">→</span>
         `;
         pastaItem.appendChild(header);
@@ -907,13 +933,13 @@ function abrirDisciplina(categoria, atualizarHash = true) {
 
     categoriaAtual = categoria;
     if (atualizarHash) atualizarRota(rotaDaDisciplina(categoria));
-    disciplinaTitulo.textContent = categoria;
+    disciplinaTitulo.textContent = formatarArea(categoria);
     disciplinaAcoes.innerHTML = "";
     artigos.forEach((artigo, indice) => {
         const acao = document.createElement("button");
         acao.className = "disciplina-acao";
         acao.type = "button";
-        acao.innerHTML = `<span class="disciplina-acao-numero">${String(indice + 1).padStart(2, "0")}</span><span>${artigo.titulo.toLowerCase()}</span>`;
+        acao.innerHTML = `<span class="disciplina-acao-numero">${String(indice + 1).padStart(2, "0")}</span><span>${formatarTitulo(artigo.titulo)}</span>`;
         acao.addEventListener("click", () => abrirArtigo(artigo.titulo, artigo.conteudoTexto, categoria));
         disciplinaAcoes.appendChild(acao);
     });
