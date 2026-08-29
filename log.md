@@ -286,4 +286,5 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Eliminação da pasta genérica `conceitos/` e redistribuição de 52 arquivos por pilares funcionais.
 
 * **Criação de Nota**: [[react/01-fundamentos/Pacotes e ecossistema do React\|Pacotes e ecossistema do React]]
-  * Guia de bibliotecas e pacotes terceiros para o React (Lucide, React Router, React Hook Form, Framer Motion, Zustand, etc.).
+ * Guia de bibliotecas e pacotes terceiros para o React (Lucide, React Router, React Hook Form, Framer Motion, Zustand, etc.).
+* **2026-08-29 — Hierarquia tipográfica editorial:** h1, h2, h3 e os demais títulos internos receberam escala progressiva, espaçamento consistente e marcadores rosa nos três níveis principais.
