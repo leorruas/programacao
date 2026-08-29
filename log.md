@@ -4,6 +4,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-29
 
+* **Incorporação de Diretrizes e Regras Avançadas do Vault PUC (`AGENTS.md` e `.agents/rules/`)**:
+  * Atualizado o [`AGENTS.md`](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/AGENTS.md) consolidando as diretrizes de apresentação dual de código didático (snippets atômicos + exemplo completo integrado), regras de layout vertical e compatibilidade para Mermaid v11, preservação absoluta de marcações manuais (`==texto==`), proteção de métodos dunder/underscores em WikiLinks (`__proto__`, `__init__`) e refinamento de *Sentence Case*.
+  * Criadas as regras dedicadas `.agents/rules/code_presentation.md`, `.agents/rules/mermaid_guidelines.md` e `.agents/rules/preserve_highlights.md`.
+  * Atualizado o `script.js` com a renderização de conectores lineares no Mermaid (`flowchart: { curve: 'linear' }`) e blindagem de underlines em WikiLinks antes do processamento com `marked.js`.
 * **Correção de Compatibilidade de Sintaxe do Mermaid (v11+)**:
   * [[mermaid/Sintaxe e possibilidades com Mermaid|Sintaxe e possibilidades com Mermaid]], [[mermaid/Introdução ao Mermaid|Introdução ao Mermaid]] e [[web/01-fundamentos/DNS e gerenciamento de domínios|DNS e gerenciamento de domínios]]: Ajustada a sintaxe de rótulos em conectores de setas de `-- Texto -->` para a notação padrão com pipes `-->|Texto|`, resolvendo o erro de parsing `Syntax error in text (mermaid version 11.17.2)`.
 * **Atualização visual do Web App (`index.html`, `style.css` e `script.js`)**:

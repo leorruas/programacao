@@ -177,6 +177,7 @@ if (window.mermaid) {
         startOnLoad: false,
         theme: 'dark',
         fontFamily: 'Archivo, sans-serif',
+        flowchart: { curve: 'linear' },
         themeVariables: {
             fontFamily: 'Archivo, sans-serif',
             darkMode: true,
@@ -324,7 +325,9 @@ function normalizarListasObsidian(md) {
 function protegerPipesObsidian(md) {
     if (!md) return "";
     return md.replace(/\[\[([^\]]+)\]\]/g, (match, conteudoInterno) => {
-        const protegido = conteudoInterno.replace(/\\?\|/g, "___OBSIDIAN_PIPE___");
+        const protegido = conteudoInterno
+            .replace(/\\?\|/g, "___OBSIDIAN_PIPE___")
+            .replace(/_/g, "___OBSIDIAN_UNDERSCORE___");
         return "[[" + protegido + "]]";
     });
 }
@@ -678,13 +681,15 @@ function processarLinksObsidian() {
         let caminho = "";
         let textoExibicao = "";
 
-        if (conteudo.includes("___OBSIDIAN_PIPE___")) {
-            const partes = conteudo.split("___OBSIDIAN_PIPE___");
+        const conteudoLimpo = conteudo.replace(/___OBSIDIAN_UNDERSCORE___/g, "_");
+
+        if (conteudoLimpo.includes("___OBSIDIAN_PIPE___")) {
+            const partes = conteudoLimpo.split("___OBSIDIAN_PIPE___");
             caminho = partes[0].trim();
             textoExibicao = partes[1].trim();
         } else {
-            caminho = conteudo.trim();
-            textoExibicao = conteudo.trim();
+            caminho = conteudoLimpo.trim();
+            textoExibicao = conteudoLimpo.trim();
         }
 
         return `<a class="obsidian-link" data-destino="${caminho}">${textoExibicao}</a>`;
