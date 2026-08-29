@@ -961,7 +961,7 @@ mark.obsidian-highlight, mark:not(.highlight) {
     grid-template-columns: 76px minmax(0, 1fr) 22px;
     align-items: center;
     width: 100%;
-    min-height: 90px;
+    min-height: 112px;
     padding: 18px 20px 18px 0;
     border: 0;
     border-radius: 0;
@@ -985,14 +985,18 @@ mark.obsidian-highlight, mark:not(.highlight) {
     letter-spacing: -.08em;
     line-height: .9;
 }
+.pasta-info { display: grid; gap: 7px; min-width: 0; }
 .pasta-nome { color: currentColor; font-size: 1.5rem; font-weight: 540; letter-spacing: -.045em; line-height: 1.02; text-wrap: balance; }
+.pasta-descricao { color: var(--muted); font-size: .82rem; font-weight: 400; letter-spacing: -.01em; line-height: 1.35; }
+.pasta-header:hover .pasta-descricao, .pasta-header:focus-visible .pasta-descricao { color: var(--text); }
 .pasta-icone { color: var(--accent-pink); font-size: 1.1rem; text-align: right; }
 
 @media (max-width: 768px) {
     .pastas-container { grid-template-columns: 1fr; }
-    .pasta-header { grid-template-columns: 64px minmax(0, 1fr) 20px; min-height: 76px; padding: 16px 0; }
+    .pasta-header { grid-template-columns: 64px minmax(0, 1fr) 20px; min-height: 94px; padding: 16px 0; }
     .pasta-numero { font-size: 2.2rem; }
     .pasta-nome { font-size: 1.2rem; }
+    .pasta-descricao { font-size: .76rem; }
 }
 
 /* Obsidian Callouts / Boxes ([!IMPORTANT], [!NOTE], etc.) */

@@ -15,6 +15,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * Corrigida a grade das áreas para duas colunas em telas de desktop e uma coluna no celular.
 * Tabelas agora usam toda a largura disponível e exibem rolagem horizontal quando o conteúdo ultrapassa o artigo.
 * Removido o divisor vertical entre as colunas da grade de áreas.
+* Adicionadas descrições objetivas em cada área do catálogo para antecipar os conteúdos disponíveis.
 
 ## 2026-08-19
 

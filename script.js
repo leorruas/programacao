@@ -220,6 +220,19 @@ const nomesDeAreas = {
     web: "Web"
 };
 
+const descricoesDeAreas = {
+    "Geral": "Conceitos-base, atalhos e referências para o dia a dia do desenvolvimento.",
+    csharp: "Lógica, orientação a objetos, coleções, LINQ e integração de aplicações.",
+    css: "Layouts, responsividade, seletores, animações e acabamento visual para a web.",
+    git: "Versionamento, GitHub, fluxo de trabalho e integração com APIs.",
+    javascript: "Fundamentos da linguagem, DOM, eventos, APIs e projetos práticos no navegador.",
+    mermaid: "Diagramas em texto para explicar fluxos, estruturas e decisões técnicas.",
+    python: "Fundamentos, sintaxe e experimentos com a linguagem Python.",
+    react: "Componentes, ecossistema e práticas para interfaces modernas com React.",
+    tutoriais: "Guias passo a passo, soluções de problemas e materiais de apoio.",
+    web: "Internet, domínios, protocolos e fundamentos da publicação de aplicações."
+};
+
 function formatarTitulo(titulo) {
     return titulo
         .replace(/^\d+[.\-_\s]+/, "")
@@ -926,7 +939,10 @@ async function renderizarPastas() {
         header.type = "button";
         header.innerHTML = `
             <span class="pasta-numero">${String(indice + 1).padStart(2, "0")}</span>
-            <span class="pasta-nome">${formatarArea(pasta)}</span>
+            <span class="pasta-info">
+                <span class="pasta-nome">${formatarArea(pasta)}</span>
+                <span class="pasta-descricao">${descricoesDeAreas[pasta] || "Artigos, anotações e referências desta área de estudo."}</span>
+            </span>
             <span class="pasta-icone">→</span>
         `;
         pastaItem.appendChild(header);
