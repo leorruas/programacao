@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>programação</title>
-    <link rel="stylesheet" href="style.css?v=estrutura-v1">
+    <link rel="stylesheet" href="style.css?v=estrutura-v3">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </head>
@@ -43,13 +43,19 @@
                 <!-- resultados -->
             </div>
         </div>
+        <section class="disciplina-leitor escondido" id="disciplina-leitor" aria-live="polite">
+            <p class="disciplina-rotulo" id="disciplina-rotulo">área de estudo</p>
+            <h2 id="disciplina-titulo"></h2>
+            <div class="disciplina-acoes" id="disciplina-acoes"></div>
+            <button id="btn-voltar-disciplina" class="btn-voltar">← voltar para as áreas</button>
+        </section>
         <div class="leitor-artigo escondido" id="leitor-artigo">
             <div class="artigo-layout-container">
                 <!-- Table of Contents (TOC) no Lado Esquerdo -->
                 <aside class="artigo-toc-sidebar" id="artigo-toc-sidebar">
-                    <label class="sidebar-search" for="sidebar-search-input">
-                        <span>Pesquisar no vault</span>
-                        <input type="search" id="sidebar-search-input" placeholder="pesquisar..." autocomplete="off">
+                    <label class="sidebar-search" for="toc-filter-input">
+                        <span>Filtrar títulos</span>
+                        <input type="search" id="toc-filter-input" placeholder="filtrar seções..." autocomplete="off">
                     </label>
                     <div class="toc-header">
                         <span class="toc-title">Neste artigo</span>
@@ -65,7 +71,7 @@
         </div>
     </main>
 
-    <script src="script.js?v=estrutura-v1"></script>
+    <script src="script.js?v=estrutura-v3"></script>
 </body>
 
 </html>

@@ -3,6 +3,7 @@ let cacheArquivos = null;
 let debounceTimer = null;
 let todosOsArtigos = [];
 let todasAsPastas = {};
+let categoriaAtual = null;
 
 // Função para buscar automaticamente todos os arquivos .md do seu GitHub (sem precisar de token)
 async function obterListaDeArquivos() {
@@ -193,18 +194,20 @@ if (window.mermaid) {
 const botao = document.getElementById("btn-pesquisar");
 const campoTexto = document.getElementById("main-search-input");
 const campoTextoNav = document.getElementById("nav-search-input");
-const campoTextoSidebar = document.getElementById("sidebar-search-input");
 const containerResultados = document.querySelector(".cards-container");
 const divResultados = document.querySelector(".resultados");
 const leitorDeArtigo = document.getElementById("leitor-artigo");
+const leitorDeDisciplina = document.getElementById("disciplina-leitor");
+const disciplinaTitulo = document.getElementById("disciplina-titulo");
+const disciplinaAcoes = document.getElementById("disciplina-acoes");
 const artigoTitulo = document.getElementById("artigo-titulo");
 const artigoCorpo = document.getElementById("artigo-corpo");
 const btnVoltar = document.getElementById("btn-voltar");
+const btnVoltarDisciplina = document.getElementById("btn-voltar-disciplina");
 
 function sincronizarBusca(valor) {
     if (campoTexto && campoTexto.value !== valor) campoTexto.value = valor;
     if (campoTextoNav && campoTextoNav.value !== valor) campoTextoNav.value = valor;
-    if (campoTextoSidebar && campoTextoSidebar.value !== valor) campoTextoSidebar.value = valor;
 
     // Dispara a busca em tempo real com Debounce (150ms)
     clearTimeout(debounceTimer);
@@ -234,13 +237,6 @@ if (campoTextoNav) {
         if (evento.key === "Enter") {
             buscar(campoTextoNav.value);
         }
-    });
-}
-
-if (campoTextoSidebar) {
-    campoTextoSidebar.addEventListener("input", (e) => sincronizarBusca(e.target.value));
-    campoTextoSidebar.addEventListener("keyup", (evento) => {
-        if (evento.key === "Enter") buscar(campoTextoSidebar.value);
     });
 }
 
@@ -291,8 +287,11 @@ function protegerPipesObsidian(md) {
     });
 }
 
-function abrirArtigo(titulo, conteudoMarkdown) {
+function abrirArtigo(titulo, conteudoMarkdown, categoria = null) {
+    if (categoria) categoriaAtual = categoria;
+    if (btnVoltar) btnVoltar.textContent = categoriaAtual ? `← voltar para ${categoriaAtual}` : "← voltar para as áreas";
     divResultados.classList.add("escondido");
+    leitorDeDisciplina.classList.add("escondido");
     const pastasContainer = document.getElementById("pastas-container");
     if (pastasContainer) pastasContainer.classList.add("escondido");
 
@@ -449,7 +448,21 @@ function gerarTableOfContents() {
     });
 
     tocNavDesktop.appendChild(ulDesktop);
+    configurarFiltroDoSumario(ulDesktop);
     iniciarScrollSpy();
+}
+
+function configurarFiltroDoSumario(lista) {
+    const campo = document.getElementById("toc-filter-input");
+    if (!campo) return;
+
+    campo.value = "";
+    campo.oninput = () => {
+        const termo = campo.value.trim().toLocaleLowerCase("pt-BR");
+        lista.querySelectorAll(".toc-item").forEach(item => {
+            item.hidden = Boolean(termo) && !item.textContent.toLocaleLowerCase("pt-BR").includes(termo);
+        });
+    };
 }
 
 function scrollParaHeading(id) {
@@ -606,7 +619,7 @@ async function navegarParaLinkObsidian(nomeOuCaminho) {
     });
 
     if (encontrado) {
-        abrirArtigo(encontrado.titulo, encontrado.conteudoTexto);
+        abrirArtigo(encontrado.titulo, encontrado.conteudoTexto, encontrado.categoria);
         if (hashSecao) {
             setTimeout(() => {
                 const slug = hashSecao
@@ -622,6 +635,10 @@ async function navegarParaLinkObsidian(nomeOuCaminho) {
 }
 
 btnVoltar.addEventListener("click", () => {
+    if (categoriaAtual) {
+        abrirDisciplina(categoriaAtual);
+        return;
+    }
     leitorDeArtigo.classList.add("escondido");
     divResultados.classList.remove("escondido");
     const pastasContainer = document.getElementById("pastas-container");
@@ -786,7 +803,7 @@ async function buscar(termo) {
             `;
 
             card.addEventListener("click", () => {
-                abrirArtigo(item.titulo, item.conteudoTexto);
+                abrirArtigo(item.titulo, item.conteudoTexto, item.categoria);
             });
 
             cardsContainer.appendChild(card);
@@ -816,51 +833,46 @@ async function renderizarPastas() {
 
     pastasContainer.innerHTML = "";
 
-    Object.keys(pastasAgrupadas).sort().forEach(pasta => {
+    Object.keys(pastasAgrupadas).sort().forEach((pasta, indice) => {
         const pastaItem = document.createElement("div");
         pastaItem.className = "pasta-item";
 
-        const header = document.createElement("div");
+        const header = document.createElement("button");
         header.className = "pasta-header";
+        header.type = "button";
         header.innerHTML = `
+            <span class="pasta-numero">${String(indice + 1).padStart(2, "0")}</span>
             <span class="pasta-nome">${pasta}</span>
-            <span class="pasta-icone">&plus;</span>
+            <span class="pasta-icone">→</span>
         `;
-
-        const conteudo = document.createElement("div");
-        conteudo.className = "pasta-conteudo";
-
-        pastasAgrupadas[pasta].sort((a, b) => a.titulo.localeCompare(b.titulo)).forEach(item => {
-            const linkArtigo = document.createElement("a");
-            linkArtigo.className = "artigo-lista-link";
-            linkArtigo.textContent = item.titulo.toLowerCase();
-            
-            linkArtigo.addEventListener("click", (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                abrirArtigo(item.titulo, item.conteudoTexto);
-            });
-            
-            conteudo.appendChild(linkArtigo);
-        });
-
         pastaItem.appendChild(header);
-        pastaItem.appendChild(conteudo);
-
-        header.addEventListener("click", () => {
-            const jaAberta = pastaItem.classList.contains("aberta");
-            
-            document.querySelectorAll(".pasta-item").forEach(item => {
-                item.classList.remove("aberta");
-            });
-
-            if (!jaAberta) {
-                pastaItem.classList.add("aberta");
-            }
-        });
+        header.addEventListener("click", () => abrirDisciplina(pasta));
 
         pastasContainer.appendChild(pastaItem);
     });
+}
+
+function abrirDisciplina(categoria) {
+    const artigos = (todasAsPastas[categoria] || []).slice().sort((a, b) => a.titulo.localeCompare(b.titulo, "pt-BR", { numeric: true }));
+    if (!artigos.length) return;
+
+    categoriaAtual = categoria;
+    disciplinaTitulo.textContent = categoria;
+    disciplinaAcoes.innerHTML = "";
+    artigos.forEach((artigo, indice) => {
+        const acao = document.createElement("button");
+        acao.className = "disciplina-acao";
+        acao.type = "button";
+        acao.innerHTML = `<span class="disciplina-acao-numero">${String(indice + 1).padStart(2, "0")}</span><span>${artigo.titulo.toLowerCase()}</span>`;
+        acao.addEventListener("click", () => abrirArtigo(artigo.titulo, artigo.conteudoTexto, categoria));
+        disciplinaAcoes.appendChild(acao);
+    });
+
+    document.getElementById("explorar-pastas")?.classList.add("escondido");
+    divResultados.classList.add("escondido");
+    leitorDeArtigo.classList.add("escondido");
+    leitorDeDisciplina.classList.remove("escondido");
+    window.scrollTo({ top: 0, behavior: "instant" });
 }
 
 // Configuração do Sticky Navbar baseada no scroll
@@ -879,17 +891,17 @@ window.addEventListener("scroll", () => {
 
 function voltarParaHome() {
     leitorDeArtigo.classList.add("escondido");
+    leitorDeDisciplina.classList.add("escondido");
     divResultados.classList.add("escondido");
-    const pastasContainer = document.getElementById("pastas-container");
-    if (pastasContainer) {
-        pastasContainer.classList.remove("escondido");
-    }
+    document.getElementById("explorar-pastas")?.classList.remove("escondido");
     if (campoTexto) campoTexto.value = "";
     if (campoTextoNav) campoTextoNav.value = "";
-    if (campoTextoSidebar) campoTextoSidebar.value = "";
     containerResultados.innerHTML = "";
+    categoriaAtual = null;
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+if (btnVoltarDisciplina) btnVoltarDisciplina.addEventListener("click", voltarParaHome);
 
 const navLogo = document.getElementById("nav-logo");
 if (navLogo) {

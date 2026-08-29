@@ -1066,6 +1066,21 @@ header, main { max-width: 1000px; padding-left: 24px; padding-right: 24px; }
 .btn-voltar { margin-top: 36px; padding: 0; border: 0; border-radius: 0; color: var(--accent-pink); background: transparent; font-size: .92rem; }
 .btn-voltar:hover { color: var(--text); background: transparent; }
 
+.disciplina-leitor { max-width: 1000px; margin: 74px auto 64px; color: var(--text); }
+.disciplina-rotulo { margin: 0 0 12px; color: var(--accent-pink); font-size: .78rem; font-weight: 650; letter-spacing: .04em; text-transform: lowercase; }
+.disciplina-leitor h2 { margin: 0 0 22px; padding: 0 0 22px; border-bottom: 2px solid var(--text); font-size: clamp(2.4rem, 5vw, 4.6rem); font-weight: 560; letter-spacing: -.06em; line-height: .92; }
+.disciplina-acoes { border-top: 1px solid color-mix(in srgb, var(--text) 32%, transparent); }
+.disciplina-acao { display: grid; grid-template-columns: 72px minmax(0, 1fr); width: 100%; gap: 24px; padding: 18px 0; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--text) 27%, transparent); border-radius: 0; background: transparent; color: var(--text); font: inherit; font-size: 1.12rem; font-weight: 510; letter-spacing: -.025em; line-height: 1.04; text-align: left; cursor: pointer; }
+.disciplina-acao:hover, .disciplina-acao:focus-visible { padding-left: 8px; color: var(--accent-pink); outline: none; }
+.disciplina-acao-numero { color: var(--accent-pink); font-size: .76rem; font-variant-numeric: tabular-nums; line-height: 1.25; }
+
+body:has(.disciplina-leitor:not(.escondido)) .page-masthead,
+body:has(.leitor-artigo:not(.escondido)) .page-masthead,
+body:has(.disciplina-leitor:not(.escondido)) .explorar-pastas,
+body:has(.leitor-artigo:not(.escondido)) .explorar-pastas {
+    display: none;
+}
+
 @media (max-width: 768px) {
     header, main { padding-left: 20px; padding-right: 20px; }
     .sticky-nav { padding: 12px 20px; }
@@ -1085,4 +1100,7 @@ header, main { max-width: 1000px; padding-left: 24px; padding-right: 24px; }
     .artigo-layout-container { display: block; }
     .artigo-toc-sidebar { width: 100%; min-width: 0; max-height: 38vh; overflow-y: auto; margin-bottom: 24px; padding: 0 8px 12px 0; border-right: 0; border-bottom: 1px solid color-mix(in srgb, var(--text) 20%, transparent); }
     .artigo-conteudo-wrapper h2 { font-size: clamp(2rem, 10vw, 3rem); }
+    .disciplina-leitor { margin: 36px auto 48px; }
+    .disciplina-leitor h2 { font-size: clamp(2rem, 10vw, 3rem); }
+    .disciplina-acao { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding: 16px 0; font-size: 1.05rem; }
 }
