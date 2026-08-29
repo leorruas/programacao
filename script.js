@@ -290,8 +290,9 @@ function protegerPipesObsidian(md) {
     });
 }
 
-function abrirArtigo(titulo, conteudoMarkdown, categoria = null) {
+function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash = true) {
     if (categoria) categoriaAtual = categoria;
+    if (atualizarHash && categoriaAtual) atualizarRota(rotaDoArtigo(categoriaAtual, titulo));
     if (btnVoltar) btnVoltar.textContent = categoriaAtual ? `← voltar para ${categoriaAtual}` : "← voltar para as áreas";
     divResultados.classList.add("escondido");
     leitorDeDisciplina.classList.add("escondido");
@@ -900,11 +901,12 @@ async function renderizarPastas() {
     });
 }
 
-function abrirDisciplina(categoria) {
+function abrirDisciplina(categoria, atualizarHash = true) {
     const artigos = (todasAsPastas[categoria] || []).slice().sort((a, b) => a.titulo.localeCompare(b.titulo, "pt-BR", { numeric: true }));
     if (!artigos.length) return;
 
     categoriaAtual = categoria;
+    if (atualizarHash) atualizarRota(rotaDaDisciplina(categoria));
     disciplinaTitulo.textContent = categoria;
     disciplinaAcoes.innerHTML = "";
     artigos.forEach((artigo, indice) => {
@@ -923,6 +925,34 @@ function abrirDisciplina(categoria) {
     window.scrollTo({ top: 0, behavior: "instant" });
 }
 
+function rotaDaDisciplina(categoria) {
+    return `#/area/${encodeURIComponent(categoria)}`;
+}
+
+function rotaDoArtigo(categoria, titulo) {
+    return `#/artigo/${encodeURIComponent(categoria)}/${encodeURIComponent(titulo)}`;
+}
+
+function atualizarRota(rota) {
+    if (window.location.hash !== rota) history.pushState({}, "", rota);
+}
+
+function tratarRotaDaUrl() {
+    const partes = window.location.hash.replace(/^#\//, "").split("/").filter(Boolean).map(parte => decodeURIComponent(parte));
+    if (!partes.length) return voltarParaHome(false);
+
+    if (partes[0] === "area" && partes[1] && todasAsPastas[partes[1]]) {
+        abrirDisciplina(partes[1], false);
+        return;
+    }
+
+    if (partes[0] === "artigo" && partes[1] && partes[2]) {
+        const categoria = partes[1];
+        const artigo = (todasAsPastas[categoria] || []).find(item => normalizarTexto(item.titulo) === normalizarTexto(partes[2]));
+        if (artigo) abrirArtigo(artigo.titulo, artigo.conteudoTexto, categoria, false);
+    }
+}
+
 // Configuração do Sticky Navbar baseada no scroll
 const headerEl = document.querySelector("header");
 const stickyNav = document.getElementById("sticky-nav");
@@ -937,7 +967,7 @@ window.addEventListener("scroll", () => {
     }
 });
 
-function voltarParaHome() {
+function voltarParaHome(atualizarHash = true) {
     leitorDeArtigo.classList.add("escondido");
     leitorDeDisciplina.classList.add("escondido");
     divResultados.classList.add("escondido");
@@ -946,10 +976,13 @@ function voltarParaHome() {
     if (campoTextoNav) campoTextoNav.value = "";
     containerResultados.innerHTML = "";
     categoriaAtual = null;
+    if (atualizarHash && window.location.hash) history.pushState({}, "", window.location.pathname);
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-if (btnVoltarDisciplina) btnVoltarDisciplina.addEventListener("click", voltarParaHome);
+if (btnVoltarDisciplina) btnVoltarDisciplina.addEventListener("click", () => voltarParaHome());
+
+window.addEventListener("hashchange", tratarRotaDaUrl);
 
 const navLogo = document.getElementById("nav-logo");
 if (navLogo) {
@@ -978,4 +1011,5 @@ if (navLinkPastas) {
 // Inicializar pré-carregamento imediato e renderização das pastas
 carregarTodosArquivosEmCache().then(() => {
     renderizarPastas();
+    tratarRotaDaUrl();
 });

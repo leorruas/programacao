@@ -9,6 +9,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Mantida a identidade visual rosa (`var(--accent-pink)`); a sidebar do artigo filtra os títulos de suas seções, enquanto a navbar faz a busca global do vault.
   * Substituído o acordeão por uma página de área com artigos numerados; a capa e a busca principal agora aparecem somente na home.
   * Adicionados breadcrumbs, contexto exibido somente quando presente e navegação entre o artigo anterior e o próximo da mesma área.
+  * Adicionadas rotas compartilháveis para áreas e artigos e aplicada grade suíça ao catálogo inicial.
 
 ## 2026-08-19
 
