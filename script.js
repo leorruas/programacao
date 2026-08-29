@@ -190,9 +190,10 @@ if (window.mermaid) {
     });
 }
 
-const botao = document.querySelector("button");
+const botao = document.getElementById("btn-pesquisar");
 const campoTexto = document.getElementById("main-search-input");
 const campoTextoNav = document.getElementById("nav-search-input");
+const campoTextoSidebar = document.getElementById("sidebar-search-input");
 const containerResultados = document.querySelector(".cards-container");
 const divResultados = document.querySelector(".resultados");
 const leitorDeArtigo = document.getElementById("leitor-artigo");
@@ -203,6 +204,7 @@ const btnVoltar = document.getElementById("btn-voltar");
 function sincronizarBusca(valor) {
     if (campoTexto && campoTexto.value !== valor) campoTexto.value = valor;
     if (campoTextoNav && campoTextoNav.value !== valor) campoTextoNav.value = valor;
+    if (campoTextoSidebar && campoTextoSidebar.value !== valor) campoTextoSidebar.value = valor;
 
     // Dispara a busca em tempo real com Debounce (150ms)
     clearTimeout(debounceTimer);
@@ -232,6 +234,13 @@ if (campoTextoNav) {
         if (evento.key === "Enter") {
             buscar(campoTextoNav.value);
         }
+    });
+}
+
+if (campoTextoSidebar) {
+    campoTextoSidebar.addEventListener("input", (e) => sincronizarBusca(e.target.value));
+    campoTextoSidebar.addEventListener("keyup", (evento) => {
+        if (evento.key === "Enter") buscar(campoTextoSidebar.value);
     });
 }
 
@@ -877,6 +886,7 @@ function voltarParaHome() {
     }
     if (campoTexto) campoTexto.value = "";
     if (campoTextoNav) campoTextoNav.value = "";
+    if (campoTextoSidebar) campoTextoSidebar.value = "";
     containerResultados.innerHTML = "";
     window.scrollTo({ top: 0, behavior: "smooth" });
 }

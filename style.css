@@ -1018,3 +1018,71 @@ mark.obsidian-highlight, mark:not(.highlight) {
 .callout-caution .callout-title {
     color: #f87171;
 }
+
+/* Estrutura editorial compartilhada com os outros vaults, preservando o rosa. */
+:root { --bg: #101010; --text: #f1f0eb; --muted: #a4a39e; }
+body { background: var(--bg); color: var(--muted); font-size: 20px; }
+header, main { max-width: 1000px; padding-left: 24px; padding-right: 24px; }
+.sticky-nav { padding: 13px 32px; background: color-mix(in srgb, var(--bg) 96%, transparent); border-bottom-color: color-mix(in srgb, var(--text) 18%, transparent); backdrop-filter: none; }
+.nav-logo, .nav-link-pastas { color: var(--text); font-size: .8rem; font-weight: 600; }
+.nav-search-container { flex: 1; max-width: 360px; margin-left: auto; margin-right: 24px; }
+.nav-search-container input { width: 100%; padding: 6px 10px; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--text) 36%, transparent); border-radius: 0; background: transparent; color: var(--text); font: inherit; font-size: .8rem; outline: none; }
+.nav-search-container input::placeholder { color: var(--muted); }
+.nav-search-container input:focus { border-bottom-color: var(--accent-pink); }
+.nav-link-pastas { margin-left: 0; margin-right: 0; }
+
+.page-masthead { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 420px); grid-template-areas: "copy search"; column-gap: 52px; align-items: end; margin: 74px auto 0; padding: 0 32px; }
+.masthead-copy { grid-area: copy; }
+.masthead-copy h1 { margin: 0; color: var(--text); font-size: clamp(4.3rem, 9.7vw, 8.7rem); font-weight: 580; letter-spacing: -.075em; line-height: .8; }
+.masthead-copy p { max-width: 390px; margin: 32px 0 54px; color: var(--text); font-size: 1.08rem; line-height: 1.25; }
+.page-masthead .busca-principal { grid-area: search; align-self: end; margin: 0 0 54px; }
+.busca-campo { padding: 0 18px; border-top: 1px solid color-mix(in srgb, var(--text) 42%, transparent); border-bottom: 2px solid var(--accent-pink); }
+.busca-campo input { width: 100%; padding: 12px 0 11px; border: 0; background: transparent; color: var(--text); font: inherit; font-size: 1.25rem; outline: none; }
+.busca-campo input::placeholder { color: var(--muted); }
+.explorar-pastas { padding: 48px 0 64px; }
+.explorar-pastas > h2 { margin: 0 0 18px; color: var(--text); font-size: 2.1rem; font-weight: 500; letter-spacing: -.05em; }
+.pastas-container { display: block; border-top: 1px solid color-mix(in srgb, var(--text) 42%, transparent); }
+.pasta-item { margin: 0; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--text) 28%, transparent); border-radius: 0; background: transparent; }
+.pasta-item:hover, .pasta-item.aberta { background: transparent; }
+.pasta-header { padding: 20px 0; color: var(--text); }
+.pasta-header:hover { color: var(--accent-pink); }
+.pasta-nome { font-size: 1.25rem; font-weight: 520; letter-spacing: -.035em; }
+.pasta-icone { color: var(--accent-pink); }
+.pasta-conteudo { padding: 0; background: transparent; }
+.artigo-lista-link { padding: 11px 0 11px 22px; border-top: 1px solid color-mix(in srgb, var(--text) 15%, transparent); color: var(--muted); font-size: .9rem; }
+.artigo-lista-link:hover { padding-left: 30px; background: transparent; color: var(--accent-pink); }
+
+.leitor-artigo { margin: 48px auto; padding: 0; color: var(--text); font-size: 16px; }
+.artigo-layout-container { gap: 42px; }
+.artigo-toc-sidebar { width: 190px; min-width: 160px; padding: 0 20px 0 0; border-right-color: color-mix(in srgb, var(--text) 24%, transparent); }
+.sidebar-search { display: block; margin: 0 0 18px; padding: 0 0 16px; border-bottom: 1px solid color-mix(in srgb, var(--text) 24%, transparent); }
+.sidebar-search span { display: block; margin-bottom: 8px; color: var(--accent-pink); font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.sidebar-search input { width: 100%; padding: 8px 10px; border: 1px solid var(--accent-pink-alpha-30); border-radius: 6px; background: var(--accent-pink-alpha-05); color: var(--text); font: inherit; font-size: .78rem; }
+.toc-header { border-bottom-color: color-mix(in srgb, var(--text) 24%, transparent); }
+.toc-title { color: var(--text); font-size: .78rem; letter-spacing: 0; text-transform: lowercase; }
+.toc-list .toc-item a { color: var(--muted); font-size: .78rem; border-radius: 0; }
+.toc-list .toc-item a:hover, .toc-list .toc-item a.toc-active { color: var(--accent-pink); background: transparent; }
+.artigo-conteudo-wrapper h2 { margin: 0; padding: 0 0 22px; border-bottom: 2px solid var(--accent-pink); color: var(--text); font-size: clamp(2.6rem, 5vw, 5rem); font-weight: 560; letter-spacing: -.065em; line-height: .92; }
+.btn-voltar { margin-top: 36px; padding: 0; border: 0; border-radius: 0; color: var(--accent-pink); background: transparent; font-size: .92rem; }
+.btn-voltar:hover { color: var(--text); background: transparent; }
+
+@media (max-width: 768px) {
+    header, main { padding-left: 20px; padding-right: 20px; }
+    .sticky-nav { padding: 12px 20px; }
+    .nav-logo { font-size: .72rem; }
+    .nav-search-container { min-width: 0; max-width: 180px; margin-right: 12px; }
+    .nav-search-container input { font-size: .72rem; }
+    .page-masthead { display: flex; flex-direction: column; margin-top: 42px; padding: 0 20px; }
+    .masthead-copy { order: 1; width: 100%; text-align: right; }
+    .page-masthead .busca-principal { order: 2; width: 100%; margin: 20px 0 24px; }
+    .masthead-copy h1 { font-size: clamp(4rem, 21vw, 5.6rem); }
+    .masthead-copy p { margin: 20px 0 0 auto; font-size: .92rem; }
+    .explorar-pastas { padding: 36px 0 52px; }
+    .explorar-pastas > h2 { font-size: 1.8rem; }
+    .pasta-header { padding: 17px 0; }
+    .pasta-nome { font-size: 1.15rem; }
+    .leitor-artigo { margin: 28px auto 44px; font-size: 17px; }
+    .artigo-layout-container { display: block; }
+    .artigo-toc-sidebar { width: 100%; min-width: 0; max-height: 38vh; overflow-y: auto; margin-bottom: 24px; padding: 0 8px 12px 0; border-right: 0; border-bottom: 1px solid color-mix(in srgb, var(--text) 20%, transparent); }
+    .artigo-conteudo-wrapper h2 { font-size: clamp(2rem, 10vw, 3rem); }
+}

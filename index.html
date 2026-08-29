@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesquisa</title>
-    <link rel="stylesheet" href="style.css">
+    <title>programação</title>
+    <link rel="stylesheet" href="style.css?v=estrutura-v1">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </head>
@@ -19,18 +19,25 @@
         <a href="#pastas-container" class="nav-link-pastas" id="nav-link-pastas">pastas</a>
     </nav>
 
-    <header>
-        <h1> pesquisa de programação</h1>
-
+    <header class="page-masthead" id="page-masthead">
+        <section class="busca-principal" aria-label="Pesquisar no vault">
+            <div class="busca-campo">
+                <label class="sr-only" for="main-search-input">Pesquisar por assunto ou tecnologia</label>
+                <input type="search" id="main-search-input" placeholder="pesquisar no vault..." autocomplete="off">
+            </div>
+        </section>
+        <div class="masthead-copy">
+            <h1>programação</h1>
+            <p>caderno de estudos e experimentos em desenvolvimento</p>
+        </div>
     </header>
     <main>
-        <div class="search-wrapper">
-            <input type="text" id="main-search-input" placeholder="o que você quer pesquisar hoje? ">
-            <button>Pesquisar</button>
-        </div>
-        <div class="pastas-container" id="pastas-container">
+        <section class="explorar-pastas" id="explorar-pastas" aria-labelledby="pastas-titulo">
+            <h2 id="pastas-titulo">áreas de estudo...</h2>
+            <div class="pastas-container" id="pastas-container">
             <!-- As pastas serão listadas aqui dinamicamente -->
-        </div>
+            </div>
+        </section>
         <div class="resultados">
             <div class="cards-container">
                 <!-- resultados -->
@@ -40,6 +47,10 @@
             <div class="artigo-layout-container">
                 <!-- Table of Contents (TOC) no Lado Esquerdo -->
                 <aside class="artigo-toc-sidebar" id="artigo-toc-sidebar">
+                    <label class="sidebar-search" for="sidebar-search-input">
+                        <span>Pesquisar no vault</span>
+                        <input type="search" id="sidebar-search-input" placeholder="pesquisar..." autocomplete="off">
+                    </label>
                     <div class="toc-header">
                         <span class="toc-title">Neste artigo</span>
                     </div>
@@ -54,7 +65,7 @@
         </div>
     </main>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=estrutura-v1"></script>
 </body>
 
 </html>

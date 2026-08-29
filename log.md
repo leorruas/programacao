@@ -2,6 +2,12 @@
 
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
+## 2026-08-29
+
+* **Atualização visual do Web App (`index.html`, `style.css` e `script.js`)**:
+  * Alinhada a interface à estrutura editorial dos vaults PUC e Guia do Portal: masthead com título e busca, navegação fixa com pesquisa e catálogo de áreas em linhas de leitura.
+  * Mantida a identidade visual rosa (`var(--accent-pink)`) e adicionada busca sincronizada na sidebar dos artigos.
+
 ## 2026-08-19
 
 * **Criação de Artigo de Infraestrutura e Redes Web**:
