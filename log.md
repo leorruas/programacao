@@ -4,6 +4,8 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-29
 
+* **Correção de Compatibilidade de Sintaxe do Mermaid (v11+)**:
+  * [[mermaid/Sintaxe e possibilidades com Mermaid|Sintaxe e possibilidades com Mermaid]], [[mermaid/Introdução ao Mermaid|Introdução ao Mermaid]] e [[web/01-fundamentos/DNS e gerenciamento de domínios|DNS e gerenciamento de domínios]]: Ajustada a sintaxe de rótulos em conectores de setas de `-- Texto -->` para a notação padrão com pipes `-->|Texto|`, resolvendo o erro de parsing `Syntax error in text (mermaid version 11.17.2)`.
 * **Atualização visual do Web App (`index.html`, `style.css` e `script.js`)**:
   * Alinhada a interface à estrutura editorial dos vaults PUC e Guia do Portal: masthead com título e busca, navegação fixa com pesquisa e catálogo de áreas em linhas de leitura.
   * Mantida a identidade visual rosa (`var(--accent-pink)`); a sidebar do artigo filtra os títulos de suas seções, enquanto a navbar faz a busca global do vault.

@@ -141,9 +141,9 @@ Existem três formas completamente diferentes de lidar com domínios, e entender
 ```mermaid
 flowchart TD
     A["Preciso configurar meu domínio"] --> B{"O que você deseja fazer?"}
-    B -- "Apenas ligar o site a uma hospedagem" --> C["Cenário 1: Apontamento por Registros A / CNAME"]
-    B -- "Mudar onde controlo as configurações e usar CDN" --> D["Cenário 2: Troca de Servidores DNS (Name Servers)"]
-    B -- "Mudar a empresa onde pago a anuidade do domínio" --> E["Cenário 3: Transferência de Titularidade (EPP/Auth)"]
+    B -->|Apenas ligar o site a uma hospedagem| C["Cenário 1: Apontamento por Registros A / CNAME"]
+    B -->|Mudar onde controlo as configurações e usar CDN| D["Cenário 2: Troca de Servidores DNS (Name Servers)"]
+    B -->|Mudar a empresa onde pago a anuidade do domínio| E["Cenário 3: Transferência de Titularidade (EPP/Auth)"]
 ```
 
 ### Cenário 1: Apontamento simples de registros (sem trocar NS)

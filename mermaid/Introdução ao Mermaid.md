@@ -38,8 +38,8 @@ Ideal para mapear tomadas de decisão, jornadas de usuário e rotinas de código
 ```mermaid
 flowchart TD
     Inicio["Início do fluxo"] --> Decisao{"O usuário está logado?"}
-    Decisao -- Sim --> Painel["Abrir painel principal"]
-    Decisao -- Não --> Login["Redirecionar para login"]
+    Decisao -->|Sim| Painel["Abrir painel principal"]
+    Decisao -->|Não| Login["Redirecionar para login"]
 ```
 
 Sintaxe básica de direções:
