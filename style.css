@@ -1075,6 +1075,17 @@ mark.obsidian-highlight, mark:not(.highlight) {
 :root { --bg: #101010; --text: #f1f0eb; --muted: #a4a39e; }
 body { background: var(--bg); color: var(--muted); font-size: 20px; }
 header, main { max-width: 1000px; padding-left: 24px; padding-right: 24px; }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 .sticky-nav { padding: 13px 32px; background: color-mix(in srgb, var(--bg) 96%, transparent); border-bottom-color: color-mix(in srgb, var(--text) 18%, transparent); backdrop-filter: none; }
 .nav-logo, .nav-link-pastas { color: var(--text); font-size: .8rem; font-weight: 600; }
 .nav-search-container { flex: 1; max-width: 360px; margin-left: auto; margin-right: 24px; }

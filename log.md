@@ -11,6 +11,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Adicionados breadcrumbs, contexto exibido somente quando presente e navegação entre o artigo anterior e o próximo da mesma área.
   * Adicionadas rotas compartilháveis para áreas e artigos e aplicada grade suíça ao catálogo inicial.
   * Padronizada a apresentação dos títulos e áreas, preservando os nomes de arquivos e as rotas existentes.
+  * Ocultado visualmente o rótulo da busca principal, mantendo-o disponível para tecnologias assistivas.
 
 ## 2026-08-19
 
