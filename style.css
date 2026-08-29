@@ -978,6 +978,66 @@ html body #artigo-corpo h3::before {
     vertical-align: middle;
 }
 
+/* Entrada do vault: mesma cadência editorial do índice do PUC, com o rosa da programação. */
+.page-masthead .masthead-copy h1 {
+    max-width: 540px;
+    font-size: clamp(3.8rem, 7vw, 6.4rem);
+    line-height: .84;
+    word-break: normal;
+}
+.explorar-pastas { padding-top: 30px; }
+.explorar-pastas .pastas-container { border-top-color: color-mix(in srgb, var(--text) 42%, transparent); }
+.explorar-pastas .pasta-item {
+    min-height: 112px;
+    padding: 14px 0 13px;
+    border-bottom-color: color-mix(in srgb, var(--text) 42%, transparent);
+}
+.explorar-pastas .pasta-item:nth-child(odd) { padding-right: 34px; }
+.explorar-pastas .pasta-item:nth-child(even) { padding-left: 34px; }
+.explorar-pastas .pasta-header {
+    grid-template-columns: 108px minmax(0, 1fr);
+    min-height: 84px;
+    padding: 0;
+    align-items: center;
+}
+.explorar-pastas .pasta-numero {
+    color: var(--text);
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: -.07em;
+    line-height: .92;
+}
+.explorar-pastas .pasta-info { gap: 10px; }
+.explorar-pastas .pasta-nome {
+    font-size: 1.68rem;
+    font-weight: 460;
+    line-height: 1;
+    letter-spacing: -.05em;
+    text-transform: lowercase;
+}
+.explorar-pastas .pasta-descricao {
+    max-width: 320px;
+    color: var(--muted);
+    font-size: .82rem;
+    line-height: 1.35;
+}
+.explorar-pastas .pasta-icone { display: none; }
+.explorar-pastas .pasta-header:hover,
+.explorar-pastas .pasta-header:focus-visible { padding-left: 8px; color: var(--accent-pink); }
+.explorar-pastas .pasta-header:hover .pasta-numero,
+.explorar-pastas .pasta-header:focus-visible .pasta-numero { color: var(--accent-pink); }
+
+@media (max-width: 768px) {
+    .page-masthead .masthead-copy h1 { font-size: clamp(3.8rem, 18vw, 5.6rem); }
+    .explorar-pastas .pasta-item,
+    .explorar-pastas .pasta-item:nth-child(odd),
+    .explorar-pastas .pasta-item:nth-child(even) { min-height: 0; padding: 17px 0; }
+    .explorar-pastas .pasta-header { grid-template-columns: 84px minmax(0, 1fr); min-height: 0; }
+    .explorar-pastas .pasta-numero { font-size: 3.15rem; }
+    .explorar-pastas .pasta-nome { font-size: 1.35rem; }
+    .explorar-pastas .pasta-descricao { margin-top: 0; font-size: .82rem; }
+}
+
 /* Catálogo em grade suíça: cada área abre sua própria lista numerada. */
 .pastas-container {
     display: grid;
