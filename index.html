@@ -13,9 +13,10 @@
 <body>
     <nav class="sticky-nav" id="sticky-nav">
         <span class="nav-logo" id="nav-logo">pesquisa de programação</span>
-        <div class="nav-search-container">
-            <input type="text" id="nav-search-input" placeholder="pesquisar...">
-        </div>
+        <label class="nav-search-container" for="nav-search-input">
+            <span class="sr-only">Pesquisar no vault</span>
+            <input type="search" id="nav-search-input" placeholder="pesquisar..." autocomplete="off">
+        </label>
         <a href="#pastas-container" class="nav-link-pastas" id="nav-link-pastas">pastas</a>
     </nav>
 
