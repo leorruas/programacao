@@ -1053,9 +1053,9 @@ html body #artigo-corpo h3::before {
 .btn-copiar-codigo.copiado { border-color: #30d158; background: #30d158; color: #071209; opacity: 1; }
 
 /* Navegação sequencial no padrão editorial do Guia do Portal. */
-.artigo-nav-cards { margin: 48px 0 28px; padding-top: 24px; border-top: 1px solid color-mix(in srgb, var(--text) 24%, transparent); }
+.artigo-nav-cards { display: block; width: 100%; margin: 48px 0 28px; padding-top: 24px; border-top: 1px solid color-mix(in srgb, var(--text) 24%, transparent); }
 .artigo-nav-cards:empty { display: none; }
-.artigo-nav-cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid color-mix(in srgb, var(--text) 42%, transparent); }
+.artigo-nav-cards-grid { display: grid; grid-template-columns: 1fr 1fr; width: 100%; gap: 0; border-top: 1px solid color-mix(in srgb, var(--text) 42%, transparent); }
 .nav-card {
     display: flex;
     flex-direction: column;
