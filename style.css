@@ -1071,6 +1071,16 @@ mark.obsidian-highlight, mark:not(.highlight) {
     color: #f87171;
 }
 
+/* A regra final mantém o catálogo em duas colunas fora do mobile. */
+.explorar-pastas .pastas-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 768px) {
+    .explorar-pastas .pastas-container { grid-template-columns: 1fr; }
+}
+
 /* Estrutura editorial compartilhada com os outros vaults, preservando o rosa. */
 :root { --bg: #101010; --text: #f1f0eb; --muted: #a4a39e; }
 body { background: var(--bg); color: var(--muted); font-size: 20px; }
