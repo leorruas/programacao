@@ -12,7 +12,8 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Adicionadas rotas compartilháveis para áreas e artigos e aplicada grade suíça ao catálogo inicial.
   * Padronizada a apresentação dos títulos e áreas, preservando os nomes de arquivos e as rotas existentes.
   * Ocultado visualmente o rótulo da busca principal, mantendo-o disponível para tecnologias assistivas.
-  * Corrigida a grade das áreas para duas colunas em telas de desktop e uma coluna no celular.
+* Corrigida a grade das áreas para duas colunas em telas de desktop e uma coluna no celular.
+* Tabelas agora usam toda a largura disponível e exibem rolagem horizontal quando o conteúdo ultrapassa o artigo.
 
 ## 2026-08-19
 

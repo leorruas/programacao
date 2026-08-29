@@ -349,6 +349,15 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
         artigoCorpo.innerText = markdownNormalizado;
     }
 
+    // Mantém tabelas compactas quando cabem no artigo e permite rolagem
+    // horizontal somente quando as colunas excedem a largura disponível.
+    artigoCorpo.querySelectorAll("table").forEach(tabela => {
+        const contenedor = document.createElement("div");
+        contenedor.className = "tabela-rolavel";
+        tabela.replaceWith(contenedor);
+        contenedor.appendChild(tabela);
+    });
+
     // 6. Processa WikiLinks do Obsidian
     processarLinksObsidian();
 

@@ -280,13 +280,17 @@ button:hover {
     font-size: 1em;
 }
 
-.artigo-corpo table {
-    display: block;
+.tabela-rolavel {
     width: 100%;
+    margin: 25px 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+}
+
+.artigo-corpo table {
+    width: max-content;
+    min-width: 100%;
     border-collapse: collapse;
-    margin: 25px 0;
     font-size: 0.85em;
 }
 
