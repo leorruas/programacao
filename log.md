@@ -291,3 +291,4 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **2026-08-29 — Entrada editorial:** catálogo de áreas alinhado ao ritmo visual do índice do vault PUC, mantendo a cor de destaque rosa e as descrições de cada área.
 * **2026-08-29 — Cópia de código:** blocos de código passaram a oferecer botão de cópia com confirmação visual e alternativa compatível para navegadores sem Clipboard API.
 * **2026-08-29 — Largura editorial:** a página inicial passou a usar o mesmo contêiner máximo e respiros laterais do vault PUC.
+* **2026-08-29 — Navegação sequencial:** anterior e próximo entre artigos foram alinhados ao padrão editorial do Guia do Portal, com retorno separado.

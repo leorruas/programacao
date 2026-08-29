@@ -539,15 +539,24 @@ function renderizarNavegacaoArtigo(titulo) {
     artigoNavCards.innerHTML = "";
     const artigos = (todasAsPastas[categoriaAtual] || []).slice().sort((a, b) => a.titulo.localeCompare(b.titulo, "pt-BR", { numeric: true }));
     const indice = artigos.findIndex(artigo => artigo.titulo === titulo);
-    [[artigos[indice - 1], "← anterior"], [artigos[indice + 1], "próximo →"]].forEach(([artigo, rotulo]) => {
-        if (!artigo) return;
+    const grade = document.createElement("div");
+    grade.className = "artigo-nav-cards-grid";
+
+    [[artigos[indice - 1], "anterior"], [artigos[indice + 1], "proximo"]].forEach(([artigo, direcao]) => {
+        if (!artigo) {
+            grade.appendChild(document.createElement("span"));
+            return;
+        }
         const botao = document.createElement("button");
         botao.type = "button";
-        botao.className = "nav-card";
-        botao.innerHTML = `<span>${rotulo}</span><strong>${formatarTitulo(artigo.titulo)}</strong>`;
+        botao.className = `nav-card nav-card-${direcao}`;
+        botao.innerHTML = `<span class="nav-card-label">${direcao === "anterior" ? "← artigo anterior" : "próximo artigo →"}</span><strong class="nav-card-title"></strong>`;
+        botao.querySelector(".nav-card-title").textContent = formatarTitulo(artigo.titulo);
         botao.addEventListener("click", () => abrirArtigo(artigo.titulo, artigo.conteudoTexto, categoriaAtual));
-        artigoNavCards.appendChild(botao);
+        grade.appendChild(botao);
     });
+
+    artigoNavCards.appendChild(grade);
 }
 
 function gerarTableOfContents() {
