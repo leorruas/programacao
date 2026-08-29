@@ -39,7 +39,7 @@ Se o seu plano é ser um programador completo e aprender outras tecnologias no f
 ## 2. O que faz o C# ser tão legal?
 
 * **Fácil de ler:** O código se parece muito com o inglês do dia a dia.
-* **Organizado (orientado a [[13-Programação orientada a objetos|objetos]]):** Você pode organizar o código usando "moldes" do mundo real. Por exemplo, se quiser criar um jogo, pode ter um molde chamado "Jogador" com características (vida, força) e ações (correr, pular).
+* **Organizado (orientado a [[csharp/19-Programação orientada a objetos|objetos]]):** Você pode organizar o código usando "moldes" do mundo real. Por exemplo, se quiser criar um jogo, pode ter um molde chamado "Jogador" com características (vida, força) e ações (correr, pular).
 * **Segurança total:** O C# funciona como um pai protetor. Ele avisa se você tentar colocar texto onde deveria ser um número antes mesmo de você rodar o programa, evitando que o aplicativo quebre depois.
 * **Limpeza automática:** Sabe quando você brinca e deixa os brinquedos espalhados? No C#, há um limpador automático (chamado *Garbage Collector*) que junta e joga fora a memória que você não está mais usando.
 
@@ -74,7 +74,7 @@ O `using System;` no início do código serve para abrir a caixa de ferramentas 
 Em C#, essas caixas de ferramentas são chamadas de **Namespaces**. Nós podemos importar várias outras de acordo com o que o programa precisa fazer:
 
 * **`using System.Collections.Generic;`**
-  * **O que faz:** Traz ferramentas para criar listas dinâmicas, [[11-Lista, pilha e fila|filas]] ou [[11-Lista, pilha e fila|pilhas]] de coisas (como uma lista de compras ou um inventário de itens de um jogo).
+  * **O que faz:** Traz ferramentas para criar listas dinâmicas, [[csharp/17-Lista, pilha e fila|filas]] ou [[csharp/17-Lista, pilha e fila|pilhas]] de coisas (como uma lista de compras ou um inventário de itens de um jogo).
 * **`using System.IO;`**
   * **O que faz:** Permite trabalhar com arquivos do computador (Input/Output). Serve para ler textos de arquivos, salvar novos arquivos ou criar pastas.
 * **`using System.Linq;`**
@@ -88,7 +88,7 @@ Sempre que você precisar de uma funcionalidade especial, basta colocar o `using
 
 ## 4. Caixas de guardar coisas (variáveis)
 
-Pense nas [[03-Variáveis, operadores e tipos de dados|variáveis]] como **caixas organizadoras** com etiquetas. Você apenas pode guardar o [[13-Programação orientada a objetos|objeto]] certo dentro da caixa com a etiqueta correspondente:
+Pense nas [[csharp/04-Variáveis, operadores e tipos de dados|variáveis]] como **caixas organizadoras** com etiquetas. Você apenas pode guardar o [[csharp/19-Programação orientada a objetos|objeto]] certo dentro da caixa com a etiqueta correspondente:
 
 ```csharp
 // Caixa para perguntas de Sim ou Não (Verdadeiro ou Falso)
@@ -125,9 +125,9 @@ else
 
 Agora que você já conhece o básico de como dar ordens para o computador, aqui está o fluxo ideal de tópicos sugeridos para você continuar sua jornada no C#:
 
-1. **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]** (As caixas e as ferramentas matemáticas)
-2. **[[04-Segurança de tipos|Segurança de tipos (Strongly Typed)]]** (Por que as caixas são rígidas?)
-3. **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]** (Tomando decisões e repetindo tarefas)
-4. **[[07-Arrays em Csharp.md|Arrays (Gaveteiros de caixas)]]** (Guardando várias caixas juntas)
-5. **[[12-Métodos (funções)|Métodos (funções)]]** (Automatizando passos repetitivos no robô)
-6. **[[13-Programação orientada a objetos|Programação orientada a objetos]]** (Organizando o código como a vida real)
+1. **[[csharp/04-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]** (As caixas e as ferramentas matemáticas)
+2. **[[csharp/05-Segurança de tipos|Segurança de tipos (Strongly Typed)]]** (Por que as caixas são rígidas?)
+3. **[[csharp/07-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]** (Tomando decisões e repetindo tarefas)
+4. **[[csharp/12-Arrays em Csharp|Arrays (Gaveteiros de caixas)]]** (Guardando várias caixas juntas)
+5. **[[csharp/18-Métodos (funções)|Métodos (funções)]]** (Automatizando passos repetitivos no robô)
+6. **[[csharp/19-Programação orientada a objetos|Programação orientada a objetos]]** (Organizando o código como a vida real)

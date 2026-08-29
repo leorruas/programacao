@@ -11,8 +11,8 @@ O caractere `#` tem significado especial no Obsidian e na maioria dos sistemas d
   - Errado: `23-O switch em C#.md`
 
 - Em **wikilinks do Obsidian**: sempre use `Csharp` no lugar de `C#`
-  - Correto: `[[csharp/23-O switch em Csharp|O switch em Csharp]]`
-  - Errado: `[[csharp/23-O switch em C#|O switch em C#]]`
+  - Correto: `[[csharp/08-O switch em Csharp|O switch em Csharp]]`
+  - Errado: `[[csharp/08-O switch em Csharp|O switch em C#]]`
 
 - Em **texto corrido** de artigos e conversas: pode usar `C#` normalmente, pois é apenas texto exibido, não um link ou nome de arquivo.
 

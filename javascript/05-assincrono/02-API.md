@@ -14,7 +14,7 @@ Tudo o que você precisa fazer é conectar o plugue do seu aparelho na tomada da
 
 A tomada é a **Interface** (o ponto de contato). Ela estabelece uma regra simples: se você tiver um plugue compatível, você receberá energia elétrica. 
 
-A API faz exatamente a mesma coisa para o software: ela é uma porta padronizada que permite que um sistema use as [[javascript/02-funções-e-objetos/01-Funções\|Funções]] ou dados de outro sistema sem precisar entender como ele foi construído por dentro.
+A API faz exatamente a mesma coisa para o software: ela é uma porta padronizada que permite que um sistema use as [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] ou dados de outro sistema sem precisar entender como ele foi construído por dentro.
 
 ---
 
@@ -34,7 +34,7 @@ Você não precisou programar um sistema de satélites nem um mapa interativo. O
 
 ## Como funciona na prática do desenvolvimento
 
-As APIs na web costumam funcionar por meio de requisições HTTP enviando e recebendo dados em formato [[javascript/03-manipulacao/08-JSON|JSON]] (usando ferramentas como o [[javascript/05-assincrono/03-Fetch|Fetch]] para buscar e processar as informações). 
+As APIs na web costumam funcionar por meio de requisições HTTP enviando e recebendo dados em formato [[javascript/Consumindo APIs e Fetch|JSON]] (usando ferramentas como o [[javascript/05-assincrono/03-Fetch|Fetch]] para buscar e processar as informações). 
 
 Pense nisso como um menu de restaurante: a API te dá uma lista de opções de pedidos que você pode fazer ao servidor.
 

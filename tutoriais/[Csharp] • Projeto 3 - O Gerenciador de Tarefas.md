@@ -28,7 +28,7 @@ class Program
         {
             // 1. Menu Principal
             Console.WriteLine("========================================");
-            Console.WriteLine("📝 GERENCIADOR DE TAREFAS PESSOAIS");
+            Console.WriteLine(" GERENCIADOR DE TAREFAS PESSOAIS");
             Console.WriteLine("========================================");
             Console.WriteLine("1. Adicionar Nova Tarefa");
             Console.WriteLine("2. Listar Todas as Tarefas");
@@ -49,11 +49,11 @@ class Program
                     if (!string.IsNullOrWhiteSpace(novaTarefa))
                     {
                         tarefas.Add(novaTarefa); // Adiciona na lista dinâmica
-                        Console.WriteLine("✓ Tarefa adicionada com sucesso!");
+                        Console.WriteLine(" Tarefa adicionada com sucesso!");
                     }
                     else
                     {
-                        Console.WriteLine("⚠️ O nome da tarefa não pode estar vazio!");
+                        Console.WriteLine("️ O nome da tarefa não pode estar vazio!");
                     }
                     break;
 
@@ -72,11 +72,11 @@ class Program
                         int indiceReal = indice - 1;
                         string tarefaRemovida = tarefas[indiceReal];
                         tarefas.RemoveAt(indiceReal);
-                        Console.WriteLine($"✓ Parabéns! Tarefa '{tarefaRemovida}' marcada como concluída!");
+                        Console.WriteLine($" Parabéns! Tarefa '{tarefaRemovida}' marcada como concluída!");
                     }
                     else
                     {
-                        Console.WriteLine("⚠️ Número inválido! Escolha um índice da lista.");
+                        Console.WriteLine("️ Número inválido! Escolha um índice da lista.");
                     }
                     break;
 
@@ -86,7 +86,7 @@ class Program
                     break;
 
                 default:
-                    Console.WriteLine("⚠️ Opção inválida! Escolha um número de 1 a 4.");
+                    Console.WriteLine("️ Opção inválida! Escolha um número de 1 a 4.");
                     break;
             }
 
@@ -99,12 +99,12 @@ class Program
     // 3. Método auxiliar para listar as tarefas
     static void ListarTarefas(List<string> lista)
     {
-        Console.WriteLine("📋 SUAS TAREFAS ATUAIS:");
+        Console.WriteLine(" SUAS TAREFAS ATUAIS:");
         Console.WriteLine("----------------------------------------");
         
         if (lista.Count == 0)
         {
-            Console.WriteLine("(Nenhuma tarefa pendente por aqui. Tudo limpo! 🎉)");
+            Console.WriteLine("(Nenhuma tarefa pendente por aqui. Tudo limpo! )");
             Console.WriteLine("----------------------------------------");
             return;
         }
@@ -151,7 +151,7 @@ Siga o passo a passo no seu terminal:
 ---
 
 ## Artigos relacionados:
-* **[[07-Arrays em Csharp|Arrays em Csharp]]**
-* **[[09-Coleções em Csharp|Coleções em Csharp]]**
-* **[[11-Lista, pilha e fila|Lista, pilha e fila em Csharp]]**
-* **[[18-Capacity em coleções|Capacity em coleções]]**
+* **[[csharp/12-Arrays em Csharp|Arrays em Csharp]]**
+* **[[csharp/14-Coleções em Csharp|Coleções em Csharp]]**
+* **[[csharp/17-Lista, pilha e fila|Lista, pilha e fila em Csharp]]**
+* **[[csharp/15-Capacity em coleções|Capacity em coleções]]**

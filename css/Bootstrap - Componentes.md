@@ -221,6 +221,6 @@ O formato é: `{propriedade}{lado}-{tamanho}`
 ---
 
 ## Artigos relacionados:
-* **[[css/Bootstrap - Introdução|Bootstrap: Introdução]]**
+* **[[css/Bootstrap - Introducao|Bootstrap: Introdução]]**
 * **[[css/Bootstrap - Sistema de Grid|Bootstrap: Sistema de Grid]]**
 * **[[css/Flexbox|Flexbox]]**

@@ -96,5 +96,5 @@ else
 ---
 
 ## Artigos relacionados:
-* **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
-* **[[12-Métodos (funções)|Métodos (funções)]]**
+* **[[csharp/04-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
+* **[[csharp/18-Métodos (funções)|Métodos (funções)]]**

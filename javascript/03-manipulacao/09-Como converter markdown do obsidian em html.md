@@ -1,4 +1,4 @@
-# Como Converter Markdown do Obsidian em HTML Real no JavaScript
+# Como converter Markdown do Obsidian em HTML real no JavaScript
 
 Quando lemos um arquivo `.md` criado no Obsidian via `fetch()`, recebemos uma string de texto puro cheia de marcações como `#`, `**`, ```` ```` e `>`. 
 
@@ -8,7 +8,7 @@ Neste artigo, você aprenderá como transformar o Markdown do Obsidian em elemen
 
 ---
 
-## 1. O Problema: Texto Puro vs HTML Real
+## 1. O problema: texto puro vs HTML real
 
 Quando o Obsidian salva um arquivo, ele usa a sintaxe **Markdown**:
 ```markdown
@@ -29,7 +29,7 @@ Para que o navegador aplique o visual correto, precisamos converter essas marca�
 
 ---
 
-## 2. Método 1: Conversor Manual com Regex (Expressões Regulares)
+## 2. Método 1: conversor manual com Regex (expressões regulares)
 
 Podemos criar uma função leve em JavaScript que busca os padrões do Markdown e os substitui pelas tags HTML equivalentes usando `.replace()` e Expressões Regulares (Regex).
 
@@ -55,7 +55,7 @@ function converterMarkdownParaHTML(markdown) {
     // 5. Citações (> citação)
     html = html.replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>');
 
-    // 6. Links ([[url|texto]])
+    // 6. Links (\[texto\]\(url\))
     html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
 
     // 7. Parágrafos (separa blocos de texto por quebras de linha duplas)
@@ -86,18 +86,18 @@ function abrirArtigo(titulo, conteudo) {
 
 ---
 
-## 3. Método 2: Usando a Biblioteca Pronta (Marked.js)
+## 3. Método 2: usando a biblioteca pronta (Marked.js)
 
 Se você preferir converter **absolutamente qualquer sintaxe avançada do Obsidian** (listas complexas, tabelas, tarefas `- [ ]`, etc.) em uma linha sem precisar escrever regras manualmente, pode usar a biblioteca pública **Marked.js**.
 
-### Passo 1: Adicionar o script no `index.html`
+### Passo 1: adicionar o script no `index.html`
 Coloque esta linha no `<head>` do seu `index.html`:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 ```
 
-### Passo 2: Usar uma única linha no `script.js`
+### Passo 2: usar uma única linha no `script.js`
 Na sua função `abrirArtigo()`:
 
 ```javascript
@@ -114,7 +114,7 @@ function abrirArtigo(titulo, conteudo) {
 
 ---
 
-## 4. Estilizando as Tags Convertidas no CSS
+## 4. Estilizando as tags convertidas no CSS
 
 Para que o HTML convertido tenha uma ótima tipografia no tema escuro, adicione estilos para essas tags no seu `style.css`:
 
@@ -150,7 +150,7 @@ Para que o HTML convertido tenha uma ótima tipografia no tema escuro, adicione 
 
 ---
 
-## 5. Resumo de Bolso
+## 5. Resumo de bolso
 
 | Sintaxe no Obsidian | Tag HTML Resultante | O que faz no navegador? |
 | :--- | :--- | :--- |

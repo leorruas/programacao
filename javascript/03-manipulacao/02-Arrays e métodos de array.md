@@ -68,7 +68,7 @@ Abaixo está o guia completo de todas as 40+ propriedades, métodos estáticos e
 ---
 
 ### E. Métodos de iteração e transformação (os pilares do mercado)
-Estes métodos recebem uma [[javascript/02-funções-e-objetos/02-Arrow functions\|arrow function]] de [[javascript/05-assincrono/01-Callbacks\|callback]] para processar os elementos:
+Estes métodos recebem uma [[javascript/02-funcoes-e-objetos/02-Arrow functions\|arrow function]] de [[javascript/05-assincrono/01-Callbacks\|callback]] para processar os elementos:
 
 | Método | Descrição | Retorno |
 | :--- | :--- | :--- |

@@ -64,6 +64,6 @@ Perfeito para fazer perguntas em que o usuário deve digitar a resposta logo em 
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp|Introdução ao Csharp]]**
-* **[[02-O método Main|O método Main]]**
-* **[[12-Métodos (funções)|Métodos (funções)]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/02-O método Main|O método Main]]**
+* **[[csharp/18-Métodos (funções)|Métodos (funções)]]**

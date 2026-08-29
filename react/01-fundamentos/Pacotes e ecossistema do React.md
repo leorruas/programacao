@@ -89,8 +89,8 @@ Para conectar seu React a servidores externos e gerenciar cache e carregamento:
 
 | Pacote | O que faz? | Comando de Instalação |
 | :--- | :--- | :--- |
-| **Axios** | Cliente HTTP simples para fazer requisições para [[javascript/05-assincrono/02-API\|APIs]]. | `npm install axios` |
-| **TanStack Query (React Query)** | Gerencia cache automático, refetching e estado de loading de [[javascript/05-assincrono/02-API\|API]]. | `npm install @tanstack/react-query` |
+| **Axios** | Cliente HTTP simples para fazer requisições para [[csharp/25-Consumindo APIs em Csharp\|APIs]]. | `npm install axios` |
+| **TanStack Query (React Query)** | Gerencia cache automático, refetching e estado de loading de [[csharp/25-Consumindo APIs em Csharp\|API]]. | `npm install @tanstack/react-query` |
 
 ---
 

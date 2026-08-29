@@ -32,7 +32,7 @@ Junto com o Node.js, você ganha acesso ao **NPM**, que é a maior biblioteca de
 Fazendo uma analogia com o design: o NPM é a **Comunidade do Figma (Figma Community)**.
 Quando você precisa de um ícone ou de um efeito de desfoque complexo no Figma, você não cria do zero; você vai à comunidade e baixa um plugin ou biblioteca pronta. 
 
-No desenvolvimento, quando você precisa de uma [[javascript/02-funções-e-objetos/01-Funções\|Funções]] para enviar e-mails ou criptografar senhas, você usa o NPM para baixar uma biblioteca criada e testada por outros desenvolvedores.
+No desenvolvimento, quando você precisa de uma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] para enviar e-mails ou criptografar senhas, você usa o NPM para baixar uma biblioteca criada e testada por outros desenvolvedores.
 
 ---
 
@@ -40,5 +40,5 @@ No desenvolvimento, quando você precisa de uma [[javascript/02-funções-e-obje
 
 *   **Node.js:** Não é uma linguagem, é um ambiente que permite executar [[javascript/Introdução ao JavaScript\|JavaScript]] diretamente no computador ou servidor.
 *   **Engine V8:** O motor de leitura do Google Chrome que o Node.js retirou do navegador para rodar no sistema operacional.
-*   **Back-end com [[javascript/Introdução ao JavaScript\|JavaScript]]:** Permite criar servidores, [[javascript/05-assincrono/02-API\|API]] e ler arquivos locais usando a mesma sintaxe do [[javascript/Introdução ao JavaScript\|JavaScript]] de navegador.
+*   **Back-end com [[javascript/Introdução ao JavaScript\|JavaScript]]:** Permite criar servidores, [[csharp/25-Consumindo APIs em Csharp\|API]] e ler arquivos locais usando a mesma sintaxe do [[javascript/Introdução ao JavaScript\|JavaScript]] de navegador.
 *   **NPM:** O gerenciador de pacotes (como a Comunidade do Figma) para baixar códigos prontos feitos por terceiros.

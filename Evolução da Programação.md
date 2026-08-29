@@ -35,7 +35,7 @@ flowchart TD
 *   **Analogia de Design:** É o equivalente a criar um software de desenho vetorial no computador, automatizando a tarefa de renderizar curvas e formas matemáticas em vez de pintar pixel por pixel à mão.
 
 ## 3 - C++: a era dos objetos (1985)
-*   **O que resolveu:** Com o crescimento dos sistemas (como softwares de texto e jogos), organizar milhares de linhas de código linear em C ficou inviável. C++ introduziu a Programação Orientada a [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] ([[javascript/06-arquitetura-e-avancado/01-Programação orientada a objetos\|POO]]), permitindo agrupar características e ações dentro de "[[javascript/02-funções-e-objetos/03-Objetos\|Objetos]]" reutilizáveis.
+*   **O que resolveu:** Com o crescimento dos sistemas (como softwares de texto e jogos), organizar milhares de linhas de código linear em C ficou inviável. C++ introduziu a Programação Orientada a [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] ([[javascript/06-arquitetura-e-avancado/01-Programação orientada a objetos\|POO]]), permitindo agrupar características e ações dentro de "[[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]" reutilizáveis.
 *   **Analogia de Design:** É o momento em que os softwares de design começaram a permitir que você criasse Componentes (gabaritos reutilizáveis) em vez de desenhar elementos idênticos soltos na tela repetidas vezes.
 
 ## 4 - HTML (1990) & CSS (1996): a fachada visual da web
@@ -60,7 +60,7 @@ flowchart TD
 *   **Analogia de Design:** É como trabalhar dentro do pacote Adobe completo: um ambiente corporativo ultra profissional, integrado, rígido em suas especificações e seguro para grandes projetos de escala internacional.
 
 ## 9 - TypeScript: o design system rígido (2012)
-*   **O que resolveu:** O [[javascript/Introdução ao JavaScript\|JavaScript]] cresceu tanto que passou a gerenciar sistemas inteiros de escala industrial. A ausência de regras rígidas de tipagem causava bugs frequentes de lógica. O [[javascript/06-arquitetura-e-avancado/08-TypeScript introdução\|TypeScript]] adicionou Tipagem Estática sobre o [[javascript/Introdução ao JavaScript\|JavaScript]].
+*   **O que resolveu:** O [[javascript/Introdução ao JavaScript\|JavaScript]] cresceu tanto que passou a gerenciar sistemas inteiros de escala industrial. A ausência de regras rígidas de tipagem causava bugs frequentes de lógica. O [[javascript/06-arquitetura-e-avancado/01-Programação orientada a objetos\|TypeScript]] adicionou Tipagem Estática sobre o [[javascript/Introdução ao JavaScript\|JavaScript]].
 *   **Analogia de Design:** É a criação de um **Design System rigoroso**. Você não pode simplesmente arrastar qualquer botão e aplicar qualquer cor à mão livre: o software bloqueia a ação e te força a usar as propriedades e variantes exatas permitidas pelo sistema.
 
 ## 10 - React (2013) & Vue (2014): os componentes reativos

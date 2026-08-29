@@ -24,7 +24,7 @@ for (int i = 1; i <= 10; i++)
 ```
 
 ### Quando usar o `for`?
-Use o `for` sempre que você souber **exatamente o limite** ou a quantidade de vezes que precisa repetir antes mesmo de começar (ex: ler 5 nomes, repetir 10 vezes, varrer um [[07-Arrays em Csharp|array]] de tamanho fixo).
+Use o `for` sempre que você souber **exatamente o limite** ou a quantidade de vezes que precisa repetir antes mesmo de começar (ex: ler 5 nomes, repetir 10 vezes, varrer um [[csharp/12-Arrays em Csharp|array]] de tamanho fixo).
 
 ---
 
@@ -32,7 +32,7 @@ Use o `for` sempre que você souber **exatamente o limite** ou a quantidade de v
 
 Pense no `foreach` como **folhear um álbum de figurinhas**. O álbum já tem todas as figurinhas colocadas. Sua regra é simples: *"Para cada (`foreach`) figurinha que estiver no álbum, dê uma olhada nela"*.
 
-O `foreach` dispensa qualquer controle de índice ou contador manual. Ele percorre a [[09-Coleções em Csharp|coleção]] de forma direta e segura:
+O `foreach` dispensa qualquer controle de índice ou contador manual. Ele percorre a [[csharp/14-Coleções em Csharp|coleção]] de forma direta e segura:
 
 ```csharp
 string[] nomes = { "Leonardo", "Ana", "Bia" };
@@ -45,7 +45,7 @@ foreach (string nome in nomes)
 ```
 
 > [!NOTE]
-> A [[03-Variáveis, operadores e tipos de dados|variável]] usada dentro do `foreach` (no exemplo, `nome`) é de **apenas leitura**. Você não pode modificar os elementos do [[07-Arrays em Csharp|array]] usando ela. Para aprender mais detalhes de performance e regras de uso, veja o artigo exclusivo sobre o **[[19-O loop foreach em Csharp|loop foreach em Csharp]]**.
+> A [[csharp/04-Variáveis, operadores e tipos de dados|variável]] usada dentro do `foreach` (no exemplo, `nome`) é de **apenas leitura**. Você não pode modificar os elementos do [[csharp/12-Arrays em Csharp|array]] usando ela. Para aprender mais detalhes de performance e regras de uso, veja o artigo exclusivo sobre o **[[csharp/11-O loop foreach em Csharp|loop foreach em Csharp]]**.
 
 ---
 
@@ -106,7 +106,7 @@ do
 ---
 
 ## Artigos relacionados:
-* **[[19-O loop foreach em Csharp|O loop foreach em Csharp]]**
-* **[[07-Arrays em Csharp.md|Arrays em Csharp]]**
-* **[[09-Coleções em Csharp.md|Coleções em Csharp]]**
-* **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**
+* **[[csharp/11-O loop foreach em Csharp|O loop foreach em Csharp]]**
+* **[[csharp/12-Arrays em Csharp|Arrays em Csharp]]**
+* **[[csharp/14-Coleções em Csharp|Coleções em Csharp]]**
+* **[[csharp/07-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**

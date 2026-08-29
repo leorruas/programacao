@@ -4,6 +4,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-29
 
+* **Auditoria Geral e Correção Global de Integridade do Vault**:
+  * **Zero Links Quebrados**: Varredura completa em mais de 90 notas e correção automatizada de 1.010 links e referências cruzadas (ajuste de caminhos legados de C#, JavaScript `02-funcoes-e-objetos`, pipes escapados em tabelas e normalização de nomes de arquivos).
+  * **Zero Emojis**: Remoção de emojis residuais em arquivos de projetos práticos e tutoriais de C#.
+  * **Padronização de Sintaxe Mermaid**: Diagramas atualizados para conectores padrão com pipes `-->|Rótulo|` e blocos de código com quebras `<br>` compactas.
+  * **Padronização de Títulos e Cabeçalhos**: Revisados e convertidos para *Sentence Case* estrito nos artigos de manipulação e tutoriais.
 * **Incorporação de Diretrizes e Regras Avançadas do Vault PUC (`AGENTS.md` e `.agents/rules/`)**:
   * Atualizado o [`AGENTS.md`](file:///Users/leoruas/Library/Mobile%20Documents/iCloud~md~obsidian/Documents/programac%CC%A7a%CC%83o/AGENTS.md) consolidando as diretrizes de apresentação dual de código didático (snippets atômicos + exemplo completo integrado), regras de layout vertical e compatibilidade para Mermaid v11, preservação absoluta de marcações manuais (`==texto==`), proteção de métodos dunder/underscores em WikiLinks (`__proto__`, `__init__`) e refinamento de *Sentence Case*.
   * Criadas as regras dedicadas `.agents/rules/code_presentation.md`, `.agents/rules/mermaid_guidelines.md` e `.agents/rules/preserve_highlights.md`.
@@ -72,7 +77,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Reordenamento e renumeração de todos os 26 artigos de Csharp em uma sequência pedagógica contínua (01 a 26), dividida em 5 fases de aprendizado (Fundamentos & E/S -> Condicionais & Loops -> Coleções -> POO & Arquivos -> Web & Full Stack).
   * Atualização completa da lista de busca no `script.js` e do `00-Guia de estudos.md`.
 * **Novo Artigo Integrador**:
-  * [[csharp/26-Como conectar Csharp no HTML (Backend + Frontend JS)\|26-Como conectar Csharp no HTML (Backend + Frontend JS)]]: Artigo integrador explicando a arquitetura C# (Backend) + HTML/CSS/JS (Frontend), a analogia do Drive-Thru, troca de JSON via REST API e consumo com `fetch()`.
+  * [[csharp/26-Como conectar Csharp no HTML (Backend + Frontend JS)\|Como conectar Csharp no HTML (Backend + Frontend JS)]]: Artigo integrador explicando a arquitetura C# (Backend) + HTML/CSS/JS (Frontend), a analogia do Drive-Thru, troca de JSON via REST API e consumo com `fetch()`.
 * **Revisão Ortográfica Geral**:
   * Correção e normalização automatizada de acentuação em português em 50 arquivos do vault (incluindo artigos de C#, JavaScript, CSS, Python e Git).
 
@@ -81,16 +86,16 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 ## 2026-08-04
 
 * **Novos Artigos de Csharp**:
-  * [[csharp/18-Capacity em coleções\|18-Capacity em coleções]]: Explicação de performance e alocação de memória de coleções.
-  * [[csharp/19-O loop foreach em Csharp\|19-O loop foreach em Csharp]]: Estrutura de iteração sobre coleções e funcionamento do `IEnumerable`. Revisado com método Feynman (analogia da esteira de produção).
-  * [[csharp/20-O loop do-while em Csharp\|20-O loop do-while em Csharp]]: Garantia de execução mínima de bloco de repetição e validação.
-  * [[csharp/21-Console.Write e Console.WriteLine\|21-Console.Write e Console.WriteLine]]: Revisado com método Feynman (analogia da máquina de escrever) e emojis removidos.
-  * [[csharp/22-Métodos de string (ToUpper e ToLower)\|22-Métodos de string (ToUpper e ToLower)]]: Revisado com método Feynman (analogia do filtro de voz e da foto impressa) e emojis removidos.
-  * [[csharp/23-O switch em Csharp\|23-O switch em Csharp]]: Explicação com método Feynman (analogia do elevador) para controle de fluxo condicional múltiplo e Switch Expressions, sem o uso de emojis.
-  * [[csharp/24-Csharp no Frontend e Backend\|24-Csharp no Frontend e Backend]]: Visão geral do ecossistema .NET para desenvolvimento full stack com ASP.NET Core (backend/API) e Blazor (frontend).
-  * [[csharp/25-Consumindo APIs em Csharp\|25-Consumindo APIs em Csharp]]: Como usar o HttpClient para integrar APIs externas, deserializar JSON e a diferença entre consumir APIs no backend vs no frontend.
+  * [[csharp/15-Capacity em coleções\|Capacity em coleções]]: Explicação de performance e alocação de memória de coleções.
+  * [[csharp/11-O loop foreach em Csharp\|O loop foreach em Csharp]]: Estrutura de iteração sobre coleções e funcionamento do `IEnumerable`. Revisado com método Feynman (analogia da esteira de produção).
+  * [[csharp/10-O loop do-while em Csharp\|O loop do-while em Csharp]]: Garantia de execução mínima de bloco de repetição e validação.
+  * [[csharp/03-Console.Write e Console.WriteLine\|Console.Write e Console.WriteLine]]: Revisado com método Feynman (analogia da máquina de escrever) e emojis removidos.
+  * [[csharp/06-Métodos de string (ToUpper e ToLower)\|Métodos de string (ToUpper e ToLower)]]: Revisado com método Feynman (analogia do filtro de voz e da foto impressa) e emojis removidos.
+  * [[csharp/08-O switch em Csharp\|O switch em Csharp]]: Explicação com método Feynman (analogia do elevador) para controle de fluxo condicional múltiplo e Switch Expressions, sem o uso de emojis.
+  * [[csharp/24-Csharp no Frontend e Backend\|Csharp no Frontend e Backend]]: Visão geral do ecossistema .NET para desenvolvimento full stack com ASP.NET Core (backend/API) e Blazor (frontend).
+  * [[csharp/25-Consumindo APIs em Csharp\|Consumindo APIs em Csharp]]: Como usar o HttpClient para integrar APIs externas, deserializar JSON e a diferença entre consumir APIs no backend vs no frontend.
 * **Criação de Regras (.gemini)**:
-  * [[.gemini/rules/no_emojis\|no_emojis]]: Nova regra estabelecida proibindo o uso de emojis em qualquer contexto do projeto (tanto no chat quanto nos arquivos do vault).
+  * [[.agents/rules/no_emojis\|no_emojis]]: Nova regra estabelecida proibindo o uso de emojis em qualquer contexto do projeto (tanto no chat quanto nos arquivos do vault).
 * **Atualização de Notas**:
   * [[csharp/01-Introdução ao Csharp\|Introdução ao Csharp]]: Adicionada seção de transição para outras linguagens e realizada a remoção completa de emojis decorativos dos cabeçalhos.
   * [[csharp/02-O método Main\|O método Main]]
@@ -117,13 +122,13 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Interligação de Artigos de Csharp**:
   * Realizada uma varredura geral e inseridos Wikilinks cruzados em **15 arquivos de Csharp** conectando termos-chave (como arrays, POO, métodos, coleções, exceções, etc.) às suas respectivas notas explicativas.
 * **Regra de Interligação Automática (Modus Operandi)**:
-  * Criada a regra [[.gemini/rules/auto_interlinking\|auto_interlinking.md]] definindo o comportamento padrão de linkagem inteligente cruzada para qualquer nova criação ou atualização de notas no vault.
+  * Criada a regra [[.agents/rules/auto_interlinking\|auto_interlinking.md]] definindo o comportamento padrão de linkagem inteligente cruzada para qualquer nova criação ou atualização de notas no vault.
 * **Atualização de Nota**: [[csharp/01-Introdução ao Csharp\|Introdução ao Csharp]]
   * Adicionada seção explicativa com exemplos cotidianos e práticos de utilização do C# (McDonald's, Pix e automação) sob a ótica do Método Feynman.
 * **Codificação de URLs em Links**:
   * Codificados todos os caminhos (URLs) em links markdown (`[[caminho|texto]]`) que contêm espaços e caracteres especiais em todas as notas do C# para garantir compatibilidade com o leitor do Web App (`marked.js`).
 * **Regra de Preferência de Wikilinks**:
-  * Criada a regra [[.gemini/rules/prefer_wikilinks\|prefer_wikilinks.md]] para tornar obrigatório o uso de Wikilinks do Obsidian para links internos, garantindo compatibilidade multiplataforma.
+  * Criada a regra [[.agents/rules/prefer_wikilinks\|prefer_wikilinks.md]] para tornar obrigatório o uso de Wikilinks do Obsidian para links internos, garantindo compatibilidade multiplataforma.
 * **Organização de Tutoriais**:
   * Renomeados os 4 arquivos na pasta `tutoriais/` adicionando o prefixo da linguagem correspondente (ex: `[JavaScript] • `) no nome dos arquivos e nos títulos principais (H1).
   * Atualizados os respectivos títulos e caminhos de arquivos no `script.js`.
@@ -131,34 +136,34 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Renomeação e numeração de todos os arquivos de notas dentro das subpastas lógicas (`01-fundamentos`, `02-funcoes-e-objetos`, `03-manipulacao`, `04-dom-e-browser`, `05-assincrono` e `06-arquitetura-e-avancado`) seguindo a sequência de fases do Guia de Estudos.
   * Atualização de todos os links internos, Wikilinks e caminhos de fallback no script `script.js`.
 * **Criação de Notas Avançadas de C#**:
-  * [[csharp/14-Tratamento de erros\|14-Tratamento de erros]]: Tratamento com `try`, `catch`, `finally` e `throw`.
-  * [[csharp/15-Manipulação de arquivos\|15-Manipulação de arquivos]]: Manipulação de diretórios e arquivos com `System.IO`.
-  * [[csharp/16-Herança e interfaces\|16-Herança e interfaces]]: Conceitos avançados de POO, herança de classes e contratos de interface.
-  * [[csharp/17-LINQ buscas e filtros\|17-LINQ buscas e filtros]]: Consultas eficientes em coleções com métodos LINQ (`Where`, `Select`, `OrderBy`, etc.).
+  * [[csharp/21-Tratamento de erros\|Tratamento de erros]]: Tratamento com `try`, `catch`, `finally` e `throw`.
+  * [[csharp/22-Manipulação de arquivos\|Manipulação de arquivos]]: Manipulação de diretórios e arquivos com `System.IO`.
+  * [[csharp/20-Herança e interfaces\|Herança e interfaces]]: Conceitos avançados de POO, herança de classes e contratos de interface.
+  * [[csharp/23-LINQ buscas e filtros\|LINQ buscas e filtros]]: Consultas eficientes em coleções com métodos LINQ (`Where`, `Select`, `OrderBy`, etc.).
 
-* **Atualização de Nota**: [[csharp/Arrays\|Arrays em Csharp]]
+* **Atualização de Nota**: [[csharp/12-Arrays em Csharp\|Arrays em Csharp]]
   * Adicionada dica explicativa diferenciando as condições de limite do loop (`i < nomes.Length` vs `i < nomes.Length - 1`) para evitar confusões comuns com índices de array.
 
 * **Atualização de Regra do Vault**:
-  * Atualizada a regra [[.gemini/rules/log_changes\|log_changes.md]] para incluir a obrigatoriedade de commit e push imediato ao GitHub após qualquer alteração no vault.
+  * Atualizada a regra [[.agents/rules/log_changes\|log_changes.md]] para incluir a obrigatoriedade de commit e push imediato ao GitHub após qualquer alteração no vault.
 
-* **Atualização de Nota**: [[csharp/Introdução\|Introdução ao Csharp]]
+* **Atualização de Nota**: [[csharp/01-Introdução ao Csharp\|Introdução ao Csharp]]
   * Adicionada seção explicando o uso de namespaces extras (como `System.Collections.Generic`, `System.IO`, `System.Linq` e `System.Text`) para importar outras caixas de ferramentas no C#.
 
 ## 2026-08-02
 
 * **Atualização de Regra do Vault**:
-  * Atualizada a regra [[.gemini/rules/linking_articles\|linking_articles.md]] para proibir caminhos locais absolutos do sistema e impor o uso exclusivo de links relativos ou Wikilinks para portabilidade em dispositivos móveis.
+  * Atualizada a regra [[.agents/rules/linking_articles\|linking_articles.md]] para proibir caminhos locais absolutos do sistema e impor o uso exclusivo de links relativos ou Wikilinks para portabilidade em dispositivos móveis.
 
 * **Padronização de Links do Vault**:
   * Conversão coletiva de todos os links de markdown locais absolutos (iCloud / Local paths) nas notas de C# para caminhos relativos de alta compatibilidade multi-dispositivo no Obsidian.
 
-* **Criação de Nota**: [[csharp/11-Lista, pilha e fila\|Lista, pilha e fila em C#]]
+* **Criação de Nota**: [[csharp/17-Lista, pilha e fila\|Lista, pilha e fila em C#]]
   * Criação do guia de implementação prática contendo sintaxes, operações (Enqueue, Dequeue, Push, Pop, Add, Insert) e analogias do Método Feynman.
 
 * **Criação de Notas de C#**:
-  * [[csharp/Coleções\|Coleções em Csharp]]: Explicação sobre coleções flexíveis (`List<T>`, `Dictionary<K, V>`, `HashSet<T>`).
-  * [[csharp/10-Tipos abstratos de dados\|Tipos abstratos de dados]]: Introdução conceitual sobre TADs (Filas, Pilhas e Dicionários) e sua representação no código.
+  * [[csharp/14-Coleções em Csharp\|Coleções em Csharp]]: Explicação sobre coleções flexíveis (`List<T>`, `Dictionary<K, V>`, `HashSet<T>`).
+  * [[csharp/16-Tipos abstratos de dados\|Tipos abstratos de dados]]: Introdução conceitual sobre TADs (Filas, Pilhas e Dicionários) e sua representação no código.
 * **Atualização de Nota**: [[javascript/00-Guia de Estudos\|Guia de estudos de C#]]
   * Atualização da nota para incluir Coleções em Csharp e ajustar a ordenação de roteiro de estudos sugerido.
 
@@ -172,44 +177,44 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Criação de Notas de C#**:
   * [[csharp/02-O método Main\|O método Main]]: Explicação detalhada sobre a estrutura `public static void Main(string[] args)`.
   * [[javascript/01-fundamentos/09-Estruturas de repetição (for e while)\|Estruturas de repetição (for e while)]]: Explicação detalhada sobre loops `for`, `while` e `do while`.
-  * [[csharp/08-Métodos de arrays\|Métodos de arrays]]: Dicionário exaustivo de funções para arrays.
-* **Atualização de Nota**: [[csharp/Arrays\|Arrays em Csharp]]
+  * [[csharp/13-Métodos de arrays\|Métodos de arrays]]: Dicionário exaustivo de funções para arrays.
+* **Atualização de Nota**: [[csharp/12-Arrays em Csharp\|Arrays em Csharp]]
   * Adicionada seção detalhada sobre o erro `IndexOutOfRangeException` (estouro de índice), explicando causas comuns e como evitar.
 
 * **Correção de Links de Artigos**:
   * Ajuste na codificação de caracteres de parênteses (`(` para `%28` e `)` para `%29`) nas URIs de markdown para corrigir links quebrados para o arquivo `12-Métodos (funções).md`.
-  * Adicionado rodapé de artigos relacionados ao arquivo [[csharp/Arrays\|Arrays em Csharp]].
+  * Adicionado rodapé de artigos relacionados ao arquivo [[csharp/12-Arrays em Csharp\|Arrays em Csharp]].
 
-* **Atualização de Nota**: [[csharp/Arrays\|Arrays em Csharp]]
+* **Atualização de Nota**: [[csharp/12-Arrays em Csharp\|Arrays em Csharp]]
   * Adicionadas explicações intuitivas sob o Método Feynman (tabuleiros vs gaveteiros irregulares) e as finalidades práticas para Arrays multidimensionais e Jagged Arrays.
 
 * **Comportamento de Busca no Web App**:
-  * Modificada a função de busca no [[script.js]] para ocultar automaticamente o contêiner de pastas (`#pastas-container`) ao disparar pesquisas, evitando poluição visual.
+  * Modificada a função de busca no `script.js` para ocultar automaticamente o contêiner de pastas (`#pastas-container`) ao disparar pesquisas, evitando poluição visual.
 
 * **Ajustes de Responsividade no Web App**:
   * Reduzido o tamanho da fonte do título `h1` ("pesquisa de programação") e do input de busca no mobile.
   * Mantido o alinhamento horizontal lado a lado (estilo desktop) para o input e botão de busca em telas móveis.
 
-* **Atualização de Nota**: [[csharp/Introdução\|Introdução ao Csharp]]
+* **Atualização de Nota**: [[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]
   * Adicionada a contextualização histórica de sua origem, áreas de uso prático (como Unity para jogos, mobile e corporativo) e a relevância de mercado da linguagem.
 
 * **Padronização de Títulos e Cabeçalhos (Sentence Case)**:
-  * Criação da regra [[.gemini/rules/title_capitalization\|title_capitalization.md]] exigindo que títulos e cabeçalhos em português mantenham apenas a primeira letra em maiúsculo (Sentence Case).
+  * Criação da regra [[.agents/rules/title_capitalization|title_capitalization.md]] exigindo que títulos e cabeçalhos em português mantenham apenas a primeira letra em maiúsculo (Sentence Case).
   * Renomeação dos 5 arquivos do C# para seguir a grafia Sentence Case.
-  * Revisão e atualização de todos os cabeçalhos internos e links cruzados em todas as 7 notas na pasta [[csharp/]].
-  * Sincronização da lista de caminhos de fallback no [[script.js]].
+  * Revisão e atualização de todos os cabeçalhos internos e links cruzados em todas as 7 notas na pasta `csharp/`.
+  * Sincronização da lista de caminhos de fallback no `script.js`.
 
-* **Atualização de Notas**: Todas as notas da pasta [[csharp/]]
+* **Atualização de Notas**: Todas as notas da pasta `csharp/`
   * Adicionada a hashtag `#csharp` logo abaixo do título de cada um dos 7 artigos de C# para categorização nativa no Obsidian.
 
 * **Criação de Pasta e Notas de C#**:
-  * Criação da pasta [[csharp/]] contendo os primeiros artigos explicativos.
-  * [[csharp/Introdução\|Introdução ao Csharp]]: Guia conceitual sobre a linguagem.
-  * [[csharp/Arrays\|Arrays em Csharp]]: Explicação sobre vetores.
-  * [[csharp/04-Segurança de tipos\|Segurança de Tipos]]: Detalhamento didático sobre tipagem estática e forte.
-  * [[csharp/03-Variáveis, operadores e tipos de dados\|Variáveis, Operadores e Tipos de Dados]]: Dicionário das caixas de tipos de dados.
-  * [[csharp/05-Estruturas condicionais e de repetição\|Estruturas Condicionais e de Repetição]]: Tomada de decisões e loops.
-  * [[csharp/12-Métodos (funções)\|Métodos (Funções)]]: Automatização de blocos de comando.
+  * Criação da pasta `csharp/` contendo os primeiros artigos explicativos.
+  * [[csharp/01-Introdução ao Csharp\|Introdução ao Csharp]]: Guia conceitual sobre a linguagem.
+  * [[csharp/12-Arrays em Csharp\|Arrays em Csharp]]: Explicação sobre vetores.
+  * [[csharp/05-Segurança de tipos\|Segurança de Tipos]]: Detalhamento didático sobre tipagem estática e forte.
+  * [[csharp/04-Variáveis, operadores e tipos de dados\|Variáveis, Operadores e Tipos de Dados]]: Dicionário das caixas de tipos de dados.
+  * [[csharp/07-Estruturas condicionais e de repetição\|Estruturas Condicionais e de Repetição]]: Tomada de decisões e loops.
+  * [[csharp/18-Métodos (funções)\|Métodos (Funções)]]: Automatização de blocos de comando.
   * [[javascript/06-arquitetura-e-avancado/01-Programação orientada a objetos\|Programação Orientada a Objetos]]: Moldes e fôrmas (classes), objetos e construtores.
   * Todas as notas de C# foram escritas sob o rigor do **Método Feynman** e interconectadas com links bidirecionais/cruzados.
 
@@ -264,11 +269,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Incluído um **Mini-projeto Prático Real** de Motor de Carrinho de Compras de E-commerce utilizando `filter`, `map`, `find`, `reduce` e `join`.
   * Aplicação do Método Feynman (analogia da Prateleira de Estoque Numerada).
 
-* **Enriquecimento do [[me]]**:
+* **Enriquecimento do [[me|me]]**:
   * Adicionadas seções de **Preferências Técnicas e Estilo de Código** (JS ES6+, React funcional, Tailwind/CSS limpo).
   * Expandido o **Dicionário de Analogias** (Design Tokens, Regras de Negócio/MVP, Jornada do Usuário -> Lógica de Código).
 
-* **Atualização do [[me]]**:
+* **Atualização do [[me|me]]**:
   * Detalhada a formação acadêmica completa no perfil: **Comunicação (Publicidade)**, **Design de Produto**, **MBA em Gestão de Negócios** e **Análise e Desenvolvimento de Sistemas (ADS)**.
   * Refinado o superpoder para unir pensamento visual, experiência do usuário (UX/UI), código e visão estratégica de negócios.
 
@@ -276,7 +281,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Adicionados links cruzados bidirecionais entre a nota conceitual do DOM (árvore de camadas) e a nota exaustiva dos métodos de `document`.
   * Validação pelo linter: 721 wikilinks 100% válidos.
 
-* **Atualização do [[me]]**:
+* **Atualização do [[me|me]]**:
   * Adicionado aviso no topo destacando o arquivo `me.md` como de **leitura obrigatória para todos os agentes de IA**.
   * Incorporadas as 7 diretrizes oficiais do vault diretamente no corpo do `me.md`.
 

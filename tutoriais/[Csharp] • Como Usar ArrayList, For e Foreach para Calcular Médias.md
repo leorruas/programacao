@@ -133,6 +133,6 @@ O .NET vai ler o arquivo, compilar todo o código e rodar o programa imediatamen
 ---
 
 ## Artigos relacionados:
-* **[[09-Coleções em Csharp|Coleções em Csharp (Array vs List vs ArrayList)]]**
-* **[[06-Estruturas de repetição (for e while)|Estruturas de repetição (for, foreach e while)]]**
-* **[[19-O loop foreach em Csharp|O loop foreach em Csharp]]**
+* **[[csharp/14-Coleções em Csharp|Coleções em Csharp (Array vs List vs ArrayList)]]**
+* **[[csharp/09-Estruturas de repetição (for e while)|Estruturas de repetição (for, foreach e while)]]**
+* **[[csharp/11-O loop foreach em Csharp|O loop foreach em Csharp]]**

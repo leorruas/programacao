@@ -2,18 +2,18 @@
 
 Em desenvolvimento web, um **Evento** é qualquer ação ou acontecimento detectado pelo navegador, geralmente provocado pelo usuário (como um clique em um botão, a rolagem da página ou o ato de digitar no teclado).
 
-Pense nos eventos como os **Gatilhos de [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] (Triggers)** do Figma.
+Pense nos eventos como os **Gatilhos de [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] (Triggers)** do Figma.
 
 ---
 
 ## A analogia da prototipagem no Figma
 
-Ao criar uma interação no modo de [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] do Figma, você puxa uma linha azul de um elemento para outro e define duas coisas essenciais:
+Ao criar uma interação no modo de [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] do Figma, você puxa uma linha azul de um elemento para outro e define duas coisas essenciais:
 
 1.  **O Gatilho (Trigger):** É a ação do usuário que dispara a mudança. Exemplos no Figma: *"On Click"* (Ao clicar), *"While Hovering"* (Enquanto passa o mouse por cima) ou *"On Drag"* (Ao arrastar).
 2.  **A Transição:** O que acontece quando o gatilho é disparado (ex: abrir um modal, ir para outra tela).
 
-No [[javascript/Introdução ao JavaScript\|JavaScript]], os **Eventos** são os gatilhos, e as [[javascript/02-funções-e-objetos/01-Funções|Funções]] que associamos a eles são as transições que mudam a interface em tempo real (como ao criar [[javascript/04-dom-e-browser/06-Animações com scroll|Animações com Scroll]]).
+No [[javascript/Introdução ao JavaScript\|JavaScript]], os **Eventos** são os gatilhos, e as [[javascript/02-funcoes-e-objetos/01-Funções|Funções]] que associamos a eles são as transições que mudam a interface em tempo real (como ao criar [[javascript/04-dom-e-browser/06-Animações com scroll|Animações com Scroll]]).
 
 ---
 
@@ -103,5 +103,5 @@ Assim como no Figma temos diferentes opções de triggers, no desenvolvimento we
 ## Resumo para memorizar
 
 *   **Evento:** O sinal que o navegador emite quando algo relevante acontece (o gatilho/trigger).
-*   **Event Listener:** A [[javascript/02-funções-e-objetos/01-Funções\|Funções]] que fica ativamente "escutando" e vigiando um elemento na tela para disparar uma ação.
-*   **Event Handler:** A [[javascript/02-funções-e-objetos/01-Funções\|Funções]] que é executada como resposta direta ao evento que aconteceu.
+*   **Event Listener:** A [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] que fica ativamente "escutando" e vigiando um elemento na tela para disparar uma ação.
+*   **Event Handler:** A [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] que é executada como resposta direta ao evento que aconteceu.

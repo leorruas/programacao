@@ -19,8 +19,8 @@ Para resolver isso, contrataram um programador chamado **Brendan Eich**. A miss�
 Brendan Eich não criou a linguagem do zero absoluto. Ele se inspirou em três linguagens de programação que já existiam, combinando suas melhores características:
 
 1.  **Java (Sintaxe Visual):** A Netscape tinha uma parceria com a Sun Microsystems (criadora do Java). Para agradar aos programadores da época, o [[javascript/Introdução ao JavaScript\|JavaScript]] adotou uma sintaxe muito parecida com a do Java (uso de chaves, ponto e vírgula, etc.).
-2.  **Scheme ([[javascript/02-funções-e-objetos/01-Funções\|Funções]] Poderosas):** [[javascript/Introdução ao JavaScript\|JavaScript]] herdou do Scheme a ideia de que [[javascript/02-funções-e-objetos/01-Funções\|Funções]] são cidadãs de primeira classe (First-Class Functions). Isso significa que [[javascript/02-funções-e-objetos/01-Funções\|Funções]] podem ser guardadas em variáveis, passadas como argumentos e tratadas como qualquer outro dado.
-3.  **Self (Herança por [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]):** Em vez do modelo tradicional de [[javascript/02-funções-e-objetos/09-Classes\|Classes]] que existia em Java ou C++, [[javascript/Introdução ao JavaScript\|JavaScript]] usou o modelo do Self, onde [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] podem herdar características diretamente de outros [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] ([[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]), sem a necessidade de moldes complexos.
+2.  **Scheme ([[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] Poderosas):** [[javascript/Introdução ao JavaScript\|JavaScript]] herdou do Scheme a ideia de que [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] são cidadãs de primeira classe (First-Class Functions). Isso significa que [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] podem ser guardadas em variáveis, passadas como argumentos e tratadas como qualquer outro dado.
+3.  **Self (Herança por [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]):** Em vez do modelo tradicional de [[javascript/02-funcoes-e-objetos/09-Classes\|Classes]] que existia em Java ou C++, [[javascript/Introdução ao JavaScript\|JavaScript]] usou o modelo do Self, onde [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] podem herdar características diretamente de outros [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] ([[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]), sem a necessidade de moldes complexos.
 
 ### O mito do nome: JavaScript não tem relação com Java
 
@@ -65,17 +65,17 @@ Para aprender [[javascript/Introdução ao JavaScript\|JavaScript]] de forma ló
 2.  **[[javascript/01-fundamentos/01-Var, let e const\|Variáveis (Var, Let, Const)]]:** Aprenda onde e como guardar esses dados na memória usando caixas, gavetas e cofres.
 
 ### Fase 2: lógica e estrutura (organização)
-3.  **[[javascript/02-funções-e-objetos/01-Funções\|Funções]]:** Crie suas primeiras "máquinas" de processamento de dados para reaproveitar blocos de código.
-4.  **[[javascript/02-funções-e-objetos/03-Objetos\|Objetos]]:** Aprenda a criar estruturas complexas e fichas técnicas completas para agrupar suas variáveis.
-5.  **[[javascript/02-funções-e-objetos/09-Classes\|Classes]], [[javascript/02-funções-e-objetos/10-Get e set\|Get e Set]]:** Estude a forma moderna de criar componentes e proteger os dados contra valores inválidos.
+3.  **[[javascript/02-funcoes-e-objetos/01-Funções\|Funções]]:** Crie suas primeiras "máquinas" de processamento de dados para reaproveitar blocos de código.
+4.  **[[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]:** Aprenda a criar estruturas complexas e fichas técnicas completas para agrupar suas variáveis.
+5.  **[[javascript/02-funcoes-e-objetos/09-Classes\|Classes]], [[javascript/02-funcoes-e-objetos/10-Get e set\|Get e Set]]:** Estude a forma moderna de criar componentes e proteger os dados contra valores inválidos.
 
 ### Fase 3: interação real (front-end)
 6.  **[[javascript/04-dom-e-browser/01-DOM\|DOM (Document Object Model)]]:** Descubra como o navegador lê o HTML e o transforma em uma árvore de camadas interativa.
 7.  **[[javascript/04-dom-e-browser/04-Eventos\|Eventos]]:** Crie os gatilhos para fazer a tela reagir em tempo real quando o usuário clica, digita ou move o mouse.
 
 ### Fase 4: integração de sistemas (conectividade)
-8.  **[[javascript/03-manipulacao/08-JSON\|JSON]]:** Aprenda o formato de texto universal usado para enviar dados pela rede.
-9.  **[[javascript/05-assincrono/02-API\|APIs]]:** Entenda como se conectar a serviços externos para usar recursos de terceiros (como mapas ou imagens).
+8.  **[[javascript/Consumindo APIs e Fetch\|JSON]]:** Aprenda o formato de texto universal usado para enviar dados pela rede.
+9.  **[[csharp/25-Consumindo APIs em Csharp\|APIs]]:** Entenda como se conectar a serviços externos para usar recursos de terceiros (como mapas ou imagens).
 10. **[[javascript/05-assincrono/03-Fetch\|Fetch]]:** Domine o mecanismo assíncrono para fazer as requisições de dados na internet sem travar a interface do usuário.
 
 ### Fase 5: além do navegador (back-end)
@@ -87,7 +87,7 @@ Para aprender [[javascript/Introdução ao JavaScript\|JavaScript]] de forma ló
 
 *   **Criador:** Brendan Eich em 1995 pela Netscape.
 *   **Tempo de desenvolvimento:** Apenas 10 dias.
-*   **Influências principais:** Java (sintaxe), Scheme ([[javascript/02-funções-e-objetos/01-Funções\|Funções]]) e Self ([[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]).
+*   **Influências principais:** Java (sintaxe), Scheme ([[javascript/02-funcoes-e-objetos/01-Funções\|Funções]]) e Self ([[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]]).
 *   **Independência:** Não tem relação funcional com o Java (foi apenas uma estratégia de marketing).
 *   **ECMAScript:** É a especificação oficial que dita as regras de evolução da linguagem.
 

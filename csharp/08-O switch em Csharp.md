@@ -89,5 +89,5 @@ Use o **if-else** quando precisar testar condições mais complexas ou intervalo
 ---
 
 ## Artigos relacionados:
-* **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**
-* **[[06-Estruturas de repetição (for e while)|Estruturas de repetição (for, foreach e while)]]**
+* **[[csharp/07-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**
+* **[[csharp/09-Estruturas de repetição (for e while)|Estruturas de repetição (for, foreach e while)]]**

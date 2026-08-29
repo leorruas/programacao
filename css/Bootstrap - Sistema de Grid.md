@@ -176,6 +176,6 @@ O Bootstrap tem três tipos de container:
 ---
 
 ## Artigos relacionados:
-* **[[css/Bootstrap - Introdução|Bootstrap: Introdução]]**
+* **[[css/Bootstrap - Introducao|Bootstrap: Introdução]]**
 * **[[css/Bootstrap - Componentes|Bootstrap: Componentes Prontos]]**
 * **[[css/Flexbox|Flexbox]]**

@@ -1,9 +1,9 @@
 # O loop foreach em Csharp (O leitor automático)
 #csharp
 
-O `foreach` é a estrutura de repetição mais limpa e segura do C# quando o objetivo é **ler todos os elementos de uma [[09-Coleções em Csharp|coleção]]** (como [[07-Arrays em Csharp|Arrays]], [[09-Coleções em Csharp|Lists]], `Dictionary`, etc.). 
+O `foreach` é a estrutura de repetição mais limpa e segura do C# quando o objetivo é **ler todos os elementos de uma [[csharp/14-Coleções em Csharp|coleção]]** (como [[csharp/12-Arrays em Csharp|Arrays]], [[csharp/14-Coleções em Csharp|Lists]], `Dictionary`, etc.). 
 
-Diferente do `for` tradicional, você não precisa gerenciar um índice (`i`), se preocupar com o tamanho da [[11-Lista, pilha e fila|lista]], ou correr o risco de estourar o limite do array (`IndexOutOfRangeException`).
+Diferente do `for` tradicional, você não precisa gerenciar um índice (`i`), se preocupar com o tamanho da [[csharp/17-Lista, pilha e fila|lista]], ou correr o risco de estourar o limite do array (`IndexOutOfRangeException`).
 
 ---
 
@@ -36,7 +36,7 @@ foreach (string nome in nomes)
 ## 2. A Regra de Ouro: Apenas Leitura!
 
 > [!WARNING]
-> **Você não pode alterar os itens de uma coleção usando a [[03-Variáveis, operadores e tipos de dados|variável]] de iteração do `foreach`.**
+> **Você não pode alterar os itens de uma coleção usando a [[csharp/04-Variáveis, operadores e tipos de dados|variável]] de iteração do `foreach`.**
 > A variável que representa o item atual (como `nome` no exemplo acima) é de **apenas leitura** (*read-only*). Se você tentar mudar o valor dela, o compilador C# vai dar erro de compilação.
 
 ```csharp
@@ -55,7 +55,7 @@ foreach (int num in numeros)
 
 O C# não faz mágica. Por baixo dos panos, o compilador traduz o seu simples `foreach` in um bloco `while` usando um **Enumerador**. 
 
-Para que qualquer coleção possa usar o `foreach`, ela precisa implementar a [[16-Herança e interfaces|interface]] **`IEnumerable`** (que significa "capaz de ser enumerado"). 
+Para que qualquer coleção possa usar o `foreach`, ela precisa implementar a [[csharp/20-Herança e interfaces|interface]] **`IEnumerable`** (que significa "capaz de ser enumerado"). 
 
 O código que você escreve:
 ```csharp
@@ -90,13 +90,13 @@ finally
 | :--- | :--- | :--- | :--- |
 | **Foco principal** | Contagem por índice / Modificação | Leitura limpa e rápida | Repetição baseada em condição |
 | **Segurança** | Média (risco de `IndexOutOfRangeException`) | Alta (impossível estourar o limite) | Média (risco de loop infinito) |
-| **Performance** | Levemente mais rápido em [[07-Arrays em Csharp|Arrays]] básicos | Muito rápido (mínima diferença) | Igual ao `for` |
+| **Performance** | Levemente mais rápido em [[csharp/12-Arrays em Csharp|Arrays]] básicos | Muito rápido (mínima diferença) | Igual ao `for` |
 | **Permite alterar itens** | Sim, via índice (`lista[i] = valor`) | Não, apenas leitura | Sim, via índice |
 | **Controle** | Você decide o passo (ex: de 2 em 2, de trás pra frente) | Passa de 1 em 1 do início ao fim | Livre controle manual da condição |
 
 ---
 
 ## Artigos relacionados:
-* **[[06-Estruturas de repetição (for e while)|Estruturas de repetição (for e while)]]**
-* **[[07-Arrays em Csharp|Arrays em Csharp]]**
-* **[[09-Coleções em Csharp|Coleções em Csharp]]**
+* **[[csharp/09-Estruturas de repetição (for e while)|Estruturas de repetição (for e while)]]**
+* **[[csharp/12-Arrays em Csharp|Arrays em Csharp]]**
+* **[[csharp/14-Coleções em Csharp|Coleções em Csharp]]**

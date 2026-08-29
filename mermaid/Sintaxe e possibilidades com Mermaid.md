@@ -37,7 +37,7 @@ O `flowchart` é o modelo mais flexível. Ele suporta orientações direcionais,
 | Losango (Decisão) | `id{"Texto"}` | Condicionais `if / else` |
 | Círculo | `id(("Texto"))` | Ponto de junção / Conector |
 | Cilindro de banco | `id[("Texto")]` | Banco de dados ou armazenamento |
-| Sub-rotina | `id[["Texto"]]` | Função externa ou módulo |
+| Sub-rotina | `id\[\["Texto"\]\]` | Função externa ou módulo |
 | Trapézio invertido | `id[\"Texto\"/]` | Entrada manual de dados |
 
 ### Tipos de conexões e setas

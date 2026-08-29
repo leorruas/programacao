@@ -204,7 +204,7 @@ Existem duas abordagens arquiteturais principais para conectar C# com HTML:
 ---
 
 ## Artigos relacionados:
-* **[[24-Csharp no Frontend e Backend|Csharp no Frontend e Backend]]**
-* **[[25-Consumindo APIs em Csharp|Consumindo APIs em Csharp]]**
-* **[[14-Coleções em Csharp|Coleções em Csharp]]**
-* **[[19-Programação orientada a objetos|Programação orientada a objetos]]**
+* **[[csharp/24-Csharp no Frontend e Backend|Csharp no Frontend e Backend]]**
+* **[[csharp/25-Consumindo APIs em Csharp|Consumindo APIs em Csharp]]**
+* **[[csharp/14-Coleções em Csharp|Coleções em Csharp]]**
+* **[[csharp/19-Programação orientada a objetos|Programação orientada a objetos]]**

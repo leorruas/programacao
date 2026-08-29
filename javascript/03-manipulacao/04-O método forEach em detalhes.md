@@ -34,7 +34,7 @@ array.forEach(function(currentValue, index, array) {
 | **`currentValue`** (ou `item`) | Qualquer | **Obrigatório** | O valor do elemento atual que está sendo processado na volta do loop. |
 | **`index`** | Número | Opcional | a posição numérica (índice `0`, `1`, `2`...) do elemento atual no array. |
 | **`array`** | Array | Opcional | O próprio array original que está sendo percorrido (útil para consultar a propriedade `.length` ou elementos vizinhos). |
-| **`thisArg`** | Objeto | Opcional | Objeto a ser usado como contexto do [[javascript/02-funções-e-objetos/05-Entendendo o this\|this]] dentro da função callback. |
+| **`thisArg`** | Objeto | Opcional | Objeto a ser usado como contexto do [[javascript/02-funcoes-e-objetos/05-Entendendo o this\|this]] dentro da função callback. |
 
 ---
 

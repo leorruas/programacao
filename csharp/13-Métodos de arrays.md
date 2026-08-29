@@ -1,13 +1,13 @@
 # Métodos de arrays (O dicionário de ferramentas)
 #csharp
 
-Em C#, os [[07-Arrays em Csharp|arrays]] não são apenas gaveteiros estáticos para guardar coisas. Eles vêm acompanhados de uma caixa de ferramentas muito poderosa! A [[13-Programação orientada a objetos|classe]] **`System.Array`** e os [[12-Métodos (funções)|métodos]] de extensão do **`LINQ`** (ferramentas de consulta de dados) facilitam muito a nossa vida.
+Em C#, os [[csharp/12-Arrays em Csharp|arrays]] não são apenas gaveteiros estáticos para guardar coisas. Eles vêm acompanhados de uma caixa de ferramentas muito poderosa! A [[csharp/19-Programação orientada a objetos|classe]] **`System.Array`** e os [[csharp/18-Métodos (funções)|métodos]] de extensão do **`LINQ`** (ferramentas de consulta de dados) facilitam muito a nossa vida.
 
 > [!IMPORTANT]
-> **[[07-Arrays em Csharp|Arrays]] NÃO possuem o [[12-Métodos (funções)|método]] `.Add()`!**
-> Como os arrays têm tamanho fixo na memória, você não pode "adicionar" um novo elemento dinamicamente para aumentar seu tamanho. Para inserir dados, você deve definir diretamente no índice desejado (ex: `numeros[0] = 10;`). Se precisar de um método `Add()`, você deve usar [[09-Coleções em Csharp.md|Coleções]] como a `List<T>`.
+> **[[csharp/12-Arrays em Csharp|Arrays]] NÃO possuem o [[csharp/18-Métodos (funções)|método]] `.Add()`!**
+> Como os arrays têm tamanho fixo na memória, você não pode "adicionar" um novo elemento dinamicamente para aumentar seu tamanho. Para inserir dados, você deve definir diretamente no índice desejado (ex: `numeros[0] = 10;`). Se precisar de um método `Add()`, você deve usar [[csharp/14-Coleções em Csharp|Coleções]] como a `List<T>`.
 
-Aqui está a [[11-Lista, pilha e fila|lista]] exaustiva dos métodos mais utilizados, o que cada um faz e como usá-los:
+Aqui está a [[csharp/17-Lista, pilha e fila|lista]] exaustiva dos métodos mais utilizados, o que cada um faz e como usá-los:
 
 ---
 
@@ -67,7 +67,7 @@ Esses métodos pertencem à própria caixa de ferramentas do C# e são chamados 
 
 ## 2. Métodos de busca LINQ (Extensões)
 
-Para usar estes métodos, você deve importar a biblioteca [[17-LINQ buscas e filtros|LINQ]] escrevendo `using System.Linq;` no topo do código. Eles são chamados diretamente a partir da [[03-Variáveis, operadores e tipos de dados|variável]] do array (ex: `meuArray.NomeDoMetodo()`).
+Para usar estes métodos, você deve importar a biblioteca [[csharp/23-LINQ buscas e filtros|LINQ]] escrevendo `using System.Linq;` no topo do código. Eles são chamados diretamente a partir da [[csharp/04-Variáveis, operadores e tipos de dados|variável]] do array (ex: `meuArray.NomeDoMetodo()`).
 
 ### `Min()`
 * **Para que serve:** Encontra o menor valor numérico do array.
@@ -112,6 +112,6 @@ Para usar estes métodos, você deve importar a biblioteca [[17-LINQ buscas e fi
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
-* **[[07-Arrays em Csharp.md|Arrays em Csharp]]**
-* **[[06-Estruturas de repetição (for e while)|Estruturas de repetição (for e while)]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/12-Arrays em Csharp|Arrays em Csharp]]**
+* **[[csharp/09-Estruturas de repetição (for e while)|Estruturas de repetição (for e while)]]**

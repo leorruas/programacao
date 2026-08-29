@@ -1,7 +1,7 @@
 # Arrays em Csharp
 #csharp
 
-Um **Array** (ou vetor) é uma estrutura de dados que armazena uma [[09-Coleções em Csharp|coleção]] de elementos de mesmo tipo em uma sequência de tamanho fixo.
+Um **Array** (ou vetor) é uma estrutura de dados que armazena uma [[csharp/14-Coleções em Csharp|coleção]] de elementos de mesmo tipo em uma sequência de tamanho fixo.
 
 ---
 
@@ -42,7 +42,7 @@ Console.WriteLine(frutas[1]); // Saída: Pêra
 Imagine que você tem um **gaveteiro organizador com exatamente 3 gavetas** (marcadas como `0`, `1` e `2`). 
 Se você pedir para um robô: *"Robô, abra a gaveta número 3 e pegue o casaco"*, o robô vai travar na hora. Por quê? Porque a gaveta 3 simplesmente **não existe**! As únicas gavetas válidas são `0`, `1` e `2`.
 
-No C#, se você tentar acessar uma posição que está fora dos limites do seu array, o programa trava imediatamente na linha do erro e gera a famosa [[14-Tratamento de erros|exceção]]:
+No C#, se você tentar acessar uma posição que está fora dos limites do seu array, o programa trava imediatamente na linha do erro e gera a famosa [[csharp/21-Tratamento de erros|exceção]]:
 `System.IndexOutOfRangeException: Index was outside the bounds of the array.`
 
 #### Quando acontece isso?
@@ -81,7 +81,7 @@ Console.WriteLine(numeros.Length); // Saída: 4
 ```
 
 ### Classe System.Array
-O C# fornece a [[13-Programação orientada a objetos|classe]] utilitária `Array` com vários [[12-Métodos (funções)|métodos]] estáticos úteis:
+O C# fornece a [[csharp/19-Programação orientada a objetos|classe]] utilitária `Array` com vários [[csharp/18-Métodos (funções)|métodos]] estáticos úteis:
 
 ```csharp
 int[] numeros = { 5, 2, 8, 1 };
@@ -163,12 +163,12 @@ Console.WriteLine(gaveteiro[1][2]); // Gaveta 1, Divisória 2 = Saída: 5
 
 > [!WARNING]
 > **Adicionar ou Remover Itens?**
-> Lembre-se: em C#, arrays convencionais têm **tamanho fixo**. Você **não pode** usar [[12-Métodos (funções)|métodos]] para adicionar ou remover elementos após criá-los. 
+> Lembre-se: em C#, arrays convencionais têm **tamanho fixo**. Você **não pode** usar [[csharp/18-Métodos (funções)|métodos]] para adicionar ou remover elementos após criá-los. 
 > Se você precisar de um gaveteiro elástico que cresça e encolha sozinho conforme a necessidade, você deve usar uma **`List<T>`**.
 
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
-* **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/07-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**
 

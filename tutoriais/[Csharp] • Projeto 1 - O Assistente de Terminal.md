@@ -21,7 +21,7 @@ class Program
     {
         // 1. Mensagem de Boas-Vindas
         Console.WriteLine("========================================");
-        Console.WriteLine("🤖 BEM-VINDO AO ASSISTENTE DE TERMINAL!");
+        Console.WriteLine(" BEM-VINDO AO ASSISTENTE DE TERMINAL!");
         Console.WriteLine("========================================");
         Console.WriteLine(); // Linha em branco
 
@@ -45,12 +45,12 @@ class Program
         // 4. Exibição dos Resultados (Saída de Dados)
         Console.WriteLine();
         Console.WriteLine("----------------------------------------");
-        Console.WriteLine($"📋 RELATÓRIO DO ASSISTENTE PARA {nome.ToUpper()}:");
+        Console.WriteLine($" RELATÓRIO DO ASSISTENTE PARA {nome.ToUpper()}:");
         Console.WriteLine("----------------------------------------");
-        Console.WriteLine($"✓ Com base na sua idade, você nasceu em: {anoNascimento}");
-        Console.WriteLine($"✓ Meta de hidratação diária: {aguaIdeal} ml de água (aproximadamente {aguaIdeal / 1000:F2} litros)");
+        Console.WriteLine($" Com base na sua idade, você nasceu em: {anoNascimento}");
+        Console.WriteLine($" Meta de hidratação diária: {aguaIdeal} ml de água (aproximadamente {aguaIdeal / 1000:F2} litros)");
         Console.WriteLine("----------------------------------------");
-        Console.WriteLine("🤖 Obrigado por usar o assistente! Até a próxima!");
+        Console.WriteLine(" Obrigado por usar o assistente! Até a próxima!");
         Console.WriteLine("========================================");
     }
 }
@@ -88,7 +88,7 @@ Siga o passo a passo no seu terminal:
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp|Introdução ao Csharp]]**
-* **[[02-O método Main|O método Main]]**
-* **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
-* **[[04-Segurança de tipos|Segurança de tipos]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/02-O método Main|O método Main]]**
+* **[[csharp/04-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
+* **[[csharp/05-Segurança de tipos|Segurança de tipos]]**

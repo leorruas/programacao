@@ -29,7 +29,7 @@ class Program
         while (executando)
         {
             Console.WriteLine("========================================");
-            Console.WriteLine("📓 MEU DIÁRIO DIGITAL CSHARP");
+            Console.WriteLine(" MEU DIÁRIO DIGITAL CSHARP");
             Console.WriteLine("========================================");
             Console.WriteLine("1. Escrever Nova Página (Anotação)");
             Console.WriteLine("2. Ler Diário Completo");
@@ -57,7 +57,7 @@ class Program
                     Console.WriteLine("Diário fechado com chave de ouro! Até mais.");
                     break;
                 default:
-                    Console.WriteLine("⚠️ Opção inválida! Escolha de 1 a 4.");
+                    Console.WriteLine("️ Opção inválida! Escolha de 1 a 4.");
                     break;
             }
 
@@ -75,7 +75,7 @@ class Program
 
         if (string.IsNullOrWhiteSpace(texto))
         {
-            Console.WriteLine("⚠️ Não é possível salvar uma anotação vazia!");
+            Console.WriteLine("️ Não é possível salvar uma anotação vazia!");
             return;
         }
 
@@ -87,15 +87,15 @@ class Program
         {
             // O AppendAllText cria o arquivo se não existir, e adiciona a linha ao final
             File.AppendAllText(caminhoArquivo, linhaFormatada);
-            Console.WriteLine("✓ Página salva no diário físico com sucesso!");
+            Console.WriteLine(" Página salva no diário físico com sucesso!");
         }
         catch (IOException ex)
         {
-            Console.WriteLine($"❌ Erro de Gravação: Não foi possível escrever no disco. Detalhe: {ex.Message}");
+            Console.WriteLine($" Erro de Gravação: Não foi possível escrever no disco. Detalhe: {ex.Message}");
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"❌ Erro inesperado: {ex.Message}");
+            Console.WriteLine($" Erro inesperado: {ex.Message}");
         }
     }
 
@@ -107,11 +107,11 @@ class Program
             // Verifica primeiro se o arquivo já existe no disco
             if (!File.Exists(caminhoArquivo))
             {
-                Console.WriteLine("📓 O seu diário ainda está em branco! Escreva algo primeiro.");
+                Console.WriteLine(" O seu diário ainda está em branco! Escreva algo primeiro.");
                 return;
             }
 
-            Console.WriteLine("📖 LEITURA DAS PÁGINAS DO DIÁRIO:");
+            Console.WriteLine(" LEITURA DAS PÁGINAS DO DIÁRIO:");
             Console.WriteLine("----------------------------------------");
             string conteudo = File.ReadAllText(caminhoArquivo);
             Console.Write(conteudo);
@@ -119,7 +119,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"❌ Erro ao ler o arquivo: {ex.Message}");
+            Console.WriteLine($" Erro ao ler o arquivo: {ex.Message}");
         }
     }
 
@@ -128,7 +128,7 @@ class Program
     {
         if (!File.Exists(caminhoArquivo))
         {
-            Console.WriteLine("📓 O diário não existe no disco para ser pesquisado.");
+            Console.WriteLine(" O diário não existe no disco para ser pesquisado.");
             return;
         }
 
@@ -146,7 +146,7 @@ class Program
             var linhasEncontradas = linhas.Where(linha => linha.ToLower().Contains(termo)).ToList();
 
             Console.WriteLine();
-            Console.WriteLine($"🔍 RESULTADOS ENCONTRADOS ({linhasEncontradas.Count}):");
+            Console.WriteLine($" RESULTADOS ENCONTRADOS ({linhasEncontradas.Count}):");
             Console.WriteLine("----------------------------------------");
 
             if (linhasEncontradas.Count == 0)
@@ -164,7 +164,7 @@ class Program
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"❌ Erro ao realizar a busca: {ex.Message}");
+            Console.WriteLine($" Erro ao realizar a busca: {ex.Message}");
         }
     }
 }
@@ -201,6 +201,6 @@ Siga o passo a passo no seu terminal:
 ---
 
 ## Artigos relacionados:
-* **[[14-Tratamento de erros|Tratamento de erros]]**
-* **[[15-Manipulação de arquivos|Manipulação de arquivos]]**
-* **[[17-LINQ buscas e filtros|LINQ buscas e filtros]]**
+* **[[csharp/21-Tratamento de erros|Tratamento de erros]]**
+* **[[csharp/22-Manipulação de arquivos|Manipulação de arquivos]]**
+* **[[csharp/23-LINQ buscas e filtros|LINQ buscas e filtros]]**

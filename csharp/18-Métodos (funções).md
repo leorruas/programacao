@@ -42,7 +42,7 @@ int total = Somar(5, 7); // Apertamos o botão e guardamos o 12 na caixa 'total'
 
 ## 3. Comandos sem recompensa (`void`)
 
-Alguns métodos servem apenas para fazer uma tarefa sem precisar te devolver nada. É o caso de mandar o cachorro sentar (ele só senta, não te devolve um [[13-Programação orientada a objetos|objeto]]). No código, chamamos isso de `void` (vazio).
+Alguns métodos servem apenas para fazer uma tarefa sem precisar te devolver nada. É o caso de mandar o cachorro sentar (ele só senta, não te devolve um [[csharp/19-Programação orientada a objetos|objeto]]). No código, chamamos isso de `void` (vazio).
 
 ```csharp
 void Latir()
@@ -62,6 +62,6 @@ Use o `void` sempre que seu método precisar apenas **executar uma ação**, sem
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
-* **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
-* **[[13-Programação orientada a objetos|Programação orientada a objetos]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/04-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
+* **[[csharp/19-Programação orientada a objetos|Programação orientada a objetos]]**

@@ -7,7 +7,7 @@ Para dar instruções ao computador, você precisa saber duas coisas: como guard
 
 ## 1. Variáveis são caixas com formatos diferentes
 
-Uma **variável** é apenas uma caixinha com uma etiqueta na memória do computador. Graças à [[04-Segurança de tipos|Segurança de tipos]], você precisa escolher o formato certo da caixa para cada [[13-Programação orientada a objetos|objeto]]:
+Uma **variável** é apenas uma caixinha com uma etiqueta na memória do computador. Graças à [[csharp/05-Segurança de tipos|Segurança de tipos]], você precisa escolher o formato certo da caixa para cada [[csharp/19-Programação orientada a objetos|objeto]]:
 
 * **Caixa `int` (inteiros):** Pense nela como um pote de vidro para guardar bolinhas de gude inteiras. Guarda números como `5`, `10` ou `-3`. Não dá para guardar meia bolinha.
 * **Caixa `double` (decimais):** Pense nela como um copo de medição de água. Você pode guardar valores quebrados como `1.75` (sua altura) ou `3.5` (litros).
@@ -37,7 +37,7 @@ bool possoComprarDoce = (total > 10); // Guarda true (verdadeiro)!
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
-* **[[04-Segurança de tipos|Segurança de tipos]]**
-* **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**
-* **[[07-Arrays em Csharp.md|Arrays em Csharp]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/05-Segurança de tipos|Segurança de tipos]]**
+* **[[csharp/07-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**
+* **[[csharp/12-Arrays em Csharp|Arrays em Csharp]]**

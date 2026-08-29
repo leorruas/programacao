@@ -1,7 +1,7 @@
 # LINQ buscas e filtros em Csharp
 #csharp
 
-Imagine que você tem uma caixa cheia de pecinhas de LEGO misturadas. Se você quiser encontrar apenas as peças vermelhas que são quadradas, de forma manual, você teria que pegar pecinha por pecinha, olhar a cor, olhar o formato, e separar em outra [[11-Lista, pilha e fila|pilha]]. Dá muito trabalho!
+Imagine que você tem uma caixa cheia de pecinhas de LEGO misturadas. Se você quiser encontrar apenas as peças vermelhas que são quadradas, de forma manual, você teria que pegar pecinha por pecinha, olhar a cor, olhar o formato, e separar em outra [[csharp/17-Lista, pilha e fila|pilha]]. Dá muito trabalho!
 
 O **LINQ** (que significa *Language Integrated Query*, ou Consulta Integrada à Linguagem) é como uma **peneira inteligente com sensores de inteligência artificial**. Você simplesmente diz: *"Peneira, separe para mim as peças vermelhas e quadradas"* e, em um piscar de olhos, ela faz todo o trabalho duro e te entrega o resultado pronto!
 
@@ -60,7 +60,7 @@ class Program
 
 ## 3. Filtrando objetos reais
 
-O LINQ brilha de verdade quando filtramos [[11-Lista, pilha e fila|listas]] de [[13-Programação orientada a objetos|objetos]] complexos (como contas, produtos ou jogadores de um jogo):
+O LINQ brilha de verdade quando filtramos [[csharp/17-Lista, pilha e fila|listas]] de [[csharp/19-Programação orientada a objetos|objetos]] complexos (como contas, produtos ou jogadores de um jogo):
 
 ```csharp
 using System;
@@ -106,5 +106,5 @@ class Program
 ---
 
 ## Artigos relacionados:
-* **[[09-Coleções em Csharp.md|09-Coleções em Csharp.md]]**
-* **[[08-Métodos de arrays|08-Métodos de arrays.md]]**
+* **[[csharp/14-Coleções em Csharp|Coleções em Csharp.md]]**
+* **[[csharp/13-Métodos de arrays|Métodos de arrays.md]]**

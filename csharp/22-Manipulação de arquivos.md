@@ -115,5 +115,5 @@ class Program
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|01-Introdução ao Csharp.md]]**
-* **[[14-Tratamento de erros|14-Tratamento de erros.md]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp.md]]**
+* **[[csharp/21-Tratamento de erros|Tratamento de erros.md]]**

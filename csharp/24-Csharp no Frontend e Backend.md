@@ -144,7 +144,7 @@ Ao escolher C# para full stack, você herda todo o ecossistema .NET:
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp|Introdução ao Csharp]]**
-* **[[13-Programação orientada a objetos|Programação orientada a objetos]]**
-* **[[14-Tratamento de erros|Tratamento de erros]]**
-* **[[17-LINQ buscas e filtros|LINQ buscas e filtros]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/19-Programação orientada a objetos|Programação orientada a objetos]]**
+* **[[csharp/21-Tratamento de erros|Tratamento de erros]]**
+* **[[csharp/23-LINQ buscas e filtros|LINQ buscas e filtros]]**

@@ -146,7 +146,7 @@ do {
 
 ## 4. Loops modernos para coleções (for...of e for...in)
 
-No desenvolvimento moderno de software, o [[javascript/Introdução ao JavaScript\|JavaScript]] oferece formas muito mais limpas para percorrer [[javascript/03-manipulacao/02-Arrays e métodos de array\|Arrays]] e [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]]:
+No desenvolvimento moderno de software, o [[javascript/Introdução ao JavaScript\|JavaScript]] oferece formas muito mais limpas para percorrer [[javascript/03-manipulacao/02-Arrays e métodos de array\|Arrays]] e [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]]:
 
 ### A. `For...of` (para percorrer valores de arrays)
 Usado para iterar diretamente sobre os elementos de um Array sem precisar gerenciar o contador manualmente.
@@ -226,7 +226,7 @@ for (let i = 0; i < videoGames.length; i++) {
 | **`while`** | Quando a repetição depende de uma condição dinâmica (número de voltas incerto). | No início de cada repetição. |
 | **`do...while`** | Quando o bloco precisa rodar obrigatoriamente pelo menos uma vez. | No final de cada repetição. |
 | **`for...of`** | Para iterar sobre valores de [[javascript/03-manipulacao/02-Arrays e métodos de array\|Arrays]] e coleções iteráveis. | Automática para cada item. |
-| **`for...in`** | Para percorrer as chaves/propriedades de um [[javascript/02-funções-e-objetos/03-Objetos\|Objeto]]. | Automática para cada chave. |
+| **`for...in`** | Para percorrer as chaves/propriedades de um [[javascript/02-funcoes-e-objetos/03-Objetos\|Objeto]]. | Automática para cada chave. |
 
 ---
 

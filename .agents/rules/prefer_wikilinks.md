@@ -8,5 +8,5 @@ Todos os links internos entre as notas do vault devem ser criados preferencialme
 
 ## Exemplo:
 * **Incorreto (Link Markdown com caracteres especiais):** `[Introdução ao C#](01-Introdução ao C#.md)` (quebra no Web App devido a espaços) ou `[Introdução ao C#](01-Introdu%C3%A7%C3%A3o%20ao%20C%23.md)` (faz o Obsidian criar um arquivo duplicado com `%23` no nome ao ser clicado).
-* **Correto (Wikilink nativo):** `[[01-Introdução ao C#|Introdução ao C#]]` (funciona perfeitamente em ambos os ambientes).
+* **Correto (Wikilink nativo):** `[[csharp/01-Introdução ao Csharp|Introdução ao C#]]` (funciona perfeitamente em ambos os ambientes).
 

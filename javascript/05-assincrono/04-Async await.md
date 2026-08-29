@@ -18,7 +18,7 @@ Imagine que você está em um restaurante self-service versus um restaurante à 
 ## Como funciona no JavaScript
 
 Para usar essa estrutura, precisamos de duas palavras-chave:
-1.  **async:** Colocamos antes da declaração da [[javascript/02-funções-e-objetos/01-Funções\|Funções]] para avisar ao [[javascript/Introdução ao JavaScript\|JavaScript]] que dentro dela haverá tarefas demoradas.
+1.  **async:** Colocamos antes da declaração da [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] para avisar ao [[javascript/Introdução ao JavaScript\|JavaScript]] que dentro dela haverá tarefas demoradas.
 2.  **await:** Colocamos logo antes da instrução que precisa esperar a resposta (como a busca com o [[javascript/05-assincrono/03-Fetch|Fetch]]).
 
 ```javascript
@@ -29,7 +29,7 @@ async function buscarDadosDoUsuario() {
   const resposta = await fetch("https://api.exemplo.com/usuario");
   
   // Espera a conversão do texto em dados estruturados (JSON)
-  const dados = await resposta.json(); // Formato [[javascript/03-manipulacao/08-JSON|JSON]]
+  const dados = await resposta.json(); // Formato [[javascript/Consumindo APIs e Fetch|JSON]]
   
   // Agora que temos os dados prontos, o código continua
   console.log("Nome do usuário:", dados.nome);
@@ -63,6 +63,6 @@ async function carregarDesign() {
 
 ## Resumo para memorizar
 
-*   **async:** Indica que uma [[javascript/02-funções-e-objetos/01-Funções\|Funções]] é assíncrona e permite o uso da palavra `await` dentro dela.
-*   **await:** Pausa a leitura da [[javascript/02-funções-e-objetos/01-Funções\|Funções]] até que a promessa (Promise) seja resolvida (dados entregues).
+*   **async:** Indica que uma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] é assíncrona e permite o uso da palavra `await` dentro dela.
+*   **await:** Pausa a leitura da [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] até que a promessa (Promise) seja resolvida (dados entregues).
 *   **[[javascript/06-arquitetura-e-avancado/06-Tratamento de erros\|Tratamento de Erros]]:** A estrutura usada para envelopar o código assíncrono e gerenciar erros de forma limpa.

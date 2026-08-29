@@ -62,7 +62,7 @@ while (cansado == false)
 ```
 
 ### O loop foreach (para cada item de um gaveteiro)
-Usamos o `foreach` para vasculhar uma [[09-Coleções em Csharp|coleção]] inteira, como um [[07-Arrays em Csharp.md|Array]], sem precisar contar de 1 em 1.
+Usamos o `foreach` para vasculhar uma [[csharp/14-Coleções em Csharp|coleção]] inteira, como um [[csharp/12-Arrays em Csharp|Array]], sem precisar contar de 1 em 1.
 *Analogia: Abra e coma cada chocolate que está dentro de uma caixa.*
 
 ```csharp
@@ -77,7 +77,7 @@ foreach (string fruta in frutas)
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
-* **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
-* **[[07-Arrays em Csharp.md|Arrays em Csharp]]**
-* **[[12-Métodos (funções)|Métodos (funções)]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/04-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
+* **[[csharp/12-Arrays em Csharp|Arrays em Csharp]]**
+* **[[csharp/18-Métodos (funções)|Métodos (funções)]]**

@@ -63,7 +63,7 @@ Você pode adicionar pequenas letras (flags) após a barra final do regex para a
 
 *   O regex é a ferramenta interna por trás das validações de dados recebidos por campos de texto de formulários monitorados por **[[javascript/04-dom-e-browser/04-Eventos|Eventos]]**.
 *   Ele é muito utilizado ao sanitizar strings antes de enviá-las para bases de dados através de requisições de **[[javascript/05-assincrono/03-Fetch|Fetch]]**.
-*   Em Javascript moderno, podemos usá-lo dentro de diversos **[[javascript/03-manipulacao/03-Métodos de array|Métodos de array]]** para filtrar listas complexas de textos.
+*   Em Javascript moderno, podemos usá-lo dentro de diversos **[[javascript/03-manipulacao/02-Arrays e métodos de array|Métodos de array]]** para filtrar listas complexas de textos.
 
 ---
 

@@ -3,7 +3,7 @@
 
 Quando você clica no botão "Executar" de um programa em C#, o computador precisa saber exatamente por onde começar. Imagine que o seu programa é um shopping gigante: tem várias lojas, elevadores e corredores, mas você só consegue entrar se passar pela **porta da frente**. 
 
-Em C#, essa porta da frente é o [[12-Métodos (funções)|método]] **`Main`**.
+Em C#, essa porta da frente é o [[csharp/18-Métodos (funções)|método]] **`Main`**.
 
 ---
 
@@ -20,16 +20,16 @@ Para uma criança entender, vamos quebrar essa frase palavra por palavra:
 Significa que qualquer um tem acesso a essa porta. Ela está aberta e destrancada na rua. O computador precisa que ela seja pública para conseguir abrir o programa do lado de fora.
 
 ### `static` (Estático)
-Em C#, para usar um molde ([[13-Programação orientada a objetos|Classe]]), geralmente precisamos criar um [[13-Programação orientada a objetos|objeto]] real na memória (usando `new`). Mas o `static` diz: **"Você não precisa criar nada antes para usar este botão"**. O computador pode apertar o botão `Main` imediatamente, mesmo se o programa estiver completamente vazio.
+Em C#, para usar um molde ([[csharp/19-Programação orientada a objetos|Classe]]), geralmente precisamos criar um [[csharp/19-Programação orientada a objetos|objeto]] real na memória (usando `new`). Mas o `static` diz: **"Você não precisa criar nada antes para usar este botão"**. O computador pode apertar o botão `Main` imediatamente, mesmo se o programa estiver completamente vazio.
 
 ### `void` (Vazio / Sem retorno)
-Diz que esse [[12-Métodos (funções)|método]] faz as suas tarefas, mas **não devolve nenhum objeto físico** de volta para quem o chamou. Ele apenas realiza a ação e encerra.
+Diz que esse [[csharp/18-Métodos (funções)|método]] faz as suas tarefas, mas **não devolve nenhum objeto físico** de volta para quem o chamou. Ele apenas realiza a ação e encerra.
 
 ### `Main` (Principal)
 É o nome oficial da porta. C# é rigoroso: ele sempre vai procurar por um método com a primeira letra maiúscula escrita exatamente como **`Main`**. Se você escrever `main` (com "m" minúsculo), o compilador vai ficar confuso e o programa não vai ligar.
 
 ### `(string[] args)` (Os argumentos)
-São **instruções extras** (uma [[09-Coleções em Csharp|coleção]] de palavras) que você pode mandar para o programa no exato momento em que você o inicia pelo terminal do computador.
+São **instruções extras** (uma [[csharp/14-Coleções em Csharp|coleção]] de palavras) que você pode mandar para o programa no exato momento em que você o inicia pelo terminal do computador.
 
 ---
 
@@ -47,12 +47,12 @@ Em versões clássicas do C# e em sistemas robustos, você verá duas formas pri
 * `static void Main(string[] args)` (com argumentos)
 * `static void Main()` (sem nenhum argumento)
 
-### 🟢 Quando deixar vazio: `static void Main()`
+###  Quando deixar vazio: `static void Main()`
 Você pode deixar o método sem parâmetros sempre que o seu programa **não precisar receber instruções externas logo de cara** ao ser ligado pelo terminal. 
 * **Onde é usado:** Aplicativos de console simples (onde o usuário digita os dados *depois* que o programa já abriu, via `Console.ReadLine()`), aplicativos com telas visuais (Windows Forms, WPF) ou sistemas web (APIs).
 * **Exemplo do cotidiano:** Um aplicativo de calculadora simples. Você abre o aplicativo e ele te pergunta na tela: *"Digite o primeiro número"*. Ele não precisa de nenhuma informação prévia no terminal para ligar.
 
-### 🟡 Quando usar argumentos: `static void Main(string[] args)`
+###  Quando usar argumentos: `static void Main(string[] args)`
 Você deve declarar os argumentos quando estiver criando um programa utilitário que é chamado por outros programas, scripts automatizados ou via terminal, onde os parâmetros de entrada **devem ser passados no exato momento de ligar o app**.
 
 * **Onde é usado:** Ferramentas de linha de comando (CLI), scripts de automação, rotinas automáticas de servidor (CRON jobs) e robôs de backup.
@@ -82,6 +82,6 @@ Você deve declarar os argumentos quando estiver criando um programa utilitário
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp|Introdução ao Csharp]]**
-* **[[12-Métodos (funções)|Métodos (funções)]]**
-* **[[13-Programação orientada a objetos|Programação orientada a objetos]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/18-Métodos (funções)|Métodos (funções)]]**
+* **[[csharp/19-Programação orientada a objetos|Programação orientada a objetos]]**

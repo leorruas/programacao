@@ -2,7 +2,7 @@
 
 Quando você digita uma palavra entre aspas no console do navegador (ex: `'Andre'`) e adiciona o ponto (`.`), o autocompletar exibe uma lista gigantesca com mais de 50 propriedades e métodos.
 
-Isso acontece devido a um fenômeno do [[javascript/Introdução ao JavaScript\|JavaScript]] chamado **Autoboxing** (Empacotamento Automático). Embora a string seja um [[javascript/01-fundamentos/03-Tipos de dados\|tipo de dado primitivo]], o [[javascript/Introdução ao JavaScript\|JavaScript]] envelopa o texto temporariamente dentro do [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] nativo `String`, liberando uma barra de ferramentas completa.
+Isso acontece devido a um fenômeno do [[javascript/Introdução ao JavaScript\|JavaScript]] chamado **Autoboxing** (Empacotamento Automático). Embora a string seja um [[javascript/01-fundamentos/03-Tipos de dados\|tipo de dado primitivo]], o [[javascript/Introdução ao JavaScript\|JavaScript]] envelopa o texto temporariamente dentro do [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] nativo `String`, liberando uma barra de ferramentas completa.
 
 Sob a perspectiva da **Edição de Texto**, os métodos de String funcionam exatamente como a **Barra de Ferramentas Completa do Microsoft Word ou Figma**.
 
@@ -20,13 +20,13 @@ Sob a perspectiva da **Edição de Texto**, os métodos de String funcionam exat
 
 ## 1. Dicionário exaustivo de todos os métodos e propriedades de string
 
-Abaixo está a lista completa de tudo o que o [[javascript/Introdução ao JavaScript\|JavaScript]] disponibiliza no [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] de String:
+Abaixo está a lista completa de tudo o que o [[javascript/Introdução ao JavaScript\|JavaScript]] disponibiliza no [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] de String:
 
 ### A. Propriedade de informação
 | Item | Tipo | Descrição e Exemplo |
 | :--- | :--- | :--- |
 | **`length`** | Propriedade | Retorna a quantidade de caracteres da string. Ex: `'Andre'.length` (Saída: `5`). |
-| **`constructor`** | Propriedade | Retorna a [[javascript/02-funções-e-objetos/01-Funções\|Funções]] construtora do [[javascript/02-funções-e-objetos/03-Objetos\|Objetos]] (`function String() { [native code] }`). |
+| **`constructor`** | Propriedade | Retorna a [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] construtora do [[javascript/02-funcoes-e-objetos/03-Objetos\|Objetos]] (`function String() { [native code] }`). |
 
 ---
 
@@ -48,9 +48,9 @@ Abaixo está a lista completa de tudo o que o [[javascript/Introdução ao JavaS
 | **`endsWith(busca, tamanho)`** | Retorna `true` se a string termina com o texto. | `'Andre'.endsWith('e')` -> `true` |
 | **`indexOf(busca, inicio)`** | Retorna o índice da primeira ocorrência do texto (ou `-1` se não achar). | `'Andre'.indexOf('d')` -> `2` |
 | **`lastIndexOf(busca, inicio)`** | Retorna o índice da última ocorrência do texto. | `'Andre'.lastIndexOf('e')` -> `4` |
-| **`search(regex)`** | Busca uma correspondência via [[javascript/03-manipulacao/07-Regex\|Regex]] e retorna o índice. | `'Andre'.search(/d/)` -> `2` |
-| **`match(regex)`** | Retorna um array com os resultados da busca por [[javascript/03-manipulacao/07-Regex\|Regex]]. | `'Andre'.match(/n./)` -> `["nd"]` |
-| **`matchAll(regex)`** | Retorna um iterador com todas as correspondências detalhadas de uma [[javascript/03-manipulacao/07-Regex\|Regex]] global. | Usado com `for...of` |
+| **`search(regex)`** | Busca uma correspondência via [[javascript/01-fundamentos/03-Tipos de dados\|Regex]] e retorna o índice. | `'Andre'.search(/d/)` -> `2` |
+| **`match(regex)`** | Retorna um array com os resultados da busca por [[javascript/01-fundamentos/03-Tipos de dados\|Regex]]. | `'Andre'.match(/n./)` -> `["nd"]` |
+| **`matchAll(regex)`** | Retorna um iterador com todas as correspondências detalhadas de uma [[javascript/01-fundamentos/03-Tipos de dados\|Regex]] global. | Usado com `for...of` |
 | **`localeCompare(outraStr)`** | Compara duas strings considerando acentuação e idioma (retorna `-1`, `0` ou `1`). | `'a'.localeCompare('b')` -> `-1` |
 | **`isWellFormed()`** | Retorna `true` se a string não contiver marcadores de código Unicode "orfãos". | Método moderno de validação |
 
@@ -62,7 +62,7 @@ Abaixo está a lista completa de tudo o que o [[javascript/Introdução ao JavaS
 | **`slice(inicio, fim)`** | Extrai uma fatia da string. Aceita números negativos. | `'Andre'.slice(1, 4)` -> `"ndr"` |
 | **`substring(inicio, fim)`** | Extrai uma fatia da string. Não aceita índices negativos. | `'Andre'.substring(0, 3)` -> `"And"` |
 | **`substr(inicio, tamanho)`** | Extrai a partir do início com um número de caracteres fixo (Obsoleto). | `'Andre'.substr(1, 3)` -> `"ndr"` |
-| **`split(separador, limite)`** | Corta a string no separador e retorna um [[javascript/03-manipulacao/03-Métodos de array\|Array]]. | `'A-B'.split('-')` -> `["A", "B"]` |
+| **`split(separador, limite)`** | Corta a string no separador e retorna um [[javascript/03-manipulacao/02-Arrays e métodos de array\|Array]]. | `'A-B'.split('-')` -> `["A", "B"]` |
 | **`concat(str1, str2...)`** | Une duas ou mais strings (embora o operador `+` seja mais comum). | `'An'.concat('dre')` -> `"Andre"` |
 
 ---
@@ -77,8 +77,8 @@ Abaixo está a lista completa de tudo o que o [[javascript/Introdução ao JavaS
 | **`trim()`** | Remove espaços em branco do início e do fim. | `' Andre '.trim()` -> `"Andre"` |
 | **`trimStart()` / `trimLeft()`** | Remove espaços em branco apenas do início. | `' Andre'.trimStart()` -> `"Andre"` |
 | **`trimEnd()` / `trimRight()`** | Remove espaços em branco apenas do final. | `'Andre '.trimEnd()` -> `"Andre"` |
-| **`replace(busca, substituto)`** | Substitui a primeira ocorrência do texto ou [[javascript/03-manipulacao/07-Regex\|Regex]]. | `'Andre'.replace('e', 'a')` -> `"Andra"` |
-| **`replaceAll(busca, substituto)`** | Substitui TODAS as ocorrências do texto ou [[javascript/03-manipulacao/07-Regex\|Regex]]. | `'aba'.replaceAll('a', 'x')` -> `"xbx"` |
+| **`replace(busca, substituto)`** | Substitui a primeira ocorrência do texto ou [[javascript/01-fundamentos/03-Tipos de dados\|Regex]]. | `'Andre'.replace('e', 'a')` -> `"Andra"` |
+| **`replaceAll(busca, substituto)`** | Substitui TODAS as ocorrências do texto ou [[javascript/01-fundamentos/03-Tipos de dados\|Regex]]. | `'aba'.replaceAll('a', 'x')` -> `"xbx"` |
 | **`repeat(vezes)`** | Repete o texto a quantidade de vezes especificada. | `'A'.repeat(3)` -> `"AAA"` |
 | **`padStart(tamanho, texto)`** | Preenche o início do texto até atingir o comprimento desejado. | `'5'.padStart(3, '0')` -> `"005"` |
 | **`padEnd(tamanho, texto)`** | Preenche o final do texto até atingir o comprimento desejado. | `'5'.padEnd(3, '0')` -> `"500"` |
@@ -124,6 +124,6 @@ Estes métodos foram criados nos anos 90 e inserem tags HTML puras envoltas da p
 
 ## Resumo para memorizar
 
-*   **Tamanho da Lista:** São mais de 50 itens disponíveis no autocompletar devido ao [[javascript/02-funções-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] `String.prototype`.
+*   **Tamanho da Lista:** São mais de 50 itens disponíveis no autocompletar devido ao [[javascript/02-funcoes-e-objetos/07-Protótipos e proto\|Protótipos e Proto]] `String.prototype`.
 *   **O que usar no dia a dia:** Foque em `length`, `includes`, `slice`, `split`, `trim`, `replace`, `toLowerCase` e `toUpperCase`.
 *   **O que ignorar:** Ignore totalmente os métodos de formatação HTML (`bold`, `italics`, `blink`, etc.) e use CSS no lugar.

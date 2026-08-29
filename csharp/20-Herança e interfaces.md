@@ -1,14 +1,14 @@
 # Herança e interfaces em Csharp
 #csharp
 
-Na [[13-Programação orientada a objetos|Programação Orientada a Objetos]], conforme nosso código cresce, começamos a ter muitos moldes (classes) parecidos. Para evitar que a gente tenha que redigitar as mesmas coisas várias vezes, usamos dois superpoderes de organização: **Herança** e **Interfaces**.
+Na [[csharp/19-Programação orientada a objetos|Programação Orientada a Objetos]], conforme nosso código cresce, começamos a ter muitos moldes (classes) parecidos. Para evitar que a gente tenha que redigitar as mesmas coisas várias vezes, usamos dois superpoderes de organização: **Herança** e **Interfaces**.
 
 ---
 
 ## 1. Herança: Reutilizando o que veio dos "pais"
 
 Imagine que você está criando um jogo de RPG. Você tem o molde de um `Guerreiro` e o de um `Mago`. Ambos são personagens, têm `Nome`, `Vida` e realizam a ação de `Atacar`.
-Em vez de programar vida e nome em cada um, nós criamos uma [[13-Programação orientada a objetos|classe]] pai chamada `Personagem` (classe base) e fazemos as classes filhos `Guerreiro` e `Mago` (classes derivadas) **herdarem** dela usando o caractere `:`:
+Em vez de programar vida e nome em cada um, nós criamos uma [[csharp/19-Programação orientada a objetos|classe]] pai chamada `Personagem` (classe base) e fazemos as classes filhos `Guerreiro` e `Mago` (classes derivadas) **herdarem** dela usando o caractere `:`:
 
 ```csharp
 using System;
@@ -57,7 +57,7 @@ class Program
 ## 2. Interfaces: O contrato de obrigações
 
 Enquanto a herança define o que um objeto **É** (um guerreiro é um personagem), a **Interface** define o que um objeto **CONSEGUE FAZER**.
-Uma interface é como um contrato ou manual de instruções que diz: *"Quem assinar este contrato é obrigado a criar estes [[12-Métodos (funções)|métodos]]!"*. Ela não tem código dentro, apenas os nomes das regras.
+Uma interface é como um contrato ou manual de instruções que diz: *"Quem assinar este contrato é obrigado a criar estes [[csharp/18-Métodos (funções)|métodos]]!"*. Ela não tem código dentro, apenas os nomes das regras.
 
 Por exemplo, coisas diferentes como um `Carro`, um `Jogador` e uma `Porta` podem ser fechadas/abertas. Nós criamos a interface `IAbrivel` (por convenção, sempre começamos o nome com a letra `I` maiúscula):
 
@@ -112,5 +112,5 @@ class Bau : IAbrivel
 ---
 
 ## Artigos relacionados:
-* **[[13-Programação orientada a objetos|13-Programação orientada a objetos.md]]**
-* **[[12-Métodos (funções)|12-Métodos (funções).md]]**
+* **[[csharp/19-Programação orientada a objetos|Programação orientada a objetos.md]]**
+* **[[csharp/18-Métodos (funções)|Métodos (funções).md]]**

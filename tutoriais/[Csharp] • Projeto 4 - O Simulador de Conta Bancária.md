@@ -53,11 +53,11 @@ class ContaBancaria
         if (valor > 0)
         {
             saldo += valor; // Soma ao saldo
-            Console.WriteLine($"✓ Depósito de R$ {valor:F2} realizado na conta {Numero}.");
+            Console.WriteLine($" Depósito de R$ {valor:F2} realizado na conta {Numero}.");
         }
         else
         {
-            Console.WriteLine("⚠️ Erro: O valor do depósito deve ser maior que zero!");
+            Console.WriteLine("️ Erro: O valor do depósito deve ser maior que zero!");
         }
     }
 
@@ -66,7 +66,7 @@ class ContaBancaria
     {
         if (valor <= 0)
         {
-            Console.WriteLine("⚠️ Erro: O valor do saque deve ser maior que zero!");
+            Console.WriteLine("️ Erro: O valor do saque deve ser maior que zero!");
             return false;
         }
 
@@ -74,12 +74,12 @@ class ContaBancaria
         if (valor <= saldo)
         {
             saldo -= valor; // Subtrai do saldo
-            Console.WriteLine($"✓ Saque de R$ {valor:F2} realizado na conta {Numero}.");
+            Console.WriteLine($" Saque de R$ {valor:F2} realizado na conta {Numero}.");
             return true;
         }
         else
         {
-            Console.WriteLine($"❌ Erro: Saldo insuficiente na conta {Numero}! Saldo atual: R$ {saldo:F2}");
+            Console.WriteLine($" Erro: Saldo insuficiente na conta {Numero}! Saldo atual: R$ {saldo:F2}");
             return false;
         }
     }
@@ -91,7 +91,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("========================================");
-        Console.WriteLine("🏦 SISTEMA DE SIMULAÇÃO BANCÁRIA CSHARP");
+        Console.WriteLine(" SISTEMA DE SIMULAÇÃO BANCÁRIA CSHARP");
         Console.WriteLine("========================================");
 
         // Instanciando (criando) objetos da classe ContaBancaria a partir do molde
@@ -104,14 +104,14 @@ class Program
         Console.WriteLine("----------------------------------------\n");
 
         // 3. Testando as Operações Financeiras
-        Console.WriteLine("💵 Movimentações na conta do Leonardo:");
+        Console.WriteLine(" Movimentações na conta do Leonardo:");
         contaLeonardo.Depositar(150.00);  // Deposita 150 (Saldo vai para 250)
         contaLeonardo.Sacar(50.00);       // Saca 50 (Saldo vai para 200)
         contaLeonardo.Sacar(300.00);      // Tenta sacar 300 (Deve falhar: saldo é 200)
         Console.WriteLine($"Saldo final do Leonardo: R$ {contaLeonardo.Saldo:F2}");
         Console.WriteLine("----------------------------------------\n");
 
-        Console.WriteLine("💵 Movimentações na conta da Maria:");
+        Console.WriteLine(" Movimentações na conta da Maria:");
         contaMaria.Sacar(200.00);         // Saca 200 (Saldo vai para 300)
         contaMaria.Depositar(-10);        // Tenta depósito inválido (Deve falhar)
         Console.WriteLine($"Saldo final da Maria: R$ {contaMaria.Saldo:F2}");
@@ -151,6 +151,6 @@ Siga o passo a passo no seu terminal:
 ---
 
 ## Artigos relacionados:
-* **[[12-Métodos (funções)|Métodos (funções)]]**
-* **[[13-Programação orientada a objetos|Programação orientada a objetos]]**
-* **[[16-Herança e interfaces|Herança e interfaces]]**
+* **[[csharp/18-Métodos (funções)|Métodos (funções)]]**
+* **[[csharp/19-Programação orientada a objetos|Programação orientada a objetos]]**
+* **[[csharp/20-Herança e interfaces|Herança e interfaces]]**

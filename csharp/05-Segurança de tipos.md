@@ -32,6 +32,6 @@ Isso é ótimo! É muito melhor o fiscal te avisar enquanto você está escreven
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
-* **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
-* **[[07-Arrays em Csharp.md|Arrays em Csharp]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/04-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
+* **[[csharp/12-Arrays em Csharp|Arrays em Csharp]]**

@@ -28,7 +28,7 @@ class Program
         bool acertou = false;
 
         Console.WriteLine("========================================");
-        Console.WriteLine("🎲 BEM-VINDO AO JOGO DA ADIVINHAÇÃO!");
+        Console.WriteLine(" BEM-VINDO AO JOGO DA ADIVINHAÇÃO!");
         Console.WriteLine("========================================");
         Console.WriteLine("Estou pensando em um número de 1 a 100...");
         Console.WriteLine("Tente adivinhar qual é!");
@@ -46,7 +46,7 @@ class Program
                 // Tenta converter o texto para número. Se falhar, avisa e repete a pergunta.
                 if (!int.TryParse(entrada, out palpite) || palpite < 1 || palpite > 100)
                 {
-                    Console.WriteLine("⚠️ Entrada inválida! Digite apenas números inteiros entre 1 e 100.");
+                    Console.WriteLine("️ Entrada inválida! Digite apenas números inteiros entre 1 e 100.");
                     palpite = 0; // Reseta para continuar no loop de validação
                 }
 
@@ -61,19 +61,19 @@ class Program
             }
             else if (palpite < numeroSecreto)
             {
-                Console.WriteLine($"🔺 O número secreto é MAIOR do que {palpite}. Tente novamente!");
+                Console.WriteLine($" O número secreto é MAIOR do que {palpite}. Tente novamente!");
             }
             else
             {
-                Console.WriteLine($"🔻 O número secreto é MENOR do que {palpite}. Tente novamente!");
+                Console.WriteLine($" O número secreto é MENOR do que {palpite}. Tente novamente!");
             }
             Console.WriteLine(); // Linha em branco para organização
         }
 
         // 4. Mensagem de vitória
         Console.WriteLine("========================================");
-        Console.WriteLine("🎉 PARABÉNS! VOCÊ VENCEU!");
-        Console.WriteLine($"🎯 O número secreto era mesmo {numeroSecreto}.");
+        Console.WriteLine(" PARABÉNS! VOCÊ VENCEU!");
+        Console.WriteLine($" O número secreto era mesmo {numeroSecreto}.");
         Console.WriteLine($"⏱️ Você precisou de {tentativas} tentativa(s) para acertar!");
         Console.WriteLine("========================================");
     }
@@ -111,6 +111,6 @@ Siga o passo a passo no seu terminal:
 ---
 
 ## Artigos relacionados:
-* **[[05-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**
-* **[[06-Estruturas de repetição (for e while)|Estruturas de repetição (for, foreach e while)]]**
-* **[[20-O loop do-while em Csharp|O loop do-while em Csharp]]**
+* **[[csharp/07-Estruturas condicionais e de repetição|Estruturas condicionais e de repetição]]**
+* **[[csharp/09-Estruturas de repetição (for e while)|Estruturas de repetição (for, foreach e while)]]**
+* **[[csharp/10-O loop do-while em Csharp|O loop do-while em Csharp]]**

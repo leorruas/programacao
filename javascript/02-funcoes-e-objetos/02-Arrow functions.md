@@ -1,6 +1,6 @@
 # Arrow functions: a escrita moderna e simplificada - método Feynman
 
-As **arrow functions** ([[javascript/02-funções-e-objetos/01-Funções\|Funções]] de seta) são uma forma simplificada e curta de escrever [[javascript/02-funções-e-objetos/01-Funções\|Funções]] em [[javascript/Introdução ao JavaScript\|JavaScript]], introduzidas na atualização do ES6 (2015). Elas são a forma padrão e mais utilizada de escrever código no desenvolvimento web moderno.
+As **arrow functions** ([[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] de seta) são uma forma simplificada e curta de escrever [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] em [[javascript/Introdução ao JavaScript\|JavaScript]], introduzidas na atualização do ES6 (2015). Elas são a forma padrão e mais utilizada de escrever código no desenvolvimento web moderno.
 
 Sob a perspectiva da **Administração**, uma arrow function funciona exatamente como a **contratação de um prestador de serviços terceirizado (freelancer)** com um fluxo simplificado de entrega.
 
@@ -10,7 +10,7 @@ Sob a perspectiva da **Administração**, uma arrow function funciona exatamente
 
 Imagine duas formas de resolver uma tarefa dentro de uma empresa:
 
-*   **A [[javascript/02-funções-e-objetos/01-Funções\|Funções]] clássica (Um departamento formal CLT):** Criar uma [[javascript/02-funções-e-objetos/01-Funções\|Funções]] tradicional (com a palavra `function`) é como abrir um departamento completo na empresa. Esse departamento tem sua própria hierarquia interna, seu próprio regulamento e seu próprio diretor (o seu próprio contexto `this`). Isso dá muita robustez, mas exige burocracia para criar e gerenciar.
+*   **A [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] clássica (Um departamento formal CLT):** Criar uma [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] tradicional (com a palavra `function`) é como abrir um departamento completo na empresa. Esse departamento tem sua própria hierarquia interna, seu próprio regulamento e seu próprio diretor (o seu próprio contexto `this`). Isso dá muita robustez, mas exige burocracia para criar e gerenciar.
 *   **A arrow function (O freelancer terceirizado):** É a contratação de um prestador de serviço rápido para entregar um relatório de linha única. Ele não cria um departamento novo, não tenta estabelecer uma nova diretoria e usa a estrutura e as ferramentas da sala onde foi colocado para trabalhar (ele herda o `this` do contexto pai onde foi declarado). O fluxo é simplificado ao máximo: você entrega a demanda e ele devolve o relatório de imediato, sem precisar de aprovações burocráticas (retorno implícito).
 
 ---
@@ -61,12 +61,12 @@ const BotaoEnviar = () => {
 };
 ```
 
-No [[react/Introdução ao React\|React]] antigo (baseado em [[javascript/02-funções-e-objetos/09-Classes\|Classes]]), as [[javascript/02-funções-e-objetos/01-Funções\|Funções]] comuns causavam muitos bugs de perda de referência do `this`. Como as arrow functions herdam o `this` do contexto pai onde foram criadas, elas eliminaram a necessidade de ficar vinculando [[javascript/02-funções-e-objetos/01-Funções\|Funções]] manualmente (o antigo `.bind(this)`).
+No [[react/Introdução ao React\|React]] antigo (baseado em [[javascript/02-funcoes-e-objetos/09-Classes\|Classes]]), as [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] comuns causavam muitos bugs de perda de referência do `this`. Como as arrow functions herdam o `this` do contexto pai onde foram criadas, elas eliminaram a necessidade de ficar vinculando [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] manualmente (o antigo `.bind(this)`).
 
 ---
 
 ## Resumo para memorizar
 
 *   **Sintaxe curta:** Elimina a palavra `function` e usa `=>`.
-*   **Retorno implícito:** Dispensa `{}` e `return` se a [[javascript/02-funções-e-objetos/01-Funções\|Funções]] tiver apenas uma linha de código.
-*   **this compartilhado:** Não cria seu próprio contexto [[javascript/02-funções-e-objetos/05-Entendendo o this\|this]]; herda o contexto de onde foi declarada (essencial para o funcionamento limpo de componentes e [[javascript/04-dom-e-browser/04-Eventos\|Eventos]] no [[react/Introdução ao React\|React]]).
+*   **Retorno implícito:** Dispensa `{}` e `return` se a [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] tiver apenas uma linha de código.
+*   **this compartilhado:** Não cria seu próprio contexto [[javascript/02-funcoes-e-objetos/05-Entendendo o this\|this]]; herda o contexto de onde foi declarada (essencial para o funcionamento limpo de componentes e [[javascript/04-dom-e-browser/04-Eventos\|Eventos]] no [[react/Introdução ao React\|React]]).

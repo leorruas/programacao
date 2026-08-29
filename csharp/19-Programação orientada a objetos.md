@@ -47,7 +47,7 @@ rex.Rugir(); // Saída: Rex está rugindo: RAAAWR!
 
 ## 2. O construtor: a decoração inicial
 
-O **Construtor** é um [[12-Métodos (funções)|método]] especial que roda sozinho no exato momento em que você cria o seu objeto (quando usa a palavra `new`). Ele funciona como a decoração imediata do bolo assim que ele sai da fôrma (ex: colocar cobertura).
+O **Construtor** é um [[csharp/18-Métodos (funções)|método]] especial que roda sozinho no exato momento em que você cria o seu objeto (quando usa a palavra `new`). Ele funciona como a decoração imediata do bolo assim que ele sai da fôrma (ex: colocar cobertura).
 
 Ele serve para garantir que o seu objeto comece com as informações mais importantes já preenchidas logo de cara.
 
@@ -79,12 +79,12 @@ Dinossauro rex = new Dinossauro("Rex", "Verde");
 Pense nas classes como os **Componentes Master no Figma**. Você deve criar e usar uma classe quando:
 
 * **Precisar de moldes reutilizáveis:** Se você precisa instanciar vários objetos com a mesma estrutura (ex: vários `Usuarios`, `Produtos` ou `Inimigos`).
-* **Agrupar dados e ações:** Em vez de ter [[03-Variáveis, operadores e tipos de dados|variáveis]] soltas (`string produtoNome; double produtoPreco;`), você agrupa a informação com a lógica de funcionamento dela dentro de um molde só.
-* **Modelar o mundo real:** Quando precisar representar entidades complexas do negócio ou do jogo que têm propriedades (características) e realizam [[12-Métodos (funções)|métodos]] (ações).
+* **Agrupar dados e ações:** Em vez de ter [[csharp/04-Variáveis, operadores e tipos de dados|variáveis]] soltas (`string produtoNome; double produtoPreco;`), você agrupa a informação com a lógica de funcionamento dela dentro de um molde só.
+* **Modelar o mundo real:** Quando precisar representar entidades complexas do negócio ou do jogo que têm propriedades (características) e realizam [[csharp/18-Métodos (funções)|métodos]] (ações).
 
 ---
 
 ## Artigos relacionados:
-* **[[01-Introdução ao Csharp.md|Introdução ao Csharp]]**
-* **[[12-Métodos (funções)|Métodos (funções)]]**
-* **[[03-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**
+* **[[csharp/01-Introdução ao Csharp|Introdução ao Csharp]]**
+* **[[csharp/18-Métodos (funções)|Métodos (funções)]]**
+* **[[csharp/04-Variáveis, operadores e tipos de dados|Variáveis, operadores e tipos de dados]]**

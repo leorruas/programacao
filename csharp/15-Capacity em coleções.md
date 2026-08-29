@@ -1,13 +1,13 @@
 # Capacity em Coleções C# (Capacidade vs Contagem)
 #csharp
 
-Ao mexer com [[09-Coleções em Csharp|coleções dinâmicas]] no C# (como `List<T>`, `Queue<T>`, `Stack<T>` e até o `StringBuilder`), existem dois conceitos fundamentais que as pessoas costumam confundir, mas que são cruciais para a performance do código: **Count** (Contagem) e **Capacity** (Capacidade).
+Ao mexer com [[csharp/14-Coleções em Csharp|coleções dinâmicas]] no C# (como `List<T>`, `Queue<T>`, `Stack<T>` e até o `StringBuilder`), existem dois conceitos fundamentais que as pessoas costumam confundir, mas que são cruciais para a performance do código: **Count** (Contagem) e **Capacity** (Capacidade).
 
 ---
 
 ## 1. Qual é a diferença?
 
-*   **`Count` (Quantos itens existem agora):** É a quantidade de elementos que estão **atualmente dentro** da [[09-Coleções em Csharp|coleção]]. Se a [[11-Lista, pilha e fila|lista]] está vazia, o `Count` é 0.
+*   **`Count` (Quantos itens existem agora):** É a quantidade de elementos que estão **atualmente dentro** da [[csharp/14-Coleções em Csharp|coleção]]. Se a [[csharp/17-Lista, pilha e fila|lista]] está vazia, o `Count` é 0.
 *   **`Capacity` (Quantos itens cabem na memória alocada):** É a quantidade de elementos que a coleção consegue guardar **na memória atualmente reservada** sem precisar se expandir.
 
 ***Analogia:** Imagine um ônibus de excursão com espaço para **40 passageiros** (isto é a **Capacity**). Se no momento apenas **15 pessoas** entraram no ônibus, o número de passageiros atual é 15 (isto é o **Count**).*
@@ -16,7 +16,7 @@ Ao mexer com [[09-Coleções em Csharp|coleções dinâmicas]] no C# (como `List
 
 ## 2. Como o C# gerencia a Capacity por baixo dos panos?
 
-Por padrão, coleções como a `List<T>` utilizam um **[[07-Arrays em Csharp|array]] estático convencional** na memória para guardar os itens. Como o tamanho desse array precisa ser definido quando ele é criado, o C# faz uma "mágica" de redimensionamento automático:
+Por padrão, coleções como a `List<T>` utilizam um **[[csharp/12-Arrays em Csharp|array]] estático convencional** na memória para guardar os itens. Como o tamanho desse array precisa ser definido quando ele é criado, o C# faz uma "mágica" de redimensionamento automático:
 
 1. Se você cria uma lista vazia, ela começa com `Capacity = 0`.
 2. Ao adicionar o primeiro item com `.Add()`, o C# aloca internamente um array com uma capacidade padrão (geralmente **4**).
@@ -84,6 +84,6 @@ Console.WriteLine($"Itens: {nomes.Count} | Capacidade: {nomes.Capacity}");
 ---
 
 ## Artigos relacionados:
-* **[[09-Coleções em Csharp|Coleções em Csharp]]**
-* **[[07-Arrays em Csharp|Arrays em Csharp]]**
-* **[[11-Lista, pilha e fila|Lista, pilha e fila em Csharp]]**
+* **[[csharp/14-Coleções em Csharp|Coleções em Csharp]]**
+* **[[csharp/12-Arrays em Csharp|Arrays em Csharp]]**
+* **[[csharp/17-Lista, pilha e fila|Lista, pilha e fila em Csharp]]**

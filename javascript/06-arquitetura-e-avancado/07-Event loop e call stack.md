@@ -36,7 +36,7 @@ console.log("Tarefa 3: Fim"); // Vai para a Call Stack e roda imediatamente
 1.  `Tarefa 1: Início` é impresso imediatamente.
 2.  O `setTimeout` (Tarefa 2) é enviado para o temporizador do navegador rodar em segundo plano.
 3.  `Tarefa 3: Fim` é impresso imediatamente. A [[javascript/06-arquitetura-e-avancado/07-Event loop e call stack\|Event Loop e Call Stack]] fica vazia.
-4.  Após 1 segundo, a [[javascript/02-funções-e-objetos/01-Funções\|Funções]] da `Tarefa 2` entra na [[javascript/05-assincrono/01-Callbacks\|Callbacks]] Queue.
+4.  Após 1 segundo, a [[javascript/02-funcoes-e-objetos/01-Funções\|Funções]] da `Tarefa 2` entra na [[javascript/05-assincrono/01-Callbacks\|Callbacks]] Queue.
 5.  O **[[javascript/06-arquitetura-e-avancado/07-Event loop e call stack\|Event Loop e Call Stack]]** percebe que a [[javascript/06-arquitetura-e-avancado/07-Event loop e call stack\|Event Loop e Call Stack]] está vazia e joga a `Tarefa 2` na [[javascript/06-arquitetura-e-avancado/07-Event loop e call stack\|Event Loop e Call Stack]], imprimindo o texto final.
 
 ---
@@ -44,6 +44,6 @@ console.log("Tarefa 3: Fim"); // Vai para a Call Stack e roda imediatamente
 ## Resumo para memorizar
 
 *   **[[javascript/06-arquitetura-e-avancado/07-Event loop e call stack\|Event Loop e Call Stack]]:** A pilha de tarefas imediatas do [[javascript/Introdução ao JavaScript\|JavaScript]]. Só executa uma coisa por vez.
-*   **Web [[javascript/05-assincrono/02-API\|API]] (Navegador):** Os assistentes que cuidam de tarefas demoradas (temporizadores, [[javascript/05-assincrono/03-Fetch\|Fetch]]) em segundo plano.
+*   **Web [[csharp/25-Consumindo APIs em Csharp\|API]] (Navegador):** Os assistentes que cuidam de tarefas demoradas (temporizadores, [[javascript/05-assincrono/03-Fetch\|Fetch]]) em segundo plano.
 *   **[[javascript/05-assincrono/01-Callbacks\|Callbacks]] Queue:** A lista de tarefas prontas que esperam para serem executadas.
 *   **[[javascript/06-arquitetura-e-avancado/07-Event loop e call stack\|Event Loop e Call Stack]]:** O coordenador que vigia a [[javascript/06-arquitetura-e-avancado/07-Event loop e call stack\|Event Loop e Call Stack]]. Quando ela fica livre, ele puxa a próxima tarefa concluída da fila de espera.

@@ -16,12 +16,12 @@ Pense na maquininha de cartão de crédito:
 
 ```mermaid
 flowchart TD
-    A["Início do bloco try"] --> B{"Ocorreu algum erro no código?"}
-    B -- Não --> C["Fluxo de sucesso concluído"]
-    B -- Sim --> D["Pula imediatamente para o bloco catch (captura do erro)"]
-    C --> E["Executa o bloco finally (Sempre executa)"]
+    A["Início do<br>bloco try"] --> B{"Ocorreu algum<br>erro no código?"}
+    B -->|Não| C["Fluxo de sucesso<br>concluído"]
+    B -->|Sim| D["Pula para o<br>bloco catch"]
+    C --> E["Executa o<br>bloco finally"]
     D --> E
-    E --> F["Continua a execução normal do programa"]
+    E --> F["Continua a execução<br>normal do programa"]
 ```
 
 ---

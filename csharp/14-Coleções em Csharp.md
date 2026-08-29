@@ -1,7 +1,7 @@
 # Coleções em Csharp (Os gaveteiros mágicos)
 #csharp
 
-Até agora, vimos os [[07-Arrays em Csharp|Arrays]], que servem para guardar uma lista de itens. Mas os [[07-Arrays em Csharp|arrays]] têm um problema: eles são como gaveteiros de madeira rígidos. Se você construiu um com 5 gavetas, terá 5 gavetas para sempre. Se precisar de uma sexta, terá que construir um armário novo do zero.
+Até agora, vimos os [[csharp/12-Arrays em Csharp|Arrays]], que servem para guardar uma lista de itens. Mas os [[csharp/12-Arrays em Csharp|arrays]] têm um problema: eles são como gaveteiros de madeira rígidos. Se você construiu um com 5 gavetas, terá 5 gavetas para sempre. Se precisar de uma sexta, terá que construir um armário novo do zero.
 
 No C#, as **Coleções** resolvem isso. Elas são divididas em dois grandes grupos:
 1. **Coleções Genéricas (`System.Collections.Generic`):** Fortemente tipadas, seguras e muito rápidas. **Sempre prefira estas.**
@@ -18,7 +18,7 @@ Uma lista ordenada onde os itens ficam em sequência, muito parecida com um arra
 
 > [!TIP]
 > **Como funciona o `.Add()`?**
-> Ao contrário dos arrays normais, as coleções dinâmicas possuem o [[12-Métodos (funções)|método]] `.Add(item)`. Ele insere o item no fim da lista e gerencia automaticamente a alocação de memória. Se a lista estiver cheia, o C# aloca um espaço maior e copia os dados por baixo dos panos (veja mais em [[18-Capacity em coleções|Capacity em coleções]]).
+> Ao contrário dos arrays normais, as coleções dinâmicas possuem o [[csharp/18-Métodos (funções)|método]] `.Add(item)`. Ele insere o item no fim da lista e gerencia automaticamente a alocação de memória. Se a lista estiver cheia, o C# aloca um espaço maior e copia os dados por baixo dos panos (veja mais em [[csharp/15-Capacity em coleções|Capacity em coleções]]).
 
 ```csharp
 using System;
@@ -75,7 +75,7 @@ string atendido = fila.Dequeue(); // Remove e retorna o primeiro (Leonardo)
 
 ### E. A Pilha: `Stack<T>` (A lata de Pringles)
 Estrutura LIFO (*Last-In, First-Out*): o último item adicionado no topo é o primeiro a ser removido.
-* **Analogia:** Uma lata de batatas Pringles ou uma [[11-Lista, pilha e fila|pilha]] de pratos.
+* **Analogia:** Uma lata de batatas Pringles ou uma [[csharp/17-Lista, pilha e fila|pilha]] de pratos.
 * **Quando usar:** Histórico de navegação (botão Voltar), função de "Desfazer" (Ctrl+Z) ou caminhos de algoritmos (backtracking).
 
 ```csharp
@@ -101,7 +101,7 @@ var no2 = playlist.AddAfter(no1, "Música 2"); // Adiciona logo após a primeira
 
 ## 2. As Coleções Não Genéricas (Legadas/Antigas)
 
-Estas coleções aceitam qualquer [[13-Programação orientada a objetos|objeto]] (`object`) e devem ser evitadas em projetos novos devido à perda de performance com conversões e falta de segurança.
+Estas coleções aceitam qualquer [[csharp/19-Programação orientada a objetos|objeto]] (`object`) e devem ser evitadas em projetos novos devido à perda de performance com conversões e falta de segurança.
 
 * **`ArrayList`:** O equivalente antigo de `List<T>`. Permite misturar tipos na mesma lista (o que geralmente causa erros de execução).
 * **`Hashtable`:** O equivalente antigo de `Dictionary<TKey, TValue>`.
@@ -159,7 +159,7 @@ Muitas vezes surge a dúvida: *"Quando devo usar um Array, uma `List<T>` ou um `
 ---
 
 ## Artigos relacionados:
-* **[[10-Tipos abstratos de dados|Tipos abstratos de dados]]**
-* **[[11-Lista, pilha e fila.md|Lista, pilha e fila em Csharp]]**
-* **[[07-Arrays em Csharp.md|Arrays em Csharp]]**
-* **[[04-Segurança de tipos.md|Segurança de tipos]]**
+* **[[csharp/16-Tipos abstratos de dados|Tipos abstratos de dados]]**
+* **[[csharp/17-Lista, pilha e fila|Lista, pilha e fila em Csharp]]**
+* **[[csharp/12-Arrays em Csharp|Arrays em Csharp]]**
+* **[[csharp/05-Segurança de tipos|Segurança de tipos]]**

@@ -73,6 +73,6 @@ Console.WriteLine($"Obrigado! Você escolheu o número {numeroDigitado}.");
 ---
 
 ## Artigos relacionados:
-* **[[06-Estruturas de repetição (for e while)|Estruturas de repetição (for, foreach e while)]]**
-* **[[19-O loop foreach em Csharp|O loop foreach em Csharp]]**
-* **[[07-Arrays em Csharp|Arrays em Csharp]]**
+* **[[csharp/09-Estruturas de repetição (for e while)|Estruturas de repetição (for, foreach e while)]]**
+* **[[csharp/11-O loop foreach em Csharp|O loop foreach em Csharp]]**
+* **[[csharp/12-Arrays em Csharp|Arrays em Csharp]]**
