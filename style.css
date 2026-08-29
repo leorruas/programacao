@@ -1063,6 +1063,16 @@ header, main { max-width: 1000px; padding-left: 24px; padding-right: 24px; }
 .toc-list .toc-item a { color: var(--muted); font-size: .78rem; border-radius: 0; }
 .toc-list .toc-item a:hover, .toc-list .toc-item a.toc-active { color: var(--accent-pink); background: transparent; }
 .artigo-conteudo-wrapper h2 { margin: 0; padding: 0 0 22px; border-bottom: 2px solid var(--accent-pink); color: var(--text); font-size: clamp(2.6rem, 5vw, 5rem); font-weight: 560; letter-spacing: -.065em; line-height: .92; }
+.artigo-breadcrumbs { display: flex; gap: 7px; margin: 0 0 16px; color: var(--muted); font-size: .8rem; }
+.artigo-breadcrumbs button { width: auto; padding: 0; border: 0; border-radius: 0; background: transparent; color: var(--accent-pink); font: inherit; cursor: pointer; }
+.artigo-contexto { max-width: 760px; margin: 20px 0 28px; padding: 14px 16px; border: 1px solid var(--accent-pink-alpha-30); border-radius: 8px; background: var(--accent-pink-alpha-05); }
+.artigo-contexto p { margin: 0; color: var(--text); font-size: .92rem; line-height: 1.5; }
+.artigo-contexto strong { color: var(--accent-pink); }
+.artigo-nav-cards { display: flex; flex-wrap: wrap; gap: 0; margin-top: 42px; border-top: 1px solid color-mix(in srgb, var(--text) 28%, transparent); }
+.nav-card { display: grid; gap: 6px; flex: 1 1 260px; padding: 16px 0; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--text) 28%, transparent); border-radius: 0; background: transparent; color: var(--text); font: inherit; text-align: left; cursor: pointer; }
+.nav-card span { color: var(--accent-pink); font-size: .75rem; }
+.nav-card strong { font-size: .95rem; font-weight: 520; }
+.nav-card:hover { padding-left: 8px; color: var(--accent-pink); background: transparent; }
 .btn-voltar { margin-top: 36px; padding: 0; border: 0; border-radius: 0; color: var(--accent-pink); background: transparent; font-size: .92rem; }
 .btn-voltar:hover { color: var(--text); background: transparent; }
 

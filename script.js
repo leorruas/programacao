@@ -202,6 +202,9 @@ const disciplinaTitulo = document.getElementById("disciplina-titulo");
 const disciplinaAcoes = document.getElementById("disciplina-acoes");
 const artigoTitulo = document.getElementById("artigo-titulo");
 const artigoCorpo = document.getElementById("artigo-corpo");
+const artigoBreadcrumbs = document.getElementById("artigo-breadcrumbs");
+const artigoContexto = document.getElementById("artigo-contexto");
+const artigoNavCards = document.getElementById("artigo-nav-cards");
 const btnVoltar = document.getElementById("btn-voltar");
 const btnVoltarDisciplina = document.getElementById("btn-voltar-disciplina");
 
@@ -296,9 +299,12 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null) {
     if (pastasContainer) pastasContainer.classList.add("escondido");
 
     artigoTitulo.textContent = titulo;
+    renderizarBreadcrumbs();
+    renderizarNavegacaoArtigo(titulo);
+    processarContextoArtigo(conteudoMarkdown);
     
     // 1. Remove Frontmatter YAML
-    const markdownLimpo = removerFrontmatter(conteudoMarkdown);
+    const markdownLimpo = removerContextoDoCorpo(removerFrontmatter(conteudoMarkdown));
 
     // 2. Converte Highlights do Obsidian ==texto== para <mark class="obsidian-highlight">
     const markdownComHighlight = markdownLimpo.replace(/==([^=]+)==/g, '<mark class="obsidian-highlight">$1</mark>');
@@ -400,6 +406,48 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null) {
 
     // Scroll para o topo
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+}
+
+function removerContextoDoCorpo(markdown) {
+    return markdown.replace(/^>\s*\*\*Contexto:\*\*\s*[^\n\r]+(?:\r?\n>[^\n\r]+)*(?:\r?\n){1,2}/m, "");
+}
+
+function processarContextoArtigo(markdown) {
+    if (!artigoContexto) return;
+    const match = markdown.match(/^>\s*\*\*Contexto:\*\*\s*([^\n\r]+(?:\n>[^\n\r]+)*)/m);
+    if (!match?.[1]) {
+        artigoContexto.innerHTML = "";
+        artigoContexto.hidden = true;
+        return;
+    }
+
+    const texto = match[1].replace(/\n>/g, " ").replace(/\*\*/g, "").trim();
+    artigoContexto.innerHTML = `<p><strong>Contexto:</strong> ${texto}</p>`;
+    artigoContexto.hidden = false;
+}
+
+function renderizarBreadcrumbs() {
+    if (!artigoBreadcrumbs) return;
+    const categoria = categoriaAtual || "áreas de estudo";
+    artigoBreadcrumbs.innerHTML = `<button type="button" data-destino="home">início</button><span>/</span><button type="button" data-destino="categoria">${categoria}</button>`;
+    artigoBreadcrumbs.querySelector('[data-destino="home"]')?.addEventListener("click", voltarParaHome);
+    artigoBreadcrumbs.querySelector('[data-destino="categoria"]')?.addEventListener("click", () => categoriaAtual ? abrirDisciplina(categoriaAtual) : voltarParaHome());
+}
+
+function renderizarNavegacaoArtigo(titulo) {
+    if (!artigoNavCards) return;
+    artigoNavCards.innerHTML = "";
+    const artigos = (todasAsPastas[categoriaAtual] || []).slice().sort((a, b) => a.titulo.localeCompare(b.titulo, "pt-BR", { numeric: true }));
+    const indice = artigos.findIndex(artigo => artigo.titulo === titulo);
+    [[artigos[indice - 1], "← anterior"], [artigos[indice + 1], "próximo →"]].forEach(([artigo, rotulo]) => {
+        if (!artigo) return;
+        const botao = document.createElement("button");
+        botao.type = "button";
+        botao.className = "nav-card";
+        botao.innerHTML = `<span>${rotulo}</span><strong>${artigo.titulo.toLowerCase()}</strong>`;
+        botao.addEventListener("click", () => abrirArtigo(artigo.titulo, artigo.conteudoTexto, categoriaAtual));
+        artigoNavCards.appendChild(botao);
+    });
 }
 
 function gerarTableOfContents() {

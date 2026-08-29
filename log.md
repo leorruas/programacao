@@ -8,6 +8,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Alinhada a interface à estrutura editorial dos vaults PUC e Guia do Portal: masthead com título e busca, navegação fixa com pesquisa e catálogo de áreas em linhas de leitura.
   * Mantida a identidade visual rosa (`var(--accent-pink)`); a sidebar do artigo filtra os títulos de suas seções, enquanto a navbar faz a busca global do vault.
   * Substituído o acordeão por uma página de área com artigos numerados; a capa e a busca principal agora aparecem somente na home.
+  * Adicionados breadcrumbs, contexto exibido somente quando presente e navegação entre o artigo anterior e o próximo da mesma área.
 
 ## 2026-08-19
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>programação</title>
-    <link rel="stylesheet" href="style.css?v=estrutura-v3">
+    <link rel="stylesheet" href="style.css?v=estrutura-v4">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </head>
@@ -63,15 +63,18 @@
                     <nav class="toc-nav" id="toc-nav"></nav>
                 </aside>
                 <div class="artigo-conteudo-wrapper">
+                    <nav class="artigo-breadcrumbs" id="artigo-breadcrumbs" aria-label="Caminho de navegação"></nav>
                     <h2 id="artigo-titulo"></h2>
+                    <div class="artigo-contexto" id="artigo-contexto" hidden></div>
                     <div id="artigo-corpo" class="artigo-corpo"></div>
+                    <nav class="artigo-nav-cards" id="artigo-nav-cards" aria-label="Navegação entre artigos"></nav>
                     <button id="btn-voltar" class="btn-voltar">&larr; voltar para a busca </button>
                 </div>
             </div>
         </div>
     </main>
 
-    <script src="script.js?v=estrutura-v3"></script>
+    <script src="script.js?v=estrutura-v4"></script>
 </body>
 
 </html>
