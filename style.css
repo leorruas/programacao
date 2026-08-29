@@ -1205,7 +1205,7 @@ html body #artigo-corpo h3::before {
 /* Estrutura editorial compartilhada com os outros vaults, preservando o rosa. */
 :root { --bg: #101010; --text: #f1f0eb; --muted: #a4a39e; }
 body { background: var(--bg); color: var(--muted); font-size: 20px; }
-header, main { max-width: 1000px; padding-left: 24px; padding-right: 24px; }
+header, main { max-width: 1240px; padding: 0 32px; box-sizing: border-box; }
 .sr-only {
     position: absolute;
     width: 1px;
