@@ -14,6 +14,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * Ocultado visualmente o rótulo da busca principal, mantendo-o disponível para tecnologias assistivas.
 * Corrigida a grade das áreas para duas colunas em telas de desktop e uma coluna no celular.
 * Tabelas agora usam toda a largura disponível e exibem rolagem horizontal quando o conteúdo ultrapassa o artigo.
+* Removido o divisor vertical entre as colunas da grade de áreas.
 
 ## 2026-08-19
 

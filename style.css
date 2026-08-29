@@ -956,9 +956,6 @@ mark.obsidian-highlight, mark:not(.highlight) {
 .pasta-item {
     border-bottom: 1px solid color-mix(in srgb, var(--text) 28%, transparent);
 }
-.pasta-item:nth-child(odd) {
-    border-right: 1px solid color-mix(in srgb, var(--text) 28%, transparent);
-}
 .pasta-header {
     display: grid;
     grid-template-columns: 76px minmax(0, 1fr) 22px;
@@ -993,7 +990,6 @@ mark.obsidian-highlight, mark:not(.highlight) {
 
 @media (max-width: 768px) {
     .pastas-container { grid-template-columns: 1fr; }
-    .pasta-item:nth-child(odd) { border-right: 0; }
     .pasta-header { grid-template-columns: 64px minmax(0, 1fr) 20px; min-height: 76px; padding: 16px 0; }
     .pasta-numero { font-size: 2.2rem; }
     .pasta-nome { font-size: 1.2rem; }
