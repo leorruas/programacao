@@ -620,12 +620,31 @@ button:hover {
 }
 
 /* Gráficos de Gantt */
+.mermaid svg:has(.section) {
+    min-width: 600px;
+}
+
 .mermaid .taskText,
 .mermaid .taskTextOutsideRight,
-.mermaid .taskTextOutsideLeft,
-.mermaid .sectionTitle,
+.mermaid .taskTextOutsideLeft {
+    fill: #ffffff !important;
+    font-size: 13px !important;
+    font-weight: 500;
+}
+
+.mermaid .sectionTitle {
+    fill: var(--accent-pink) !important;
+    font-size: 14px !important;
+    font-weight: 600;
+}
+
 .mermaid .tick text {
     fill: #ffffff !important;
+    font-size: 12px !important;
+}
+
+.mermaid .grid .tick line {
+    stroke: rgba(255, 182, 193, 0.2) !important;
 }
 
 /* Matrizes de quadrantes */

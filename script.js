@@ -178,6 +178,14 @@ if (window.mermaid) {
         theme: 'dark',
         fontFamily: 'Archivo, sans-serif',
         flowchart: { curve: 'linear' },
+        gantt: {
+            titleTopMargin: 25,
+            barHeight: 22,
+            barGap: 6,
+            topPadding: 50,
+            sidePadding: 80,
+            fontSize: 12
+        },
         themeVariables: {
             fontFamily: 'Archivo, sans-serif',
             darkMode: true,

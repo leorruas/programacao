@@ -344,18 +344,19 @@ Usado para planejar entregas, cronogramas de sprints, lançamentos de MVPs e aco
 gantt
     title Cronograma de entrega do projeto
     dateFormat YYYY-MM-DD
-    axisFormat %b/%Y
+    axisFormat %b
+    tickInterval 1month
 
     section Design
     Pesquisa e protótipo       :done,    des1, 2026-01-01, 2026-02-15
-    Design System              :active,  des2, 2026-02-15, 2026-04-01
+    Design System              :active,  des2, 2026-02-16, 2026-03-31
 
     section Engenharia
     Backend e APIs             :done,    dev1, 2026-02-01, 2026-04-15
-    Frontend Web               :active,  dev2, 2026-04-01, 2026-06-30
+    Frontend Web               :active,  dev2, 2026-04-01, 2026-05-30
 
     section Lançamento
-    Deploy em produção         :milestone, m1, 2026-06-30, 0d
+    Deploy em produção         :milestone, m1, 2026-05-30, 0d
 ```
 
 ---

@@ -4,6 +4,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-31
 
+* **Otimização de Legibilidade do Eixo Temporal no Gráfico de Gantt (`Sintaxe e possibilidades com Mermaid.md`, `script.js` e `style.css`)**:
+  * Ajustado `axisFormat` para `%b` com `tickInterval 1month`, exibindo os meses abreviados de forma limpa e espaçada, sem amontoar nem sobrepor números de ano/dia.
+  * Definida largura mínima de 600px e rolagem horizontal suave no container do diagrama para manter as barras e os rótulos de seções e tarefas 100% legíveis em qualquer tela.
+  * Atualizado cache buster para `v20` no `index.html`.
+
 * **Blindagem de Parsers Markdown contra Corrupção de Tags de Código e Estilização de Mindmaps (`script.js`, `style.css` e `index.html`)**:
   * **Isolamento de Código e Syntax Highlighting**: Funções `converterHighlightsObsidian` e `protegerPipesObsidian` atualizadas para particionar o Markdown e ignorar completamente blocos cercados (```` ``` ````) e código inline (`` ` ``). Isso impede que `==>` seja convertido em tags HTML `<mark class="obsidian-highlight">` dentro de tabelas e diagramas.
   * **WikiLinks Seguros via DOM TreeWalker**: O parser de WikiLinks agora opera estritamente através de um `TreeWalker` que filtra e rejeita nós dentro de `<pre>`, `<code>` e `.mermaid`, impedindo a conversão de `id[["Texto"]]` em links `<a>` quebrados.
