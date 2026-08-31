@@ -65,7 +65,7 @@ flowchart TD
 | Linha contínua | `A --- B` | Conexão direta sem sentido |
 | Linha pontilhada | `A -.-> B` | Relação opcional, indireta ou evento |
 | Linha grossa | `A ==> B` | Caminho crítico ou fluxo principal |
-| Seta com texto | `A -->\|Rótulo\| B` | Fluxo anotado com condição |
+| Seta com texto | <code>A --&gt;\|Rótulo\| B</code> | Fluxo anotado com condição |
 
 ```mermaid
 flowchart TD
@@ -205,8 +205,8 @@ Usado em arquitetura orientada a objetos para documentar propriedades, métodos,
 
 | Sintaxe | Relação | Descrição |
 | :--- | :--- | :--- |
-| `<|--` | Herança | Subclasse herda de Superclasse |
-| `..|>` | Realização / Interface | Classe implementa um contrato de interface |
+| `<\|--` | Herança | Subclasse herda de Superclasse |
+| `..\|>` | Realização / Interface | Classe implementa um contrato de interface |
 | `*--` | Composição forte | A parte não existe sem o todo (ciclo de vida acoplado) |
 | `o--` | Agregação | A parte pode existir independentemente do todo |
 | `-->` | Associação | Uma classe conhece e utiliza outra |
@@ -292,11 +292,11 @@ Mapeia a modelagem de bancos de dados relacionais (tabelas, campos, chaves prim�
 
 | Conector | Significado |
 | :--- | :--- |
-| `||--||` | Exatamente um para exatamente um |
-| `||--o{` | Um para zero ou muitos |
-| `||--|{` | Um para um ou muitos |
-| `|o--o|` | Zero ou um para zero ou um |
-| `}o--o{` | Zero ou muitos para zero ou muitos |
+| <code>&#124;&#124;--&#124;&#124;</code> | Exatamente um para exatamente um |
+| <code>&#124;&#124;--o{</code> | Um para zero ou muitos |
+| <code>&#124;&#124;--&#124;{</code> | Um para um ou muitos |
+| <code>&#124;o--o&#124;</code> | Zero ou um para zero ou um |
+| <code>}o--o{</code> | Zero ou muitos para zero ou muitos |
 
 ```mermaid
 erDiagram

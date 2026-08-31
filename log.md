@@ -4,6 +4,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-31
 
+* **Correção de Escapamento de Pipes em Tabelas Markdown (`Sintaxe e possibilidades com Mermaid.md` e `index.html`)**:
+  * Substituídos pipes literais na tabela de cardinalidades do `erDiagram` por entidades HTML (`&#124;`), impedindo que o parser de Markdown interprete a sintaxe relacional como delimitadores de coluna de tabela.
+  * Atualizado cache buster para `v21` no `index.html`.
+
 * **Otimização de Legibilidade do Eixo Temporal no Gráfico de Gantt (`Sintaxe e possibilidades com Mermaid.md`, `script.js` e `style.css`)**:
   * Ajustado `axisFormat` para `%b` com `tickInterval 1month`, exibindo os meses abreviados de forma limpa e espaçada, sem amontoar nem sobrepor números de ano/dia.
   * Definida largura mínima de 600px e rolagem horizontal suave no container do diagrama para manter as barras e os rótulos de seções e tarefas 100% legíveis em qualquer tela.
