@@ -7,6 +7,27 @@
     --accent-pink-alpha-15: rgba(255, 182, 193, 0.15);
     --accent-pink-alpha-30: rgba(255, 182, 193, 0.3);
     --accent-pink-alpha-40: rgba(255, 182, 193, 0.4);
+    --bg: #050505;
+    --surface: #111111;
+    --surface-raised: #1c1c1e;
+    --text: #f5f5f7;
+    --muted: #a1a1a6;
+    --hero-overlay: linear-gradient(90deg, rgba(0, 0, 0, .90), rgba(0, 0, 0, .38));
+}
+
+:root[data-theme="light"] {
+    --accent-pink: #c2255c;
+    --accent-pink-hover: #a61e4d;
+    --accent-pink-alpha-05: rgba(194, 37, 92, 0.06);
+    --accent-pink-alpha-15: rgba(194, 37, 92, 0.14);
+    --accent-pink-alpha-30: rgba(194, 37, 92, 0.28);
+    --accent-pink-alpha-40: rgba(194, 37, 92, 0.40);
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --surface-raised: #f1f5f9;
+    --text: #0f172a;
+    --muted: #475569;
+    --hero-overlay: linear-gradient(90deg, rgba(248, 250, 252, .92), rgba(248, 250, 252, .32));
 }
 
 *, *::before, *::after {
@@ -20,11 +41,12 @@ html, body {
 }
 
 body {
-    background-color: #000;
-    font-size: 2em;
-    color: gray;
+    background-color: var(--bg);
+    font-size: 20px;
+    color: var(--text);
     font-family: 'Archivo', sans-serif;
     min-height: 100vh;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 h1 {
@@ -523,11 +545,11 @@ button:hover {
 }
 
 .artigo-corpo pre {
-    background-color: #111;
-    border: 1px solid var(--accent-pink);
+    background-color: var(--surface);
+    border: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
     padding: 15px;
     border-radius: 5px;
-    color: var(--accent-pink);
+    color: var(--text);
     font-family: monospace;
     white-space: pre-wrap !important;
     word-break: break-word;
@@ -536,7 +558,7 @@ button:hover {
 .mermaid {
     display: flex;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.02);
+    background-color: var(--surface);
     border: 1px solid var(--accent-pink-alpha-30);
     border-radius: 8px;
     padding: 24px;
@@ -551,11 +573,11 @@ button:hover {
     font-family: 'Archivo', sans-serif !important;
 }
 
-/* Força texto branco com alto contraste em todos os diagramas Mermaid */
+/* Força texto com alto contraste em todos os diagramas Mermaid de acordo com o tema */
 .mermaid text,
 .mermaid tspan {
-    fill: #ffffff !important;
-    color: #ffffff !important;
+    fill: var(--text) !important;
+    color: var(--text) !important;
     font-family: 'Archivo', sans-serif !important;
 }
 
@@ -757,21 +779,36 @@ mark.obsidian-highlight, mark:not(.highlight) {
     color: black;
 }
 
-.nav-link-pastas {
-    color: var(--accent-pink);
-    text-decoration: none;
-    font-size: 0.6em;
-    border: 1px solid var(--accent-pink);
-    padding: 6px 15px;
-    border-radius: 20px;
-    transition: all 0.3s;
-    cursor: pointer;
+.nav-acoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.nav-link-pastas:hover {
-    background-color: var(--accent-pink);
-    color: black;
+.nav-link-pastas,
+.theme-toggle {
+    color: var(--accent-pink);
+    text-decoration: none;
+    font-size: 0.78rem;
+    border: 1px solid var(--accent-pink-alpha-30);
+    background-color: var(--accent-pink-alpha-05);
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.2;
+    text-transform: lowercase;
+    width: auto !important;
 }
+
+.nav-link-pastas:hover,
+.theme-toggle:hover {
+    background-color: var(--accent-pink);
+    color: #ffffff;
+    border-color: var(--accent-pink);
+}
+
 
 /* Accordion para Pastas */
 .pastas-container {
@@ -1320,9 +1357,9 @@ html body #artigo-corpo h3::before {
     margin: 20px 0;
     padding: 16px 20px;
     border-radius: 8px;
-    background-color: #121212;
+    background-color: var(--surface);
     border-left: 4px solid var(--accent-pink);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--text) 8%, transparent);
 }
 
 .obsidian-callout .callout-header {

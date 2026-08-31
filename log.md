@@ -4,6 +4,14 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-31
 
+* **Implementação de Alternância de Tema Claro e Escuro (`script.js`, `style.css` e `index.html`)**:
+  * **Consistência Arquitetural com a PUC**: Adicionado botão `theme-toggle` na barra superior com persistência em `localStorage` e detecção automática de preferência do sistema operacional (`prefers-color-scheme`).
+  * **Preservação e Adaptação da Identidade Rosa**: Definidos tokens dinâmicos para ambos os modos:
+    * **Modo Escuro**: Fundo preto profundo (`--bg: #050505`), texto claro (`--text: #f5f5f7`), realces em rosa suave (`--accent-pink: #ffb6c1`).
+    * **Modo Claro**: Fundo *off-white* suíço (`--bg: #f8fafc`), texto escuro de alta legibilidade (`--text: #0f172a`), superfícies brancas (`--surface: #ffffff`) e realces em rosa profundo (`--accent-pink: #c2255c`).
+  * **Mermaid Reativo**: Diagramas Mermaid são reconfigurados e renderizados automaticamente ao alternar entre os temas claro e escuro.
+  * **Versionamento de Assets**: Cache buster atualizado para `v25` no `index.html`.
+
 * **Fixação Sticky do Índice Lateral "Neste Artigo" (`style.css` e `index.html`)**:
   * Removida a propriedade `overflow-x: hidden` do elemento raiz (`html, body`), que quebrava o contexto de rolagem do navegador e impedia o funcionamento de `position: sticky`.
   * Configurado `position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto;` com alinhamento superior no `.artigo-layout-container`, garantindo que o índice lateral "Neste artigo" acompanhe a leitura e role suavemente com a página.

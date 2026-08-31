@@ -217,13 +217,15 @@ function extrairCategoria(caminho) {
     return "Geral";
 }
 
-// Configuração do Mermaid.js para combinar com a identidade visual (Dark / Rosa) com alto contraste
-if (window.mermaid) {
+function configurarMermaid() {
+    if (typeof mermaid === "undefined") return;
+
+    const temaEscuro = document.documentElement.dataset.theme !== "light";
     mermaid.initialize({
         startOnLoad: false,
-        theme: 'dark',
-        fontFamily: 'Archivo, sans-serif',
-        flowchart: { curve: 'linear' },
+        theme: "base",
+        fontFamily: "Archivo, sans-serif",
+        flowchart: { curve: "linear" },
         gantt: {
             titleTopMargin: 25,
             barHeight: 22,
@@ -232,7 +234,7 @@ if (window.mermaid) {
             sidePadding: 80,
             fontSize: 12
         },
-        themeVariables: {
+        themeVariables: temaEscuro ? {
             fontFamily: 'Archivo, sans-serif',
             darkMode: true,
             background: '#0d0d0d',
@@ -301,13 +303,132 @@ if (window.mermaid) {
             pieSectionTextColor: '#000000',
             pieLegendTextColor: '#ffffff',
             pieStrokeColor: '#000000'
+        } : {
+            fontFamily: 'Archivo, sans-serif',
+            darkMode: false,
+            background: '#ffffff',
+            primaryColor: '#fdf2f4',
+            primaryTextColor: '#151515',
+            primaryBorderColor: '#c2255c',
+            lineColor: '#c2255c',
+            secondaryColor: '#fff5f7',
+            tertiaryColor: '#fce8ed',
+            textColor: '#151515',
+            mainBkg: '#ffffff',
+            nodeBorder: '#c2255c',
+            nodeTextColor: '#151515',
+            clusterBkg: '#fafafa',
+            clusterBorder: 'rgba(194, 37, 92, 0.4)',
+            titleColor: '#c2255c',
+            edgeLabelBackground: '#ffffff',
+            actorTextColor: '#151515',
+            actorLineColor: '#c2255c',
+            actorBkg: '#fdf2f4',
+            signalColor: '#151515',
+            signalTextColor: '#151515',
+            labelTextColor: '#151515',
+            loopTextColor: '#151515',
+            noteTextColor: '#151515',
+            noteBkgColor: '#fce8ed',
+            noteBorderColor: '#c2255c',
+            activationBorderColor: '#c2255c',
+            activationBkgColor: '#fce8ed',
+            sectionBkgColor: '#f8fafc',
+            altSectionBkgColor: '#f1f5f9',
+            sectionBkgColor2: '#e2e8f0',
+            taskBorderColor: '#c2255c',
+            taskBkgColor: '#fdf2f4',
+            taskTextDarkColor: '#151515',
+            taskTextLightColor: '#151515',
+            taskTextColor: '#151515',
+            taskTextOutsideColor: '#151515',
+            taskTextClickableColor: '#c2255c',
+            activeTaskBorderColor: '#c2255c',
+            activeTaskBkgColor: '#fce8ed',
+            gridColor: '#e5e7eb',
+            doneTaskBkgColor: '#f3f4f6',
+            doneTaskBorderColor: '#9ca3af',
+            critBorderColor: '#e03131',
+            critBkgColor: '#ffe3e3',
+            todayLineColor: '#c2255c',
+            quadrant1Fill: '#fff0f3',
+            quadrant2Fill: '#ffe3e8',
+            quadrant3Fill: '#f8f9fa',
+            quadrant4Fill: '#f1f3f5',
+            quadrant1TextFill: '#c2255c',
+            quadrant2TextFill: '#c2255c',
+            quadrant3TextFill: '#495057',
+            quadrant4TextFill: '#495057',
+            quadrantPointFill: '#c2255c',
+            quadrantPointTextFill: '#151515',
+            quadrantXAxisTextFill: '#151515',
+            quadrantYAxisTextFill: '#151515',
+            pie1: '#c2255c',
+            pie2: '#e64980',
+            pie3: '#f783ac',
+            pie4: '#fcc2d7',
+            pie5: '#ffdeeb',
+            pieTitleTextColor: '#c2255c',
+            pieSectionTextColor: '#000000',
+            pieLegendTextColor: '#151515',
+            pieStrokeColor: '#ffffff'
         }
     });
+}
+
+function renderizarDiagramasMermaid() {
+    if (typeof mermaid === "undefined" || !artigoCorpo) return;
+    configurarMermaid();
+
+    const diagramas = artigoCorpo.querySelectorAll(".mermaid");
+    diagramas.forEach(diagrama => {
+        const codigo = diagrama.dataset.mermaidSource || diagrama.textContent;
+        diagrama.dataset.mermaidSource = codigo;
+        diagrama.removeAttribute("data-processed");
+        diagrama.textContent = codigo;
+    });
+
+    if (diagramas.length > 0) {
+        setTimeout(() => {
+            try {
+                mermaid.run({ nodes: diagramas });
+            } catch (err) {
+                console.warn("Erro ao renderizar Mermaid:", err);
+            }
+        }, 30);
+    }
 }
 
 const botao = document.getElementById("btn-pesquisar");
 const campoTexto = document.getElementById("main-search-input");
 const campoTextoNav = document.getElementById("nav-search-input");
+const btnTema = document.getElementById("theme-toggle");
+
+// Controle de Tema (Claro / Escuro)
+function aplicarTema(tema, persistir = true) {
+    document.documentElement.dataset.theme = tema;
+    if (persistir) localStorage.setItem("tema-programacao", tema);
+    if (btnTema) {
+        const proximoTema = tema === "light" ? "modo escuro" : "modo claro";
+        btnTema.textContent = proximoTema;
+        btnTema.setAttribute("aria-label", `Alternar para ${proximoTema}`);
+    }
+}
+
+function inicializarTema() {
+    const temaSalvo = localStorage.getItem("tema-programacao");
+    const temaDoSistema = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    aplicarTema(temaSalvo || temaDoSistema, false);
+}
+
+if (btnTema) {
+    btnTema.addEventListener("click", () => {
+        const temaAtual = document.documentElement.dataset.theme === "light" ? "light" : "dark";
+        const novoTema = temaAtual === "dark" ? "light" : "dark";
+        aplicarTema(novoTema, true);
+        renderizarDiagramasMermaid();
+    });
+}
 const containerResultados = document.querySelector(".cards-container");
 const divResultados = document.querySelector(".resultados");
 const leitorDeArtigo = document.getElementById("leitor-artigo");
@@ -564,17 +685,12 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
             const codigoMermaid = bloco.textContent;
             const divMermaid = document.createElement('div');
             divMermaid.className = 'mermaid';
+            divMermaid.dataset.mermaidSource = codigoMermaid;
             divMermaid.textContent = codigoMermaid;
             containerPre.replaceWith(divMermaid);
         });
 
-        setTimeout(() => {
-            try {
-                mermaid.run({ nodes: artigoCorpo.querySelectorAll('.mermaid') });
-            } catch (err) {
-                console.warn("Erro ao renderizar Mermaid:", err);
-            }
-        }, 50);
+        renderizarDiagramasMermaid();
     }
 
     // 11. Inclui cópia direta nos blocos de código.
@@ -1263,7 +1379,8 @@ if (navLinkPastas) {
     });
 }
 
-// Inicializar pré-carregamento imediato e renderização das pastas
+// Inicializar tema, pré-carregamento imediato e renderização das pastas
+inicializarTema();
 carregarTodosArquivosEmCache().then(() => {
     renderizarPastas();
     tratarRotaDaUrl();
