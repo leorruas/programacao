@@ -4,6 +4,12 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-31
 
+* **Blindagem de Parsers Markdown contra Corrupção de Tags de Código e Estilização de Mindmaps (`script.js`, `style.css` e `index.html`)**:
+  * **Isolamento de Código e Syntax Highlighting**: Funções `converterHighlightsObsidian` e `protegerPipesObsidian` atualizadas para particionar o Markdown e ignorar completamente blocos cercados (```` ``` ````) e código inline (`` ` ``). Isso impede que `==>` seja convertido em tags HTML `<mark class="obsidian-highlight">` dentro de tabelas e diagramas.
+  * **WikiLinks Seguros via DOM TreeWalker**: O parser de WikiLinks agora opera estritamente através de um `TreeWalker` que filtra e rejeita nós dentro de `<pre>`, `<code>` e `.mermaid`, impedindo a conversão de `id[["Texto"]]` em links `<a>` quebrados.
+  * **Legibilidade e Contraste em Mindmaps e Timelines**: Ajustados estilos do nó raiz e nós filhos em mapas mentais (`mindmap`) e linhas do tempo (`timeline`), com fundos escuros refinados (`#1c1c1c` / `#222222`), bordas em rosa e texto branco 100% legível.
+  * **Versionamento de Assets**: Cache buster atualizado para `v19` no `index.html`.
+
 * **Correção Geral de Sintaxe e Alto Contraste para Diagramas Mermaid no Web App (`style.css`, `script.js` e `Sintaxe e possibilidades com Mermaid.md`)**:
   * **Sintaxe de Nós e Conectores**: Removida sintaxe não padrão de nós como parênteses triplos `((()))` e setas `<-->` no `flowchart TD`, eliminando qualquer erro `Syntax error in text (mermaid version 11.17.2)`.
   * **Alto Contraste e Legibilidade no Dark Mode**: Configurado conjunto completo de `themeVariables` no `mermaid.initialize` e regras CSS dedicadas para forçar textos brancos e nítidos em **Linha do tempo (`timeline`)**, **Mapas mentais (`mindmap`)**, **Matrizes de quadrantes (`quadrantChart`)** e **Cronogramas (`gantt`)**, resolvendo textos escuros sobrepostos e blocos sem contraste.

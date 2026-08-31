@@ -381,14 +381,27 @@ function normalizarListasObsidian(md) {
     }).join("\n");
 }
 
+function converterHighlightsObsidian(md) {
+    if (!md) return "";
+    const partes = md.split(/(```[\s\S]*?```|`[^`\n]+`)/g);
+    return partes.map((parte, index) => {
+        if (index % 2 === 1) return parte;
+        return parte.replace(/(?<![=a-zA-Z0-9])==([^\n\r=]+?)==(?![=>a-zA-Z0-9])/g, '<mark class="obsidian-highlight">$1</mark>');
+    }).join("");
+}
+
 function protegerPipesObsidian(md) {
     if (!md) return "";
-    return md.replace(/\[\[([^\]]+)\]\]/g, (match, conteudoInterno) => {
-        const protegido = conteudoInterno
-            .replace(/\\?\|/g, "___OBSIDIAN_PIPE___")
-            .replace(/_/g, "___OBSIDIAN_UNDERSCORE___");
-        return "[[" + protegido + "]]";
-    });
+    const partes = md.split(/(```[\s\S]*?```|`[^`\n]+`)/g);
+    return partes.map((parte, index) => {
+        if (index % 2 === 1) return parte;
+        return parte.replace(/\[\[([^\]]+)\]\]/g, (match, conteudoInterno) => {
+            const protegido = conteudoInterno
+                .replace(/\\?\|/g, "___OBSIDIAN_PIPE___")
+                .replace(/_/g, "___OBSIDIAN_UNDERSCORE___");
+            return "[[" + protegido + "]]";
+        });
+    }).join("");
 }
 
 function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash = true) {
@@ -408,10 +421,10 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
     // 1. Remove Frontmatter YAML
     const markdownLimpo = removerContextoDoCorpo(removerFrontmatter(conteudoMarkdown));
 
-    // 2. Converte Highlights do Obsidian ==texto== para <mark class="obsidian-highlight">
-    const markdownComHighlight = markdownLimpo.replace(/==([^=]+)==/g, '<mark class="obsidian-highlight">$1</mark>');
+    // 2. Converte Highlights do Obsidian ==texto== fora de código
+    const markdownComHighlight = converterHighlightsObsidian(markdownLimpo);
 
-    // 3. Protege pipes em tabelas
+    // 3. Protege pipes em tabelas fora de código
     const markdownProtegido = protegerPipesObsidian(markdownComHighlight);
 
     // 4. Normaliza indentação de listas
@@ -433,7 +446,7 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
         contenedor.appendChild(tabela);
     });
 
-    // 6. Processa WikiLinks do Obsidian
+    // 6. Processa WikiLinks do Obsidian com segurança em nós de texto
     processarLinksObsidian();
 
     // 7. Processa Callouts do Obsidian ([!NOTE], [!TIP], [!IMPORTANT], etc.)
@@ -733,33 +746,72 @@ function iniciarScrollSpy() {
 }
 
 function processarLinksObsidian() {
-    const htmlAtual = artigoCorpo.innerHTML;
+    const walker = document.createTreeWalker(
+        artigoCorpo,
+        NodeFilter.SHOW_TEXT,
+        {
+            acceptNode: function(node) {
+                if (node.parentElement && (node.parentElement.closest('pre') || node.parentElement.closest('code') || node.parentElement.closest('.mermaid'))) {
+                    return NodeFilter.FILTER_REJECT;
+                }
+                return node.nodeValue && node.nodeValue.includes('[[') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+            }
+        }
+    );
+
+    const nodesToReplace = [];
+    while (walker.nextNode()) {
+        nodesToReplace.push(walker.currentNode);
+    }
+
     const regexObsidian = /\[\[([^\n\]]+)\]\]/g;
 
-    artigoCorpo.innerHTML = htmlAtual.replace(regexObsidian, (match, conteudo) => {
-        let caminho = "";
-        let textoExibicao = "";
+    nodesToReplace.forEach(textNode => {
+        const text = textNode.nodeValue;
+        if (!text.match(regexObsidian)) return;
 
-        const conteudoLimpo = conteudo.replace(/___OBSIDIAN_UNDERSCORE___/g, "_");
+        const fragment = document.createDocumentFragment();
+        let lastIndex = 0;
+        let match;
 
-        if (conteudoLimpo.includes("___OBSIDIAN_PIPE___")) {
-            const partes = conteudoLimpo.split("___OBSIDIAN_PIPE___");
-            caminho = partes[0].trim();
-            textoExibicao = partes[1].trim();
-        } else {
-            caminho = conteudoLimpo.trim();
-            textoExibicao = conteudoLimpo.trim();
+        regexObsidian.lastIndex = 0;
+        while ((match = regexObsidian.exec(text)) !== null) {
+            if (match.index > lastIndex) {
+                fragment.appendChild(document.createTextNode(text.substring(lastIndex, match.index)));
+            }
+
+            const conteudo = match[1];
+            let caminho = "";
+            let textoExibicao = "";
+            const conteudoLimpo = conteudo.replace(/___OBSIDIAN_UNDERSCORE___/g, "_");
+
+            if (conteudoLimpo.includes("___OBSIDIAN_PIPE___")) {
+                const partes = conteudoLimpo.split("___OBSIDIAN_PIPE___");
+                caminho = partes[0].trim();
+                textoExibicao = partes[1].trim();
+            } else {
+                caminho = conteudoLimpo.trim();
+                textoExibicao = conteudoLimpo.trim();
+            }
+
+            const a = document.createElement("a");
+            a.className = "obsidian-link";
+            a.setAttribute("data-destino", caminho);
+            a.textContent = textoExibicao;
+            a.addEventListener("click", (e) => {
+                e.preventDefault();
+                navegarParaLinkObsidian(caminho);
+            });
+            fragment.appendChild(a);
+
+            lastIndex = regexObsidian.lastIndex;
         }
 
-        return `<a class="obsidian-link" data-destino="${caminho}">${textoExibicao}</a>`;
-    });
+        if (lastIndex < text.length) {
+            fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
+        }
 
-    artigoCorpo.querySelectorAll(".obsidian-link").forEach(link => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            const destino = link.getAttribute("data-destino");
-            navegarParaLinkObsidian(destino);
-        });
+        textNode.parentNode.replaceChild(fragment, textNode);
     });
 }
 

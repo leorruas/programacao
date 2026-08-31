@@ -577,20 +577,46 @@ button:hover {
 .mermaid .timeline-period tspan,
 .mermaid .timeline-year text,
 .mermaid .timeline-year tspan {
-    fill: #ffffff !important;
-}
-
 /* Mapa mental (mindmap) */
 .mermaid .mindmap-node text,
 .mermaid .mindmap-node tspan {
     fill: #ffffff !important;
-    font-weight: 500;
+    font-weight: 500 !important;
+}
+
+.mermaid .mindmap-node--root circle {
+    fill: #222222 !important;
+    stroke: var(--accent-pink) !important;
+    stroke-width: 2px !important;
 }
 
 .mermaid .mindmap-node--root text,
 .mermaid .mindmap-node--root tspan {
-    fill: #000000 !important;
-    font-weight: 700;
+    fill: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+.mermaid .mindmap-node rect,
+.mermaid .mindmap-node path {
+    fill: #1c1c1c !important;
+    stroke: var(--accent-pink-alpha-40) !important;
+}
+
+.mermaid .mindmap-line {
+    stroke: var(--accent-pink) !important;
+}
+
+/* Linha do tempo (timeline) */
+.mermaid .timeline-line {
+    stroke: var(--accent-pink) !important;
+}
+
+.mermaid .timeline-box,
+.mermaid .timeline-event rect,
+.mermaid .timeline-task rect,
+.mermaid .timeline-period rect {
+    fill: #1c1c1c !important;
+    stroke: var(--accent-pink-alpha-40) !important;
 }
 
 /* Gráficos de Gantt */
