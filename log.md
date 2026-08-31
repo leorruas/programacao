@@ -4,6 +4,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-31
 
+* **Otimização de Cache e Atualização Instantânea no GitHub Pages (`index.html` e `script.js`)**:
+  * Adicionado `{ cache: "no-cache" }` nas requisições `fetch` da API do GitHub e no carregamento concorrente dos arquivos Markdown, evitando que o navegador sirva versões em cache desatualizadas.
+  * Atualizado o identificador de versão de assets no `index.html` para `v17` (`style.css?v=estrutura-v17` e `script.js?v=estrutura-v17`).
+
 * **Expansão Exaustiva e Completa de Sintaxe e Modelagem do Mermaid**:
   * [[mermaid/Sintaxe e possibilidades com Mermaid|Sintaxe e possibilidades com Mermaid]]: Guia completamente expandido e estruturado cobrindo todos os tipos de diagramas e elementos do ecossistema Mermaid (v11+). Inclui dicionário exaustivo de 13 formas geométricas de nós em `flowchart`, tabela com os 9 tipos de conexões/setas, subgrafos com direção interna, estilização e classes CSS, diagramas de sequência avançados (com `actor`, ativações, notas, agrupamento em `box`, estruturas `alt`, `opt`, `loop`, `par`, `critical`, `break`), modelagem completa de classes (`classDiagram`) com visibilidade, abstração, interfaces e tipos genéricos, máquinas de estado (`stateDiagram-v2`) com concorrência e bifurcações, modelagem de dados relacionais (`erDiagram`) com todas as cardinalidades, cronogramas de entrega em `gantt` com milestones e dependências, versionamento e branches em `gitGraph`, mapas mentais (`mindmap`), matrizes de priorização de produto (`quadrantChart`), linha do tempo de releases (`timeline`), gráficos de proporção (`pie`), boas práticas de prevenção de erros e tabela/guia de decisão Feynman para escolha do diagrama ideal.
 * **Correção de Sintaxe e Renderização de Diagramas Mermaid (v11+)**:

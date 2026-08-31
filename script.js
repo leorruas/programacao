@@ -8,7 +8,7 @@ let categoriaAtual = null;
 // Função para buscar automaticamente todos os arquivos .md do seu GitHub (sem precisar de token)
 async function obterListaDeArquivos() {
     try {
-        const resposta = await fetch("https://api.github.com/repos/leorruas/programacao/git/trees/main?recursive=1");
+        const resposta = await fetch("https://api.github.com/repos/leorruas/programacao/git/trees/main?recursive=1", { cache: "no-cache" });
         if (!resposta.ok) throw new Error("Erro na API do GitHub");
 
         const dados = await resposta.json();
@@ -124,7 +124,7 @@ async function carregarTodosArquivosEmCache() {
     cacheArquivos = await Promise.all(
         lista.map(async (arquivo) => {
             try {
-                const resposta = await fetch(arquivo.path);
+                const resposta = await fetch(arquivo.path, { cache: "no-cache" });
                 const conteudoTexto = await resposta.text();
                 const categoria = extrairCategoria(arquivo.path);
 
