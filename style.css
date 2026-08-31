@@ -577,6 +577,9 @@ button:hover {
 .mermaid .timeline-period tspan,
 .mermaid .timeline-year text,
 .mermaid .timeline-year tspan {
+    fill: #ffffff !important;
+}
+
 /* Mapa mental (mindmap) */
 .mermaid .mindmap-node text,
 .mermaid .mindmap-node tspan {

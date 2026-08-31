@@ -4,6 +4,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-31
 
+* **Correção de Integridade Sintática do CSS (`style.css` e `index.html`)**:
+  * Fechado bloco de chave CSS na regra de timeline (`.mermaid .timeline-year tspan`), restaurando o carregamento integral de todos os estilos e layouts da interface.
+  * Atualizado cache buster para `v22` no `index.html`.
+
 * **Correção de Escapamento de Pipes em Tabelas Markdown (`Sintaxe e possibilidades com Mermaid.md` e `index.html`)**:
   * Substituídos pipes literais na tabela de cardinalidades do `erDiagram` por entidades HTML (`&#124;`), impedindo que o parser de Markdown interprete a sintaxe relacional como delimitadores de coluna de tabela.
   * Atualizado cache buster para `v21` no `index.html`.
