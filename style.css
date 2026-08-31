@@ -540,16 +540,74 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.02);
     border: 1px solid var(--accent-pink-alpha-30);
     border-radius: 8px;
-    padding: 20px;
-    margin: 20px 0;
+    padding: 24px;
+    margin: 24px 0;
     overflow-x: auto;
     font-family: 'Archivo', sans-serif !important;
 }
 
-.mermaid svg,
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+    font-family: 'Archivo', sans-serif !important;
+}
+
+/* Força texto branco com alto contraste em todos os diagramas Mermaid */
 .mermaid text,
 .mermaid tspan {
+    fill: #ffffff !important;
+    color: #ffffff !important;
     font-family: 'Archivo', sans-serif !important;
+}
+
+/* Títulos de diagramas em rosa */
+.mermaid .titleText,
+.mermaid .pieTitleText,
+.mermaid text.title {
+    fill: var(--accent-pink) !important;
+    font-weight: 600;
+}
+
+/* Linha do tempo (timeline) */
+.mermaid .timeline-event text,
+.mermaid .timeline-event tspan,
+.mermaid .timeline-task text,
+.mermaid .timeline-task tspan,
+.mermaid .timeline-period text,
+.mermaid .timeline-period tspan,
+.mermaid .timeline-year text,
+.mermaid .timeline-year tspan {
+    fill: #ffffff !important;
+}
+
+/* Mapa mental (mindmap) */
+.mermaid .mindmap-node text,
+.mermaid .mindmap-node tspan {
+    fill: #ffffff !important;
+    font-weight: 500;
+}
+
+.mermaid .mindmap-node--root text,
+.mermaid .mindmap-node--root tspan {
+    fill: #000000 !important;
+    font-weight: 700;
+}
+
+/* Gráficos de Gantt */
+.mermaid .taskText,
+.mermaid .taskTextOutsideRight,
+.mermaid .taskTextOutsideLeft,
+.mermaid .sectionTitle,
+.mermaid .tick text {
+    fill: #ffffff !important;
+}
+
+/* Matrizes de quadrantes */
+.mermaid .quadrant-title,
+.mermaid .quadrant-axis-label,
+.mermaid .quadrant-label,
+.mermaid .quadrant-point-label {
+    fill: #ffffff !important;
 }
 
 .code-line {

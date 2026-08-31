@@ -4,6 +4,12 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-31
 
+* **Correção Geral de Sintaxe e Alto Contraste para Diagramas Mermaid no Web App (`style.css`, `script.js` e `Sintaxe e possibilidades com Mermaid.md`)**:
+  * **Sintaxe de Nós e Conectores**: Removida sintaxe não padrão de nós como parênteses triplos `((()))` e setas `<-->` no `flowchart TD`, eliminando qualquer erro `Syntax error in text (mermaid version 11.17.2)`.
+  * **Alto Contraste e Legibilidade no Dark Mode**: Configurado conjunto completo de `themeVariables` no `mermaid.initialize` e regras CSS dedicadas para forçar textos brancos e nítidos em **Linha do tempo (`timeline`)**, **Mapas mentais (`mindmap`)**, **Matrizes de quadrantes (`quadrantChart`)** e **Cronogramas (`gantt`)**, resolvendo textos escuros sobrepostos e blocos sem contraste.
+  * **Espaçamento e Datas do Gantt**: Reorganizado o eixo de datas do gráfico de Gantt e títulos de quadrantes para evitar quebras de layout e sobreposição de rótulos.
+  * **Versionamento de Assets**: Atualizado cache busting para `v18` no `index.html`.
+
 * **Otimização de Cache e Atualização Instantânea no GitHub Pages (`index.html` e `script.js`)**:
   * Adicionado `{ cache: "no-cache" }` nas requisições `fetch` da API do GitHub e no carregamento concorrente dos arquivos Markdown, evitando que o navegador sirva versões em cache desatualizadas.
   * Atualizado o identificador de versão de assets no `index.html` para `v17` (`style.css?v=estrutura-v17` e `script.js?v=estrutura-v17`).

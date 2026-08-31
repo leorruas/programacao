@@ -39,8 +39,7 @@ O `flowchart` é o diagrama mais versátil da biblioteca, ideal para fluxos cond
 | Pílula / Estádio | `id(["Texto"])` | Início ou fim de fluxo |
 | Sub-rotina | `id[["Texto"]]` | Função externa, módulo ou microsserviço |
 | Cilindro | `id[("Texto")]` | Banco de dados ou armazenamento local |
-| Círculo | `id(("Texto"))` | Conector de junção |
-| Círculo duplo | `id((("Texto")))` | Estado final ou destaque especial |
+| Círculo | `id(("Texto"))` | Conector ou ponto de junção |
 | Losango (Decisão) | `id{"Texto"}` | Condicionais e bifurcações lógicas |
 | Hexágono | `id{{"Texto"}}` | Preparação ou inicialização |
 | Paralelogramo | `id[/"Texto"/]` | Entrada ou saída de dados (I/O) |
@@ -55,7 +54,7 @@ flowchart TD
     Decisao -->|Sim| Processar[["Validar token JWT"]]
     Decisao -->|Não| Erro["Exibir mensagem de erro"]
     Processar --> Banco[("Salvar sessão no Redis")]
-    Banco --> Fim((("Acesso liberado")))
+    Banco --> Fim(["Acesso liberado"])
 ```
 
 ### Tipos de conexões e setas
@@ -66,21 +65,16 @@ flowchart TD
 | Linha contínua | `A --- B` | Conexão direta sem sentido |
 | Linha pontilhada | `A -.-> B` | Relação opcional, indireta ou evento |
 | Linha grossa | `A ==> B` | Caminho crítico ou fluxo principal |
-| Invisível | `A ~~~ B` | Alinhamento forçado sem desenhar linha |
-| Bidirecional | `A <--> B` | Comunicação de mão dupla |
-| Ponta com círculo | `A --o B` | Associação com agregação |
-| Ponta com cruz | `A --x B` | Comunicação bloqueada ou proibida |
 | Seta com texto | `A -->\|Rótulo\| B` | Fluxo anotado com condição |
 
 ```mermaid
 flowchart TD
     Origem["Nó central"]
     Origem --> Solida["Seta sólida padrão"]
-    Origem --- SemPonta["Linha contínua sem ponta"]
-    Origem -.-> Pontilhada["Linha pontilhada com seta"]
-    Origem ==> Grossa["Linha grossa destacada"]
-    Origem <--> Dupla["Comunicação bidirecional"]
-    Origem -->|Com condição| ComTexto["Seta com rótulo descritivo"]
+    Origem --- SemPonta["Linha contínua<br>sem ponta"]
+    Origem -.-> Pontilhada["Linha pontilhada<br>com seta"]
+    Origem ==> Grossa["Linha grossa<br>destacada"]
+    Origem -->|Com condição| ComTexto["Seta com<br>rótulo"]
 ```
 
 ### Sub-grafos (`subgraph`) e direções internas
@@ -348,22 +342,20 @@ Usado para planejar entregas, cronogramas de sprints, lançamentos de MVPs e aco
 
 ```mermaid
 gantt
-    title Cronograma de entrega do MVP
+    title Cronograma de entrega do projeto
     dateFormat YYYY-MM-DD
-    axisFormat %d/%m
+    axisFormat %b/%Y
 
-    section Design & UX
-    Pesquisa com usuários       :done,    des1, 2026-09-01, 2026-09-06
-    Prototipagem no Figma       :active,  des2, 2026-09-07, 2026-09-14
-    Design System & Tokens      :         des3, after des2, 5d
+    section Design
+    Pesquisa e protótipo       :done,    des1, 2026-01-01, 2026-02-15
+    Design System              :active,  des2, 2026-02-15, 2026-04-01
 
     section Engenharia
-    Arquitetura de banco & API  :done,    dev1, 2026-09-05, 2026-09-12
-    Desenvolvimento Frontend    :active,  dev2, after des2, 10d
-    Testes de integração        :crit,    dev3, after dev2, 5d
+    Backend e APIs             :done,    dev1, 2026-02-01, 2026-04-15
+    Frontend Web               :active,  dev2, 2026-04-01, 2026-06-30
 
     section Lançamento
-    Deploy em produção          :milestone, m1, after dev3, 0d
+    Deploy em produção         :milestone, m1, 2026-06-30, 0d
 ```
 
 ---
@@ -398,24 +390,16 @@ Ideal para arquitetura de informação, brainstorms, taxonomias de design e orga
 ```mermaid
 mindmap
   root((Desenvolvimento Web))
-    Fundamentos
-      HTML Semântico
-      CSS Moderno
-        Flexbox
-        Grid
-        Variáveis CSS
-      JavaScript ES6+
-        Assincronismo
-        Manipulação de DOM
-    Frameworks
-      React
-        Componentes
-        Hooks
-        Zustand
-    Qualidade
-      Testes Unitários
-      Clean Code
-      Acessibilidade
+    Frontend
+      HTML
+      CSS
+      JavaScript
+    Backend
+      APIs REST
+      Banco de Dados
+    DevOps
+      Git
+      Deploy
 ```
 
 ---
@@ -426,17 +410,17 @@ Perfeito para matrizes 2x2 de tomada de decisão em design e produto (ex: Impact
 
 ```mermaid
 quadrantChart
-    title Matriz de priorização de funcionalidades (Esforço x Impacto)
+    title Priorização de funcionalidades
     x-axis "Baixo esforço" --> "Alto esforço"
     y-axis "Baixo impacto" --> "Alto impacto"
-    quadrant-1 "Fazer com calma (Estratégico)"
-    quadrant-2 "Ganhos rápidos (Prioridade máxima)"
-    quadrant-3 "Descartar / Baixa prioridade"
-    quadrant-4 "Tarefas de preenchimento"
-    "Login com Google": [0.25, 0.85]
-    "Refatorar CSS legados": [0.80, 0.30]
-    "Busca semântica": [0.70, 0.90]
-    "Ajuste de rodapé": [0.15, 0.20]
+    quadrant-1 "Estratégico"
+    quadrant-2 "Prioridade máxima"
+    quadrant-3 "Descartar"
+    quadrant-4 "Secundário"
+    "Login Google": [0.25, 0.85]
+    "Refatorar CSS": [0.80, 0.30]
+    "Busca": [0.70, 0.90]
+    "Rodapé": [0.15, 0.20]
 ```
 
 ---
@@ -450,7 +434,7 @@ Para documentar marcos históricos, evolução de versões e métricas proporcio
 timeline
     title Evolução da stack do projeto
     section 2024
-        Q1 : Criação do repositório : Primeiros protótipos
+        Q1 : Criação do repositório
         Q3 : Migração para TypeScript
     section 2025
         Q2 : Adoção do Tailwind CSS
