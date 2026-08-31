@@ -90,7 +90,7 @@ finally
 | :--- | :--- | :--- | :--- |
 | **Foco principal** | Contagem por índice / Modificação | Leitura limpa e rápida | Repetição baseada em condição |
 | **Segurança** | Média (risco de `IndexOutOfRangeException`) | Alta (impossível estourar o limite) | Média (risco de loop infinito) |
-| **Performance** | Levemente mais rápido em [[csharp/12-Arrays em Csharp|Arrays]] básicos | Muito rápido (mínima diferença) | Igual ao `for` |
+| **Performance** | Levemente mais rápido em [[csharp/12-Arrays em Csharp\|Arrays]] básicos | Muito rápido (mínima diferença) | Igual ao `for` |
 | **Permite alterar itens** | Sim, via índice (`lista[i] = valor`) | Não, apenas leitura | Sim, via índice |
 | **Controle** | Você decide o passo (ex: de 2 em 2, de trás pra frente) | Passa de 1 em 1 do início ao fim | Livre controle manual da condição |
 

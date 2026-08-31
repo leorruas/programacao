@@ -4,6 +4,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-31
 
+* **Linting Completo de WikiLinks e Proteção de Pipes (`csharp/11-O loop foreach em Csharp.md` e vault)**:
+  * Executado script de verificação estática em todos os 117 arquivos Markdown do repositório, validando **938 WikiLinks ativos**.
+  * Corrigido pipe não escapado na tabela de comparação do artigo de loop foreach em C# (`[[csharp/12-Arrays em Csharp\|Arrays]]`), garantindo conformidade estrita com o padrão de colunas Markdown.
+
 * **Sincronização da Busca Suíça e Inclusão de Todas as Pastas do Vault (`script.js`, `style.css` e `index.html`)**:
   * **Consistência Visual com a PUC**: Substituídos os cards antigos de busca pelo padrão suíço em lista (`resultado-item`), com numeração de linha (`01`, `02`...), destaque de termos em rosa (`mark.highlight`) no título e trecho contextual (`extrairTrechoRelevante`).
   * **Ocultação Limpa de Seções**: Ao digitar na busca, a seção inteira de áreas de estudo (`#explorar-pastas`) é ocultada imediatamente, eliminando elementos residuais soltos na tela.
