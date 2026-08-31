@@ -42,13 +42,22 @@ O `flowchart` é o modelo mais flexível. Ele suporta orientações direcionais,
 
 ### Tipos de conexões e setas
 
+| Tipo de conexão | Sintaxe no código | Efeito visual |
+| :--- | :--- | :--- |
+| Seta sólida padrão | `A --> B` | Fluxo direcionado comum |
+| Linha contínua sem ponta | `A --- B` | Associação direta sem direção |
+| Linha pontilhada com seta | `A -.-> B` | Relação indireta ou opcional |
+| Linha grossa destacada | `A ==> B` | Fluxo principal ou de destaque |
+| Seta com rótulo | `A -->\|Texto\| B` | Fluxo com anotação ou condição |
+
 ```mermaid
-flowchart LR
-    A["Nó A"] --> B["Seta sólida"]
-    C["Nó C"] --- D["Linha contínua sem ponta"]
-    E["Nó E"] -.-> F["Linha pontilhada com seta"]
-    G["Nó G"] ==> H["Linha grossa destacada"]
-    I["Nó I"] -->|Texto no conector| J["Seta com rótulo"]
+flowchart TD
+    Origem["Nó principal"]
+    Origem --> SetaSolida["Seta sólida padrão"]
+    Origem --- LinhaContinua["Linha contínua<br>sem ponta"]
+    Origem -.-> LinhaPontilhada["Linha pontilhada<br>com seta"]
+    Origem ==> LinhaGrossa["Linha grossa<br>destacada"]
+    Origem -->|Texto no conector| SetaRotulo["Seta com<br>rótulo"]
 ```
 
 ### Agrupamento em sub-grafos (`subgraph`)

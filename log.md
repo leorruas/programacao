@@ -2,6 +2,11 @@
 
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
+## 2026-08-31
+
+* **Correção de Sintaxe e Renderização de Diagramas Mermaid (v11+)**:
+  * [[mermaid/Sintaxe e possibilidades com Mermaid|Sintaxe e possibilidades com Mermaid]]: Corrigido o erro `Syntax error in text (mermaid version 11.17.2)` na seção *Tipos de conexões e setas*. Adicionada tabela comparativa com todas as sintaxes de conectores (`-->`, `---`, `-.->`, `==>`, `-->|Texto|`) e reestruturado o diagrama para `flowchart TD` vertical conectado ao nó principal com quebras compactas `<br>`, garantindo 100% de compatibilidade com o motor do Mermaid e perfeita legibilidade mobile.
+
 ## 2026-08-29
 
 * **Auditoria Geral e Correção Global de Integridade do Vault**:
