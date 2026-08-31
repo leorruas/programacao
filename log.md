@@ -4,6 +4,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-31
 
+* **Fixação Sticky do Índice Lateral "Neste Artigo" (`style.css` e `index.html`)**:
+  * Removida a propriedade `overflow-x: hidden` do elemento raiz (`html, body`), que quebrava o contexto de rolagem do navegador e impedia o funcionamento de `position: sticky`.
+  * Configurado `position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto;` com alinhamento superior no `.artigo-layout-container`, garantindo que o índice lateral "Neste artigo" acompanhe a leitura e role suavemente com a página.
+  * Atualizado cache buster para `v24` no `index.html`.
+
 * **Linting Completo de WikiLinks e Proteção de Pipes (`csharp/11-O loop foreach em Csharp.md` e vault)**:
   * Executado script de verificação estática em todos os 117 arquivos Markdown do repositório, validando **938 WikiLinks ativos**.
   * Corrigido pipe não escapado na tabela de comparação do artigo de loop foreach em C# (`[[csharp/12-Arrays em Csharp\|Arrays]]`), garantindo conformidade estrita com o padrão de colunas Markdown.

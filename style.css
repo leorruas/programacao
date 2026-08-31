@@ -17,7 +17,6 @@ html, body {
     max-width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
 }
 
 body {
@@ -1447,8 +1446,8 @@ header, main { max-width: 1240px; padding: 0 32px; box-sizing: border-box; }
 .artigo-lista-link:hover { padding-left: 30px; background: transparent; color: var(--accent-pink); }
 
 .leitor-artigo { margin: 48px auto; padding: 0; color: var(--text); font-size: 16px; }
-.artigo-layout-container { gap: 42px; }
-.artigo-toc-sidebar { width: 190px; min-width: 160px; padding: 0 20px 0 0; border-right-color: color-mix(in srgb, var(--text) 24%, transparent); }
+.artigo-layout-container { display: flex; flex-direction: row; gap: 42px; align-items: flex-start; position: relative; }
+.artigo-toc-sidebar { width: 220px; min-width: 190px; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; padding: 0 20px 0 0; border-right: 1px solid color-mix(in srgb, var(--text) 24%, transparent); scrollbar-width: thin; scrollbar-color: var(--accent-pink-alpha-30) transparent; }
 .sidebar-search { display: block; margin: 0 0 18px; padding: 0 0 16px; border-bottom: 1px solid color-mix(in srgb, var(--text) 24%, transparent); }
 .sidebar-search span { display: block; margin-bottom: 8px; color: var(--accent-pink); font-size: .72rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
 .sidebar-search input { width: 100%; padding: 8px 10px; border: 1px solid var(--accent-pink-alpha-30); border-radius: 6px; background: var(--accent-pink-alpha-05); color: var(--text); font: inherit; font-size: .78rem; }
