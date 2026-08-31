@@ -4,6 +4,12 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-08-31
 
+* **Sincronização da Busca Suíça e Inclusão de Todas as Pastas do Vault (`script.js`, `style.css` e `index.html`)**:
+  * **Consistência Visual com a PUC**: Substituídos os cards antigos de busca pelo padrão suíço em lista (`resultado-item`), com numeração de linha (`01`, `02`...), destaque de termos em rosa (`mark.highlight`) no título e trecho contextual (`extrairTrechoRelevante`).
+  * **Ocultação Limpa de Seções**: Ao digitar na busca, a seção inteira de áreas de estudo (`#explorar-pastas`) é ocultada imediatamente, eliminando elementos residuais soltos na tela.
+  * **Mapeamento Completo de Pastas**: Expandida a lista de arquivos e carregamento para incluir 100% dos tópicos do vault, abrangendo **Python**, **React**, **Tutoriais**, **C#**, **CSS**, **Git**, **JavaScript**, **Mermaid**, **Web** e notas gerais.
+  * **Versionamento de Assets**: Cache buster atualizado para `v23` no `index.html`.
+
 * **Correção de Integridade Sintática do CSS (`style.css` e `index.html`)**:
   * Fechado bloco de chave CSS na regra de timeline (`.mermaid .timeline-year tspan`), restaurando o carregamento integral de todos os estilos e layouts da interface.
   * Atualizado cache buster para `v22` no `index.html`.

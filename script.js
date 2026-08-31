@@ -39,28 +39,64 @@ async function obterListaDeArquivos() {
         return [
             { titulo: "Atalhos VS Code", path: "./Atalhos%20VS%20Code.md" },
             { titulo: "Evolução da Programação", path: "./Evolu%C3%A7%C3%A3o%20da%20Programa%C3%A7%C3%A3o.md" },
+            { titulo: "ASP e SQL Server", path: "./ASP%20e%20SQL%20Server.md" },
+            // csharp
+            { titulo: "00-Guia de estudos", path: "./csharp/00-Guia%20de%20estudos.md" },
+            { titulo: "01-Introdução ao Csharp", path: "./csharp/01-Introdu%C3%A7%C3%A3o%20ao%20Csharp.md" },
+            { titulo: "02-O método Main", path: "./csharp/02-O%20m%C3%A9todo%20Main.md" },
+            { titulo: "03-Console.Write e Console.WriteLine", path: "./csharp/03-Console.Write%20e%20Console.WriteLine.md" },
+            { titulo: "04-Variáveis, operadores e tipos de dados", path: "./csharp/04-Vari%C3%A1veis%2C%20operadores%20e%20tipos%20de%20dados.md" },
+            { titulo: "05-Segurança de tipos", path: "./csharp/05-Seguran%C3%A7a%20de%20tipos.md" },
+            { titulo: "06-Métodos de string (ToUpper e ToLower)", path: "./csharp/06-M%C3%A9todos%20de%20string%20%28ToUpper%20e%20ToLower%29.md" },
+            { titulo: "07-Estruturas condicionais e de repetição", path: "./csharp/07-Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md" },
+            { titulo: "08-O switch em Csharp", path: "./csharp/08-O%20switch%20em%20Csharp.md" },
+            { titulo: "09-Estruturas de repetição (for e while)", path: "./csharp/09-Estruturas%20de%20repeti%C3%A7%C3%A3o%20%28for%20e%20while%29.md" },
+            { titulo: "10-O loop do-while em Csharp", path: "./csharp/10-O%20loop%20do-while%20em%20Csharp.md" },
+            { titulo: "11-O loop foreach em Csharp", path: "./csharp/11-O%20loop%20foreach%20em%20Csharp.md" },
+            { titulo: "12-Arrays em Csharp", path: "./csharp/12-Arrays%20em%20Csharp.md" },
+            { titulo: "13-Métodos de arrays", path: "./csharp/13-M%C3%A9todos%20de%20arrays.md" },
+            { titulo: "14-Coleções em Csharp", path: "./csharp/14-Cole%C3%A7%C3%B5es%20em%20Csharp.md" },
+            { titulo: "15-Capacity em coleções", path: "./csharp/15-Capacity%20em%20cole%C3%A7%C3%B5es.md" },
+            { titulo: "16-Tipos abstratos de dados", path: "./csharp/16-Tipos%20abstratos%20de%20dados.md" },
+            { titulo: "17-Lista, pilha e fila", path: "./csharp/17-Lista%2C%20pilha%20e%20fila.md" },
+            { titulo: "18-Métodos (funções)", path: "./csharp/18-M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md" },
+            { titulo: "19-Programação orientada a objetos", path: "./csharp/19-Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md" },
+            { titulo: "20-Herança e interfaces", path: "./csharp/20-Heran%C3%A7a%20e%20interfaces.md" },
+            { titulo: "21-Tratamento de erros", path: "./csharp/21-Tratamento%20de%20erros.md" },
+            { titulo: "22-Manipulação de arquivos", path: "./csharp/22-Manipula%C3%A7%C3%A3o%20de%20arquivos.md" },
+            { titulo: "23-LINQ buscas e filtros", path: "./csharp/23-LINQ%20buscas%20e%20filtros.md" },
+            { titulo: "24-Csharp no Frontend e Backend", path: "./csharp/24-Csharp%20no%20Frontend%20e%20Backend.md" },
+            { titulo: "25-Consumindo APIs em Csharp", path: "./csharp/25-Consumindo%20APIs%20em%20Csharp.md" },
+            { titulo: "26-Como conectar Csharp no HTML (Backend + Frontend JS)", path: "./csharp/26-Como%20conectar%20Csharp%20no%20HTML%20%28Backend%20%2B%20Frontend%20JS%29.md" },
+            // css
             { titulo: "Guia de CSS", path: "./css/Guia%20de%20CSS.md" },
+            { titulo: "Bootstrap - Introducao", path: "./css/Bootstrap%20-%20Introducao.md" },
+            { titulo: "Bootstrap - Sistema de Grid", path: "./css/Bootstrap%20-%20Sistema%20de%20Grid.md" },
+            { titulo: "Bootstrap - Componentes", path: "./css/Bootstrap%20-%20Componentes.md" },
             { titulo: "Flexbox", path: "./css/Flexbox.md" },
+            { titulo: "Posicionamento e Alinhamento no CSS", path: "./css/Posicionamento%20e%20Alinhamento%20no%20CSS.md" },
             { titulo: "Transições e Animações", path: "./css/Transi%C3%A7%C3%B5es%20e%20Anima%C3%A7%C3%B5es.md" },
             { titulo: "Pseudo-classes e Pseudo-elementos", path: "./css/Pseudo-classes%20e%20Pseudo-elementos.md" },
+            // git
             { titulo: "Introdução ao Git", path: "./git/Introdu%C3%A7%C3%A3o%20ao%20Git.md" },
             { titulo: "Git", path: "./git/01-fundamentos/Git.md" },
             { titulo: "Integrando a API do GitHub", path: "./git/01-fundamentos/Integrando%20a%20API%20do%20GitHub.md" },
+            // javascript
             { titulo: "Introdução ao JavaScript", path: "./javascript/Introdu%C3%A7%C3%A3o%20ao%20JavaScript.md" },
             { titulo: "Guia de Estudos", path: "./javascript/00-Guia%20de%20Estudos.md" },
             { titulo: "Consumindo APIs e Fetch", path: "./javascript/Consumindo%20APIs%20e%20Fetch.md" },
             { titulo: "Pesquisa Semântica no Vault", path: "./javascript/Pesquisa%20Sem%C3%A2ntica%20no%20Vault.md" },
             { titulo: "01. Criando uma Busca Simples no DOM", path: "./javascript/01.%20Criando%20uma%20Busca%20Simples%20no%20DOM.md" },
-            { titulo: "Console.log", path: "./javascript/01-fundamentos/02-Console.log.md" },
             { titulo: "Var, let e const", path: "./javascript/01-fundamentos/01-Var%2C%20let%20e%20const.md" },
+            { titulo: "Console.log", path: "./javascript/01-fundamentos/02-Console.log.md" },
             { titulo: "Tipos de dados", path: "./javascript/01-fundamentos/03-Tipos%20de%20dados.md" },
             { titulo: "Operadores e operações", path: "./javascript/01-fundamentos/04-Operadores%20e%20opera%C3%A7%C3%B5es.md" },
             { titulo: "Condicionais (if-else)", path: "./javascript/01-fundamentos/05-Condicionais%20%28if-else%29.md" },
             { titulo: "Switch", path: "./javascript/01-fundamentos/06-Switch.md" },
-            { titulo: "Estruturas de repetição (for e while)", path: "./javascript/01-fundamentos/09-Estruturas%20de%20repeti%C3%A7%C3%A3o%20%28for%20e%20while%29.md" },
-            { titulo: "Hoisting", path: "./javascript/01-fundamentos/08-Hoisting.md" },
-            { titulo: "Debug (depuração)", path: "./javascript/01-fundamentos/10-Debug%20%28depura%C3%A7%C3%A3o%29.md" },
             { titulo: "Truthy e falsy", path: "./javascript/01-fundamentos/07-Truthy%20e%20falsy.md" },
+            { titulo: "Hoisting", path: "./javascript/01-fundamentos/08-Hoisting.md" },
+            { titulo: "Estruturas de repetição (for e while)", path: "./javascript/01-fundamentos/09-Estruturas%20de%20repeti%C3%A7%C3%A3o%20%28for%20e%20while%29.md" },
+            { titulo: "Debug (depuração)", path: "./javascript/01-fundamentos/10-Debug%20%28depura%C3%A7%C3%A3o%29.md" },
             { titulo: "Funções", path: "./javascript/02-funcoes-e-objetos/01-Fun%C3%A7%C3%B5es.md" },
             { titulo: "Arrow functions", path: "./javascript/02-funcoes-e-objetos/02-Arrow%20functions.md" },
             { titulo: "Objetos", path: "./javascript/02-funcoes-e-objetos/03-Objetos.md" },
@@ -68,47 +104,61 @@ async function obterListaDeArquivos() {
             { titulo: "Entendendo o this", path: "./javascript/02-funcoes-e-objetos/05-Entendendo%20o%20this.md" },
             { titulo: "Funções construtoras", path: "./javascript/02-funcoes-e-objetos/06-Fun%C3%A7%C3%B5es%20construtoras.md" },
             { titulo: "Protótipos e proto", path: "./javascript/02-funcoes-e-objetos/07-Prot%C3%B3tipos%20e%20proto.md" },
-            { titulo: "Classes", path: "./javascript/02-funcoes-e-objetos/09-Classes.md" },
             { titulo: "Herança e objetos aninhados", path: "./javascript/02-funcoes-e-objetos/08-Heran%C3%A7a%20e%20objetos%20aninhados.md" },
+            { titulo: "Classes", path: "./javascript/02-funcoes-e-objetos/09-Classes.md" },
             { titulo: "Get e set", path: "./javascript/02-funcoes-e-objetos/10-Get%20e%20set.md" },
-            { titulo: "Manipulando o DOM", path: "./javascript/04-dom/01-Manipulando%20o%20DOM.md" },
-            { titulo: "Seleção de elementos", path: "./javascript/04-dom/02-Sele%C3%A7%C3%A3o%20de%20elementos.md" },
-            { titulo: "Criando e inserindo elementos", path: "./javascript/04-dom/03-Criando%20e%20inserindo%20elementos.md" },
-            { titulo: "Eventos e event listeners", path: "./javascript/04-dom/04-Eventos%20e%20event%20listeners.md" },
-            { titulo: "Event bubbling e delegation", path: "./javascript/04-dom/05-Event%20bubbling%20e%20delegation.md" },
-            { titulo: "Manipulação de classes e estilos", path: "./javascript/04-dom/06-Manipula%C3%A7%C3%A3o%20de%20classes%20e%20estilos.md" },
-            { titulo: "Formulários e validação", path: "./javascript/04-dom/07-Formul%C3%A1rios%20e%20valida%C3%A7%C3%A3o.md" },
-            { titulo: "LocalStorage e SessionStorage", path: "./javascript/04-dom/08-LocalStorage%20e%20SessionStorage.md" },
-            { titulo: "Animações com JS", path: "./javascript/04-dom/09-Anima%C3%A7%C3%B5es%20com%20JS.md" },
-            { titulo: "Projeto Lista de Tarefas", path: "./javascript/04-dom/10-Projeto%20Lista%20de%20Tarefas.md" },
-            { titulo: "01. Introdução ao Csharp", path: "./csharp/01-Introdu%C3%A7%C3%A3o%20ao%20Csharp.md" },
-            { titulo: "02. Variáveis e tipos de dados", path: "./csharp/02-Vari%C3%A1veis%20e%20tipos%20de%20dados.md" },
-            { titulo: "03. Operadores e expressões", path: "./csharp/03-Operadores%20e%20express%C3%B5es.md" },
-            { titulo: "04. Entrada e saída de dados", path: "./csharp/04-Entrada%20e%20sa%C3%ADda%20de%20dados.md" },
-            { titulo: "05. Console.Write e Console.WriteLine", path: "./csharp/05-Console.Write%20e%20Console.WriteLine.md" },
-            { titulo: "06. Casting e conversões de tipos", path: "./csharp/06-Casting%20e%20convers%C3%B5es%20de%20tipos.md" },
-            { titulo: "07. Estruturas condicionais e de repetição", path: "./csharp/07-Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md" },
-            { titulo: "08. O switch em Csharp", path: "./csharp/08-O%20switch%20em%20Csharp.md" },
-            { titulo: "09. Estruturas de repetição (for e while)", path: "./csharp/09-Estruturas%20de%20repeti%C3%A7%C3%A3o%20%28for%20e%20while%29.md" },
-            { titulo: "10. O loop do-while em Csharp", path: "./csharp/10-O%20loop%20do-while%20em%20Csharp.md" },
-            { titulo: "11. O loop foreach em Csharp", path: "./csharp/11-O%20loop%20foreach%20em%20Csharp.md" },
-            { titulo: "12. Arrays em Csharp", path: "./csharp/12-Arrays%20em%20Csharp.md" },
-            { titulo: "13. Métodos de arrays", path: "./csharp/13-M%C3%A9todos%20de%20arrays.md" },
-            { titulo: "14. Coleções em Csharp", path: "./csharp/14-Cole%C3%A7%C3%B5es%20em%20Csharp.md" },
-            { titulo: "15. Capacity em coleções", path: "./csharp/15-Capacity%20em%20cole%C3%A7%C3%B5es.md" },
-            { titulo: "16. Tipos abstratos de dados", path: "./csharp/16-Tipos%20abstratos%20de%20dados.md" },
-            { titulo: "17. Lista, pilha e fila", path: "./csharp/17-Lista%2C%20pilha%20e%20fila.md" },
-            { titulo: "18. Métodos (funções)", path: "./csharp/18-M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md" },
-            { titulo: "19. Programação orientada a objetos", path: "./csharp/19-Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md" },
-            { titulo: "20. Herança e interfaces", path: "./csharp/20-Heran%C3%A7a%20e%20interfaces.md" },
-            { titulo: "21. Tratamento de erros", path: "./csharp/21-Tratamento%20de%20erros.md" },
-            { titulo: "22. Manipulação de arquivos", path: "./csharp/22-Manipula%C3%A7%C3%A3o%20de%20arquivos.md" },
-            { titulo: "23. LINQ buscas e filtros", path: "./csharp/23-LINQ%20buscas%20e%20filtros.md" },
-            { titulo: "24. Csharp no Frontend e Backend", path: "./csharp/24-Csharp%20no%20Frontend%20e%20Backend.md" },
-            { titulo: "25. Consumindo APIs em Csharp", path: "./csharp/25-Consumindo%20APIs%20em%20Csharp.md" },
-            { titulo: "26. Como conectar Csharp no HTML (Backend + Frontend JS)", path: "./csharp/26-Como%20conectar%20Csharp%20no%20HTML%20%28Backend%20%2B%20Frontend%20JS%29.md" },
+            { titulo: "Template strings", path: "./javascript/03-manipulacao/01-Template%20strings.md" },
+            { titulo: "Arrays e métodos de array", path: "./javascript/03-manipulacao/02-Arrays%20e%20m%C3%A9todos%20de%20array.md" },
+            { titulo: "Métodos de array", path: "./javascript/03-manipulacao/03-M%C3%A9todos%20de%20array.md" },
+            { titulo: "O método forEach em detalhes", path: "./javascript/03-manipulacao/04-O%20m%C3%A9todo%20forEach%20em%20detalhes.md" },
+            { titulo: "Propriedades e métodos de string", path: "./javascript/03-manipulacao/05-Propriedades%20e%20m%C3%A9todos%20de%20string.md" },
+            { titulo: "Math", path: "./javascript/03-manipulacao/06-Math.md" },
+            { titulo: "Regex", path: "./javascript/03-manipulacao/07-Regex.md" },
+            { titulo: "JSON", path: "./javascript/03-manipulacao/08-JSON.md" },
+            { titulo: "Como converter markdown do obsidian em html", path: "./javascript/03-manipulacao/09-Como%20converter%20markdown%20do%20obsidian%20em%20html.md" },
+            { titulo: "DOM", path: "./javascript/04-dom-e-browser/01-DOM.md" },
+            { titulo: "Métodos do objeto document", path: "./javascript/04-dom-e-browser/02-M%C3%A9todos%20do%20objeto%20document.md" },
+            { titulo: "O objeto window", path: "./javascript/04-dom-e-browser/03-O%20objeto%20window.md" },
+            { titulo: "Eventos", path: "./javascript/04-dom-e-browser/04-Eventos.md" },
+            { titulo: "O console do navegador", path: "./javascript/04-dom-e-browser/05-O%20console%20do%20navegador.md" },
+            { titulo: "Animações com scroll", path: "./javascript/04-dom-e-browser/06-Anima%C3%A7%C3%B5es%20com%20scroll.md" },
+            { titulo: "Local storage", path: "./javascript/04-dom-e-browser/07-Local%20storage.md" },
+            { titulo: "Callbacks", path: "./javascript/05-assincrono/01-Callbacks.md" },
+            { titulo: "API", path: "./javascript/05-assincrono/02-API.md" },
+            { titulo: "Fetch", path: "./javascript/05-assincrono/03-Fetch.md" },
+            { titulo: "Async await", path: "./javascript/05-assincrono/04-Async%20await.md" },
+            { titulo: "Programação orientada a objetos", path: "./javascript/06-arquitetura-e-avancado/01-Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md" },
+            { titulo: "Node.js", path: "./javascript/06-arquitetura-e-avancado/02-Node.js.md" },
+            { titulo: "Escopo e closures", path: "./javascript/06-arquitetura-e-avancado/03-Escopo%20e%20closures.md" },
+            { titulo: "Desestruturação e spread", path: "./javascript/06-arquitetura-e-avancado/04-Desestrutura%C3%A7%C3%A3o%20e%20spread.md" },
+            { titulo: "Módulos import e export", path: "./javascript/06-arquitetura-e-avancado/05-M%C3%B3dulos%20import%20e%20export.md" },
+            { titulo: "Tratamento de erros", path: "./javascript/06-arquitetura-e-avancado/06-Tratamento%20de%20erros.md" },
+            { titulo: "Event loop e call stack", path: "./javascript/06-arquitetura-e-avancado/07-Event%20loop%20e%20call%20stack.md" },
+            { titulo: "TypeScript introdução", path: "./javascript/06-arquitetura-e-avancado/08-TypeScript%20introdu%C3%A7%C3%A3o.md" },
+            { titulo: "Ordem de Carregamento do DOM e Script", path: "./javascript/conceitos/Ordem%20de%20Carregamento%20do%20DOM%20e%20Script.md" },
+            // mermaid
             { titulo: "Introdução ao Mermaid", path: "./mermaid/Introdu%C3%A7%C3%A3o%20ao%20Mermaid.md" },
             { titulo: "Sintaxe e possibilidades com Mermaid", path: "./mermaid/Sintaxe%20e%20possibilidades%20com%20Mermaid.md" },
+            // python
+            { titulo: "Introdução ao Python", path: "./python/Introdu%C3%A7%C3%A3o%20ao%20Python.md" },
+            { titulo: "Comparativo de sintaxe e tipos", path: "./python/01-fundamentos/Comparativo%20de%20sintaxe%20e%20tipos.md" },
+            // react
+            { titulo: "Introdução ao React", path: "./react/Introdu%C3%A7%C3%A3o%20ao%20React.md" },
+            { titulo: "Bibliotecas de UI e estilização", path: "./react/01-fundamentos/Bibliotecas%20de%20UI%20e%20estiliza%C3%A7%C3%A3o.md" },
+            { titulo: "Hooks principais - useState, useRef, useMemo", path: "./react/01-fundamentos/Hooks%20principais%20-%20useState%2C%20useRef%2C%20useMemo.md" },
+            { titulo: "Pacotes e ecossistema do React", path: "./react/01-fundamentos/Pacotes%20e%20ecossistema%20do%20React.md" },
+            // tutoriais
+            { titulo: "[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Como%20Usar%20ArrayList%2C%20For%20e%20Foreach%20para%20Calcular%20M%C3%A9dias.md" },
+            { titulo: "[Csharp] • Projeto 1 - O Assistente de Terminal", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%201%20-%20O%20Assistente%20de%20Terminal.md" },
+            { titulo: "[Csharp] • Projeto 2 - O Jogo de Adivinhação", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%202%20-%20O%20Jogo%20de%20Adivinha%C3%A7%C3%A3o.md" },
+            { titulo: "[Csharp] • Projeto 3 - O Gerenciador de Tarefas", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%203%20-%20O%20Gerenciador%20de%20Tarefas.md" },
+            { titulo: "[Csharp] • Projeto 4 - O Simulador de Conta Bancária", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%204%20-%20O%20Simulador%20de%20Conta%20Banc%C3%A1ria.md" },
+            { titulo: "[Csharp] • Projeto 5 - O Diário Digital", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%205%20-%20O%20Di%C3%A1rio%20Digital.md" },
+            { titulo: "[JavaScript] • 01. Criando uma Busca Simples no DOM", path: "./tutoriais/%5BJavaScript%5D%20%E2%80%A2%2001.%20Criando%20uma%20Busca%20Simples%20no%20DOM.md" },
+            { titulo: "[JavaScript] • Como Criar um Modal Leitor de Artigos", path: "./tutoriais/%5BJavaScript%5D%20%E2%80%A2%20Como%20Criar%20um%20Modal%20Leitor%20de%20Artigos.md" },
+            { titulo: "[JavaScript] • Como Disparar a Busca com a Tecla Enter", path: "./tutoriais/%5BJavaScript%5D%20%E2%80%A2%20Como%20Disparar%20a%20Busca%20com%20a%20Tecla%20Enter.md" },
+            { titulo: "[JavaScript] • Como Substituir os Resultados pelo Artigo no Main", path: "./tutoriais/%5BJavaScript%5D%20%E2%80%A2%20Como%20Substituir%20os%20Resultados%20pelo%20Artigo%20no%20Main.md" },
+            // web
             { titulo: "DNS e gerenciamento de domínios", path: "./web/01-fundamentos/DNS%20e%20gerenciamento%20de%20dom%C3%ADnios.md" }
         ];
     }
@@ -119,6 +169,8 @@ async function carregarTodosArquivosEmCache() {
     if (cacheArquivos) return cacheArquivos;
     
     const lista = await obterListaDeArquivos();
+    todosOsArtigos = [];
+    todasAsPastas = {};
     
     // Baixa todos os arquivos concorrentemente usando Promise.all
     cacheArquivos = await Promise.all(
@@ -147,18 +199,12 @@ async function carregarTodosArquivosEmCache() {
                 return itemProcessado;
             } catch (erro) {
                 console.error("Erro ao pré-carregar arquivo:", arquivo.path, erro);
-                return {
-                    arquivo,
-                    titulo: arquivo.titulo,
-                    conteudo: "",
-                    conteudoTexto: "",
-                    path: arquivo.path,
-                    categoria: "geral"
-                };
+                return null;
             }
         })
     );
 
+    cacheArquivos = (cacheArquivos || []).filter(Boolean);
     return cacheArquivos;
 }
 
@@ -920,201 +966,168 @@ btnVoltar.addEventListener("click", () => {
         abrirDisciplina(categoriaAtual);
         return;
     }
-    leitorDeArtigo.classList.add("escondido");
-    divResultados.classList.remove("escondido");
-    const pastasContainer = document.getElementById("pastas-container");
-    if (pastasContainer) {
-        const termo = campoTexto ? campoTexto.value.trim() : "";
-        if (termo === "") {
-            pastasContainer.classList.remove("escondido");
-            divResultados.classList.add("escondido");
-        } else {
-            pastasContainer.classList.add("escondido");
-        }
-    }
+    voltarParaHome(true);
 });
 
-function normalizarTexto(texto) {
-    return texto
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase();
-}
-
-function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function calcularScore(titulo, conteudo, termo) {
-    const tituloNorm = normalizarTexto(titulo);
-    const conteudoNorm = normalizarTexto(conteudo);
-    const termoNorm = normalizarTexto(termo);
-
-    if (termoNorm === "") return 0;
-
-    let score = 0;
-
-    if (tituloNorm === termoNorm) {
-        score += 150;
-    } else if (tituloNorm.includes(termoNorm)) {
-        score += 80;
-    }
-
-    if (conteudoNorm.includes(termoNorm)) {
-        score += 40;
-        const regexTermo = new RegExp(escapeRegExp(termoNorm), "g");
-        const matchesTermo = conteudoNorm.match(regexTermo);
-        if (matchesTermo) {
-            score += matchesTermo.length * 10;
-        }
-    }
-
-    const palavras = termoNorm.split(/\s+/).filter(p => p.length > 1);
-    palavras.forEach(palavra => {
-        if (tituloNorm.includes(palavra)) {
-            score += 25;
-        }
-        if (conteudoNorm.includes(palavra)) {
-            const regexPalavra = new RegExp(escapeRegExp(palavra), "g");
-            const matchesPalavra = conteudoNorm.match(regexPalavra);
-            if (matchesPalavra) {
-                score += matchesPalavra.length * 2;
-            }
-        }
+if (btnVoltarDisciplina) {
+    btnVoltarDisciplina.addEventListener("click", () => {
+        voltarParaHome(true);
     });
-
-    return score;
 }
 
-function limparMarkdown(texto) {
-    return texto
-        .replace(/```[\s\S]*?```/g, "")
-        .replace(/^#+\s+/gm, "")
-        .replace(/(\*\*|__|\*|_)(.*?)\1/g, "$2")
-        .replace(/`([^`]+)`/g, "$1")
-        .replace(/^\>\s+/gm, "")
-        .replace(/\[(.*?)\]\((.*?)\)/g, "$1")
-        .replace(/\[\[(.*?)(?:\||&#124;)?(.*?)\]\]/g, "$2")
-        .replace(/\n+/g, " ")
-        .trim();
+function destacarTexto(texto, termo) {
+    if (!termo) return texto;
+    const regex = new RegExp(`(${termo.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    return texto.replace(regex, '<mark class="highlight">$1</mark>');
+}
+
+function escaparHtml(texto) {
+    const elemento = document.createElement("span");
+    elemento.textContent = texto;
+    return elemento.innerHTML;
+}
+
+function extrairTrechoRelevante(conteudo, termo) {
+    const conteudoSemFrontmatter = removerFrontmatter(conteudo);
+    const textoLimpo = conteudoSemFrontmatter.replace(/==/g, '').replace(/[#*`_~\[\]]/g, ' ');
+    const pos = textoLimpo.toLowerCase().indexOf(termo.toLowerCase());
+    
+    if (pos === -1) {
+        return textoLimpo.substring(0, 140).trim() + "...";
+    }
+    
+    const inicio = Math.max(0, pos - 50);
+    const fim = Math.min(textoLimpo.length, pos + termo.length + 80);
+    let trecho = textoLimpo.substring(inicio, fim).trim();
+    
+    if (inicio > 0) trecho = "..." + trecho;
+    if (fim < textoLimpo.length) trecho = trecho + "...";
+    
+    return trecho;
 }
 
 async function buscar(termo) {
-    const termoLimpo = termo.trim();
+    const termoLimpo = (termo || "").trim();
+    
+    leitorDeArtigo.classList.add("escondido");
+    leitorDeDisciplina.classList.add("escondido");
+
     if (termoLimpo === "") {
         divResultados.classList.add("escondido");
-        const pastasContainer = document.getElementById("pastas-container");
-        if (pastasContainer) pastasContainer.classList.remove("escondido");
+        containerResultados.innerHTML = "";
+        document.getElementById("explorar-pastas")?.classList.remove("escondido");
         return;
     }
-    
+
+    document.getElementById("explorar-pastas")?.classList.add("escondido");
     divResultados.classList.remove("escondido");
-    leitorDeArtigo.classList.add("escondido");
-    const pastasContainer = document.getElementById("pastas-container");
-    if (pastasContainer) pastasContainer.classList.add("escondido");
 
-    const arquivosComConteudo = await carregarTodosArquivosEmCache();
-    const resultados = [];
-
-    for (const item of arquivosComConteudo) {
-        const score = calcularScore(item.titulo, item.conteudoTexto, termoLimpo);
-        if (score > 0) {
-            resultados.push({
-                arquivo: item.arquivo,
-                titulo: item.titulo,
-                conteudoTexto: item.conteudoTexto,
-                path: item.path,
-                categoria: item.categoria,
-                score
-            });
-        }
-    }
-
-    if (resultados.length === 0) {
-        containerResultados.innerHTML = `
-            <h2>Nenhum resultado encontrado</h2>
-            <p>Tente pesquisar por outra palavra.</p>
-        `;
+    if (termoLimpo.length < 2) {
+        containerResultados.innerHTML = `<p class="mensagem-busca">digite ao menos <strong>duas letras</strong> para pesquisar nos tópicos e artigos.</p>`;
         return;
     }
 
-    resultados.sort((a, b) => b.score - a.score);
+    await carregarTodosArquivosEmCache();
 
-    const grupos = {};
-    resultados.forEach(item => {
-        const pasta = item.categoria || "Geral";
-        if (!grupos[pasta]) {
-            grupos[pasta] = {
-                nome: pasta,
-                maxScore: 0,
-                itens: []
-            };
-        }
-        grupos[pasta].itens.push(item);
-        if (item.score > grupos[pasta].maxScore) {
-            grupos[pasta].maxScore = item.score;
-        }
-    });
-
-    const gruposOrdenados = Object.values(grupos).sort((a, b) => b.maxScore - a.maxScore);
-
-    containerResultados.innerHTML = "";
-    gruposOrdenados.forEach(grupo => {
-        const grupoDiv = document.createElement("div");
-        grupoDiv.className = "busca-grupo-assunto";
-
-        const grupoTitulo = document.createElement("h3");
-        grupoTitulo.className = "busca-assunto-titulo";
-        grupoTitulo.textContent = `${grupo.nome} (${grupo.itens.length})`;
-        grupoDiv.appendChild(grupoTitulo);
-
-        const cardsContainer = document.createElement("div");
-        cardsContainer.className = "cards-container";
-
-        grupo.itens.forEach(item => {
-            const resumoBruto = item.conteudoTexto.substring(0, 250) + "...";
-            const resumo = limparMarkdown(resumoBruto);
-            
-            const card = document.createElement("div");
-            card.className = "card";
-            card.innerHTML = `
-                <span class="card-tag">${item.categoria}</span>
-                <h2>${item.titulo}</h2>
-                <div class="conteudo">${resumo}</div>
-            `;
-
-            card.addEventListener("click", () => {
-                abrirArtigo(item.titulo, item.conteudoTexto, item.categoria);
-            });
-
-            cardsContainer.appendChild(card);
+    const termoLower = termoLimpo.toLowerCase();
+    const filtrados = todosOsArtigos
+        .filter(artigo => {
+            const tituloMatch = artigo.titulo.toLowerCase().includes(termoLower);
+            const conteudoMatch = (artigo.conteudoTexto || "").toLowerCase().includes(termoLower);
+            return tituloMatch || conteudoMatch;
+        })
+        .sort((a, b) => {
+            const prioridadeA = a.titulo.toLowerCase().includes(termoLower) ? 0 : 1;
+            const prioridadeB = b.titulo.toLowerCase().includes(termoLower) ? 0 : 1;
+            return prioridadeA - prioridadeB || a.titulo.localeCompare(b.titulo, "pt-BR", { numeric: true });
         });
 
-        grupoDiv.appendChild(cardsContainer);
-        containerResultados.appendChild(grupoDiv);
+    containerResultados.innerHTML = "";
+
+    if (filtrados.length === 0) {
+        containerResultados.innerHTML = `<p class="mensagem-busca">nenhum artigo ou tópico encontrado para <strong>“${escaparHtml(termoLimpo)}”</strong>.</p>`;
+        return;
+    }
+
+    const resumoBusca = document.createElement("p");
+    resumoBusca.className = "resumo-busca";
+    resumoBusca.innerHTML = `${filtrados.length} ${filtrados.length === 1 ? "artigo encontrado" : "artigos encontrados"} para <strong>“${escaparHtml(termoLimpo)}”</strong>`;
+    containerResultados.appendChild(resumoBusca);
+
+    // Agrupa por categoria/área
+    const grupos = {};
+    filtrados.forEach(artigo => {
+        const cat = artigo.categoria || "Geral";
+        if (!grupos[cat]) grupos[cat] = [];
+        grupos[cat].push(artigo);
     });
+
+    Object.keys(grupos)
+        .sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true }))
+        .forEach(categoria => {
+            const grupoDiv = document.createElement("div");
+            grupoDiv.className = "busca-grupo-assunto";
+
+            const tituloGrupo = document.createElement("h3");
+            tituloGrupo.className = "busca-assunto-titulo";
+            tituloGrupo.textContent = `${formatarArea(categoria)} • ${grupos[categoria].length} ${grupos[categoria].length === 1 ? "artigo" : "artigos"}`;
+            grupoDiv.appendChild(tituloGrupo);
+
+            const subLista = document.createElement("div");
+            subLista.className = "resultados-lista";
+
+            grupos[categoria].forEach((artigo, indice) => {
+                const itemLink = document.createElement("a");
+                itemLink.className = "resultado-item";
+                itemLink.href = rotaDoArtigo(artigo.categoria, artigo.titulo);
+
+                const numero = document.createElement("span");
+                numero.className = "resultado-numero";
+                numero.textContent = String(indice + 1).padStart(2, "0");
+
+                const conteudo = document.createElement("span");
+                conteudo.className = "resultado-conteudo";
+
+                const titulo = document.createElement("strong");
+                titulo.innerHTML = destacarTexto(formatarTitulo(artigo.titulo), termoLimpo);
+
+                const trecho = document.createElement("span");
+                trecho.className = "resultado-trecho";
+                const textoTrecho = extrairTrechoRelevante(artigo.conteudoTexto, termoLimpo);
+                trecho.innerHTML = destacarTexto(textoTrecho, termoLimpo);
+
+                conteudo.appendChild(titulo);
+                conteudo.appendChild(trecho);
+                itemLink.appendChild(numero);
+                itemLink.appendChild(conteudo);
+
+                itemLink.addEventListener("click", (e) => {
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+                    e.preventDefault();
+                    abrirArtigo(artigo.titulo, artigo.conteudoTexto, artigo.categoria);
+                });
+
+                subLista.appendChild(itemLink);
+            });
+
+            grupoDiv.appendChild(subLista);
+            containerResultados.appendChild(grupoDiv);
+        });
 }
 
 async function renderizarPastas() {
     const pastasContainer = document.getElementById("pastas-container");
     if (!pastasContainer) return;
 
-    pastasContainer.innerHTML = "<span>Carregando pastas...</span>";
+    pastasContainer.innerHTML = "<span>Carregando áreas de estudo...</span>";
 
-    const arquivosComConteudo = await carregarTodosArquivosEmCache();
+    await carregarTodosArquivosEmCache();
     
-    const pastasAgrupadas = {};
-    arquivosComConteudo.forEach(item => {
-        const pasta = item.categoria || "Geral";
-        if (!pastasAgrupadas[pasta]) {
-            pastasAgrupadas[pasta] = [];
-        }
-        pastasAgrupadas[pasta].push(item);
-    });
-
     pastasContainer.innerHTML = "";
 
-    Object.keys(pastasAgrupadas).sort().forEach((pasta, indice) => {
+    const categoriasOrdenadas = Object.keys(todasAsPastas).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true }));
+
+    categoriasOrdenadas.forEach((pasta, indice) => {
         const pastaItem = document.createElement("div");
         pastaItem.className = "pasta-item";
 
@@ -1125,7 +1138,7 @@ async function renderizarPastas() {
             <span class="pasta-numero">${String(indice + 1).padStart(2, "0")}</span>
             <span class="pasta-info">
                 <span class="pasta-nome">${formatarArea(pasta)}</span>
-                <span class="pasta-descricao">${descricoesDeAreas[pasta] || "Artigos, anotações e referências desta área de estudo."}</span>
+                <span class="pasta-descricao">${descricoesDeAreas[pasta] || descricoesDeAreas[pasta.toLowerCase()] || "Artigos, anotações e referências desta área de estudo."}</span>
             </span>
             <span class="pasta-icone">→</span>
         `;

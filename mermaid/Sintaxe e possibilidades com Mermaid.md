@@ -465,19 +465,19 @@ pie title Distribuição de tecnologias do Vault
 
 ## Guia de decisão: qual diagrama escolher?
 
-| O que você quer explicar? | Diagrama recomendado | Palavra-chave inicial |
-| :--- | :--- | :--- |
-| Tomada de decisão, algoritmo ou fluxo de telas | Fluxograma | `flowchart TD` |
-| Troca de mensagens entre usuário, app e APIs no tempo | Diagrama de sequência | `sequenceDiagram` |
-| Estrutura de classes, herança e interfaces | Diagrama de classes | `classDiagram` |
-| Estados de um botão, tela ou pedido (`idle`, `loading`, `error`) | Diagrama de estados | `stateDiagram-v2` |
-| Modelagem de tabelas e chaves de banco de dados | Entidade e relacionamento | `erDiagram` |
-| Cronograma, sprints e dependências temporais | Gráfico de Gantt | `gantt` |
-| Fluxo de branches e merges do Git | Grafo Git | `gitGraph` |
-| Hierarquia de conceitos, tópicos e brainstorm | Mapa mental | `mindmap` |
-| Matriz de priorização 2x2 (Impacto x Esforço) | Gráfico de quadrantes | `quadrantChart` |
-| Marcos e lançamentos cronológicos | Linha do tempo | `timeline` |
-| Proporções e métricas percentuais | Gráfico de pizza | `pie` |
+| O que você quer explicar?                                        | Diagrama recomendado      | Palavra-chave inicial |
+| :--------------------------------------------------------------- | :------------------------ | :-------------------- |
+| Tomada de decisão, algoritmo ou fluxo de telas                   | Fluxograma                | `flowchart TD`        |
+| Troca de mensagens entre usuário, app e APIs no tempo            | Diagrama de sequência     | `sequenceDiagram`     |
+| Estrutura de classes, herança e interfaces                       | Diagrama de classes       | `classDiagram`        |
+| Estados de um botão, tela ou pedido (`idle`, `loading`, `error`) | Diagrama de estados       | `stateDiagram-v2`     |
+| Modelagem de tabelas e chaves de banco de dados                  | Entidade e relacionamento | `erDiagram`           |
+| Cronograma, sprints e dependências temporais                     | Gráfico de Gantt          | `gantt`               |
+| Fluxo de branches e merges do Git                                | Grafo Git                 | `gitGraph`            |
+| Hierarquia de conceitos, tópicos e brainstorm                    | Mapa mental               | `mindmap`             |
+| Matriz de priorização 2x2 (Impacto x Esforço)                    | Gráfico de quadrantes     | `quadrantChart`       |
+| Marcos e lançamentos cronológicos                                | Linha do tempo            | `timeline`            |
+| Proporções e métricas percentuais                                | Gráfico de pizza          | `pie`                 |
 
 ---
 

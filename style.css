@@ -867,41 +867,101 @@ mark.obsidian-highlight, mark:not(.highlight) {
     padding-left: 10px;
 }
 
-/* Tag de Categoria nos Cards */
-.card-tag {
-    font-size: 0.35em;
-    background-color: rgba(0, 0, 0, 0.08);
-    color: black;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    padding: 3px 10px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 12px;
-    text-transform: lowercase;
-    font-weight: bold;
-    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+/* Resultados da Busca Suíça */
+.resultados {
+    margin: 30px 0 64px;
 }
 
-.card:hover .card-tag {
-    background-color: var(--accent-pink-alpha-15);
-    color: var(--accent-pink);
-    border-color: var(--accent-pink);
+.resumo-busca,
+.mensagem-busca {
+    margin: 0 0 30px;
+    color: var(--muted);
+    font-size: .92rem;
+    line-height: 1.4;
 }
 
-/* Agrupamento por Assunto na Busca */
+.resumo-busca strong,
+.mensagem-busca strong {
+    color: var(--text);
+}
+
 .busca-grupo-assunto {
-    width: 100%;
-    margin-bottom: 40px;
+    margin: 0 0 38px;
+    border-top: 1px solid color-mix(in srgb, var(--text) 42%, transparent);
 }
 
 .busca-assunto-titulo {
+    margin: 0;
+    padding: 14px 0 12px;
     color: var(--accent-pink);
-    font-size: 1.2em;
-    font-weight: bold;
-    border-bottom: 1px solid var(--accent-pink-alpha-30);
-    padding-bottom: 8px;
-    margin-bottom: 20px;
+    font-size: .88rem;
+    font-weight: 650;
+    letter-spacing: .04em;
     text-transform: lowercase;
+}
+
+.resultados-lista {
+    border-top: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+}
+
+.resultado-item {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 0 24px;
+    align-items: start;
+    padding: 18px 0 19px;
+    border: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--text) 27%, transparent);
+    border-radius: 0;
+    background: transparent;
+    color: var(--text);
+    text-decoration: none;
+    transition: color .16s ease, padding-left .16s ease;
+    cursor: pointer;
+}
+
+.resultado-item:hover,
+.resultado-item:focus-visible {
+    padding-left: 8px;
+    border-color: var(--accent-pink);
+    color: var(--accent-pink);
+    outline: none;
+}
+
+.resultado-numero {
+    color: var(--accent-pink);
+    font-size: .82rem;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.25;
+}
+
+.resultado-conteudo {
+    display: grid;
+    gap: 7px;
+    min-width: 0;
+}
+
+.resultado-conteudo strong {
+    color: currentColor;
+    font-size: 1.15rem;
+    font-weight: 510;
+    line-height: 1.1;
+    letter-spacing: -.025em;
+}
+
+.resultado-trecho {
+    max-width: 720px;
+    color: var(--muted);
+    font-size: .88rem;
+    line-height: 1.45;
+}
+
+.resultado-item mark,
+mark.highlight {
+    padding: 0 2px;
+    background: color-mix(in srgb, var(--accent-pink) 30%, transparent);
+    color: var(--text);
+    border-radius: 2px;
 }
 
 /* Responsividade estrutural para Celulares e Tablets */
