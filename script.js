@@ -376,10 +376,8 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
             numSpan.className = "line-number";
             numSpan.textContent = index + 1;
 
-            const codeSpan = document.createElement("code");
-            if (codeElement.className) {
-                codeSpan.className = codeElement.className;
-            }
+            const codeSpan = document.createElement("span");
+            codeSpan.className = "code-text" + (codeElement.className ? ` ${codeElement.className}` : "");
             codeSpan.textContent = lineText || " ";
 
             lineDiv.appendChild(numSpan);

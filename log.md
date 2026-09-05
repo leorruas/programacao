@@ -4,9 +4,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-05
 
-* **Isolamento de Estilos de Código Inline e Restauração de Blocos de Código (`style.css`, `index.html`)**:
-  * **Correção de Escopo no CSS**: Restringido o seletor de código inline para `:not(pre) > code` (e específicos como `p > code`, `li > code`, `td > code`, `th > code`), garantindo que tags `<code>` renderizadas dentro de blocos de código com numeração de linha (`.code-line code` e `<pre>`) permaneçam sem caixas individuais, bordas ou fundos sobrepostos, mantendo o bloco contínuo e limpo.
-  * **Cache Buster**: Atualizado para `estrutura-v32` no `index.html`.
+* **Desacoplamento Estrutural de Linhas de Código e Código Inline (`script.js`, `style.css`, `index.html`)**:
+  * **Eliminação Definitiva de Conflitos**: Substituído o elemento interno das linhas numeradas em `<pre>` de `<code>` para `<span class="code-text">`, desacoplando completamente os blocos grandes de código de quaisquer regras de código inline.
+  * **Isolamento Estrito**: Assegurado que as caixas de código inline (`.artigo-corpo code:not(pre code)`) atuem exclusivamente sobre termos e trechos no meio do texto, enquanto os blocos `<pre>` permanecem planos, unificados e com coloração contínua.
+  * **Cache Buster**: Incrementado para `estrutura-v33` no `index.html`.
 
 * **Correção de Legibilidade de Callouts e Roteamento Resiliente por Hash (`style.css`, `script.js`, `index.html`)**:
   * **Legibilidade e Contraste nos Callouts para Modo Claro e Escuro**:
