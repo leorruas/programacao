@@ -4,6 +4,27 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-05
 
+* **Criação da Trilha Completa de Modelagem Visual com Mermaid (`mermaid/`, `js/vault.js`)**:
+  * **Transição de Paradigma (De Desenho Livre a Diagrams as Code)**:
+    * Estruturada a trilha completa de 14 artigos sequenciais (`00` a `13`) com foco em arquitetura da informação, teoria de grafos aplicada, semântica de layouts e engenharia de software, superando o reducionismo de "apenas sintaxe":
+      * [[mermaid/00-Guia de estudos|00-Guia de estudos]]: Mapa da trilha em 3 blocos pedagógicos e introdução ao sistema unificado de mentorias.
+      * [[mermaid/01-Mermaid como linguagem de modelagem visual|01-Mermaid como linguagem de modelagem visual]]: Declarativo vs Imperativo, motores de distribuição (Dagre) e a analogia topológica do mapa de metrô.
+      * [[mermaid/02-Flowcharts e fundamentos de grafos|02-Flowcharts e fundamentos de grafos]]: Vértices, arestas, grau de entrada/saída, caminhos, ciclos, DAGs e densidade de arestas.
+      * [[mermaid/03-Direção, hierarquia e organização espacial|03-Direção, hierarquia e organização espacial]]: As 4 direções (`TD`, `LR`, `BT`, `RL`), semântica do tempo horizontal vs hierarquia vertical e controle de edge crossings.
+      * [[mermaid/04-Nós, relações, subgraphs e semântica visual|04-Nós, relações, subgraphs e semântica visual]]: Vocabulário geométrico, conexões, fronteiras de contexto com subgrafos e sistema semântico de classes (`:::core`, `:::component`, `:::data`, `:::warning`, `:::external`).
+      * [[mermaid/05-Como escolher o tipo de diagrama|05-Como escolher o tipo de diagrama]]: Matriz de decisão orientada a perguntas e critérios de "Quando NÃO usar Mermaid".
+      * [[mermaid/06-Diagramas de sequência|06-Diagramas de sequência]]: Atores, participantes, ativações e blocos condicionais (`alt`, `opt`, `loop`) no fluxo de agendamento de mentoria.
+      * [[mermaid/07-Diagramas de classes e UML com Mermaid|07-Diagramas de classes e UML com Mermaid]]: Estrutura estática de classes, encapsulamento, herança, interfaces, agregação e composição no domínio de mentorias.
+      * [[mermaid/08-Diagramas de estado|08-Diagramas de estado]]: Máquina de estados finita e ciclo de vida da `SolicitacaoMentoria` (`Criada` $\rightarrow$ `EmAnalise` $\rightarrow$ `Confirmada` $\rightarrow$ `SessaoAgendada` $\rightarrow$ `Finalizada`).
+      * [[mermaid/09-ER e modelagem de dados|09-ER e modelagem de dados]]: Modelagem relacional, cardinalidades com notação Crow's Foot e tabelas do banco de dados acadêmico.
+      * [[mermaid/10-Arquitetura de software com Mermaid|10-Arquitetura de software com Mermaid]]: Modelo C4 simplificado com subgrafos em camadas (clientes, gateway, serviços de aplicação, cache e banco).
+      * [[mermaid/11-Controle de complexidade em diagramas grandes|11-Controle de complexidade em diagramas grandes]]: Padrão *Overview + Drill-down*, decomposição por domínio e redução de ruído visual.
+      * [[mermaid/12-Padrões, antipadrões e refatoração de diagramas|12-Padrões, antipadrões e refatoração de diagramas]]: Diagnóstico dos antipadrões "minhoca horizontal", "arranha-céu vertical" e "ninho de mafagafos", com refatoração antes/depois e checklist.
+      * [[mermaid/13-Mermaid dinâmico com JavaScript|13-Mermaid dinâmico com JavaScript]]: Integração com `mermaid.js`, `mermaid.initialize()`, `mermaid.render()` e geração dinâmica de diagramas a partir de objetos JSON.
+  * **Sincronização de Metadados**:
+    * Atualizada a lista de fallback do leitor web em `js/vault.js` com todos os 14 novos artigos.
+    * Conformidade rigorosa com método Feynman, ausência total de emojis e Sentence Case em todos os cabeçalhos.
+
 * **Curadoria e Inclusão de Conteúdo Complementar em Vídeo na Trilha de LLMs e RAG (`llm/`, `index.html`)**:
   * **Videoteca Centralizada no Guia de Estudos ([[llm/00-Guia de estudos|00-Guia de estudos]])**:
     * Adicionada a seção `## Videoteca recomendada de IA e sistemas` consolidando os canais e autores de referência internacional: Andrej Karpathy (*Zero to Hero*, *State of GPT*), 3Blue1Brown (série geométrica sobre redes neurais e Transformers), StatQuest with Josh Starmer (álgebra visual passo a passo), DeepLearning.AI / Andrew Ng (sistemas e avaliação), Cohere / Jay Alammar (embeddings e reranking) e Yannic Kilcher (leitura de papers fundamentais).
