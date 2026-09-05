@@ -1,109 +1,189 @@
-# A arquitetura Transformer e o mecanismo de atenção: o motor da revolução da IA
+# A arquitetura Transformer e o mecanismo de atenção: anatomia de tensores e o bloco decoder
 
-Em 2017, uma equipe de pesquisadores do Google publicou um artigo científico com um título histórico: *"Attention Is All You Need"*. Esse documento introduziu a arquitetura **Transformer**, a estrutura que substituiu todas as abordagens anteriores de processamento de linguagem natural (como RNNs e LSTMs) e deu origem a modelos como GPT, Claude, Gemini e Llama.
-
----
-
-## O problema das redes neurais antigas
-
-Antes do Transformer, os computadores liam textos de forma estritamente sequencial, palavra por palavra, da esquerda para a direita, como uma pessoa tentando memorizar um parágrafo enorme numa fita cassete:
-* Quando chegavam na palavra número 100 de uma frase, a rede já havia esquecido ou distorcido os detalhes das primeiras palavras.
-* Não era possível processar todas as palavras simultaneamente, o que impedia o uso de placas de vídeo modernas (GPUs) em sua capacidade máxima.
-
-O Transformer resolveu isso de uma só vez com dois conceitos revolucionários: **processamento paralelo de toda a frase** e **atenção própria (*Self-Attention*)**.
+Em 2017, o artigo *"Attention Is All You Need"* (Vaswani et al.) transformou o paradigma do processamento de linguagem natural. Embora o artigo original propusesse uma arquitetura codificador-decodificador (*Encoder-Decoder*) voltada para tradução automática, a evolução dos modelos de fundação modernos (como GPT, Llama e Claude) consolidou a variante **Decoder-only autorregressiva** como o padrão dominante para geração de texto e código.
 
 ---
 
-## O que é o mecanismo de atenção? (A analogia da hierarquia visual do design)
+## 1. Intuição e analogia: o quadro de comunicações do estúdio
 
-Imagine que você está navegando em uma página de produto bem desenhada ou em um arquivo no Figma:
-* Seus olhos não leem cada pixel em linha reta da esquerda para a direita.
-* Seu cérebro aplica **atenção seletiva**: você olha para o título principal, conecta instantaneamente com a foto do produto e associa com a cor chamativa do botão de compra (*Call to Action*).
+Pense em um time multidisciplinar em uma sala de design de produto:
+* Em uma linha de montagem linear antiga (redes recorrentes RNNs), uma pessoa só podia falar com o colega imediatamente ao lado, passando um bilhete que ia se desgastando e perdendo dados até chegar ao final da sala.
+* No Transformer, todos os profissionais (tokens) estão sentados em uma mesa redonda ao mesmo tempo. No centro da sala há um **quadro compartilhado de anotações (o Residual Stream)**.
+* Cada especialista analisa as fichas dos outros colegas simultaneamente, decide quais informações são críticas para o seu trabalho (*Self-Attention*) e anota sua contribuição de volta no quadro sem apagar o que já estava lá.
 
-O mecanismo de **Self-Attention** faz exatamente isso com as palavras de um texto. Ao analisar uma palavra específica, ele mede quanta "atenção" essa palavra deve dedicar a todas as outras palavras ao redor.
+---
 
-### O exemplo clássico da ambiguidade
-Considere a seguinte frase:
-> *"O animal não atravessou a rua porque **ele** estava muito cansado."*
+## 2. Mecanismo técnico formal: o bloco Transformer em detalhes
 
-A quem a palavra **"ele"** se refere? Ao animal ou à rua?
-Para um ser humano, é óbvio que é ao animal. Mas para um computador antigo, ambas eram substantivos neutros. O mecanismo de atenção calcula conexões entre `"ele"` e todas as palavras da frase e descobre uma correlação fortíssima entre `"ele"`, `"cansado"` e `"animal"`, descartando a palavra `"rua"`.
+A representação de um token atravessa uma pilha de $L$ blocos idênticos. O fluxo interno de cada bloco é estruturado por operações matriciais rigorosas:
 
 ```mermaid
 flowchart TD
-    Entrada["Entrada de texto<br>(tokens vetorizados)"] --> CodificadorPosicional["Codificação posicional<br>(ordem e localização)"]
-    CodificadorPosicional --> QKV["Projeção linear<br>(Query, Key e Value)"]
-    QKV --> MatrizAtencao["Cálculo de atenção<br>(pesos de relacionamento)"]
-    MatrizAtencao --> RedesAvanco["Redes neurais feed-forward<br>(consolidação de contexto)"]
-    RedesAvanco --> ProjecaoSaida["Camada linear e Softmax<br>(distribuição de saída)"]
+    Entrada["Residual Stream x_(l-1)<br>(dimensão d_model)"] --> Norm1["RMSNorm / Pre-LayerNorm"]
+    Norm1 --> RoPE["Embeddings Posicionais (RoPE)<br>(rotação vetorial de pares de coordenadas)"]
+    RoPE --> QKV["Projeções Lineares W_Q, W_K, W_V"]
+    QKV --> CausalMask["Atenção Multi-Cabeça com Causal Masking<br>(Softmax(Q K^T / sqrt(d_k) + M) * V)"]
+    CausalMask --> ProjOut["Projeção de Saída W_O"]
+    ProjOut --> Add1["Soma Residual (+)<br>(x_meio = x_(l-1) + Atenção)"]
+    Add1 --> Norm2["RMSNorm"]
+    Norm2 --> FFN["Feed-Forward Network (FFN / SwiGLU)<br>(ativação não linear com expansão 8/3 ou 4x)"]
+    FFN --> Add2["Soma Residual (+)<br>(x_l = x_meio + FFN)"]
+    Add2 --> SaidaResidual["Residual Stream para o Bloco Seguinte x_l"]
 ```
 
+### 2.1. Residual stream e normalização (RMSNorm)
+O vetor de ativação central $x \in \mathbb{R}^{d_{\text{model}}}$ flui de ponta a ponta pelo modelo:
+* **Conexões residuais**: Em vez de substituir $x$ pelo resultado da camada, o modelo soma a saída: $x_{l} = x_{l-1} + f(x_{l-1})$. Isso cria uma "supervia" de gradientes que evita o desaparecimento do gradiente (*Vanishing Gradient*) durante o treinamento de centenas de camadas.
+* **RMSNorm (Root Mean Square Normalization)**: Substituiu a antiga LayerNorm na maioria dos modelos modernos por dispensar o cálculo da média, normalizando os tensores puramente pela raiz quadrada da média dos quadrados e reduzindo o overhead computacional em cerca de 10% a 50%.
+
+### 2.2. Embeddings posicionais rotacionais (RoPE)
+Como o cálculo de atenção é invariante à permutação (uma operação matricial não sabe quem veio antes ou depois), os modelos precisam injetar a ordem dos tokens:
+* **RoPE (Rotary Position Embedding)**: Em vez de somar vetores posicionais fixos na entrada, o RoPE rotaciona os vetores de Query e Key no plano complexo bidimensional por um ângulo proporcional à posição $m$ do token na sequência. O produto escalar resultante $q_m^T k_n$ passa a depender diretamente da **distância relativa** $(m - n)$, permitindo extrapolação de janelas de contexto com maior estabilidade.
+
+### 2.3. O cálculo formal da atenção multi-cabeça e Causal Masking
+Para cada cabeça de atenção $h \in \{1, \dots, H\}$, com dimensão $d_k = d_{\text{model}} / H$, calculam-se as projeções lineares:
+
+$$Q = X W_Q, \quad K = X W_K, \quad V = X W_V$$
+
+A matriz de compatibilidade $Q K^T$ é escalada por $\sqrt{d_k}$ para evitar que produtos escalares em alta dimensão caiam em regiões de gradiente quase nulo da função Softmax:
+
+$$\text{Attention}(Q, K, V) = \text{Softmax}\left(\frac{Q K^T}{\sqrt{d_k}} + M\right) V$$
+
+Onde $M$ é a **Causal Mask** (máscara triangular inferior):
+
+$$M_{ij} = \begin{cases} 0, & \text{se } i \ge j \\ -\infty, & \text{se } i < j \end{cases}$$
+
+Ao somar $-\infty$, a função Softmax converte essas posições em probabilidade estritamente zero ($\exp(-\infty) = 0$), garantindo que o token presente nunca tenha acesso aos tokens que estão no futuro durante o treinamento paralelo.
+
+### 2.4. Feed-Forward Network (FFN) e ativações SwiGLU
+Enquanto a atenção é o mecanismo onde os tokens se comunicam entre si horizontalmente, a camada **FFN** opera em cada token individualmente de forma vertical:
+* É considerada a **memória factual/associativa** do modelo.
+* Em arquiteturas modernas (como Llama), utiliza-se **SwiGLU** (Swish-Gated Linear Unit), expandindo a dimensão intermediária para $\frac{8}{3} d_{\text{model}}$ com uma porta de controle multiplicativa não linear:
+
+$$\text{SwiGLU}(x) = (\text{Swish}(x W_{\text{gate}}) \odot x W_{\text{up}}) W_{\text{down}}$$
+
 ---
 
-## Os três papéis da atenção: Query, Key e Value
+## 3. As três famílias arquiteturais do Transformer
 
-Internamente, para descobrir quem se relaciona com quem, o mecanismo de atenção emprega um padrão comparável a uma consulta de busca ou a uma pesquisa em banco de dados:
-
-1. **Query (A Pergunta)**: É a palavra atual levantando a mão e perguntando: *"O que estou procurando para fazer sentido?"*
-2. **Key (A Chave / Rótulo)**: São as etiquetas de todas as outras palavras dizendo: *"Aqui está o tipo de informação que eu ofereço."*
-3. **Value (O Conteúdo)**: É a carga de significado real que será somada se a Query e a Key derem compatibilidade (*match*).
-
-A fórmula fundamental da atenção escalada calcula a compatibilidade entre a Query ($Q$) e todas as Keys ($K$), normaliza o resultado e multiplica pelos Values ($V$):
-
-$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{Q K^T}{\sqrt{d_k}}\right) V$$
+| Arquitetura | Exemplos | Mecanismo de Atenção | Melhor Aplicação Prática |
+| :--- | :--- | :--- | :--- |
+| **Decoder-only** | GPT-4, Llama 3, Claude, Gemini | Causal (máscara triangular, olha só para trás) | Geração de texto, código, diálogo e raciocínio autorregressivo. |
+| **Encoder-only** | BERT, RoBERTa, DeBERTa | Bidirecional (olha para frente e para trás livremente) | Classificação de texto, extração de entidades (NER) e modelos de embeddings. |
+| **Encoder-Decoder** | T5, BART, Whisper (áudio) | Encoder bidirecional + Decoder com Cross-Attention | Tradução automática, transcrição de áudio para texto e resumos supervisionados. |
 
 ---
 
-## Atenção de múltiplas cabeças (Multi-Head Attention)
+## 4. O papel crítico do KV Cache na inferência
 
-Um designer experiente não olha para uma tela apenas sob um aspecto. Ele avalia contraste de cores, hierarquia tipográfica e alinhamento de grid, tudo em paralelo.
+Durante a geração interativa de texto token por token, recalcular as projeções $K$ e $V$ de todos os tokens anteriores a cada novo passo consumiria tempo $O(N^2)$ proibitivo.
 
-No Transformer, isso se chama **Multi-Head Attention**. Em vez de calcular uma única rede de atenção, o modelo possui dezenas de "cabeças" trabalhando ao mesmo tempo:
-* Uma cabeça foca em identificar relações gramaticais (sujeito e verbo).
-* Outra cabeça foca em referências pronominais (ele, ela, isso).
-* Outra cabeça foca no tom emocional e estilo do texto.
+O **KV Cache** resolve isso armazenando as matrizes $K$ e $V$ das camadas anteriores na memória da GPU:
+* O novo token precisa calcular sua Query $Q$ atual e compará-la apenas com os $K$ já guardados no cache.
+* **O gargalo de hardware**: O KV Cache não consome poder de processamento matemático (FLOPS), mas sim **largura de banda e capacidade de memória VRAM**. Em contextos longos (ex.: 128k tokens com múltiplos usuários simultâneos), o tamanho do KV Cache pode ultrapassar o próprio tamanho dos pesos do modelo, exigindo técnicas modernas como **GQA (Grouped-Query Attention)** e **PagedAttention**.
 
 ---
 
-## Exemplo em JavaScript: simulando o cálculo de atenção de um token
+## 5. Implementação mínima executável: atenção escalada com Causal Masking
 
-Abaixo temos uma demonstração prática em [[javascript/Introdução ao JavaScript|JavaScript]] de como uma matriz simplificada de pontuações de atenção conecta pronomes aos substantivos de maior relevância:
+Abaixo temos a implementação matricial completa em [[javascript/Introdução ao JavaScript|JavaScript]] puro simulando o cálculo exato de atenção auto-regressiva com máscara causal:
 
 ```javascript
-// Snippet atômico: função de ativação Softmax para converter pontuações em porcentagens
-function softmax(valores) {
-    const exponenciais = valores.map(v => Math.exp(v));
-    const somaExponenciais = exponenciais.reduce((acc, v) => acc + v, 0);
-    return exponenciais.map(v => v / somaExponenciais);
+// Snippet atômico: multiplicação de matrizes 2D em JavaScript
+function multiplicarMatrizes(A, B) {
+    const linhasA = A.length;
+    const colsA = A[0].length;
+    const colsB = B[0].length;
+    const C = Array.from({ length: linhasA }, () => new Array(colsB).fill(0));
+
+    for (let i = 0; i < linhasA; i++) {
+        for (let j = 0; j < colsB; j++) {
+            let soma = 0;
+            for (let k = 0; k < colsA; k++) {
+                soma += A[i][k] * B[k][j];
+            }
+            C[i][j] = soma;
+        }
+    }
+    return C;
 }
 ```
 
 ```javascript
-// Exemplo completo e integrado: calculadora didática de foco de atenção
-const palavrasFrase = ["O", "animal", "não", "atravessou", "a", "rua", "porque", "ele", "estava", "cansado"];
+// Exemplo completo e integrado: motor de Self-Attention Causal com Softmax
+function calcularAtencaoCausal(Q, K, V) {
+    const seqLen = Q.length;
+    const dK = Q[0].length;
+    const raizDK = Math.sqrt(dK);
 
-// Pontuações fictícias de compatibilidade calculadas entre 'ele' e as outras palavras (Q * K)
-const pontuacoesBrutas = [0.1, 8.5, 0.2, 1.1, 0.1, 0.4, 0.3, 2.0, 1.5, 7.8];
+    // 1. Transpor matriz K (dimensão dK x seqLen)
+    const KT = Array.from({ length: dK }, (_, col) => K.map(linha => linha[col]));
 
-function calcularMapaDeAtencao(palavras, pontuacoes, palavraFoco) {
-    const pesosAtencao = softmax(pontuacoes);
+    // 2. Produto escalar Q * K^T (dimensão seqLen x seqLen)
+    const pontuacoes = multiplicarMatrizes(Q, KT);
 
-    console.log(`Distribuição de atenção calculada para o termo "${palavraFoco}":`);
-    palavras.forEach((palavra, idx) => {
-        const porcentagem = (pesosAtencao[idx] * 100).toFixed(2);
-        const barraVisual = "█".repeat(Math.round(porcentagem / 5));
-        console.log(`${palavra.padEnd(12)} -> ${porcentagem.padStart(6)}% ${barraVisual}`);
+    // 3. Aplicação da escala e da Máscara Causal triangular (M_ij = -Infinity para j > i)
+    for (let i = 0; i < seqLen; i++) {
+        for (let j = 0; j < seqLen; j++) {
+            if (j > i) {
+                pontuacoes[i][j] = -Infinity; // Impede vazamento do futuro
+            } else {
+                pontuacoes[i][j] = pontuacoes[i][j] / raizDK;
+            }
+        }
+    }
+
+    // 4. Softmax por linha para obter a matriz de pesos de atenção
+    const pesosAtencao = pontuacoes.map(linha => {
+        // Encontra o máximo finito para estabilidade numérica
+        const valoresValidos = linha.filter(v => v !== -Infinity);
+        const maximo = valoresValidos.length > 0 ? Math.max(...valoresValidos) : 0;
+
+        const expLinha = linha.map(v => (v === -Infinity ? 0 : Math.exp(v - maximo)));
+        const somaExp = expLinha.reduce((acc, v) => acc + v, 0);
+        return expLinha.map(v => (somaExp === 0 ? 0 : v / somaExp));
     });
+
+    // 5. Multiplicação pelos Values: Pesos * V
+    const saida = multiplicarMatrizes(pesosAtencao, V);
+
+    return { pesosAtencao, saida };
 }
 
-calcularMapaDeAtencao(palavrasFrase, pontuacoesBrutas, "ele");
+// Demonstração: sequência de 3 tokens com dimensão dk = 2
+// Tokens: [0: "O", 1: "código", 2: "quebrou"]
+const Q_demo = [[1.2, 0.5], [0.8, 1.4], [0.2, 0.9]];
+const K_demo = [[1.1, 0.4], [0.7, 1.5], [0.1, 0.8]];
+const V_demo = [[0.9, 0.1], [0.2, 0.8], [0.5, 0.5]];
+
+const { pesosAtencao, saida } = calcularAtencaoCausal(Q_demo, K_demo, V_demo);
+
+console.log("Matriz de Pesos de Atenção Causal (Softmax):");
+pesosAtencao.forEach((linha, i) => {
+    const formatada = linha.map(v => (v * 100).toFixed(1) + "%").join(" | ");
+    console.log(`Token ${i} atende para -> [ ${formatada} ]`);
+});
 ```
+
+---
+
+## 6. Limites da analogia do quadro do estúdio
+
+1. **Atenção não é raciocínio deliberado**: Atenção é apenas ponderação matricial combinatória. O modelo não "pensa sobre o que prestar atenção"; as matrizes de projeção $W_Q$ e $W_K$ foram estaticamente ajustadas no treinamento para maximizar a concordância entre traços semânticos e preditivos.
+2. **Custo quadrático fundamental**: No quadro humano, 10 pessoas conversando é gerenciável. Na atenção do Transformer, cada token se compara com todos os outros tokens presentes ($N \times N$), gerando complexidade temporal e espacial $O(N^2)$ que torna o processamento de milhões de tokens simultâneos um imenso desafio de infraestrutura.
+
+---
+
+## 7. Implicações práticas de engenharia
+
+* **Memory-bound vs Compute-bound**: A fase de *Prefill* (ler o prompt de entrada) é altamente paralelizável e limita-se pela capacidade matemática da GPU (*compute-bound*). A fase de *Decode* (gerar token a token lendo o KV Cache) é limitada pela velocidade de transferência de dados da memória da GPU (*memory-bandwidth bound*).
+* **Decisões de infraestrutura de inferência**: Ao hospedar LLMs locais (com vLLM, Ollama ou TGI), o tamanho do contexto configurado determina diretamente quanta VRAM precisa ser alocada previamente para as tabelas do KV Cache, ditando o número máximo de usuários simultâneos suportados por placa.
 
 ---
 
 ## Resumo para memorizar
 
-* **Revolução paralela**: O Transformer processa todos os tokens de uma vez, permitindo treinamento maciço em hardware moderno.
-* **Self-Attention**: A capacidade de cada palavra medir sua conexão e relevância em relação a todas as outras palavras do mesmo texto.
-* **Query, Key e Value**: A mecânica matemática inspirada em buscas de banco de dados para ponderar afinidades conceituais.
-* **Multi-Head**: Várias lentes de análise simultâneas analisando sintaxe, semântica e contexto ao mesmo tempo.
+* **Residual stream**: O tronco principal de dados que preserva a identidade dos tensores e viabiliza redes com mais de 100 camadas profundas.
+* **Causal Masking**: A restrição triangular com $-\infty$ que garante matematicamente a causalidade temporal no treinamento e na inferência autorregressiva.
+* **RoPE**: A codificação posicional geométrica dominante que preserva a distância relativa entre tokens via rotação no plano complexo.
+* **KV Cache**: O componente que salva a inferência do custo quadrático em tempo de execução, transferindo a pressão para a memória VRAM.
