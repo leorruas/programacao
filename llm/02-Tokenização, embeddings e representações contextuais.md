@@ -1,4 +1,4 @@
-# Tokens, embeddings e espaço vetorial: representação discreta e contínua
+# Tokenização, embeddings e representações contextuais: de BPE ao espaço vetorial
 
 Para que redes neurais processem a linguagem humana, símbolos alfanuméricos discretos precisam ser convertidos em tensores numéricos contínuos navegáveis geometricamente. No entanto, existe uma distinção crucial frequentemente confundida na literatura introdutória: a diferença entre **input embeddings de vocabulário** (estáticos), **representações contextuais dinâmicas** (internas ao Transformer) e **sentence embeddings** (modelos de busca semântica).
 

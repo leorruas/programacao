@@ -1,4 +1,4 @@
-# Engenharia de prompt e padrões de contexto: engenharia de contexto e controle de fronteiras
+# Engenharia de contexto e controle de inferência: fronteiras, raciocínio e structured outputs
 
 A expressão "engenharia de prompt" (*Prompt Engineering*) consolidou-se inicialmente como a prática de redigir instruções em linguagem natural para obter textos persuasivos de LLMs. No entanto, na construção de sistemas de software profissionais, essa disciplina evoluiu para a **Engenharia de Contexto (*Context Engineering*)**: a arquitetura sistemática de curadoria, delimitação de dados, garantia de tipos e controle de fluxo da janela de inferência de uma LLM.
 

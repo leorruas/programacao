@@ -438,6 +438,43 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
 }
 
 function configurarCopiaDeCodigo() {
+    const inlineCodes = artigoCorpo.querySelectorAll("code");
+    inlineCodes.forEach(code => {
+        if (code.closest("pre")) return;
+
+        code.setAttribute("title", "clique para copiar");
+        code.classList.add("code-copiavel");
+
+        code.addEventListener("click", async event => {
+            event.stopPropagation();
+            const texto = code.innerText.trim();
+            if (!texto) return;
+
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(texto);
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = texto;
+                    textArea.style.position = "fixed";
+                    textArea.style.opacity = "0";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(textArea);
+                }
+
+                code.classList.add("code-copiado");
+                setTimeout(() => {
+                    code.classList.remove("code-copiado");
+                }, 1400);
+            } catch (err) {
+                console.error("Falha ao copiar texto do code inline:", err);
+            }
+        });
+    });
+
     artigoCorpo.querySelectorAll("pre").forEach(pre => {
         if (pre.querySelector(".btn-copiar-codigo")) return;
 

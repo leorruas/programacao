@@ -1,4 +1,4 @@
-# A arquitetura Transformer e o mecanismo de atenção: anatomia de tensores e o bloco decoder
+# Arquitetura do Transformer e mecanismo de atenção: tensores, RoPE e KV cache
 
 Em 2017, o artigo *"Attention Is All You Need"* (Vaswani et al.) transformou o paradigma do processamento de linguagem natural. Embora o artigo original propusesse uma arquitetura codificador-decodificador (*Encoder-Decoder*) voltada para tradução automática, a evolução dos modelos de fundação modernos (como GPT, Llama e Claude) consolidou a variante **Decoder-only autorregressiva** como o padrão dominante para geração de texto e código.
 

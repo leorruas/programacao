@@ -1,4 +1,4 @@
-# Consumindo APIs de LLMs com JavaScript: sistemas de produção, tool calling e streaming
+# Sistemas de produção com LLMs, tool calling e streaming: o loop agente e resiliência
 
 Integrar modelos de linguagem em aplicações modernas de software vai muito além de enviar uma pergunta via [[javascript/05-assincrono/03-Fetch|Fetch]] e renderizar uma string de texto corrido. Em sistemas corporativos e interfaces interativas, o consumo de APIs de IA exige domínio sobre o **loop agente-ferramenta (*Tool Calling*)**, streaming com separação de eventos, resiliência contra saturação de limites de taxa e otimização de custos via **Prompt Caching**.
 

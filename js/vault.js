@@ -179,11 +179,11 @@ export const arquivosFallback = [
     { titulo: "Sintaxe e possibilidades com Mermaid", path: "./mermaid/Sintaxe%20e%20possibilidades%20com%20Mermaid.md" },
     // llm
     { titulo: "00-Guia de estudos", path: "./llm/00-Guia%20de%20estudos.md" },
-    { titulo: "01-O que são LLMs e como funcionam", path: "./llm/01-O%20que%20s%C3%A3o%20LLMs%20e%20como%20funcionam.md" },
-    { titulo: "02-Tokens, embeddings e espaço vetorial", path: "./llm/02-Tokens%2C%20embeddings%20e%20espa%C3%A7o%20vetorial.md" },
-    { titulo: "03-A arquitetura Transformer e o mecanismo de atenção", path: "./llm/03-A%20arquitetura%20Transformer%20e%20o%20mecanismo%20de%20aten%C3%A7%C3%A3o.md" },
-    { titulo: "04-Engenharia de prompt e padrões de contexto", path: "./llm/04-Engenharia%20de%20prompt%20e%20padr%C3%B5es%20de%20contexto.md" },
-    { titulo: "05-Consumindo APIs de LLMs com JavaScript", path: "./llm/05-Consumindo%20APIs%20de%20LLMs%20com%20JavaScript.md" },
+    { titulo: "01-Dinâmica de treino e inferência em LLMs", path: "./llm/01-Din%C3%A2mica%20de%20treino%20e%20infer%C3%AAncia%20em%20LLMs.md" },
+    { titulo: "02-Tokenização, embeddings e representações contextuais", path: "./llm/02-Tokeniza%C3%A7%C3%A3o%2C%20embeddings%20e%20representa%C3%A7%C3%B5es%20contextuais.md" },
+    { titulo: "03-Arquitetura do Transformer e mecanismo de atenção", path: "./llm/03-Arquitetura%20do%20Transformer%20e%20mecanismo%20de%20aten%C3%A7%C3%A3o.md" },
+    { titulo: "04-Engenharia de contexto e controle de inferência", path: "./llm/04-Engenharia%20de%20contexto%20e%20controle%20de%20infer%C3%AAncia.md" },
+    { titulo: "05-Sistemas de produção com LLMs, tool calling e streaming", path: "./llm/05-Sistemas%20de%20produ%C3%A7%C3%A3o%20com%20LLMs%2C%20tool%20calling%20e%20streaming.md" },
     // python
     { titulo: "Python", path: "./python/Python.md" },
     // react

@@ -462,11 +462,63 @@ button:hover {
     background-color: transparent;
 }
 
+/* Código Inline e Cópia com 1 Clique */
 .artigo-corpo code {
-    font-size: 1em;
+    font-size: 0.88em;
     font-family: 'IBM Plex Mono', 'Space Mono', monospace;
-    background-color: #333;
-    padding: 3px;
+    background-color: var(--accent-pink-alpha-15);
+    border: 1px solid var(--accent-pink-alpha-30);
+    border-radius: 4px;
+    padding: 2px 6px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    user-select: text;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.artigo-corpo code:hover {
+    background-color: var(--accent-pink);
+    border-color: var(--accent-pink);
+    color: #000000;
+}
+
+:root[data-theme="light"] .artigo-corpo code:hover {
+    color: #ffffff;
+}
+
+.artigo-corpo code.code-copiado {
+    background-color: #30d158 !important;
+    border-color: #30d158 !important;
+    color: #000000 !important;
+    font-weight: 600;
+}
+
+.artigo-corpo code.code-copiado::after {
+    content: "copiado!";
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #30d158;
+    color: #000000;
+    font-size: 0.7em;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: fadeInOut 1.4s ease forwards;
+    z-index: 100;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, 4px); }
+    20% { opacity: 1; transform: translate(-50%, 0); }
+    80% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -4px); }
 }
 
 .artigo-corpo a,

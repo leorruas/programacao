@@ -1,4 +1,4 @@
-# O que são LLMs e como funcionam: além da ilusão do auto-completar
+# Dinâmica de treino e inferência em LLMs: pré-treino, pós-treino e amostragem
 
 Um modelo de linguagem de grande porte (*Large Language Model* ou LLM) é frequentemente descrito como um "auto-completar do teclado em grande escala". Embora a operação matemática durante a inferência seja formalmente autorregressiva (predição do próximo token), essa metáfora inicial é insuficiente para compreender como sistemas neurais profundos desenvolvem representações conceituais, modelam o mundo e executam raciocínio complexo.
 
