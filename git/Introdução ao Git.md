@@ -22,6 +22,7 @@ A organização dos estudos de [[git/01-fundamentos/Git\|Git]] no seu vault segu
 
 *   **[[git/Introdução ao Git\|Introdução ao Git]]**: Visão geral e primeiros passos.
 *   **[[git/01-fundamentos/Git\|Git (Conceitos Básicos)]]**: Detalhamento sobre commits, branches, merges e GitHub.
+*   **[[git/01-fundamentos/Guia exaustivo de comandos Git\|Guia Exaustivo de Comandos Git]]**: Manual completo de comandos diários, avançados e alertas de prevenção de riscos.
 
 ---
 

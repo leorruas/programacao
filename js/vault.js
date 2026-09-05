@@ -102,6 +102,7 @@ export const arquivosFallback = [
     // git
     { titulo: "Introdução ao Git", path: "./git/Introdu%C3%A7%C3%A3o%20ao%20Git.md" },
     { titulo: "Git", path: "./git/01-fundamentos/Git.md" },
+    { titulo: "Guia exaustivo de comandos Git", path: "./git/01-fundamentos/Guia%20exaustivo%20de%20comandos%20Git.md" },
     { titulo: "Integrando a API do GitHub", path: "./git/01-fundamentos/Integrando%20a%20API%20do%20GitHub.md" },
     // javascript
     { titulo: "Introdução ao JavaScript", path: "./javascript/Introdu%C3%A7%C3%A3o%20ao%20JavaScript.md" },

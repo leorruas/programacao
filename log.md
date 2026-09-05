@@ -4,6 +4,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-05
 
+* **Criação do Guia Exaustivo de Comandos Git e Prevenção de Riscos (`git/01-fundamentos/Guia exaustivo de comandos Git.md`, `git/Introdução ao Git.md` e `js/vault.js`)**:
+  * **Cobertura Completa e Rigor Operacional**: Desenvolvido artigo completo cobrindo todas as fases do Git: modelo mental das quatro zonas (Working Directory, Staging/Index, Local Repository e Remote), comandos de inicialização, inspeção (`log`, `diff`, `show`, `status`), ciclo de commit (`add`, `commit`, `--amend`), ramificação (`branch`, `switch`, `checkout`), estratégias de integração (`merge` tradicional vs. `rebase` vs. `cherry-pick`), sincronização remota (`fetch`, `pull`, `push`, `--force-with-lease`), recuperação e desfazer (`restore`, `reset --soft/mixed/hard`, `revert`, `reflog`), gaveta de rascunhos (`git stash`), limpeza de disco (`git clean`), tags semânticas e diagnóstico com `blame` e `bisect`.
+  * **Alertas Explícitos de Risco e Perda Permanente**: Destacados com alertas (`[!CAUTION]`) comandos destrutivos que não realizam versionamento e eliminam dados sem passar pela lixeira (`git restore .`, `git clean -fd`, `git reset --hard`, `git push --force`), acompanhados de tabela de prevenção e alternativas seguras.
+  * **Diagramas Mermaid e Interconexão**: Adicionado diagrama visual das quatro zonas e diagrama comparativo de Merge vs. Rebase. Atualizados links internos em `Introdução ao Git.md` e metadados de fallback em `js/vault.js`.
+
 * **Inauguração da Área de Estudos sobre LLMs (`llm/`, `js/vault.js`, `script.js` e `index.html`)**:
   * **Criação da Trilha Didática Feynman de IA Generativa**:
     * [[llm/00-Guia de estudos|00-Guia de estudos]]: Mapa de leitura estruturado em 5 fases de aprendizagem com diagrama Mermaid vertical, cobrindo desde a intuição básica até a integração com APIs.
