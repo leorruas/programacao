@@ -14,6 +14,18 @@ Ele responde à pergunta: *"Quais são todos os estados possíveis que este obje
 * **Estado composto (`state Grupo { ... }`)**: Agrupa sub-estados que compartilham o mesmo contexto maior.
 * **Decisão (`<<choice>>`)**: Um ponto onde regras lógicas decidem o próximo estado de destino.
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+stateDiagram-v2
+    [*] --> Rascunho : Iniciar formulário
+    Rascunho --> Enviado : Clicar em "Submeter"
+    Enviado --> Concluido : Aprovação automática
+    Concluido --> [*]
+```
+````
+
+### Visualização renderizada
 ```mermaid
 stateDiagram-v2
     [*] --> Rascunho : Iniciar formulário
@@ -39,6 +51,43 @@ Pense em um semáforo de trânsito:
 
 Abaixo, a máquina de estados completa que rege uma solicitação de mentoria na plataforma acadêmica:
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+stateDiagram-v2
+    [*] --> Criada : Aluno preenche formulário
+
+    state EmAnalise {
+        [*] --> NotificandoMentor
+        NotificandoMentor --> AguardandoResposta : E-mail enviado
+        AguardandoResposta --> Expirada : Tempo limite de 48h excedido
+    }
+
+    Criada --> EmAnalise : Solicitação enviada
+
+    EmAnalise --> Confirmada : Mentor clica em "Aceitar"
+    EmAnalise --> Recusada : Mentor clica em "Recusar"
+    
+    state SessaoAgendada {
+        [*] --> AguardandoData
+        AguardandoData --> EmAndamento : Chega o horário da sessão
+        EmAndamento --> Realizada : Mentor clica em "Finalizar"
+        EmAndamento --> AusenciaAluno : Aluno não compareceu
+    }
+
+    Confirmada --> SessaoAgendada : Sala virtual gerada
+    
+    Realizada --> AguardandoAvaliacao : Dispara formulário de feedback
+    AguardandoAvaliacao --> Finalizada : Aluno avalia com nota
+    
+    Recusada --> [*]
+    Expirada --> [*]
+    AusenciaAluno --> [*]
+    Finalizada --> [*]
+```
+````
+
+### Visualização renderizada
 ```mermaid
 stateDiagram-v2
     [*] --> Criada : Aluno preenche formulário

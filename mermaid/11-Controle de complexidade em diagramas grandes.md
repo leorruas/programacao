@@ -10,6 +10,24 @@
 
 A técnica mais eficaz para controlar a complexidade é a decomposição em níveis de profundidade:
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart TD
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    classDef comp fill:#2d2d2d,stroke:#ffffff,stroke-width:1px,color:#ffffff;
+
+    L1["Nível 1: Visão Geral (Overview)<br><i>3 a 7 blocos principais</i>"]:::core
+    
+    L1 --> L2A["Nível 2A: Módulo de Autenticação"]:::comp
+    L1 --> L2B["Nível 2B: Módulo de Mentorias"]:::comp
+    L1 --> L2C["Nível 2C: Módulo de Notificações"]:::comp
+
+    L2B --> L3["Nível 3: Algoritmo de Match de Horários"]:::comp
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart TD
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;

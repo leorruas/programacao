@@ -41,6 +41,30 @@ A trilha está organizada em três blocos progressivos:
 
 Para demonstrar como diferentes diagramas revelam facetas distintas de um mesmo problema de engenharia, os artigos do Bloco 2 utilizam um sistema de exemplo contínuo: a **Plataforma de Mentorias Acadêmicas**.
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart TD
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    classDef component fill:#2d2d2d,stroke:#ffb6c1,stroke-width:1px,color:#ffffff;
+    
+    Sistema["Sistema de Mentorias<br>Acadêmicas"]:::core
+
+    Seq["Diagrama de Sequência<br><i>(Tempo e Mensagens)</i>"]:::component
+    ClassD["Diagrama de Classes<br><i>(Estrutura de Domínio)</i>"]:::component
+    StateD["Diagrama de Estados<br><i>(Ciclo do Agendamento)</i>"]:::component
+    ERD["Diagrama ER<br><i>(Persistência e Tabelas)</i>"]:::component
+    ArqD["Arquitetura de Software<br><i>(Camadas e Serviços)</i>"]:::component
+
+    Sistema --> Seq
+    Sistema --> ClassD
+    Sistema --> StateD
+    Sistema --> ERD
+    Sistema --> ArqD
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart TD
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
@@ -63,7 +87,7 @@ flowchart TD
 
 * **Sequência**: O processo de match e confirmação entre Aluno, API, Mentor e Notificações.
 * **Classes**: A modelagem de entidades orientadas a objetos (`Aluno`, `Mentor`, `Agendamento`, `Feedback`).
-* **Estados**: O ciclo de vida da solicitação (`Pendente` $\rightarrow$ `Confirmado` $\rightarrow$ `Realizado`).
+* **Estados**: O ciclo de vida da solicitação (`Pendente` $ightarrow$ `Confirmado` $ightarrow$ `Realizado`).
 * **ER**: A estrutura de banco de dados relacional (chaves primárias, estrangeiras e cardinalidades).
 * **Arquitetura**: A infraestrutura conectando cliente web, API de aplicação e bancos de dados.
 

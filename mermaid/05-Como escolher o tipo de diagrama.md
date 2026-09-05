@@ -8,6 +8,24 @@ Cada tipo de diagrama do Mermaid foi projetado para responder a uma **pergunta f
 
 ## 1. A matriz de decisão: que pergunta você quer responder?
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart TD
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    classDef comp fill:#2d2d2d,stroke:#ffffff,stroke-width:1px,color:#ffffff;
+
+    Pergunta{"Qual pergunta você<br>precisa responder?"}:::core
+
+    Pergunta -->|Como as etapas se sucedem?| Flow["Processos e Regras<br><b>flowchart</b>"]:::comp
+    Pergunta -->|Quem fala com quem no tempo?| Seq["Mensagens e APIs<br><b>sequenceDiagram</b>"]:::comp
+    Pergunta -->|Quais as classes e métodos?| ClassD["Estrutura Estática<br><b>classDiagram</b>"]:::comp
+    Pergunta -->|Quais os estados de um item?| StateD["Ciclo de Vida<br><b>stateDiagram-v2</b>"]:::comp
+    Pergunta -->|Como as tabelas se relacionam?| ERD["Modelagem de Banco<br><b>erDiagram</b>"]:::comp
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart TD
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;

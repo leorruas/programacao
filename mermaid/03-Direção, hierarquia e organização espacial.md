@@ -22,6 +22,17 @@ Na cultura ocidental, lemos da esquerda para a direita. Por isso, a nossa percep
 
 $$\text{Passado / Causa} \xrightarrow{\quad\text{Tempo}\quad} \text{Futuro / Efeito}$$
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart LR
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+
+    Etapa1["1. Entrada de dados"] --> Etapa2["2. Processamento"] --> Etapa3["3. Saída de dados"]:::core
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart LR
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
@@ -34,6 +45,20 @@ O eixo vertical carrega uma conotação de **subordinação e camadas de abstra�
 
 $$\text{Alto nível (Interface / Abstração)} \Big\downarrow \text{Baixo nível (Implementação / Dados)}$$
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart TD
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    classDef comp fill:#2d2d2d,stroke:#ffffff,stroke-width:1px,color:#ffffff;
+
+    UI["Camada de Apresentação (UI)"]:::core
+    UI --> Domain["Camada de Domínio / Regras"]:::comp
+    Domain --> Data["Camada de Dados / Banco"]:::comp
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart TD
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
@@ -53,6 +78,19 @@ O motor do Mermaid agrupa os nós em camadas (*ranks*). A forma como você conec
 ### 3.1. Muitos nós irmãos aumentam a largura
 Se um nó conecta diretamente a 10 nós paralelos em um fluxo `TD`, o diagrama ficará excessivamente largo, forçando rolagem horizontal desagradável em telas menores.
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart TD
+    Raiz["Nó Principal"]
+    Raiz --> FilhaA["Opção A"]
+    Raiz --> FilhaB["Opção B"]
+    Raiz --> FilhaC["Opção C"]
+    Raiz --> FilhaD["Opção D"]
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart TD
     Raiz["Nó Principal"]
@@ -71,6 +109,20 @@ Se cada etapa conecta exclusivamente à próxima em `TD`, o diagrama vira uma ti
 
 Quando arestas conectam nós de níveis distantes passando por cima de outros nós, o motor precisa recalcular curvas para evitar sobreposição, gerando linhas sinuosas e difíceis de rastrear.
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart TD
+    classDef warning fill:#ff4d4f,stroke:#ffffff,stroke-width:1px,color:#ffffff;
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+
+    A["Início"] --> B["Processo intermediário"]
+    B --> C["Fim normal"]:::core
+    A -.->|Salto direto / Bypass| C:::warning
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart TD
     classDef warning fill:#ff4d4f,stroke:#ffffff,stroke-width:1px,color:#ffffff;

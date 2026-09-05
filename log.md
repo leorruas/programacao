@@ -21,6 +21,8 @@ Este arquivo registra o histórico de criações, modificações, edições e re
       * [[mermaid/11-Controle de complexidade em diagramas grandes|11-Controle de complexidade em diagramas grandes]]: Padrão *Overview + Drill-down*, decomposição por domínio e redução de ruído visual.
       * [[mermaid/12-Padrões, antipadrões e refatoração de diagramas|12-Padrões, antipadrões e refatoração de diagramas]]: Diagnóstico dos antipadrões "minhoca horizontal", "arranha-céu vertical" e "ninho de mafagafos", com refatoração antes/depois e checklist.
       * [[mermaid/13-Mermaid dinâmico com JavaScript|13-Mermaid dinâmico com JavaScript]]: Integração com `mermaid.js`, `mermaid.initialize()`, `mermaid.render()` e geração dinâmica de diagramas a partir de objetos JSON.
+  * **Apresentação Didática com Código-Fonte Completo**:
+    * Adicionados blocos cercados em Markdown (````markdown ```mermaid ... ``` ````) precedendo cada diagrama em todos os 14 artigos, permitindo que o leitor visualize o código-fonte exato ao lado da renderização gráfica.
   * **Sincronização de Metadados**:
     * Atualizada a lista de fallback do leitor web em `js/vault.js` com todos os 14 novos artigos.
     * Conformidade rigorosa com método Feynman, ausência total de emojis e Sentence Case em todos os cabeçalhos.

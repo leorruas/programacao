@@ -18,6 +18,21 @@ Os delimitadores que você utiliza ao declarar um nó no código determinam sua 
 | Sub-rotina | `id[["Texto"]]` | Função isolada, microsserviço ou API externa | Componente reutilizável |
 | Hexágono | `id{{"Texto"}}` | Inicialização ou preparação | Hook de montagem (`useEffect`) |
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart TD
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    classDef component fill:#2d2d2d,stroke:#ffb6c1,stroke-width:1px,color:#ffffff;
+    
+    Init(["1. Início do agendamento"]):::core --> Action("2. Usuário escolhe horário"):::component
+    Action --> Check{"3. Mentor disponível?"}
+    Check -->|Sim| Save[("4. Persistir na base")]
+    Check -->|Não| Erro(["5. Fim com erro"])
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart TD
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
@@ -46,6 +61,35 @@ A forma como dois nós são interligados comunica a natureza da dependência:
 
 Um `subgraph` funciona exatamente como um **Frame ou Grupo no Figma**: ele cria uma fronteira visual que agrupa elementos com o mesmo domínio de responsabilidade.
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart TB
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    classDef comp fill:#2d2d2d,stroke:#ffffff,stroke-width:1px,color:#ffffff;
+
+    subgraph Client["Camada do Estudante (Frontend)"]
+        UI["Interface Web"]:::comp
+        Form["Formulário de Solicitação"]:::comp
+    end
+
+    subgraph Server["Camada de Serviços (Backend)"]
+        direction TB
+        API["Gateway de API"]:::core
+        Auth["Serviço de Validação"]:::comp
+    end
+
+    subgraph Storage["Camada de Persistência"]
+        DB[("PostgreSQL")]:::comp
+    end
+
+    Form --> API
+    API --> Auth
+    API --> DB
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart TB
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
@@ -83,6 +127,22 @@ Para manter a consistência visual em todo o repositório e na renderização do
 * `:::warning`: Exceção, erro, ponto de atenção ou caminho de falha.
 * `:::external`: Sistema terceiro, API externa ou fronteira fora do escopo.
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart LR
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    classDef component fill:#2d2d2d,stroke:#ffb6c1,stroke-width:1px,color:#ffffff;
+    classDef warning fill:#ff4d4f,stroke:#ffffff,stroke-width:1px,color:#ffffff;
+    classDef external fill:#1e3a8a,stroke:#60a5fa,stroke-width:1px,color:#ffffff;
+
+    App["App Frontend"]:::component --> Hub["Serviço Central"]:::core
+    Hub --> SendGrid["API SendGrid"]:::external
+    Hub --> Falha["Erro de Conexão"]:::warning
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart LR
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;

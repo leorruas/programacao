@@ -65,6 +65,26 @@ async function desenharDiagrama() {
 desenharDiagrama();
 ```
 
+### Código-fonte do diagrama conceitual
+````markdown
+```mermaid
+flowchart LR
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    
+    JS["JavaScript"] -->|Gera string| Mermaid["Motor Mermaid"]
+    Mermaid -->|Renderiza| SVG[("SVG Vetorial")]:::core
+```
+````
+
+### Visualização renderizada
+```mermaid
+flowchart LR
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    
+    JS["JavaScript"] -->|Gera string| Mermaid["Motor Mermaid"]
+    Mermaid -->|Renderiza| SVG[("SVG Vetorial")]:::core
+```
+
 ---
 
 ## 3. Gerando diagramas a partir de dados reais (JSON)
@@ -82,12 +102,12 @@ const mentores = [
 function gerarMermaidDeUsuarios(dados) {
     let linhas = ["flowchart TD", "    classDef disp fill:#10b981,color:#ffffff;", "    classDef ocup fill:#ef4444,color:#ffffff;"];
     
-    linhas.push(\`    Coord["Coordenação de Mentorias"]\`);
+    linhas.push(`    Coord["Coordenação de Mentorias"]`);
 
     dados.forEach((mentor, index) => {
-        const id = \`mentor_\${index}\`;
+        const id = `mentor_${index}`;
         const classe = mentor.status === "Disponivel" ? ":::disp" : ":::ocup";
-        linhas.push(\`    Coord --> \${id}["\${mentor.nome}<br><i>(\${mentor.area})</i>"]\${classe}\`);
+        linhas.push(`    Coord --> ${id}["${mentor.nome}<br><i>(${mentor.area})</i>"]${classe}`);
     });
 
     return linhas.join("\n");

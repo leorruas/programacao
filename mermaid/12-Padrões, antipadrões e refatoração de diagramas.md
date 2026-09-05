@@ -24,6 +24,25 @@ Assim como o código-fonte acumula débitos técnicos e *code smells*, diagramas
 ## 2. Refatoração na prática: Antes e Depois
 
 ### Antes: Diagrama poluído com conexões cruzadas
+#### Código-fonte
+````markdown
+```mermaid
+flowchart TD
+    classDef warning fill:#ff4d4f,stroke:#ffffff,stroke-width:1px,color:#ffffff;
+    
+    A["Cliente"] --> B["Serviço A"]
+    A --> C["Serviço B"]
+    A --> D["Serviço C"]
+    B --> E[("Banco 1")]
+    C --> E
+    D --> E
+    B --> F[("Banco 2")]
+    C --> F
+    D --> F:::warning
+```
+````
+
+#### Visualização renderizada
 ```mermaid
 flowchart TD
     classDef warning fill:#ff4d4f,stroke:#ffffff,stroke-width:1px,color:#ffffff;
@@ -40,6 +59,35 @@ flowchart TD
 ```
 
 ### Depois: Refatoração com Gateway e Camada de Dados
+#### Código-fonte
+````markdown
+```mermaid
+flowchart TD
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    classDef comp fill:#2d2d2d,stroke:#ffb6c1,stroke-width:1px,color:#ffffff;
+    classDef data fill:#1e293b,stroke:#38bdf8,stroke-width:1px,color:#ffffff;
+
+    Cliente["Cliente"]:::comp --> Gateway["API Gateway"]:::core
+
+    subgraph Dominio["Serviços de Domínio"]
+        direction LR
+        ServicoA["Serviço A"]:::comp
+        ServicoB["Serviço B"]:::comp
+        ServicoC["Serviço C"]:::comp
+    end
+
+    subgraph Persistencia["Camada de Dados Unificada"]
+        direction LR
+        DB1[("Banco Relacional")]:::data
+        DB2[("Cache Redis")]:::data
+    end
+
+    Gateway --> Dominio
+    Dominio --> Persistencia
+```
+````
+
+#### Visualização renderizada
 ```mermaid
 flowchart TD
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;

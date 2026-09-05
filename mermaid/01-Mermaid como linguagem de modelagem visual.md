@@ -14,6 +14,37 @@ Para compreender o Mermaid, vale fazer uma analogia direta com a evolução do d
 * **Auto layout / CSS Flexbox**: Você não declara coordenadas absolutas; você declara **regras de relacionamento e fluxo** (`display: flex`, `flex-direction: column`, `gap: 16px`). O navegador calcula as posições exatas.
 * **Mermaid (Grafos declarativos)**: Você declara **nós** (entidades) e **arestas** (conexões/fluxos). O motor de renderização interno (motores como Dagre, Elk ou D3) calcula a posição geométrica ideal através de algoritmos de distribuição de grafos.
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart LR
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    classDef component fill:#2d2d2d,stroke:#ffb6c1,stroke-width:1px,color:#ffffff;
+
+    subgraph Entrada["Declaração em texto"]
+        A["Nó Origem"] --> B["Nó Destino"]
+    end
+
+    subgraph Motor["Algoritmo de layout (Dagre)"]
+        direction TB
+        CalcHier["1. Identifica níveis de profundidade"]
+        MinCross["2. Minimiza cruzamento de linhas"]
+        PosCoord["3. Atribui coordenadas X e Y"]
+        CalcHier --> MinCross --> PosCoord
+    end
+
+    subgraph Saida["Renderização final"]
+        SVG[("Vetor SVG na tela")]
+    end
+
+    Entrada --> Motor --> Saida
+    
+    Motor:::component
+    Saida:::core
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart LR
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
@@ -53,6 +84,21 @@ Imagine o mapa do metrô de Londres ou de São Paulo. Ele não representa a geog
 2. Ele simplifica a realidade para focar nas conexões e na ordem das estações.
 3. As posições relativas importam, mas a distância exata em metros é ignorada.
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart LR
+    classDef estacao fill:#2d2d2d,stroke:#ffffff,stroke-width:1px,color:#ffffff;
+    classDef baldeacao fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+
+    EstacaoA["Estação A"]:::estacao --> Baldeacao["Estação Central<br><i>(Baldeação)</i>"]:::baldeacao
+    EstacaoB["Estação B"]:::estacao --> Baldeacao
+    Baldeacao --> DestinoX["Linha Azul"]:::estacao
+    Baldeacao --> DestinoY["Linha Vermelha"]:::estacao
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart LR
     classDef estacao fill:#2d2d2d,stroke:#ffffff,stroke-width:1px,color:#ffffff;
@@ -85,6 +131,19 @@ Todo diagrama Mermaid é composto por três partes essenciais:
 2. **Declaração de entidades**: Identificadores únicos com seus rótulos visuais.
 3. **Declaração de relações**: Operadores de conexão que definem o sentido e o significado do fluxo.
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+flowchart TD
+    classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;
+    
+    Ideia["1. Ideia ou Requisito"] --> Estrutura["2. Modelagem Estrutural"]
+    Estrutura --> CodigoMermaid["3. Código Mermaid"]
+    CodigoMermaid --> RenderSVG["4. Renderização SVG"]:::core
+```
+````
+
+### Visualização renderizada
 ```mermaid
 flowchart TD
     classDef core fill:#ffb6c1,stroke:#ffffff,stroke-width:2px,color:#000000;

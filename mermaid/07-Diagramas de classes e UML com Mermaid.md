@@ -11,6 +11,22 @@ Uma classe é dividida em três partes principais:
 2. **Atributos (propriedades)** com modificadores de visibilidade.
 3. **Métodos (funções/operações)** com tipos de retorno.
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+classDiagram
+    class Usuario {
+        <<abstract>>
+        -int id
+        #string nome
+        #string email
+        +getId() int
+        +atualizarPerfil(string novoNome) bool
+    }
+```
+````
+
+### Visualização renderizada
 ```mermaid
 classDiagram
     class Usuario {
@@ -54,6 +70,66 @@ A forma como duas classes se conectam define o nível de acoplamento e dependên
 
 Abaixo, a modelagem completa das entidades de domínio do sistema de mentorias acadêmicas:
 
+### Código-fonte do diagrama
+````markdown
+```mermaid
+classDiagram
+    class INotificavel {
+        <<interface>>
+        +enviarNotificacao(string mensagem) void
+    }
+
+    class Usuario {
+        <<abstract>>
+        -int id
+        #string nome
+        #string email
+        #string matricula
+        +getDadosContato() string
+    }
+
+    class Aluno {
+        -string curso
+        -int periodo
+        +solicitarMentoria(Mentor mentor, DateTime data) SolicitacaoMentoria
+        +avaliarSessao(SessaoMentoria sessao, int nota) void
+    }
+
+    class Mentor {
+        -string areaEspecialidade
+        -int limiteAlunos
+        +aprovarSolicitacao(SolicitacaoMentoria solicitacao) bool
+        +cadastrarDisponibilidade(DateTime horario) void
+    }
+
+    class SolicitacaoMentoria {
+        -int id
+        -DateTime dataAgendada
+        -string status
+        -string objetivo
+        +confirmar() void
+        +cancelar(string motivo) void
+    }
+
+    class SessaoMentoria {
+        -int id
+        -string linkSalaVirtual
+        -string resumoAnotacoes
+        +iniciarSessao() void
+        +finalizarSessao() void
+    }
+
+    Usuario <|-- Aluno : Herda de
+    Usuario <|-- Mentor : Herda de
+    Usuario ..|> INotificavel : Implementa
+
+    Aluno "1" --> "many" SolicitacaoMentoria : Realiza
+    Mentor "1" --> "many" SolicitacaoMentoria : Avalia
+    SolicitacaoMentoria "1" *-- "0..1" SessaoMentoria : Gera quando aprovada
+```
+````
+
+### Visualização renderizada
 ```mermaid
 classDiagram
     class INotificavel {
