@@ -452,7 +452,7 @@ button:hover {
 }
 
 .task-item-content strong {
-    color: #ffffff;
+    color: var(--text);
     font-weight: 600;
 }
 
@@ -1406,12 +1406,13 @@ html body #artigo-corpo h3::before {
 
 /* Obsidian Callouts / Boxes ([!IMPORTANT], [!NOTE], etc.) */
 .obsidian-callout {
-    margin: 20px 0;
+    margin: 24px 0;
     padding: 16px 20px;
     border-radius: 8px;
     background-color: var(--surface);
+    border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
     border-left: 4px solid var(--accent-pink);
-    box-shadow: 0 4px 12px color-mix(in srgb, var(--text) 8%, transparent);
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--text) 4%, transparent);
 }
 
 .obsidian-callout .callout-header {
@@ -1426,9 +1427,13 @@ html body #artigo-corpo h3::before {
 }
 
 .obsidian-callout .callout-content {
-    font-size: 0.85em;
+    font-size: 0.9em;
     line-height: 1.6;
-    color: #e0e0e0;
+    color: var(--text);
+}
+
+.obsidian-callout .callout-content p {
+    color: var(--text);
 }
 
 .obsidian-callout .callout-content p:last-child {
@@ -1443,13 +1448,28 @@ html body #artigo-corpo h3::before {
 .callout-important .callout-title {
     color: #c084fc;
 }
+:root[data-theme="light"] .callout-important {
+    border-left-color: #7e22ce;
+    background-color: rgba(126, 34, 206, 0.08);
+    border-color: rgba(126, 34, 206, 0.22);
+}
+:root[data-theme="light"] .callout-important .callout-title {
+    color: #6b21a8;
+}
 
 /* NOTE (Rosa / Primário do Vault) */
 .callout-note {
     border-left-color: var(--accent-pink);
-    background-color: rgba(255, 182, 193, 0.08);
+    background-color: var(--accent-pink-alpha-05);
 }
 .callout-note .callout-title {
+    color: var(--accent-pink);
+}
+:root[data-theme="light"] .callout-note {
+    border-color: var(--accent-pink-alpha-30);
+    background-color: var(--accent-pink-alpha-05);
+}
+:root[data-theme="light"] .callout-note .callout-title {
     color: var(--accent-pink);
 }
 
@@ -1461,6 +1481,14 @@ html body #artigo-corpo h3::before {
 .callout-tip .callout-title {
     color: #34d399;
 }
+:root[data-theme="light"] .callout-tip {
+    border-left-color: #059669;
+    background-color: rgba(5, 150, 105, 0.08);
+    border-color: rgba(5, 150, 105, 0.22);
+}
+:root[data-theme="light"] .callout-tip .callout-title {
+    color: #047857;
+}
 
 /* WARNING (Âmbar / Amarelo) */
 .callout-warning {
@@ -1470,6 +1498,14 @@ html body #artigo-corpo h3::before {
 .callout-warning .callout-title {
     color: #fbbf24;
 }
+:root[data-theme="light"] .callout-warning {
+    border-left-color: #d97706;
+    background-color: rgba(217, 119, 6, 0.08);
+    border-color: rgba(217, 119, 6, 0.24);
+}
+:root[data-theme="light"] .callout-warning .callout-title {
+    color: #b45309;
+}
 
 /* CAUTION (Vermelho / Carmim) */
 .callout-caution {
@@ -1478,6 +1514,14 @@ html body #artigo-corpo h3::before {
 }
 .callout-caution .callout-title {
     color: #f87171;
+}
+:root[data-theme="light"] .callout-caution {
+    border-left-color: #dc2626;
+    background-color: rgba(220, 38, 38, 0.08);
+    border-color: rgba(220, 38, 38, 0.22);
+}
+:root[data-theme="light"] .callout-caution .callout-title {
+    color: #b91c1c;
 }
 
 /* A regra final mantém o catálogo em duas colunas fora do mobile. */

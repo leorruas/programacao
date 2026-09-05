@@ -184,6 +184,17 @@ export const arquivosFallback = [
     { titulo: "03-Arquitetura do Transformer e mecanismo de atenção", path: "./llm/03-Arquitetura%20do%20Transformer%20e%20mecanismo%20de%20aten%C3%A7%C3%A3o.md" },
     { titulo: "04-Engenharia de contexto e controle de inferência", path: "./llm/04-Engenharia%20de%20contexto%20e%20controle%20de%20infer%C3%AAncia.md" },
     { titulo: "05-Sistemas de produção com LLMs, tool calling e streaming", path: "./llm/05-Sistemas%20de%20produ%C3%A7%C3%A3o%20com%20LLMs%2C%20tool%20calling%20e%20streaming.md" },
+    { titulo: "06-Por que LLMs precisam de conhecimento externo", path: "./llm/06-Por%20que%20LLMs%20precisam%20de%20conhecimento%20externo.md" },
+    { titulo: "07-O que é RAG e como funciona", path: "./llm/07-O%20que%20%C3%A9%20RAG%20e%20como%20funciona.md" },
+    { titulo: "08-Chunking e estratégias de fragmentação", path: "./llm/08-Chunking%20e%20estrat%C3%A9gias%20de%20fragmenta%C3%A7%C3%A3o.md" },
+    { titulo: "09-Embeddings aplicados ao RAG", path: "./llm/09-Embeddings%20aplicados%20ao%20RAG.md" },
+    { titulo: "10-Vector stores, índices e algoritmos de busca", path: "./llm/10-Vector%20stores%2C%20%C3%ADndices%20e%20algoritmos%20de%20busca.md" },
+    { titulo: "11-Estratégias de retrieval e busca híbrida", path: "./llm/11-Estrat%C3%A9gias%20de%20retrieval%20e%20busca%20h%C3%ADbrida.md" },
+    { titulo: "12-Reranking e modelos de pontuação cruzada", path: "./llm/12-Reranking%20e%20modelos%20de%20pontua%C3%A7%C3%A3o%20cruzada.md" },
+    { titulo: "13-Engenharia de contexto para RAG", path: "./llm/13-Engenharia%20de%20contexto%20para%20RAG.md" },
+    { titulo: "14-Construindo um RAG em JavaScript", path: "./llm/14-Construindo%20um%20RAG%20em%20JavaScript.md" },
+    { titulo: "15-Avaliando um sistema RAG", path: "./llm/15-Avaliando%20um%20sistema%20RAG.md" },
+    { titulo: "16-RAG avançado e limites arquiteturais", path: "./llm/16-RAG%20avan%C3%A7ado%20e%20limites%20arquiteturais.md" },
     // python
     { titulo: "Python", path: "./python/Python.md" },
     // react
