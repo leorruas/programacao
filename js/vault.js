@@ -41,13 +41,18 @@ export const informacoesAreas = {
         nome: "Mermaid",
         descricao: "Diagramas em texto para explicar fluxos, arquiteturas e decisões técnicas."
     },
-    "tutoriais": {
+    "llm": {
         numero: "09",
+        nome: "LLMs",
+        descricao: "Grandes modelos de linguagem, Transformers, embeddings, engenharia de prompt e integrações de IA."
+    },
+    "tutoriais": {
+        numero: "10",
         nome: "Tutoriais",
         descricao: "Guias passo a passo, soluções de problemas e materiais de apoio."
     },
     "web": {
-        numero: "10",
+        numero: "11",
         nome: "Web",
         descricao: "Internet, domínios, protocolos e fundamentos da publicação de aplicações."
     }
@@ -171,6 +176,13 @@ export const arquivosFallback = [
     { titulo: "Projeto Consumo de API (GitHub Users)", path: "./javascript/07-projetos-praticos/03-Projeto%20Consumo%20de%20API%20%28GitHub%20Users%29.md" },
     // mermaid
     { titulo: "Sintaxe e possibilidades com Mermaid", path: "./mermaid/Sintaxe%20e%20possibilidades%20com%20Mermaid.md" },
+    // llm
+    { titulo: "00-Guia de estudos", path: "./llm/00-Guia%20de%20estudos.md" },
+    { titulo: "01-O que são LLMs e como funcionam", path: "./llm/01-O%20que%20s%C3%A3o%20LLMs%20e%20como%20funcionam.md" },
+    { titulo: "02-Tokens, embeddings e espaço vetorial", path: "./llm/02-Tokens%2C%20embeddings%20e%20espa%C3%A7o%20vetorial.md" },
+    { titulo: "03-A arquitetura Transformer e o mecanismo de atenção", path: "./llm/03-A%20arquitetura%20Transformer%20e%20o%20mecanismo%20de%20aten%C3%A7%C3%A3o.md" },
+    { titulo: "04-Engenharia de prompt e padrões de contexto", path: "./llm/04-Engenharia%20de%20prompt%20e%20padr%C3%B5es%20de%20contexto.md" },
+    { titulo: "05-Consumindo APIs de LLMs com JavaScript", path: "./llm/05-Consumindo%20APIs%20de%20LLMs%20com%20JavaScript.md" },
     // python
     { titulo: "Python", path: "./python/Python.md" },
     // react

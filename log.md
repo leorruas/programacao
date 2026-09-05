@@ -4,6 +4,19 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-05
 
+* **Inauguração da Área de Estudos sobre LLMs (`llm/`, `js/vault.js`, `script.js` e `index.html`)**:
+  * **Criação da Trilha Didática Feynman de IA Generativa**:
+    * [[llm/00-Guia de estudos|00-Guia de estudos]]: Mapa de leitura estruturado em 5 fases de aprendizagem com diagrama Mermaid vertical, cobrindo desde a intuição básica até a integração com APIs.
+    * [[llm/01-O que são LLMs e como funcionam|01-O que são LLMs e como funcionam]]: Explicação desmistificada das LLMs através da analogia do auto-completar ultra-inteligente, parâmetros/pesos (sliders de som), janela de contexto (canvas ativo do Figma), hiperparâmetros (temperatura e top-p), causas de alucinações e simulador conceitual em JavaScript.
+    * [[llm/02-Tokens, embeddings e espaço vetorial|02-Tokens, embeddings e espaço vetorial]]: Analogia do fatiamento em blocos de Lego (tokens), representação de conceitos através da analogia do seletor de cores RGB/HSL multidimensional (embeddings), espaço vetorial geométrico e implementação da fórmula de similaridade de cosseno em JavaScript puro.
+    * [[llm/03-A arquitetura Transformer e o mecanismo de atenção|03-A arquitetura Transformer e o mecanismo de atenção]]: Contextualização histórica do artigo *Attention Is All You Need*, analogia da hierarquia visual do design (*Self-Attention*), desambiguação contextual, papéis de Query, Key e Value (pesquisa em banco de dados), atenção de múltiplas cabeças (*Multi-Head Attention*) e calculadora de foco de atenção com Softmax.
+    * [[llm/04-Engenharia de prompt e padrões de contexto|04-Engenharia de prompt e padrões de contexto]]: Analogia do *briefing* de design para freelancers sem memória, anatomia de prompts de alta performance, padrões *Zero-shot*, *Few-shot* e *Chain-of-Thought* (CoT), blindagem de integrações com contratos JSON estritos e classe construtora modular em JavaScript.
+    * [[llm/05-Consumindo APIs de LLMs com JavaScript|05-Consumindo APIs de LLMs com JavaScript]]: Padrão REST/HTTP para provedores modernos (OpenAI, Gemini, Groq, Ollama), efeito de digitação em tempo real via *Streaming* e *Server-Sent Events* (`ReadableStream`), boas práticas de produto/segurança e componente interativo completo de chat.
+  * **Sincronização com o Leitor Web e Navegação Modular**:
+    * Atualizados `informacoesAreas` e lista de fallback em `js/vault.js` com o novo identificador de área `llm`.
+    * Adicionado mapeamento de nome e descrição de `llm` nos dicionários de áreas do `script.js`.
+    * Incrementado cache buster de scripts e estilos para `v27` no `index.html`.
+
 * **Migração e Sincronização de Recursos Maduros do Vault da PUC para o Vault de Programação**:
   * **Explorador Interativo de Mermaid Modularizado (`js/mermaid.js`, `script.js` e `style.css`)**:
     * Criado módulo ES6 dedicado `js/mermaid.js` com motor de renderização, wrapper universal `.mermaid-wrapper` e toolbar com botão `ampliar`.
