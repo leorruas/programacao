@@ -1,168 +1,13 @@
+// script.js - Coordenador Principal da Aplicação
+import { informacoesAreas, obterListaDeArquivos } from "./js/vault.js";
+import { renderizarDiagramasMermaid } from "./js/mermaid.js?v=estrutura-v26";
+
 // Cache global para armazenar os conteúdos dos arquivos em memória
 let cacheArquivos = null;
 let debounceTimer = null;
 let todosOsArtigos = [];
 let todasAsPastas = {};
 let categoriaAtual = null;
-
-// Função para buscar automaticamente todos os arquivos .md do seu GitHub (sem precisar de token)
-async function obterListaDeArquivos() {
-    try {
-        const resposta = await fetch("https://api.github.com/repos/leorruas/programacao/git/trees/main?recursive=1", { cache: "no-cache" });
-        if (!resposta.ok) throw new Error("Erro na API do GitHub");
-
-        const dados = await resposta.json();
-
-        // Filtra apenas os arquivos Markdown (.md), ignorando pastas internas do Obsidian/Git/Agents
-        return dados.tree
-            .filter(item => {
-                const pathLower = item.path.toLowerCase();
-                const fileName = pathLower.split("/").pop();
-                
-                if (!item.path.endsWith(".md")) return false;
-                if (item.path.includes(".obsidian") || item.path.includes(".git") || item.path.includes(".gemini") || item.path.includes(".agents")) return false;
-                if (fileName === "agents.md" || fileName === "index.md" || fileName === "me.md" || fileName === "log.md" || fileName === "gemini.md") return false;
-                
-                return true;
-            })
-            .map(item => {
-                const nomeSemExtensao = item.path.split("/").pop().replace(".md", "");
-                const pathCodificado = item.path.split("/").map(seg => encodeURIComponent(seg)).join("/");
-                return {
-                    titulo: nomeSemExtensao,
-                    path: `./${pathCodificado}`
-                };
-            });
-    } catch (erro) {
-        console.warn("Não foi possível listar via GitHub, usando lista padrão completa:", erro);
-        // Fallback local completo com todos os arquivos do vault
-        return [
-            { titulo: "Atalhos VS Code", path: "./Atalhos%20VS%20Code.md" },
-            { titulo: "Evolução da Programação", path: "./Evolu%C3%A7%C3%A3o%20da%20Programa%C3%A7%C3%A3o.md" },
-            { titulo: "ASP e SQL Server", path: "./ASP%20e%20SQL%20Server.md" },
-            // csharp
-            { titulo: "00-Guia de estudos", path: "./csharp/00-Guia%20de%20estudos.md" },
-            { titulo: "01-Introdução ao Csharp", path: "./csharp/01-Introdu%C3%A7%C3%A3o%20ao%20Csharp.md" },
-            { titulo: "02-O método Main", path: "./csharp/02-O%20m%C3%A9todo%20Main.md" },
-            { titulo: "03-Console.Write e Console.WriteLine", path: "./csharp/03-Console.Write%20e%20Console.WriteLine.md" },
-            { titulo: "04-Variáveis, operadores e tipos de dados", path: "./csharp/04-Vari%C3%A1veis%2C%20operadores%20e%20tipos%20de%20dados.md" },
-            { titulo: "05-Segurança de tipos", path: "./csharp/05-Seguran%C3%A7a%20de%20tipos.md" },
-            { titulo: "06-Métodos de string (ToUpper e ToLower)", path: "./csharp/06-M%C3%A9todos%20de%20string%20%28ToUpper%20e%20ToLower%29.md" },
-            { titulo: "07-Estruturas condicionais e de repetição", path: "./csharp/07-Estruturas%20condicionais%20e%20de%20repeti%C3%A7%C3%A3o.md" },
-            { titulo: "08-O switch em Csharp", path: "./csharp/08-O%20switch%20em%20Csharp.md" },
-            { titulo: "09-Estruturas de repetição (for e while)", path: "./csharp/09-Estruturas%20de%20repeti%C3%A7%C3%A3o%20%28for%20e%20while%29.md" },
-            { titulo: "10-O loop do-while em Csharp", path: "./csharp/10-O%20loop%20do-while%20em%20Csharp.md" },
-            { titulo: "11-O loop foreach em Csharp", path: "./csharp/11-O%20loop%20foreach%20em%20Csharp.md" },
-            { titulo: "12-Arrays em Csharp", path: "./csharp/12-Arrays%20em%20Csharp.md" },
-            { titulo: "13-Métodos de arrays", path: "./csharp/13-M%C3%A9todos%20de%20arrays.md" },
-            { titulo: "14-Coleções em Csharp", path: "./csharp/14-Cole%C3%A7%C3%B5es%20em%20Csharp.md" },
-            { titulo: "15-Capacity em coleções", path: "./csharp/15-Capacity%20em%20cole%C3%A7%C3%B5es.md" },
-            { titulo: "16-Tipos abstratos de dados", path: "./csharp/16-Tipos%20abstratos%20de%20dados.md" },
-            { titulo: "17-Lista, pilha e fila", path: "./csharp/17-Lista%2C%20pilha%20e%20fila.md" },
-            { titulo: "18-Métodos (funções)", path: "./csharp/18-M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md" },
-            { titulo: "19-Programação orientada a objetos", path: "./csharp/19-Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md" },
-            { titulo: "20-Herança e interfaces", path: "./csharp/20-Heran%C3%A7a%20e%20interfaces.md" },
-            { titulo: "21-Tratamento de erros", path: "./csharp/21-Tratamento%20de%20erros.md" },
-            { titulo: "22-Manipulação de arquivos", path: "./csharp/22-Manipula%C3%A7%C3%A3o%20de%20arquivos.md" },
-            { titulo: "23-LINQ buscas e filtros", path: "./csharp/23-LINQ%20buscas%20e%20filtros.md" },
-            { titulo: "24-Csharp no Frontend e Backend", path: "./csharp/24-Csharp%20no%20Frontend%20e%20Backend.md" },
-            { titulo: "25-Consumindo APIs em Csharp", path: "./csharp/25-Consumindo%20APIs%20em%20Csharp.md" },
-            { titulo: "26-Como conectar Csharp no HTML (Backend + Frontend JS)", path: "./csharp/26-Como%20conectar%20Csharp%20no%20HTML%20%28Backend%20%2B%20Frontend%20JS%29.md" },
-            // css
-            { titulo: "Guia de CSS", path: "./css/Guia%20de%20CSS.md" },
-            { titulo: "Bootstrap - Introducao", path: "./css/Bootstrap%20-%20Introducao.md" },
-            { titulo: "Bootstrap - Sistema de Grid", path: "./css/Bootstrap%20-%20Sistema%20de%20Grid.md" },
-            { titulo: "Bootstrap - Componentes", path: "./css/Bootstrap%20-%20Componentes.md" },
-            { titulo: "Flexbox", path: "./css/Flexbox.md" },
-            { titulo: "Posicionamento e Alinhamento no CSS", path: "./css/Posicionamento%20e%20Alinhamento%20no%20CSS.md" },
-            { titulo: "Transições e Animações", path: "./css/Transi%C3%A7%C3%B5es%20e%20Anima%C3%A7%C3%B5es.md" },
-            { titulo: "Pseudo-classes e Pseudo-elementos", path: "./css/Pseudo-classes%20e%20Pseudo-elementos.md" },
-            // git
-            { titulo: "Introdução ao Git", path: "./git/Introdu%C3%A7%C3%A3o%20ao%20Git.md" },
-            { titulo: "Git", path: "./git/01-fundamentos/Git.md" },
-            { titulo: "Integrando a API do GitHub", path: "./git/01-fundamentos/Integrando%20a%20API%20do%20GitHub.md" },
-            // javascript
-            { titulo: "Introdução ao JavaScript", path: "./javascript/Introdu%C3%A7%C3%A3o%20ao%20JavaScript.md" },
-            { titulo: "Guia de Estudos", path: "./javascript/00-Guia%20de%20Estudos.md" },
-            { titulo: "Consumindo APIs e Fetch", path: "./javascript/Consumindo%20APIs%20e%20Fetch.md" },
-            { titulo: "Pesquisa Semântica no Vault", path: "./javascript/Pesquisa%20Sem%C3%A2ntica%20no%20Vault.md" },
-            { titulo: "01. Criando uma Busca Simples no DOM", path: "./javascript/01.%20Criando%20uma%20Busca%20Simples%20no%20DOM.md" },
-            { titulo: "Var, let e const", path: "./javascript/01-fundamentos/01-Var%2C%20let%20e%20const.md" },
-            { titulo: "Console.log", path: "./javascript/01-fundamentos/02-Console.log.md" },
-            { titulo: "Tipos de dados", path: "./javascript/01-fundamentos/03-Tipos%20de%20dados.md" },
-            { titulo: "Operadores e operações", path: "./javascript/01-fundamentos/04-Operadores%20e%20opera%C3%A7%C3%B5es.md" },
-            { titulo: "Condicionais (if-else)", path: "./javascript/01-fundamentos/05-Condicionais%20%28if-else%29.md" },
-            { titulo: "Switch", path: "./javascript/01-fundamentos/06-Switch.md" },
-            { titulo: "Truthy e falsy", path: "./javascript/01-fundamentos/07-Truthy%20e%20falsy.md" },
-            { titulo: "Hoisting", path: "./javascript/01-fundamentos/08-Hoisting.md" },
-            { titulo: "Estruturas de repetição (for e while)", path: "./javascript/01-fundamentos/09-Estruturas%20de%20repeti%C3%A7%C3%A3o%20%28for%20e%20while%29.md" },
-            { titulo: "Debug (depuração)", path: "./javascript/01-fundamentos/10-Debug%20%28depura%C3%A7%C3%A3o%29.md" },
-            { titulo: "Funções", path: "./javascript/02-funcoes-e-objetos/01-Fun%C3%A7%C3%B5es.md" },
-            { titulo: "Arrow functions", path: "./javascript/02-funcoes-e-objetos/02-Arrow%20functions.md" },
-            { titulo: "Objetos", path: "./javascript/02-funcoes-e-objetos/03-Objetos.md" },
-            { titulo: "Dot notation e propriedades", path: "./javascript/02-funcoes-e-objetos/04-Dot%20notation%20e%20propriedades.md" },
-            { titulo: "Entendendo o this", path: "./javascript/02-funcoes-e-objetos/05-Entendendo%20o%20this.md" },
-            { titulo: "Funções construtoras", path: "./javascript/02-funcoes-e-objetos/06-Fun%C3%A7%C3%B5es%20construtoras.md" },
-            { titulo: "Protótipos e proto", path: "./javascript/02-funcoes-e-objetos/07-Prot%C3%B3tipos%20e%20proto.md" },
-            { titulo: "Herança e objetos aninhados", path: "./javascript/02-funcoes-e-objetos/08-Heran%C3%A7a%20e%20objetos%20aninhados.md" },
-            { titulo: "Classes", path: "./javascript/02-funcoes-e-objetos/09-Classes.md" },
-            { titulo: "Get e set", path: "./javascript/02-funcoes-e-objetos/10-Get%20e%20set.md" },
-            { titulo: "Template strings", path: "./javascript/03-manipulacao/01-Template%20strings.md" },
-            { titulo: "Arrays e métodos de array", path: "./javascript/03-manipulacao/02-Arrays%20e%20m%C3%A9todos%20de%20array.md" },
-            { titulo: "Métodos de array", path: "./javascript/03-manipulacao/03-M%C3%A9todos%20de%20array.md" },
-            { titulo: "O método forEach em detalhes", path: "./javascript/03-manipulacao/04-O%20m%C3%A9todo%20forEach%20em%20detalhes.md" },
-            { titulo: "Propriedades e métodos de string", path: "./javascript/03-manipulacao/05-Propriedades%20e%20m%C3%A9todos%20de%20string.md" },
-            { titulo: "Math", path: "./javascript/03-manipulacao/06-Math.md" },
-            { titulo: "Regex", path: "./javascript/03-manipulacao/07-Regex.md" },
-            { titulo: "JSON", path: "./javascript/03-manipulacao/08-JSON.md" },
-            { titulo: "Como converter markdown do obsidian em html", path: "./javascript/03-manipulacao/09-Como%20converter%20markdown%20do%20obsidian%20em%20html.md" },
-            { titulo: "DOM", path: "./javascript/04-dom-e-browser/01-DOM.md" },
-            { titulo: "Métodos do objeto document", path: "./javascript/04-dom-e-browser/02-M%C3%A9todos%20do%20objeto%20document.md" },
-            { titulo: "O objeto window", path: "./javascript/04-dom-e-browser/03-O%20objeto%20window.md" },
-            { titulo: "Eventos", path: "./javascript/04-dom-e-browser/04-Eventos.md" },
-            { titulo: "O console do navegador", path: "./javascript/04-dom-e-browser/05-O%20console%20do%20navegador.md" },
-            { titulo: "Animações com scroll", path: "./javascript/04-dom-e-browser/06-Anima%C3%A7%C3%B5es%20com%20scroll.md" },
-            { titulo: "Local storage", path: "./javascript/04-dom-e-browser/07-Local%20storage.md" },
-            { titulo: "Callbacks", path: "./javascript/05-assincrono/01-Callbacks.md" },
-            { titulo: "API", path: "./javascript/05-assincrono/02-API.md" },
-            { titulo: "Fetch", path: "./javascript/05-assincrono/03-Fetch.md" },
-            { titulo: "Async await", path: "./javascript/05-assincrono/04-Async%20await.md" },
-            { titulo: "Programação orientada a objetos", path: "./javascript/06-arquitetura-e-avancado/01-Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md" },
-            { titulo: "Node.js", path: "./javascript/06-arquitetura-e-avancado/02-Node.js.md" },
-            { titulo: "Escopo e closures", path: "./javascript/06-arquitetura-e-avancado/03-Escopo%20e%20closures.md" },
-            { titulo: "Desestruturação e spread", path: "./javascript/06-arquitetura-e-avancado/04-Desestrutura%C3%A7%C3%A3o%20e%20spread.md" },
-            { titulo: "Módulos import e export", path: "./javascript/06-arquitetura-e-avancado/05-M%C3%B3dulos%20import%20e%20export.md" },
-            { titulo: "Tratamento de erros", path: "./javascript/06-arquitetura-e-avancado/06-Tratamento%20de%20erros.md" },
-            { titulo: "Event loop e call stack", path: "./javascript/06-arquitetura-e-avancado/07-Event%20loop%20e%20call%20stack.md" },
-            { titulo: "TypeScript introdução", path: "./javascript/06-arquitetura-e-avancado/08-TypeScript%20introdu%C3%A7%C3%A3o.md" },
-            { titulo: "Ordem de Carregamento do DOM e Script", path: "./javascript/conceitos/Ordem%20de%20Carregamento%20do%20DOM%20e%20Script.md" },
-            // mermaid
-            { titulo: "Introdução ao Mermaid", path: "./mermaid/Introdu%C3%A7%C3%A3o%20ao%20Mermaid.md" },
-            { titulo: "Sintaxe e possibilidades com Mermaid", path: "./mermaid/Sintaxe%20e%20possibilidades%20com%20Mermaid.md" },
-            // python
-            { titulo: "Introdução ao Python", path: "./python/Introdu%C3%A7%C3%A3o%20ao%20Python.md" },
-            { titulo: "Comparativo de sintaxe e tipos", path: "./python/01-fundamentos/Comparativo%20de%20sintaxe%20e%20tipos.md" },
-            // react
-            { titulo: "Introdução ao React", path: "./react/Introdu%C3%A7%C3%A3o%20ao%20React.md" },
-            { titulo: "Bibliotecas de UI e estilização", path: "./react/01-fundamentos/Bibliotecas%20de%20UI%20e%20estiliza%C3%A7%C3%A3o.md" },
-            { titulo: "Hooks principais - useState, useRef, useMemo", path: "./react/01-fundamentos/Hooks%20principais%20-%20useState%2C%20useRef%2C%20useMemo.md" },
-            { titulo: "Pacotes e ecossistema do React", path: "./react/01-fundamentos/Pacotes%20e%20ecossistema%20do%20React.md" },
-            // tutoriais
-            { titulo: "[Csharp] • Como Usar ArrayList, For e Foreach para Calcular Médias", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Como%20Usar%20ArrayList%2C%20For%20e%20Foreach%20para%20Calcular%20M%C3%A9dias.md" },
-            { titulo: "[Csharp] • Projeto 1 - O Assistente de Terminal", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%201%20-%20O%20Assistente%20de%20Terminal.md" },
-            { titulo: "[Csharp] • Projeto 2 - O Jogo de Adivinhação", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%202%20-%20O%20Jogo%20de%20Adivinha%C3%A7%C3%A3o.md" },
-            { titulo: "[Csharp] • Projeto 3 - O Gerenciador de Tarefas", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%203%20-%20O%20Gerenciador%20de%20Tarefas.md" },
-            { titulo: "[Csharp] • Projeto 4 - O Simulador de Conta Bancária", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%204%20-%20O%20Simulador%20de%20Conta%20Banc%C3%A1ria.md" },
-            { titulo: "[Csharp] • Projeto 5 - O Diário Digital", path: "./tutoriais/%5BCsharp%5D%20%E2%80%A2%20Projeto%205%20-%20O%20Di%C3%A1rio%20Digital.md" },
-            { titulo: "[JavaScript] • 01. Criando uma Busca Simples no DOM", path: "./tutoriais/%5BJavaScript%5D%20%E2%80%A2%2001.%20Criando%20uma%20Busca%20Simples%20no%20DOM.md" },
-            { titulo: "[JavaScript] • Como Criar um Modal Leitor de Artigos", path: "./tutoriais/%5BJavaScript%5D%20%E2%80%A2%20Como%20Criar%20um%20Modal%20Leitor%20de%20Artigos.md" },
-            { titulo: "[JavaScript] • Como Disparar a Busca com a Tecla Enter", path: "./tutoriais/%5BJavaScript%5D%20%E2%80%A2%20Como%20Disparar%20a%20Busca%20com%20a%20Tecla%20Enter.md" },
-            { titulo: "[JavaScript] • Como Substituir os Resultados pelo Artigo no Main", path: "./tutoriais/%5BJavaScript%5D%20%E2%80%A2%20Como%20Substituir%20os%20Resultados%20pelo%20Artigo%20no%20Main.md" },
-            // web
-            { titulo: "DNS e gerenciamento de domínios", path: "./web/01-fundamentos/DNS%20e%20gerenciamento%20de%20dom%C3%ADnios.md" }
-        ];
-    }
-}
 
 // Carrega todos os arquivos em paralelo e guarda na memória (cache)
 async function carregarTodosArquivosEmCache() {
@@ -177,6 +22,7 @@ async function carregarTodosArquivosEmCache() {
         lista.map(async (arquivo) => {
             try {
                 const resposta = await fetch(arquivo.path, { cache: "no-cache" });
+                if (!resposta.ok) return null;
                 const conteudoTexto = await resposta.text();
                 const categoria = extrairCategoria(arquivo.path);
 
@@ -186,6 +32,7 @@ async function carregarTodosArquivosEmCache() {
                     conteudo: conteudoTexto,
                     conteudoTexto,
                     path: arquivo.path,
+                    sourcePath: arquivo.sourcePath || arquivo.path,
                     categoria
                 };
 
@@ -217,188 +64,6 @@ function extrairCategoria(caminho) {
     return "Geral";
 }
 
-function configurarMermaid() {
-    if (typeof mermaid === "undefined") return;
-
-    const temaEscuro = document.documentElement.dataset.theme !== "light";
-    mermaid.initialize({
-        startOnLoad: false,
-        theme: "base",
-        fontFamily: "Archivo, sans-serif",
-        flowchart: { curve: "linear" },
-        gantt: {
-            titleTopMargin: 25,
-            barHeight: 22,
-            barGap: 6,
-            topPadding: 50,
-            sidePadding: 80,
-            fontSize: 12
-        },
-        themeVariables: temaEscuro ? {
-            fontFamily: 'Archivo, sans-serif',
-            darkMode: true,
-            background: '#0d0d0d',
-            primaryColor: '#222222',
-            primaryTextColor: '#ffffff',
-            primaryBorderColor: '#ffb6c1',
-            lineColor: '#ffb6c1',
-            secondaryColor: '#1a1a1a',
-            tertiaryColor: '#141414',
-            textColor: '#ffffff',
-            mainBkg: '#1a1a1a',
-            nodeBorder: '#ffb6c1',
-            nodeTextColor: '#ffffff',
-            clusterBkg: '#111111',
-            clusterBorder: 'rgba(255, 182, 193, 0.4)',
-            titleColor: '#ffb6c1',
-            edgeLabelBackground: '#0d0d0d',
-            actorTextColor: '#ffffff',
-            actorLineColor: '#ffb6c1',
-            actorBkg: '#1c1c1c',
-            signalColor: '#ffffff',
-            signalTextColor: '#ffffff',
-            labelTextColor: '#ffffff',
-            loopTextColor: '#ffffff',
-            noteTextColor: '#ffffff',
-            noteBkgColor: '#222222',
-            noteBorderColor: '#ffb6c1',
-            activationBorderColor: '#ffb6c1',
-            activationBkgColor: '#333333',
-            sectionBkgColor: '#181818',
-            altSectionBkgColor: '#222222',
-            sectionBkgColor2: '#121212',
-            taskBorderColor: '#ffb6c1',
-            taskBkgColor: '#282828',
-            taskTextDarkColor: '#ffffff',
-            taskTextLightColor: '#ffffff',
-            taskTextColor: '#ffffff',
-            taskTextOutsideColor: '#ffffff',
-            taskTextClickableColor: '#ffb6c1',
-            activeTaskBorderColor: '#ffb6c1',
-            activeTaskBkgColor: '#3a2028',
-            gridColor: '#333333',
-            doneTaskBkgColor: '#1a1a1a',
-            doneTaskBorderColor: '#555555',
-            critBorderColor: '#ff4d4f',
-            critBkgColor: '#4d1417',
-            todayLineColor: '#ffb6c1',
-            quadrant1Fill: '#24141c',
-            quadrant2Fill: '#1c1418',
-            quadrant3Fill: '#141414',
-            quadrant4Fill: '#181818',
-            quadrant1TextFill: '#ffb6c1',
-            quadrant2TextFill: '#ffb6c1',
-            quadrant3TextFill: '#cccccc',
-            quadrant4TextFill: '#cccccc',
-            quadrantPointFill: '#ffb6c1',
-            quadrantPointTextFill: '#ffffff',
-            quadrantXAxisTextFill: '#ffffff',
-            quadrantYAxisTextFill: '#ffffff',
-            pie1: '#ffb6c1',
-            pie2: '#ff94a6',
-            pie3: '#e07a8f',
-            pie4: '#b34d65',
-            pie5: '#7a2e40',
-            pieTitleTextColor: '#ffb6c1',
-            pieSectionTextColor: '#000000',
-            pieLegendTextColor: '#ffffff',
-            pieStrokeColor: '#000000'
-        } : {
-            fontFamily: 'Archivo, sans-serif',
-            darkMode: false,
-            background: '#ffffff',
-            primaryColor: '#fdf2f4',
-            primaryTextColor: '#151515',
-            primaryBorderColor: '#c2255c',
-            lineColor: '#c2255c',
-            secondaryColor: '#fff5f7',
-            tertiaryColor: '#fce8ed',
-            textColor: '#151515',
-            mainBkg: '#ffffff',
-            nodeBorder: '#c2255c',
-            nodeTextColor: '#151515',
-            clusterBkg: '#fafafa',
-            clusterBorder: 'rgba(194, 37, 92, 0.4)',
-            titleColor: '#c2255c',
-            edgeLabelBackground: '#ffffff',
-            actorTextColor: '#151515',
-            actorLineColor: '#c2255c',
-            actorBkg: '#fdf2f4',
-            signalColor: '#151515',
-            signalTextColor: '#151515',
-            labelTextColor: '#151515',
-            loopTextColor: '#151515',
-            noteTextColor: '#151515',
-            noteBkgColor: '#fce8ed',
-            noteBorderColor: '#c2255c',
-            activationBorderColor: '#c2255c',
-            activationBkgColor: '#fce8ed',
-            sectionBkgColor: '#f8fafc',
-            altSectionBkgColor: '#f1f5f9',
-            sectionBkgColor2: '#e2e8f0',
-            taskBorderColor: '#c2255c',
-            taskBkgColor: '#fdf2f4',
-            taskTextDarkColor: '#151515',
-            taskTextLightColor: '#151515',
-            taskTextColor: '#151515',
-            taskTextOutsideColor: '#151515',
-            taskTextClickableColor: '#c2255c',
-            activeTaskBorderColor: '#c2255c',
-            activeTaskBkgColor: '#fce8ed',
-            gridColor: '#e5e7eb',
-            doneTaskBkgColor: '#f3f4f6',
-            doneTaskBorderColor: '#9ca3af',
-            critBorderColor: '#e03131',
-            critBkgColor: '#ffe3e3',
-            todayLineColor: '#c2255c',
-            quadrant1Fill: '#fff0f3',
-            quadrant2Fill: '#ffe3e8',
-            quadrant3Fill: '#f8f9fa',
-            quadrant4Fill: '#f1f3f5',
-            quadrant1TextFill: '#c2255c',
-            quadrant2TextFill: '#c2255c',
-            quadrant3TextFill: '#495057',
-            quadrant4TextFill: '#495057',
-            quadrantPointFill: '#c2255c',
-            quadrantPointTextFill: '#151515',
-            quadrantXAxisTextFill: '#151515',
-            quadrantYAxisTextFill: '#151515',
-            pie1: '#c2255c',
-            pie2: '#e64980',
-            pie3: '#f783ac',
-            pie4: '#fcc2d7',
-            pie5: '#ffdeeb',
-            pieTitleTextColor: '#c2255c',
-            pieSectionTextColor: '#000000',
-            pieLegendTextColor: '#151515',
-            pieStrokeColor: '#ffffff'
-        }
-    });
-}
-
-function renderizarDiagramasMermaid() {
-    if (typeof mermaid === "undefined" || !artigoCorpo) return;
-    configurarMermaid();
-
-    const diagramas = artigoCorpo.querySelectorAll(".mermaid");
-    diagramas.forEach(diagrama => {
-        const codigo = diagrama.dataset.mermaidSource || diagrama.textContent;
-        diagrama.dataset.mermaidSource = codigo;
-        diagrama.removeAttribute("data-processed");
-        diagrama.textContent = codigo;
-    });
-
-    if (diagramas.length > 0) {
-        setTimeout(() => {
-            try {
-                mermaid.run({ nodes: diagramas });
-            } catch (err) {
-                console.warn("Erro ao renderizar Mermaid:", err);
-            }
-        }, 30);
-    }
-}
-
 const botao = document.getElementById("btn-pesquisar");
 const campoTexto = document.getElementById("main-search-input");
 const campoTextoNav = document.getElementById("nav-search-input");
@@ -426,7 +91,7 @@ if (btnTema) {
         const temaAtual = document.documentElement.dataset.theme === "light" ? "light" : "dark";
         const novoTema = temaAtual === "dark" ? "light" : "dark";
         aplicarTema(novoTema, true);
-        renderizarDiagramasMermaid();
+        if (artigoCorpo) renderizarDiagramasMermaid(artigoCorpo);
     });
 }
 const containerResultados = document.querySelector(".cards-container");
@@ -579,6 +244,47 @@ function protegerPipesObsidian(md) {
     }).join("");
 }
 
+function processarLaTeXSetas(md) {
+    if (!md) return "";
+    return md
+        .replace(/\$\s*\\rightarrow\s*\$/gi, "→")
+        .replace(/\$\s*\\to\s*\$/gi, "→")
+        .replace(/\$\s*\\leftarrow\s*\$/gi, "←")
+        .replace(/\$\s*\\leftrightarrow\s*\$/gi, "↔")
+        .replace(/\$\s*\\Rightarrow\s*\$/gi, "⇒")
+        .replace(/\$\s*\\Leftarrow\s*\$/gi, "⇐")
+        .replace(/\$\s*\\Leftrightarrow\s*\$/gi, "⇔")
+        .replace(/\\rightarrow(?![a-zA-Z])/gi, "→")
+        .replace(/\\leftarrow(?![a-zA-Z])/gi, "←")
+        .replace(/\\leftrightarrow(?![a-zA-Z])/gi, "↔");
+}
+
+function configurarZoomImagens() {
+    if (!artigoCorpo) return;
+    const imagens = artigoCorpo.querySelectorAll("img");
+    imagens.forEach(img => {
+        img.addEventListener("click", () => {
+            const modalExistente = document.querySelector(".imagem-modal");
+            if (modalExistente) modalExistente.remove();
+
+            const modal = document.createElement("div");
+            modal.className = "imagem-modal";
+            modal.innerHTML = `
+                <button class="imagem-modal-fechar" aria-label="Fechar">&times;</button>
+                <img src="${img.src}" alt="${img.alt || 'Imagem ampliada'}">
+            `;
+
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal || e.target.classList.contains("imagem-modal-fechar")) {
+                    modal.remove();
+                }
+            });
+
+            document.body.appendChild(modal);
+        });
+    });
+}
+
 function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash = true) {
     if (categoria) categoriaAtual = categoria;
     if (atualizarHash && categoriaAtual) atualizarRota(rotaDoArtigo(categoriaAtual, titulo));
@@ -602,10 +308,13 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
     // 3. Protege pipes em tabelas fora de código
     const markdownProtegido = protegerPipesObsidian(markdownComHighlight);
 
-    // 4. Normaliza indentação de listas
-    const markdownNormalizado = normalizarListasObsidian(markdownProtegido);
+    // 4. Processa setas LaTeX fora de código
+    const markdownComSetas = processarLaTeXSetas(markdownProtegido);
 
-    // 5. Converte Markdown para HTML com marked
+    // 5. Normaliza indentação de listas
+    const markdownNormalizado = normalizarListasObsidian(markdownComSetas);
+
+    // 6. Converte Markdown para HTML com marked
     if (typeof marked !== 'undefined') {
         artigoCorpo.innerHTML = marked.parse(markdownNormalizado);
     } else {
@@ -621,13 +330,13 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
         contenedor.appendChild(tabela);
     });
 
-    // 6. Processa WikiLinks do Obsidian com segurança em nós de texto
+    // 7. Processa WikiLinks do Obsidian com segurança em nós de texto
     processarLinksObsidian();
 
-    // 7. Processa Callouts do Obsidian ([!NOTE], [!TIP], [!IMPORTANT], etc.)
+    // 8. Processa Callouts do Obsidian ([!NOTE], [!TIP], [!IMPORTANT], etc.)
     processarCalloutsObsidian();
 
-    // 8. Formata Checkboxes interativas
+    // 9. Formata Checkboxes interativas
     artigoCorpo.querySelectorAll('li input[type="checkbox"]').forEach(checkbox => {
         const li = checkbox.parentElement;
         if (li) {
@@ -640,7 +349,7 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
         }
     });
 
-    // 9. Formata blocos de código com linhas e numeração
+    // 10. Formata blocos de código com linhas e numeração
     artigoCorpo.querySelectorAll("pre").forEach(pre => {
         const codeElement = pre.querySelector("code");
         if (!codeElement) return;
@@ -677,7 +386,7 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
         });
     });
 
-    // 10. Processa e renderiza diagramas Mermaid
+    // 11. Processa e renderiza diagramas Mermaid via pipeline modular com explorador
     if (typeof mermaid !== 'undefined') {
         const blocosMermaid = artigoCorpo.querySelectorAll('pre code.language-mermaid, pre.language-mermaid');
         blocosMermaid.forEach((bloco) => {
@@ -690,18 +399,39 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
             containerPre.replaceWith(divMermaid);
         });
 
-        renderizarDiagramasMermaid();
+        setTimeout(() => renderizarDiagramasMermaid(artigoCorpo), 40);
     }
 
-    // 11. Inclui cópia direta nos blocos de código.
+    // 12. Renderização matemática com KaTeX se disponível
+    if (typeof renderMathInElement !== 'undefined') {
+        try {
+            renderMathInElement(artigoCorpo, {
+                delimiters: [
+                    { left: '$$', right: '$$', display: true },
+                    { left: '$', right: '$', display: false },
+                    { left: '\\(', right: '\\)', display: false },
+                    { left: '\\[', right: '\\]', display: true }
+                ],
+                throwOnError: false,
+                ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            });
+        } catch (eMath) {
+            console.warn("Erro ao renderizar KaTeX:", eMath);
+        }
+    }
+
+    // 13. Inclui cópia direta nos blocos de código
     configurarCopiaDeCodigo();
 
-    // 12. Gera a Table of Contents (TOC) com ScrollSpy
+    // 14. Configura Lightbox interativo de imagens
+    configurarZoomImagens();
+
+    // 15. Gera a Table of Contents (TOC) com ScrollSpy
     gerarTableOfContents();
 
     leitorDeArtigo.classList.remove("escondido");
 
-    // Scroll para o topo
+    // Scroll imediato para o topo exato
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 }
 
@@ -1244,6 +974,12 @@ async function renderizarPastas() {
     const categoriasOrdenadas = Object.keys(todasAsPastas).sort((a, b) => a.localeCompare(b, "pt-BR", { numeric: true }));
 
     categoriasOrdenadas.forEach((pasta, indice) => {
+        const info = informacoesAreas[pasta] || informacoesAreas[pasta.toLowerCase()] || {
+            numero: String(indice + 1).padStart(2, "0"),
+            nome: formatarArea(pasta),
+            descricao: descricoesDeAreas[pasta] || descricoesDeAreas[pasta.toLowerCase()] || "Artigos, anotações e referências desta área de estudo."
+        };
+
         const pastaItem = document.createElement("div");
         pastaItem.className = "pasta-item";
 
@@ -1251,10 +987,10 @@ async function renderizarPastas() {
         header.className = "pasta-header";
         header.type = "button";
         header.innerHTML = `
-            <span class="pasta-numero">${String(indice + 1).padStart(2, "0")}</span>
+            <span class="pasta-numero">${info.numero}</span>
             <span class="pasta-info">
                 <span class="pasta-nome">${formatarArea(pasta)}</span>
-                <span class="pasta-descricao">${descricoesDeAreas[pasta] || descricoesDeAreas[pasta.toLowerCase()] || "Artigos, anotações e referências desta área de estudo."}</span>
+                <span class="pasta-descricao">${info.descricao}</span>
             </span>
             <span class="pasta-icone">→</span>
         `;

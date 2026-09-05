@@ -54,12 +54,36 @@ Este documento centraliza todas as regras de desenvolvimento, manutenção de no
 
 ---
 
-## 6. Diretrizes para Diagramas Mermaid
+---
 
-- **Orientação Vertical Prioritária (`flowchart TD`)**: Priorize layouts verticais para garantir máxima legibilidade em telas móveis e evitar encolhimento de fontes.
+## 6. Diretrizes para Diagramas Mermaid e Explorador Interativo
+
+- **Critério Topológico de Orientação**: Não há orientação universal fixa. Escolha `TD`, `LR` ou outra disposição de acordo com a topologia do conhecimento:
+  - *Processos e sequências lineares*: `LR` para fluxos curtos ou `TD` para fluxos longos com desvios.
+  - *Hierarquias, taxonomias e herança*: `TD` como padrão estrutural.
+  - *Sistemas e mapas relacionais*: orientação que minimize cruzamentos de arestas (*edge crossing*).
 - **Conectores Compatíveis com Mermaid v11+**: Utilize sempre a sintaxe oficial com pipes `-->|Rótulo|` para setas rotuladas (evitando `-- Rótulo -->`).
 - **Quebra de Linha em Nós (`<br>`)**: Use `<br>` a cada 2 ou 3 palavras em textos longos de nós (`Node["Texto com<br>quebra"]`) para manter os blocos estreitos e compactos.
 - **Rótulos com Aspas**: Envolva o texto de todos os nós em aspas duplas para evitar erros com caracteres especiais como parênteses ou barras.
+- **Escolha Semântica do Tipo de Diagrama**:
+  - `classDiagram` para modelagem de classes, herança e interfaces;
+  - `erDiagram` para bancos relacionais e cardinalidades;
+  - `sequenceDiagram` para troca de mensagens e chamadas assíncronas;
+  - `stateDiagram-v2` para ciclo de vida e máquinas de estado;
+  - `flowchart` para algoritmos, controle de fluxo e arquiteturas.
+- **Sistema Semântico Global de Classes de Estilo**:
+  - `:::core`: conceito central, nó raiz ou elemento principal;
+  - `:::component`: módulo, classe concreta, serviço ou componente operacional;
+  - `:::data`: entidade de banco, payload, JSON ou estrutura de dados;
+  - `:::warning`: exceção, erro, ponto de atenção ou restrição;
+  - `:::external`: sistema terceiro, API externa ou fronteira de escopo.
+- **Proibição Estrita de Diagramas em ASCII Art**: Proibido desenhar caixas e pirâmides com caracteres de texto (`+---+`, `| |`, `----->`). Use Mermaid nativo ou tabelas Markdown.
+- **Compatibilidade Obrigatória com o Explorador Mermaid do App**:
+  - O leitor web possui pipeline automatizado (`js/mermaid.js`) que envolve diagramas em `.mermaid-wrapper`, insere a toolbar com botão `ampliar` e abre o explorador fullscreen interativo com ajuste de tela (*fit*), zoom e pan por arraste.
+  - O botão `ampliar` é universal e obrigatório em todo diagrama do app.
+- **Protocolo de Validação Pré-Commit**:
+  - Jamais commitar um diagrama com erro de parsing (`Syntax error in text`) ou SVG quebrado.
+  - Validar sempre a renderização antes de concluir qualquer edição de nota com Mermaid.
 
 ---
 
@@ -69,8 +93,10 @@ Este documento centraliza todas as regras de desenvolvimento, manutenção de no
 
 ---
 
-## 8. Manutenção das Listas e Scripts do Web App
+## 8. Manutenção Modular do Web App e Sincronização
 
-- Sempre que uma nota for adicionada, movida ou renomeada, atualize a lista de arquivos no `script.js`.
-- Garanta que a busca em tempo real, as rotas dinâmicas, o leitor de artigos e a renderização do Mermaid continuem funcionando perfeitamente após qualquer alteração estrutural.
+- **Módulos ES6 e Fallback**: Metadados de pastas residem em `js/vault.js`, motor do Mermaid em `js/mermaid.js` e coordenação do app em `script.js`.
+- Sempre que uma nota for adicionada, movida ou renomeada, mantenha as listas de arquivos em `js/vault.js` e `script.js` devidamente sincronizadas.
+- **Codificação de URLs Especiais**: Garanta que requisições e rotas com caracteres como `#` (ex.: notas de `C#`) usem `encodeURIComponent` para evitar erros HTTP 404.
+- **Rolagem Obrigatória ao Topo**: Toda transição de área ou artigo deve reposicionar o leitor no topo exato da tela (`scroll(0, 0)`).
 

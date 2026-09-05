@@ -2,6 +2,25 @@
 
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
+## 2026-09-05
+
+* **Migração e Sincronização de Recursos Maduros do Vault da PUC para o Vault de Programação**:
+  * **Explorador Interativo de Mermaid Modularizado (`js/mermaid.js`, `script.js` e `style.css`)**:
+    * Criado módulo ES6 dedicado `js/mermaid.js` com motor de renderização, wrapper universal `.mermaid-wrapper` e toolbar com botão `ampliar`.
+    * Implementado modal fullscreen interativo com zoom in/out, fit de tela (`f`), tamanho real 1:1 (`0`), atalhos de teclado (`+`, `-`, `Esc`) e pan/arraste por mouse ou toque com feedback visual (*grab* / *grabbing*).
+    * Adaptadas classes semânticas (`:::core`, `:::component`, `:::data`, `:::warning`, `:::external`) e tokens de cores para a identidade visual rosa do vault (`--accent-pink: #ffb6c1` no modo escuro e `#c2255c` no modo claro).
+  * **Renderização Matemática e Símbolos com KaTeX (`index.html` e `script.js`)**:
+    * Adicionados estilos e scripts do KaTeX com suporte a auto-render de delimitadores (`$$`, `$`, `\(`, `\[`).
+    * Implementado conversor de setas e expressões LaTeX (`processarLaTeXSetas`) para renderização nativa de operadores como `\rightarrow` para `→`.
+  * **Lightbox Interativo de Imagens (`script.js` e `style.css`)**:
+    * Adicionado modal fullscreen para zoom em figuras e imagens do corpo do artigo com backdrop blur, botão de fechamento e tecla Escape.
+  * **Modularização do Catálogo e Fallback do Vault (`js/vault.js` e `script.js`)**:
+    * Centralizados metadados de áreas, numeração e descrições no módulo `js/vault.js`, com lista de fallback completa e resiliente para alta disponibilidade offline ou erro de API.
+  * **Atualização das Diretrizes de Governança Técnica (`AGENTS.md`)**:
+    * Expandidas regras para diagramas Mermaid (critério topológico, classes semânticas, proibição estrita de ASCII art e critérios de aceite pré-commit).
+    * Reforçada regra de codificação segura de caracteres como `#` (`encodeURIComponent`) e rolagem automática ao topo (`scroll(0,0)`).
+  * **Versionamento de Assets**: Cache buster atualizado para `v26` em `index.html` e nos imports.
+
 ## 2026-08-31
 
 * **Implementação de Alternância de Tema Claro e Escuro (`script.js`, `style.css` e `index.html`)**:
