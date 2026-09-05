@@ -256,6 +256,14 @@ Essa arquitetura mista utiliza a wiki para garantir coerência conceitual e o RA
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Building Knowledge Graphs and LLM Wikis** (DeepLearning.AI / Neo4j): Como transformar textos desestruturados em nós conceituais, entidades interligadas e grafos persistentes para agentes.
+* **Agentic Memory and Long-Term Knowledge Systems** (AI Explained): Discussão arquitetural sobre os desafios de memória de longo prazo para modelos de linguagem e a importância de bases estruturadas.
+* **Networked Thought and Note-Taking Systems for Machines** (Tiago Forte / Obsidian Community Talks): O modelo mental de pensamento em rede e grafos bidirecionais aplicado à organização de conhecimento compartilhável entre humanos e inteligências artificiais.
+
+---
+
 ## Resumo para memorizar
 
 * **Conhecimento compilado**: Uma LLM Wiki realiza a interpretação conceitual antecipadamente, gerando páginas estruturadas e interligadas por WikiLinks.

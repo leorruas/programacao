@@ -95,6 +95,14 @@ flowchart TD
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Retrieval Augmented Generation (RAG) Explained** (IBM Technology): Visão executiva e conceitual clara sobre a separação entre memória estática (pesos) e dados corporativos dinâmicos.
+* **Why Context Windows Don't Replace RAG** (Matthew Berman / AI Breakdown): Análise prática de custo, latência e o fenômeno *Lost in the Middle* ao comparar janelas gigantescas de contexto contra recuperação direcionada.
+* **Lost in the Middle: How Language Models Use Long Contexts** (Yannic Kilcher): Dissecação do paper de Stanford demonstrando a queda drástica de acurácia de modelos ao recuperar informações localizadas no meio do contexto.
+
+---
+
 ## Resumo para memorizar
 
 * **Conhecimento paramétrico**: Fixo nos pesos da rede; define como o modelo raciocina e estrutura a linguagem.

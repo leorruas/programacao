@@ -76,3 +76,16 @@ Cada nota técnica deste módulo segue rigorosamente cinco etapas de aprendizado
 3. **Implementação mínima executável**: Código compilável e testado demonstrando o cálculo central.
 4. **Limites da analogia**: Onde a metáfora simplificada falha e quais erros conceituais ela pode induzir.
 5. **Implicações práticas de engenharia**: Trade-offs de latência, consumo de memória VRAM, custo financeiro e consistência de software.
+
+---
+
+## Videoteca recomendada de IA e sistemas
+
+Para complementar a leitura técnica com intuição visual de alta qualidade, animações tensoriais e explicações de engenharia de primeira mão, recomendamos os seguintes canais de referência internacional:
+
+* **Andrej Karpathy** (Canal YouTube: `Andrej Karpathy`): As séries *Neural Networks: Zero to Hero* e a palestra histórica *State of GPT* são o padrão ouro absoluto para entender a construção de LLMs desde o byte zero em Python puro e tensores PyTorch.
+* **3Blue1Brown** (Canal YouTube: `3Blue1Brown`): A série sobre redes neurais e Transformers (com capítulos dedicados ao mecanismo de atenção e álgebra de embeddings) fornece a melhor representação geométrica visual do espaço latente já produzida.
+* **StatQuest with Josh Starmer** (Canal YouTube: `StatQuest with Josh Starmer`): Decomposições passo a passo e intuitivas de Word2Vec, cálculo de Cross-Entropy Loss, Self-Attention e mecanismos de Transformers sem pular etapas algébricas.
+* **DeepLearning.AI / Andrew Ng** (Canal YouTube: `DeepLearningAI`): Cursos curtos práticos cobrindo engenharia de contexto, tool calling, avaliação formal com LLM-as-a-judge e sistemas RAG de nível empresarial.
+* **Cohere / Jay Alammar** (Canal YouTube: `Jay Alammar` e `Cohere`): Visualizações clássicas de arquiteturas de busca vetorial, modelos bi-encoder vs cross-encoders, reranking e representações densas de texto.
+* **Yannic Kilcher** (Canal YouTube: `Yannic Kilcher`): Leitura e dissecação minuciosa de papers fundamentais (*Attention Is All You Need*, *Llama*, *Chinchilla Scaling Laws*, *DPO* e pesquisas de retrieval).

@@ -169,6 +169,14 @@ console.log("\nTexto completo que vai para a janela da LLM:\n", resultado.contex
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Advanced RAG: Query Rewriting, HyDE, and Parent-Document Retrieval** (Pinecone / James Briggs): Visão panorâmica dos métodos modernos para enriquecer perguntas imprecisas e desacoplar busca de injeção de contexto.
+* **Graph RAG: Unlocking LLM Discovery on Complex Data** (Microsoft Research): A apresentação da arquitetura GraphRAG combinando extração de entidades, detecção de comunidades e resumos hierárquicos para responder perguntas globais.
+* **Agentic RAG: Building Autonomous Retrieval Loops** (DeepLearning.AI / Harrison Chase): Como agentes com múltiplos passos de decisão avaliam a qualidade dos documentos intermediários e formulam novas buscas dinamicamente.
+
+---
+
 ## Resumo para memorizar
 
 * **Parent-Child**: Busca vetorial precisa no fragmento filho pequeno; injeção contextual rica no fragmento pai grande.

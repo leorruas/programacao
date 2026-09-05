@@ -181,6 +181,14 @@ pesosAtencao.forEach((linha, i) => {
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Let's build GPT: from scratch, in code, spelled out** (Andrej Karpathy): O tutorial definitivo de programação implementando a arquitetura Transformer completa (Self-Attention, Multi-Head, Residuais e Causal Masking) linha por linha em PyTorch.
+* **Attention in transformers, visually explained** (3Blue1Brown): Uma das visualizações mais ricas sobre como matrizes Query, Key e Value interagem para mover informações entre vetores no espaço latente.
+* **Transformer Neural Networks, Clearly Explained** (StatQuest with Josh Starmer): Decomposição analítica e didática de cada bloco do Transformer original com foco na mecânica algébrica de atenção.
+
+---
+
 ## Resumo para memorizar
 
 * **Residual stream**: O tronco principal de dados que preserva a identidade dos tensores e viabiliza redes com mais de 100 camadas profundas.

@@ -153,6 +153,14 @@ resultados.forEach(r => {
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Sentence-BERT: Sentence Embeddings using Siamese Networks** (Yannic Kilcher): O paper fundacional do bi-encoder siamês com contrastive loss que originou os modelos de embeddings modernos.
+* **Vector Embeddings Explained Visually** (Cohere / Jay Alammar): Animações intuitivas demonstrando como queries e documentos são projetados como pontos em um espaço multidimensional.
+* **Matryoshka Embeddings (MRL): Smaller Vectors, Same Accuracy** (Pinecone / Daniel van Strien): A técnica moderna de aprendizado aninhado que permite truncar vetores para economizar RAM mantendo o poder de representação semântica.
+
+---
+
 ## Resumo para memorizar
 
 * **Bi-Encoders**: A arquitetura padrão de embeddings para RAG, gerando vetores independentes para chunks e queries.

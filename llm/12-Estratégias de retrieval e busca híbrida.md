@@ -125,6 +125,14 @@ Observe como o documento `doc-101` assumiu o 1º lugar absoluto no ranking unifi
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Hybrid Search: Combining BM25 and Vector Search** (Pinecone / James Briggs): Explicação aprofundada demonstrando como a busca esparsa (BM25) e a busca densa cobrem mutuamente seus pontos cegos.
+* **Reciprocal Rank Fusion (RRF) Explained** (Cohere / Jay Alammar): Como o algoritmo de soma de frações ordinais funde listas de busca sem a fragilidade de normalizar scores arbitrários.
+* **BM25 Algorithm: The Foundation of Search Engines** (StatQuest with Josh Starmer): Decomposição matemática de TF-IDF e da saturação assintótica do algoritmo BM25.
+
+---
+
 ## Resumo para memorizar
 
 * **Ponto cego vetorial**: Embeddings densos tropeçam em identificadores exatos, números e negações.

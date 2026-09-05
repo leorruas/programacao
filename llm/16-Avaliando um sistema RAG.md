@@ -150,6 +150,14 @@ Em sistemas de larga escala com centenas de testes, a avaliação humana manual 
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Evaluating RAG Applications with Ragas & TruLens** (DeepLearning.AI / Aparna Dhinakaran): O framework da tríade do RAG (Fidelidade, Relevância de Resposta e Relevância de Contexto) e sua automação.
+* **LLM-as-a-Judge: How to Evaluate AI Quality** (Weights & Biases / Databricks): Métodos formais para calibrar modelos de juiz, evitar viés de comprimento (*length bias*) e estabelecer critérios reprodutíveis.
+* **Building an Evaluation Pipeline for Production RAG** (Arize AI / OpenTelemetry): Como integrar testes de regressão de retrieval (*Hit Rate @ K*, *MRR*) em pipelines de integração contínua (CI/CD).
+
+---
+
 ## Resumo para memorizar
 
 * **Desacoplamento obrigatório**: Avalie o Retrieval separadamente da Geração.

@@ -164,6 +164,14 @@ console.log("\nFontes rastreadas:", resultado.fontesUsadas);
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **RAG From Scratch** (LangChain / Lance Martin): Série técnica cobrindo a fundação do pipeline RAG, desde a ingestão de documentos até a resposta final.
+* **Retrieval-Augmented Generation Architecture** (DeepLearning.AI / Andrew Ng): O fluxo de arquitetura desacoplada dividindo os serviços de ingestão em batch e recuperação em tempo real.
+* **Building Production RAG Systems** (FreeCodeCamp / Patrick Loeber): Implementação prática ponta a ponta mostrando o fluxo completo de consulta com embeddings e gerador.
+
+---
+
 ## Resumo para memorizar
 
 * **Dois mundos**: Ingestão (preparação de chunks e índice em lote) e Consulta (recuperação por similaridade e geração em runtime).

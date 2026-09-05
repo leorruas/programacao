@@ -161,6 +161,14 @@ resultados.forEach(r => {
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Hierarchical Navigable Small World (HNSW) Graphs** (Pinecone / James Briggs): A mecânica visual de navegação em camadas, skip-lists multidimensionais e busca aproximada por vizinhos mais próximos (ANN).
+* **Vector Databases: How Do They Work?** (Fireship): Resumo visual ágil cobrindo o problema de escalabilidade de vetores e a comparação entre KNN e índices aproximados.
+* **PostgreSQL pgvector: Vector Search Inside Your Relational DB** (Hussein Nasser): Configuração prática de índices IVFFlat e HNSW dentro do Postgres, analisando trade-offs contra bancos dedicados.
+
+---
+
 ## Resumo para memorizar
 
 * **KNN vs ANN**: KNN é exato mas lento $O(N)$; ANN é aproximado mas opera em tempo logarítmico $O(\log N)$.

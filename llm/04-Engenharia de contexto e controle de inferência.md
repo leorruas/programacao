@@ -139,6 +139,14 @@ console.log("\nValidação da resposta:", resultadoValidacao);
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Prompt Engineering for Developers** (DeepLearning.AI / Isa Fulford e Andrew Ng): O curso fundacional que estabeleceu as diretrizes de contexto claro, delimitação com tags, Chain-of-Thought e validação de formatos.
+* **Prompt Injection Attacks and Defenses** (Computerphile): Demonstração clara e acessível sobre como ataques de injeção direta e indireta exploram a unificação entre instruções e dados em LLMs.
+* **Structured Outputs and Constrained Sampling** (Outlines / DotCSV / AI Explained): Como gramáticas formais (CFG / EBNF) e autômatos guiam a máscara de logits para garantir JSONs válidos por construção matemática.
+
+---
+
 ## Resumo para memorizar
 
 * **Context Engineering**: Curadoria e blindagem sistemática dos dados que preenchem a memória volátil de trabalho do modelo.

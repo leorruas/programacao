@@ -151,6 +151,14 @@ Onde o modelo mental de "apenas um auto-completar" induz a erros graves de julga
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **State of GPT** (Andrej Karpathy - Microsoft Build): Explicação magistral sobre o pipeline completo de treinamento moderno (Pré-treino, SFT, Reward Modeling e RLHF), demonstrando a transição de um preditor de texto bruto para um assistente alinhado.
+* **Cross Entropy Loss, Clearly Explained** (StatQuest with Josh Starmer): Demonstração passo a passo e visual da função de custo logarítmica utilizada para otimizar modelos de linguagem contra o próximo token real.
+* **Large Language Models: How They Work and What They Mean** (3Blue1Brown): Introdução geométrica visual sobre como redes neurais processam vetores de probabilidade e convertem parâmetros em fluência textual.
+
+---
+
 ## Resumo para memorizar
 
 * **Natureza de compressão**: O pré-treinamento força a rede a descobrir regras fundamentais de lógica e sintaxe para comprimir trilhões de tokens.

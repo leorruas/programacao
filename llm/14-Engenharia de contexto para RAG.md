@@ -142,6 +142,14 @@ console.log(mensagensParaAPI[1].content);
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Context Stuffing vs Targeted Retrieval** (LangChain / Lance Martin): Como formatar e estruturar blocos contextuais para que a LLM processe evidências sem dispersão de atenção.
+* **Prompt Defenses: XML Tagging and Delimiters** (Anthropic Educational Series): As melhores práticas da Anthropic para delimitar dados recuperados usando tags XML e evitar injeções contextuais.
+* **The Geometry of Context Windows and Attention Sinks** (AI Explained): Análise de como os mecanismos de atenção dos modelos priorizam o início e o fim da janela e como posicionar informações críticas.
+
+---
+
 ## Resumo para memorizar
 
 * **Mais contexto $\neq$ melhor resposta**: Injetar chunks em excesso dispersa a atenção, gera latência e aumenta o risco de alucinação.

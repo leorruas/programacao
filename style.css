@@ -818,7 +818,8 @@ mark.obsidian-highlight, mark:not(.highlight) {
     transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.sticky-nav.visible {
+.sticky-nav.visible,
+.sticky-nav.visivel {
     transform: translateY(0);
 }
 

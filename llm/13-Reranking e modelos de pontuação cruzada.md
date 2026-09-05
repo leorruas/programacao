@@ -166,6 +166,14 @@ pipeline.consultar("Como usar flexbox para alinhar botões?");
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Re-ranking: The Secret Weapon for RAG** (Cohere / Nils Reimers): A aula essencial do criador do Sentence-BERT demonstrando por que Cross-Encoders superam dramaticamente a busca puramente vetorial.
+* **Bi-Encoders vs Cross-Encoders Explained** (Murtaza Hassan / Deep Learning AI): Visualização lado a lado da diferença matricial entre projeção isolada de embeddings e concatenação com atenção completa.
+* **Improving RAG Accuracy with Rerankers** (Pinecone / James Briggs): Implementação prática de um pipeline de dois estágios com busca em escala e refino seletivo.
+
+---
+
 ## Resumo para memorizar
 
 * **Bi-Encoder vs Cross-Encoder**: Bi-Encoder é rápido e busca em milhões de registros; Cross-Encoder é preciso e avalia 30 candidatos em profundidade.

@@ -4,6 +4,31 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-05
 
+* **Curadoria e Inclusão de Conteúdo Complementar em Vídeo na Trilha de LLMs e RAG (`llm/`, `index.html`)**:
+  * **Videoteca Centralizada no Guia de Estudos ([[llm/00-Guia de estudos|00-Guia de estudos]])**:
+    * Adicionada a seção `## Videoteca recomendada de IA e sistemas` consolidando os canais e autores de referência internacional: Andrej Karpathy (*Zero to Hero*, *State of GPT*), 3Blue1Brown (série geométrica sobre redes neurais e Transformers), StatQuest with Josh Starmer (álgebra visual passo a passo), DeepLearning.AI / Andrew Ng (sistemas e avaliação), Cohere / Jay Alammar (embeddings e reranking) e Yannic Kilcher (leitura de papers fundamentais).
+  * **Seções Dedicadas nos 17 Artigos Técnicos de LLMs e RAG ([[llm/]])**:
+    * Inserida a seção padronizada `## Conteúdo complementar em vídeo` imediatamente antes de `## Resumo para memorizar` em todos os 17 artigos (`01` a `17`).
+    * Seleção curada e cirúrgica conectando cada tópico teórico a aulas de alto nível de intuição visual:
+      * [[llm/01-Dinâmica de treino e inferência em LLMs|01]]: *State of GPT* (Karpathy), *Cross Entropy Loss* (StatQuest), *Large Language Models* (3Blue1Brown).
+      * [[llm/02-Tokenização, embeddings e representações contextuais|02]]: *Let's build the GPT Tokenizer* (Karpathy), *Word Embedding and Word2Vec* (StatQuest), *Visualizing Embeddings* (3Blue1Brown).
+      * [[llm/03-Arquitetura do Transformer e mecanismo de atenção|03]]: *Let's build GPT* (Karpathy), *Attention in transformers* (3Blue1Brown), *Transformer Neural Networks* (StatQuest).
+      * [[llm/04-Engenharia de contexto e controle de inferência|04]]: *Prompt Engineering for Developers* (DeepLearning.AI), *Prompt Injection Attacks* (Computerphile), *Structured Outputs* (Outlines / DotCSV).
+      * [[llm/05-Sistemas de produção com LLMs, tool calling e streaming|05]]: *Functions, Tools and Agents* (DeepLearning.AI), *Server-Sent Events & HTTP Streaming* (Hussein Nasser), *Prompt Caching* (Anthropic / Latent Space).
+      * [[llm/06-LLM Wiki conhecimento compilado para humanos e agentes|06]]: *Building Knowledge Graphs* (DeepLearning.AI), *Agentic Memory* (AI Explained), *Networked Thought* (Tiago Forte / Obsidian).
+      * [[llm/07-Por que LLMs precisam de conhecimento externo|07]]: *RAG Explained* (IBM Technology), *Why Context Windows Don't Replace RAG* (Matthew Berman), *Lost in the Middle* (Yannic Kilcher).
+      * [[llm/08-O que é RAG e como funciona|08]]: *RAG From Scratch* (LangChain), *Retrieval-Augmented Generation Architecture* (DeepLearning.AI), *Building Production RAG Systems* (FreeCodeCamp).
+      * [[llm/09-Chunking e estratégias de fragmentação|09]]: *Chunking Strategies for LLM Applications* (Pinecone / Greg Kamradt), *Text Splitters* (DeepLearning.AI), *Semantic Chunking* (Aura / Greg Kamradt).
+      * [[llm/10-Embeddings aplicados ao RAG|10]]: *Sentence-BERT* (Yannic Kilcher), *Vector Embeddings Explained Visually* (Cohere), *Matryoshka Embeddings* (Pinecone).
+      * [[llm/11-Vector stores, índices e algoritmos de busca|11]]: *HNSW Graphs* (Pinecone / James Briggs), *Vector Databases: How Do They Work?* (Fireship), *PostgreSQL pgvector* (Hussein Nasser).
+      * [[llm/12-Estratégias de retrieval e busca híbrida|12]]: *Hybrid Search* (Pinecone), *Reciprocal Rank Fusion Explained* (Cohere), *BM25 Algorithm* (StatQuest).
+      * [[llm/13-Reranking e modelos de pontuação cruzada|13]]: *Re-ranking: The Secret Weapon for RAG* (Cohere / Nils Reimers), *Bi-Encoders vs Cross-Encoders* (Deep Learning AI), *Improving RAG Accuracy* (Pinecone).
+      * [[llm/14-Engenharia de contexto para RAG|14]]: *Context Stuffing vs Targeted Retrieval* (LangChain), *Prompt Defenses: XML Tagging* (Anthropic), *Attention Sinks and Context Geometry* (AI Explained).
+      * [[llm/15-Construindo um RAG em JavaScript|15]]: *Build RAG from Scratch in Node.js* (Developers Digest), *Vector Math and Dot Product in JS* (The Coding Train), *Full-Stack RAG Application* (AI Jason).
+      * [[llm/16-Avaliando um sistema RAG|16]]: *Evaluating RAG Applications with Ragas* (DeepLearning.AI), *LLM-as-a-Judge* (Weights & Biases / Databricks), *Building an Evaluation Pipeline* (Arize AI).
+      * [[llm/17-RAG avançado e limites arquiteturais|17]]: *Advanced RAG: Query Rewriting & HyDE* (Pinecone), *Graph RAG* (Microsoft Research), *Agentic RAG* (DeepLearning.AI).
+  * **Conformidade de Estilo e Cache**: Cabeçalhos estritamente em *Sentence Case*, ausência total de emojis e cache buster atualizado para `estrutura-v34` no `index.html`.
+
 * **Desacoplamento Estrutural de Linhas de Código e Código Inline (`script.js`, `style.css`, `index.html`)**:
   * **Eliminação Definitiva de Conflitos**: Substituído o elemento interno das linhas numeradas em `<pre>` de `<code>` para `<span class="code-text">`, desacoplando completamente os blocos grandes de código de quaisquer regras de código inline.
   * **Isolamento Estrito**: Assegurado que as caixas de código inline (`.artigo-corpo code:not(pre code)`) atuem exclusivamente sobre termos e trechos no meio do texto, enquanto os blocos `<pre>` permanecem planos, unificados e com coloração contínua.

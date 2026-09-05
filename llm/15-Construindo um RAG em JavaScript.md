@@ -256,6 +256,14 @@ executarDemonstracao();
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Build RAG from Scratch in Node.js / JavaScript** (Developers Digest): Criação de um pipeline de RAG passo a passo em JavaScript puro consumindo APIs de embedding e de chat da OpenAI.
+* **Vector Math and Dot Product in JavaScript** (The Coding Train / Daniel Shiffman): Implementação intuitiva e didática de vetores, distância euclidiana, produto escalar e normalização L2 em JavaScript moderno.
+* **Full-Stack RAG Application with Modern Web Standards** (AI Jason): Construção de uma interface web conectada a um serviço de busca e recuperação vetorial sem bibliotecas de alta abstração.
+
+---
+
 ## Resumo para memorizar
 
 * **Sem caixas-pretas**: Implementar um RAG básico em JavaScript puro exige apenas manipulação de strings, vetores unitários e produtos escalares.

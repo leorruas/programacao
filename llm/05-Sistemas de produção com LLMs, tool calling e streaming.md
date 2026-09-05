@@ -210,6 +210,14 @@ main();
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Functions, Tools and Agents with LangChain & OpenAI** (DeepLearning.AI / Harrison Chase): O funcionamento conceitual e prático de schemas JSON de ferramentas, loops de execução e retorno de payloads ao contexto.
+* **Server-Sent Events (SSE) and HTTP Streaming** (Hussein Nasser): Arquitetura de rede detalhada sobre conexões HTTP persistentes, chunked transfer encoding e transmissão unidirecional de eventos.
+* **Prompt Caching: Under the Hood** (Anthropic / Latent Space): Palestra técnica sobre como o reaproveitamento de KV Cache em nível de hardware viabiliza reduções drásticas de latência e custo em prompts longos.
+
+---
+
 ## Resumo para memorizar
 
 * **Tool Calling é orquestração**: O modelo apenas emite intenções estruturadas de chamadas; a execução segura do código é responsabilidade integral da sua aplicação.

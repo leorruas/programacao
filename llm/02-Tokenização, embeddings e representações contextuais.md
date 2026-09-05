@@ -165,6 +165,14 @@ ranking.forEach(r => {
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Let's build the GPT Tokenizer** (Andrej Karpathy): A construção prática e completa do algoritmo Byte Pair Encoding (BPE) a partir do byte zero em Python, desmistificando vocabulários, IDs e fusões estatísticas.
+* **Word Embedding and Word2Vec, Clearly Explained** (StatQuest with Josh Starmer): Explicação passo a passo sobre como palavras são projetadas em vetores numéricos através de janelas deslizantes e gradiente descendente.
+* **Visualizing Embeddings and High-Dimensional Space** (3Blue1Brown - Série Neural Networks): Animações geométricas sobre como vetores em centenas de dimensões codificam direções semânticas e relações conceituais.
+
+---
+
 ## Resumo para memorizar
 
 * **BPE**: Fatiamento de sub-palavras baseado em frequência estatística de bytes, balanceando tamanho de vocabulário e extensão de sequência.

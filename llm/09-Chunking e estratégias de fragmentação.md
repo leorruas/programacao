@@ -181,6 +181,14 @@ resultados.forEach((c, i) => {
 
 ---
 
+## Conteúdo complementar em vídeo
+
+* **Chunking Strategies for LLM Applications** (Pinecone / Greg Kamradt): Aprofundamento clássico visual analisando as cinco gerações de chunking: fixo, recursivo, baseado em documentos, semântico e agêntico.
+* **Text Splitters in LangChain & LlamaIndex** (DeepLearning.AI / Harrison Chase): Como implementar fatiamento recursivo por caracteres, separadores estruturais de Markdown e preservação de metadados de cabeçalho.
+* **Semantic Chunking: Embedding-Based Text Splitting** (Aura / Greg Kamradt): Demonstração visual de como diferenças bruscas de distância de cosseno entre frases consecutivas são usadas para determinar quebras de chunking puramente semânticas.
+
+---
+
 ## Resumo para memorizar
 
 * **Chunking é semântica**: Cortar texto sem respeitar a estrutura de linguagem degrada severamente o retrieval.
