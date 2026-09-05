@@ -4,16 +4,17 @@ Este guia organiza os estudos sobre grandes modelos de linguagem (*Large Languag
 
 ---
 
-## As cinco camadas de conhecimento
+## As seis camadas de conhecimento
 
-Em vez de tratar a inteligência artificial generativa como um conjunto de dicas superficiais de prompt, este repositório divide o domínio de LLMs em cinco camadas interdependentes de engenharia:
+Em vez de tratar a inteligência artificial generativa como um conjunto de dicas superficiais de prompt, este repositório divide o domínio de LLMs em seis camadas interdependentes de engenharia:
 
 ```mermaid
 flowchart TD
     C1["Camada 1: Fundamentos Matemáticos e Arquitetura<br>(Tokens, Embeddings, Mecanismo QKV, Blocos Transformer)"] --> C2["Camada 2: Treinamento e Comportamento<br>(Pretraining, Loss, SFT, RLHF, Scaling Laws, Inferência)"]
     C2 --> C3["Camada 3: Engenharia de Contexto<br>(Context Window, Structured Outputs, Tool Calling, Fronteiras)"]
     C3 --> C4["Camada 4: Sistemas e Aplicações com Agentes<br>(Loop Agente-Ferramenta, Streaming SSE, Resiliência, Evals)"]
-    C4 --> C5["Camada 5: Arquitetura RAG<br>(Ingestão, Chunking, Embeddings, Índices, Rerank, Avaliação)"]
+    C4 --> C5["Camada 5: Compilação de Conhecimento (LLM Wiki)<br>(Estruturação Prévia, WikiLinks, Memória Compartilhada)"]
+    C5 --> C6["Camada 6: Arquitetura RAG<br>(Ingestão, Chunking, Embeddings, Índices, Rerank, Avaliação)"]
 ```
 
 ---
@@ -45,19 +46,25 @@ Aprenda a construir software de produção conectando LLMs a bancos de dados, fe
 
 ---
 
-### Camada 5: arquitetura RAG (Retrieval-Augmented Generation)
+### Camada 5: compilação de conhecimento e memória persistente
+Transforme corpus volumosos e dispersos em representações estruturadas, auditáveis e interligadas antes do momento da consulta.
+* [[llm/06-LLM Wiki conhecimento compilado para humanos e agentes|LLM Wiki: conhecimento compilado para humanos e agentes]] - A terceira via entre contexto direto e RAG: extração prévia, síntese em páginas atômicas com WikiLinks, complementaridade com RAG, analogia do compilador e o risco do erro cristalizado.
+
+---
+
+### Camada 6: arquitetura RAG (Retrieval-Augmented Generation)
 Aprenda a enriquecer modelos de linguagem com dados proprietários e externos através de pipelines de ingestão, recuperação vetorial e avaliação sistemática.
-* [[llm/06-Por que LLMs precisam de conhecimento externo|Por que LLMs precisam de conhecimento externo]] - Conhecimento paramétrico vs não paramétrico, limites de janelas longas, degradação de atenção (*Lost in the Middle*) e matriz de decisão para RAG.
-* [[llm/07-O que é RAG e como funciona|O que é RAG e como funciona]] - O ciclo completo: separação estrita entre o pipeline offline de ingestão/indexação e o pipeline online de consulta/retrieval.
-* [[llm/08-Chunking e estratégias de fragmentação|Chunking e estratégias de fragmentação]] - Estratégias de particionamento (tamanho fixo, estrutural em Markdown, semântico), overlap, metadados e o dilema chunks pequenos vs grandes.
-* [[llm/09-Embeddings aplicados ao RAG|Embeddings aplicados ao RAG]] - Arquitetura Bi-Encoder, normalização L2, simplificação para produto escalar, Matryoshka Representation Learning (MRL) e pontos cegos de busca semântica.
-* [[llm/10-Vector stores, índices e algoritmos de busca|Vector stores, índices e algoritmos de busca]] - Bancos vetoriais, KNN exato vs busca aproximada (ANN), grafos HNSW em camadas, `pgvector` vs bancos dedicados e pre-filtering.
-* [[llm/11-Estratégias de retrieval e busca híbrida|Estratégias de retrieval e busca híbrida]] - Limitações da busca puramente vetorial, algoritmo BM25 léxico, busca híbrida e fusão de rankings com Reciprocal Rank Fusion (RRF).
-* [[llm/12-Reranking e modelos de pontuação cruzada|Reranking e modelos de pontuação cruzada]] - O pipeline de dois estágios: por que o Top-1 do retrieval não é o melhor resultado, Cross-Encoders com atenção total e refinamento de candidatos.
-* [[llm/13-Engenharia de contexto para RAG|Engenharia de contexto para RAG]] - Seleção, ordenação estratégica em ferradura contra *Lost in the Middle*, citações estritas (*provenance*) e blindagem contra *Context Poisoning*.
-* [[llm/14-Construindo um RAG em JavaScript|Construindo um RAG em JavaScript]] - Implementação didática completa ponta a ponta em JavaScript puro (ES6+) sem frameworks mágicos, consumindo notas Markdown do Obsidian.
-* [[llm/15-Avaliando um sistema RAG|Avaliando um sistema RAG]] - Avaliação formal e desacoplada: métricas de busca (*Hit Rate @ K*, Context Precision) vs métricas de geração (*Faithfulness*, Answer Relevance), datasets de teste e LLM-as-a-Judge.
-* [[llm/16-RAG avançado e limites arquiteturais|RAG avançado e limites arquiteturais]] - Técnicas de fronteira (Query Rewriting, Multi-Query, HyDE, Parent-Child, Contextual Retrieval, Graph RAG, Agentic RAG) e cenários onde RAG é a escolha errada (Text-to-SQL, sumarização global, fine-tuning).
+* [[llm/07-Por que LLMs precisam de conhecimento externo|Por que LLMs precisam de conhecimento externo]] - Conhecimento paramétrico vs não paramétrico, limites de janelas longas, degradação de atenção (*Lost in the Middle*) e matriz de decisão para RAG.
+* [[llm/08-O que é RAG e como funciona|O que é RAG e como funciona]] - O ciclo completo: separação estrita entre o pipeline offline de ingestão/indexação e o pipeline online de consulta/retrieval.
+* [[llm/09-Chunking e estratégias de fragmentação|Chunking e estratégias de fragmentação]] - Estratégias de particionamento (tamanho fixo, estrutural em Markdown, semântico), overlap, metadados e o dilema chunks pequenos vs grandes.
+* [[llm/10-Embeddings aplicados ao RAG|Embeddings aplicados ao RAG]] - Arquitetura Bi-Encoder, normalização L2, simplificação para produto escalar, Matryoshka Representation Learning (MRL) e pontos cegos de busca semântica.
+* [[llm/11-Vector stores, índices e algoritmos de busca|Vector stores, índices e algoritmos de busca]] - Bancos vetoriais, KNN exato vs busca aproximada (ANN), grafos HNSW em camadas, `pgvector` vs bancos dedicados e pre-filtering.
+* [[llm/12-Estratégias de retrieval e busca híbrida|Estratégias de retrieval e busca híbrida]] - Limitações da busca puramente vetorial, algoritmo BM25 léxico, busca híbrida e fusão de rankings com Reciprocal Rank Fusion (RRF).
+* [[llm/13-Reranking e modelos de pontuação cruzada|Reranking e modelos de pontuação cruzada]] - O pipeline de dois estágios: por que o Top-1 do retrieval não é o melhor resultado, Cross-Encoders com atenção total e refinamento de candidatos.
+* [[llm/14-Engenharia de contexto para RAG|Engenharia de contexto para RAG]] - Seleção, ordenação estratégica em ferradura contra *Lost in the Middle*, citações estritas (*provenance*) e blindagem contra *Context Poisoning*.
+* [[llm/15-Construindo um RAG em JavaScript|Construindo um RAG em JavaScript]] - Implementação didática completa ponta a ponta em JavaScript puro (ES6+) sem frameworks mágicos, consumindo notas Markdown do Obsidian.
+* [[llm/16-Avaliando um sistema RAG|Avaliando um sistema RAG]] - Avaliação formal e desacoplada: métricas de busca (*Hit Rate @ K*, Context Precision) vs métricas de geração (*Faithfulness*, Answer Relevance), datasets de teste e LLM-as-a-Judge.
+* [[llm/17-RAG avançado e limites arquiteturais|RAG avançado e limites arquiteturais]] - Técnicas de fronteira (Query Rewriting, Multi-Query, HyDE, Parent-Child, Contextual Retrieval, Graph RAG, Agentic RAG) e cenários onde RAG é a escolha errada (Text-to-SQL, sumarização global, fine-tuning).
 
 ---
 

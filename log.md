@@ -4,6 +4,29 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-05
 
+* **Correção de Legibilidade de Callouts e Roteamento Resiliente por Hash (`style.css`, `script.js`, `index.html`)**:
+  * **Legibilidade e Contraste nos Callouts para Modo Claro e Escuro**:
+    * Ajustado o seletor `.obsidian-callout .callout-content` e seus parágrafos para utilizarem a variável contextual `color: var(--text)`, eliminando o problema de texto cinza claro ilegível sobre fundo branco no modo claro.
+    * Adicionadas definições de alto contraste dedicadas para `:root[data-theme="light"]` cobrindo todos os tipos de avisos (`important`, `note`, `tip`, `warning`, `caution`), com bordas expressivas, fundos translúcidos e títulos com cores profundas e saturadas (`#d97706` / `#b45309` para avisos/warning, `#059669` para dicas/tip, `#7e22ce` para importantes, `#dc2626` para alertas de cuidado/caution).
+    * Corrigido o contraste dos títulos em negrito dentro de checklists (`.task-item-content strong`).
+  * **Roteamento Resiliente por URL e Persistência no Recarregamento (F5 / Direct Link)**:
+    * Corrigido o roteamento de hash em `script.js`: substituída a checagem que dependia de função inexistente (`normalizarTexto`) pelo resolvedor tolerante `navegarParaLinkObsidian`.
+    * Adicionado suporte a links antigos/renomeados (como `/artigo/llm/01-O que são LLMs e como funcionam`) que agora localizam automaticamente o artigo renomeado correspondente por similaridade de nome e título sem redirecionar indevidamente para a página principal.
+    * Adicionado o ouvinte `popstate` para sincronização com histórico do navegador e passado `atualizarHash = false` durante a carga inicial para evitar substituições indesejadas de rota.
+    * Incrementado cache buster para `estrutura-v31` no `index.html`.
+
+* **Criação do Artigo LLM Wiki e Reorganização das Camadas de Conhecimento (`llm/`, `js/vault.js`, `index.html`)**:
+  * **Padrão Arquitetural LLM Wiki ([[llm/06-LLM Wiki conhecimento compilado para humanos e agentes|06-LLM Wiki conhecimento compilado para humanos e agentes]])**:
+    * Desenvolvido artigo técnico e conceitual estabelecendo a LLM Wiki como a terceira via entre despejo direto no contexto e RAG tradicional: transformação prévia de corpus heterogêneo em páginas atômicas com WikiLinks formais, relações conceituais explícitas e metadados de procedência (*provenance*).
+    * Diferenciação rigorosa: fonte primária, wiki compilada, retrieval e LLM.
+    * Seção dedicada demonstrando por que *LLM Wiki não é RAG* (trabalho antecipado em lote vs. busca reativa em runtime) e como ambos os padrões operam de forma complementar (RAG sobre uma Wiki estruturada).
+    * Tabela comparativa multidimensional (contexto direto vs. RAG vs. LLM Wiki) cobrindo custo de preparação, custo em runtime, rastreabilidade, capacidade de síntese, legibilidade e riscos de distorção.
+    * Análise crítica de vantagens (conhecimento persistente, navegação humana no Obsidian, memória compartilhada entre agentes) e limites/riscos (o perigo do *erro cristalizado*, invalidação de cache em grafos de dependência, divergências entre fontes, viés da ontologia e escala).
+    * Analogia do compilador de software (código-fonte vs. representação compilada otimizada) e implementação conceitual completa em JavaScript de um compilador de páginas Markdown com WikiLinks.
+  * **Renuneração e Expansão da Trilha RAG para 17 Artigos**:
+    * Reordenados os artigos de RAG para a numeração 07 a 17 ([[llm/07-Por que LLMs precisam de conhecimento externo|07]] a [[llm/17-RAG avançado e limites arquiteturais|17]]), inserindo a LLM Wiki como a *Camada 5* de compilação de conhecimento prévio e o RAG como a *Camada 6* no [[llm/00-Guia de estudos|00-Guia de estudos]].
+    * Atualizada a lista de fallback no `js/vault.js` e incrementado cache buster para `v30` no `index.html`.
+
 * **Criação da Trilha Completa de Engenharia RAG (Retrieval-Augmented Generation) (`llm/`, `js/vault.js`, `index.html`)**:
   * **Trilha de Maturidade Progressiva (Feynman Técnico)**: Desenvolvidos 11 novos artigos conceituais e práticos (artigos 06 a 16) sem abstrações superficiais, cobrindo o ciclo ponta a ponta de engenharia de busca e geração aumentada:
     * [[llm/06-Por que LLMs precisam de conhecimento externo|06-Por que LLMs precisam de conhecimento externo]]: Conhecimento paramétrico congelado nos pesos vs conhecimento não paramétrico em runtime. Limitações reais de janelas gigantes (degradação de atenção *Lost in the Middle*, latência de TTFT e custo financeiro), matriz de decisão entre Fine-Tuning, Prompting e RAG, e separação de responsabilidades no software.

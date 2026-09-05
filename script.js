@@ -793,7 +793,7 @@ function processarCalloutsObsidian() {
     });
 }
 
-async function navegarParaLinkObsidian(nomeOuCaminho) {
+async function navegarParaLinkObsidian(nomeOuCaminho, atualizarHash = true) {
     if (!nomeOuCaminho) return;
 
     const [caminhoSemHash, hashSecao] = nomeOuCaminho.split("#");
@@ -831,7 +831,7 @@ async function navegarParaLinkObsidian(nomeOuCaminho) {
     });
 
     if (encontrado) {
-        abrirArtigo(encontrado.titulo, encontrado.conteudoTexto, encontrado.categoria);
+        abrirArtigo(encontrado.titulo, encontrado.conteudoTexto, encontrado.categoria, atualizarHash);
         if (hashSecao) {
             setTimeout(() => {
                 const slug = hashSecao
@@ -1076,20 +1076,29 @@ function atualizarRota(rota) {
     if (window.location.hash !== rota) history.pushState({}, "", rota);
 }
 
-function tratarRotaDaUrl() {
-    const partes = window.location.hash.replace(/^#\//, "").split("/").filter(Boolean).map(parte => decodeURIComponent(parte));
-    if (!partes.length) return voltarParaHome(false);
-
-    if (partes[0] === "area" && partes[1] && todasAsPastas[partes[1]]) {
-        abrirDisciplina(partes[1], false);
-        return;
+async function tratarRotaDaUrl() {
+    const hash = window.location.hash;
+    if (!hash || hash === "#" || hash === "#/") {
+        return voltarParaHome(false);
     }
 
-    if (partes[0] === "artigo" && partes[1] && partes[2]) {
-        const categoria = partes[1];
-        const artigo = (todasAsPastas[categoria] || []).find(item => normalizarTexto(item.titulo) === normalizarTexto(partes[2]));
-        if (artigo) abrirArtigo(artigo.titulo, artigo.conteudoTexto, categoria, false);
+    const rotaLimpa = decodeURIComponent(hash.replace(/^#\/?/, "").trim());
+
+    if (rotaLimpa.startsWith("area/")) {
+        const categoria = rotaLimpa.replace(/^area\//, "").trim();
+        if (todasAsPastas[categoria]) {
+            abrirDisciplina(categoria, false);
+            return;
+        }
     }
+
+    let caminhoArtigo = rotaLimpa;
+    if (caminhoArtigo.startsWith("artigo/")) {
+        caminhoArtigo = caminhoArtigo.replace(/^artigo\//, "").trim();
+    }
+
+    // Tenta resolver pelo resolvedor tolerante que busca por nome de arquivo, título ou caminho
+    await navegarParaLinkObsidian(caminhoArtigo, false);
 }
 
 // Configuração do Sticky Navbar baseada no scroll
@@ -1098,11 +1107,11 @@ const stickyNav = document.getElementById("sticky-nav");
 
 window.addEventListener("scroll", () => {
     if (!headerEl || !stickyNav) return;
-    const headerHeight = headerEl.offsetHeight;
-    if (window.scrollY > headerHeight) {
-        stickyNav.classList.add("visible");
+    const offset = 80;
+    if (window.scrollY > offset) {
+        stickyNav.classList.add("visivel");
     } else {
-        stickyNav.classList.remove("visible");
+        stickyNav.classList.remove("visivel");
     }
 });
 
@@ -1129,6 +1138,7 @@ function voltarParaHome(atualizarHash = true) {
 if (btnVoltarDisciplina) btnVoltarDisciplina.addEventListener("click", () => voltarParaHome());
 
 window.addEventListener("hashchange", tratarRotaDaUrl);
+window.addEventListener("popstate", tratarRotaDaUrl);
 
 const navLogo = document.getElementById("nav-logo");
 if (navLogo) {
