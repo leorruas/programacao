@@ -462,8 +462,12 @@ button:hover {
     background-color: transparent;
 }
 
-/* Código Inline e Cópia com 1 Clique */
-.artigo-corpo code {
+/* Código Inline e Cópia com 1 Clique (Apenas fora de blocos <pre>) */
+.artigo-corpo :not(pre) > code,
+.artigo-corpo p > code,
+.artigo-corpo li > code,
+.artigo-corpo td > code,
+.artigo-corpo th > code {
     font-size: 0.88em;
     font-family: 'IBM Plex Mono', 'Space Mono', monospace;
     background-color: var(--accent-pink-alpha-15);
@@ -479,13 +483,21 @@ button:hover {
     vertical-align: baseline;
 }
 
-.artigo-corpo code:hover {
+.artigo-corpo :not(pre) > code:hover,
+.artigo-corpo p > code:hover,
+.artigo-corpo li > code:hover,
+.artigo-corpo td > code:hover,
+.artigo-corpo th > code:hover {
     background-color: var(--accent-pink);
     border-color: var(--accent-pink);
     color: #000000;
 }
 
-:root[data-theme="light"] .artigo-corpo code:hover {
+:root[data-theme="light"] .artigo-corpo :not(pre) > code:hover,
+:root[data-theme="light"] .artigo-corpo p > code:hover,
+:root[data-theme="light"] .artigo-corpo li > code:hover,
+:root[data-theme="light"] .artigo-corpo td > code:hover,
+:root[data-theme="light"] .artigo-corpo th > code:hover {
     color: #ffffff;
 }
 

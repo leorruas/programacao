@@ -4,6 +4,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-05
 
+* **Isolamento de Estilos de Código Inline e Restauração de Blocos de Código (`style.css`, `index.html`)**:
+  * **Correção de Escopo no CSS**: Restringido o seletor de código inline para `:not(pre) > code` (e específicos como `p > code`, `li > code`, `td > code`, `th > code`), garantindo que tags `<code>` renderizadas dentro de blocos de código com numeração de linha (`.code-line code` e `<pre>`) permaneçam sem caixas individuais, bordas ou fundos sobrepostos, mantendo o bloco contínuo e limpo.
+  * **Cache Buster**: Atualizado para `estrutura-v32` no `index.html`.
+
 * **Correção de Legibilidade de Callouts e Roteamento Resiliente por Hash (`style.css`, `script.js`, `index.html`)**:
   * **Legibilidade e Contraste nos Callouts para Modo Claro e Escuro**:
     * Ajustado o seletor `.obsidian-callout .callout-content` e seus parágrafos para utilizarem a variável contextual `color: var(--text)`, eliminando o problema de texto cinza claro ilegível sobre fundo branco no modo claro.
