@@ -150,9 +150,13 @@ Por isso, a representação de “banco” em “banco de dados” pode ser dife
 
 ### Logit
 
-Um **logit** é uma pontuação bruta produzida pelo modelo antes da transformação em probabilidades.
+Um **logit** é uma pontuação bruta de preferência produzida pelo modelo para uma possibilidade antes da normalização em probabilidades.
 
-Na saída de uma LLM, normalmente existe um logit para cada token possível do vocabulário. Softmax transforma esses valores em uma distribuição de probabilidades.
+Na saída de uma LLM, normalmente existe um logit para cada token possível do vocabulário. Um logit como `4.2` não significa 4,2% nem 42%, e um valor negativo não representa probabilidade negativa. O que importa é sua relação com os demais logits do mesmo vetor.
+
+O Softmax transforma o conjunto inteiro dessas pontuações em uma distribuição de probabilidades.
+
+Relacionado: [[llm/01-Dinâmica de treino e inferência em LLMs#3.1. O que é um logit|Logits na dinâmica de inferência]].
 
 ### Probabilidade
 
@@ -339,9 +343,11 @@ Em uma LLM causal, o processo é aproximadamente: contexto atual → logits → 
 
 ### Softmax
 
-**Softmax** transforma uma lista de logits em uma distribuição de probabilidades cuja soma é 1.
+**Softmax** transforma o vetor inteiro de logits em uma distribuição de probabilidades: cada valor fica entre 0 e 1 e a soma de todos os candidatos é 1.
 
-Ela preserva a ordem relativa das pontuações, mas torna os valores interpretáveis como probabilidades de seleção.
+Ele não escolhe o próximo token. Sua função é converter scores brutos em uma distribuição comparável; greedy, Top-k, Top-p e amostragem entram depois. A probabilidade de um candidato depende de seu logit em relação aos demais logits do vetor.
+
+Relacionado: [[llm/01-Dinâmica de treino e inferência em LLMs#3.3. Softmax: de scores incomparáveis para uma distribuição|Softmax na dinâmica de inferência]].
 
 ### Temperatura
 
