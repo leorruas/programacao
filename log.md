@@ -4,6 +4,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-06
 
+* **Correção de WikiLinks dentro de callouts (`script.js`, `index.html`)**:
+  * **Causa**: `processarLinksObsidian()` instalava os eventos de clique antes de `processarCalloutsObsidian()`. Como o callout reconstrói o conteúdo via `innerHTML`, os listeners dos links eram descartados.
+  * **Correção**: invertida a ordem do pipeline para montar primeiro os callouts e somente depois converter/ativar os WikiLinks.
+  * **Efeito**: links como Token, Parâmetro, Gradiente, Inferência e Glossário dentro de blocos `[!NOTE]` passam a manter navegação ativa.
+  * **Cache**: cache buster do `script.js` atualizado para `estrutura-v36` no `index.html`.
 * **Criação do artigo de fundamentos tensoriais (`llm/Fundamentos — vetores, matrizes, tensores e shapes.md`)**:
   * **Progressão Feynman**: o artigo parte de escalar → vetor → matriz → tensor e só depois introduz `shape`, batch, reshape, transpose, broadcasting e dtype.
   * **Ponte para LLMs**: conecta explicitamente `[tokens, embedding_dim]`, `[batch, tokens, embedding_dim]` e `[batch, heads, tokens, head_dim]`, preparando a leitura de tokenização e multi-head attention.
