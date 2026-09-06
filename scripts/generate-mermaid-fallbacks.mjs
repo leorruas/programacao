@@ -88,6 +88,7 @@ function renderizar(codigo, destino, temporario) {
 limparSaida();
 const temporario = fs.mkdtempSync(path.join(os.tmpdir(), "mermaid-fallback-"));
 let total = 0;
+let ignorados = 0;
 
 try {
     for (const arquivo of listarMarkdown(ROOT)) {
@@ -97,12 +98,17 @@ try {
         const chave = hashString(arquivo.relativo.replace(/\\/g, "/"));
         blocos.forEach((codigo, indice) => {
             const nome = chave + "-" + (indice + 1) + ".svg";
-            renderizar(codigo, path.join(OUTPUT, nome), temporario);
-            total += 1;
+            try {
+                renderizar(codigo, path.join(OUTPUT, nome), temporario);
+                total += 1;
+            } catch (erro) {
+                ignorados += 1;
+                console.warn("Mermaid ignorado por erro de parsing:", arquivo.relativo, "diagrama", indice + 1);
+            }
         });
     }
 } finally {
     fs.rmSync(temporario, { recursive: true, force: true });
 }
 
-console.log("SVGs Mermaid gerados: " + total);
+console.log("SVGs Mermaid gerados: " + total + "; ignorados por erro: " + ignorados);
