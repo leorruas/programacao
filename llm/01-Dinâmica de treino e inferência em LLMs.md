@@ -2,6 +2,32 @@
 
 Um modelo de linguagem de grande porte (*Large Language Model* ou LLM) é frequentemente descrito como um "auto-completar do teclado em grande escala". Embora a operação matemática durante a inferência seja formalmente autorregressiva (predição do próximo token), essa metáfora inicial é insuficiente para compreender como sistemas neurais profundos desenvolvem representações conceituais, modelam o mundo e executam raciocínio complexo.
 
+> [!NOTE] Vocabulário antes de começar
+> Para a primeira leitura, basta dominar estas cinco peças:
+> * [[llm/Glossário de LLMs#Token|Token]]: unidade de texto que o modelo recebe e produz.
+> * [[llm/Glossário de LLMs#Parâmetro|Parâmetro]]: número interno ajustável aprendido durante o treinamento.
+> * [[llm/Glossário de LLMs#Função de perda|Função de perda]]: número que mede quão ruim foi uma previsão.
+> * [[llm/Glossário de LLMs#Gradiente|Gradiente]]: informação sobre como uma mudança nos parâmetros afetaria o erro.
+> * [[llm/Glossário de LLMs#Inferência|Inferência]]: uso do modelo já treinado para produzir uma saída.
+>
+> Se aparecer outro termo desconhecido, use [[llm/Glossário de LLMs|Glossário de LLMs]] e volte para o fluxo principal.
+
+### O ciclo inteiro em linguagem simples
+
+Antes da matemática, guarde esta sequência:
+
+```mermaid
+flowchart LR
+    A["Texto de<br>treinamento"] --> B["Modelo tenta<br>prever token"]
+    B --> C["Compara previsão<br>com resposta"]
+    C --> D["Calcula tamanho<br>do erro"]
+    D --> E["Descobre quais pesos<br>contribuíram"]
+    E --> F["Ajusta os<br>parâmetros"]
+    F --> B
+```
+
+O treinamento é, essencialmente, a repetição desse ciclo em uma escala enorme. A matemática que aparece adiante formaliza cada uma dessas setas.
+
 ---
 
 ## 1. Intuição e analogia inicial: o motor de compressão
