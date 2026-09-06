@@ -194,6 +194,7 @@ export const arquivosFallback = [
     // llm
     { titulo: "00-Guia de estudos", path: "./llm/00-Guia%20de%20estudos.md" },
     { titulo: "Glossário de LLMs", path: "./llm/Gloss%C3%A1rio%20de%20LLMs.md" },
+    { titulo: "Fundamentos — vetores, matrizes, tensores e shapes", path: "./llm/Fundamentos%20%E2%80%94%20vetores%2C%20matrizes%2C%20tensores%20e%20shapes.md" },
     { titulo: "01-Dinâmica de treino e inferência em LLMs", path: "./llm/01-Din%C3%A2mica%20de%20treino%20e%20infer%C3%AAncia%20em%20LLMs.md" },
     { titulo: "02-Tokenização, embeddings e representações contextuais", path: "./llm/02-Tokeniza%C3%A7%C3%A3o%2C%20embeddings%20e%20representa%C3%A7%C3%B5es%20contextuais.md" },
     { titulo: "03-Arquitetura do Transformer e mecanismo de atenção", path: "./llm/03-Arquitetura%20do%20Transformer%20e%20mecanismo%20de%20aten%C3%A7%C3%A3o.md" },
