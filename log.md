@@ -2,7 +2,7 @@
 
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
-## 2026-09-05
+## 2026-09-06
 
 * **Fallback gráfico de Mermaid para iPad mini 2 (`assets/mermaid/`, `legacy-ios12.js`, `compat-ios12.css`, `.github/workflows/mermaid-fallbacks.yml`)**:
   * **SVG pré-renderizado antes do código**: o leitor legado passou a procurar um SVG determinístico para cada bloco Mermaid e exibi-lo como imagem navegável; o bloco de código permanece apenas como fallback de último nível se o asset ainda não existir ou falhar ao carregar.
@@ -15,9 +15,12 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * **Detecção de capacidade antes do carregamento**: o `index.html` passou a testar suporte a optional chaining e regex lookbehind com `Function()` em sintaxe ES5; navegadores modernos carregam o app modular existente, enquanto navegadores legados entram em um caminho separado e não tentam interpretar `script.js` / `js/mermaid.js`.
   * **Dependências previsíveis**: `marked` foi fixado em `4.3.0` e Mermaid em `11.17.2` no caminho moderno, eliminando dependência de versões `latest` mutáveis no CDN.
   * **Leitor legado de baixo custo**: criado `legacy-ios12.js` sem módulos, optional chaining, lookbehind ou Pointer Events. O catálogo é extraído como texto de `js/vault.js`, a busca legada prioriza títulos para reduzir memória, artigos são carregados sob demanda e WikiLinks continuam navegáveis.
-  * **Mermaid com degradação graciosa**: no Safari legado, diagramas não impedem a leitura do artigo e são exibidos como código Mermaid rolável; o explorador v11 completo permanece exclusivo do caminho moderno.\n  * **Preservação dos exemplos didáticos Mermaid**: o fallback deixa o Marked interpretar os blocos cercados primeiro e só então estiliza `code.language-mermaid`, evitando corromper os blocos de código-fonte aninhados adicionados à trilha de Mermaid.
+  * **Mermaid com degradação graciosa**: no Safari legado, diagramas não impedem a leitura do artigo e são exibidos como código Mermaid rolável; o explorador v11 completo permanece exclusivo do caminho moderno.
+  * **Preservação dos exemplos didáticos Mermaid**: o fallback deixa o Marked interpretar os blocos cercados primeiro e só então estiliza `code.language-mermaid`, evitando corromper os blocos de código-fonte aninhados adicionados à trilha de Mermaid.
   * **Layout específico de tablet**: criado `compat-ios12.css` com fallback de cores/bordas, rolagem touch de código e tabelas e regras específicas para 768 px em portrait e 1024 px em landscape, evitando tratar o iPad mini como celular ampliado.
   * **Tema e dependências opcionais resilientes**: acesso a `localStorage`, preferência de tema e renderização KaTeX ficam protegidos contra falhas sem derrubar o leitor.
+
+## 2026-09-05
 
 * **Criação da Trilha Completa de Modelagem Visual com Mermaid (`mermaid/`, `js/vault.js`)**:
   * **Transição de Paradigma (De Desenho Livre a Diagrams as Code)**:
