@@ -1,5 +1,9 @@
 # Sistemas de produção com LLMs, tool calling e streaming: o loop agente e resiliência
 
+No artigo anterior, [[llm/04-Engenharia de contexto e controle de inferência|Engenharia de contexto e controle de inferência]], tratamos a janela de contexto como a memória de trabalho da LLM e vimos que alguém precisa decidir quais instruções, dados e resultados entram nela. Aqui entra a aplicação.
+
+A pergunta muda de **“como montar uma entrada segura para o modelo?”** para **“como construir o software que busca dados, executa ações, devolve resultados ao contexto e mantém tudo funcionando quando serviços falham?”**.
+
 Integrar modelos de linguagem em aplicações modernas de software vai muito além de enviar uma pergunta via [[javascript/05-assincrono/03-Fetch|Fetch]] e renderizar uma string de texto corrido. Em sistemas corporativos e interfaces interativas, o consumo de APIs de IA exige domínio sobre o **loop agente-ferramenta (*Tool Calling*)**, streaming com separação de eventos, resiliência contra saturação de limites de taxa e otimização de custos via **Prompt Caching**.
 
 > [!NOTE] Vocabulário antes de começar
@@ -226,6 +230,18 @@ main();
 
 ---
 
+## Ponte para o próximo artigo
+
+Agora já temos um sistema capaz de montar contexto, chamar ferramentas e devolver resultados para a LLM. Surge então um problema novo: **e quando o conhecimento relevante não cabe convenientemente em uma chamada de ferramenta simples nem deve ser reenviado bruto a cada requisição?**
+
+Documentações, atas, repositórios, normas e bases textuais acumulam conhecimento persistente. O próximo artigo, [[llm/06-LLM Wiki conhecimento compilado para humanos e agentes|LLM Wiki: conhecimento compilado para humanos e agentes]], apresenta uma primeira estratégia para organizar esse conhecimento **antes da consulta**, transformando material disperso em uma memória externa estruturada e navegável.
+
+Essa passagem prepara a mudança de escala:
+
+**ferramenta consulta um dado pontual → base de conhecimento organiza um corpus → mecanismos de retrieval localizam o que deve voltar ao contexto**.
+
+---
+
 ## Conteúdo complementar em vídeo
 
 * **Functions, Tools and Agents with LangChain & OpenAI** (DeepLearning.AI / Harrison Chase): O funcionamento conceitual e prático de schemas JSON de ferramentas, loops de execução e retorno de payloads ao contexto.
@@ -236,7 +252,7 @@ main();
 
 ## Resumo para memorizar
 
-* **Tool Calling é orquestração**: O modelo apenas emite intenções estruturadas de chamadas; a execução segura do código é responsabilidade integral da sua aplicação.
+* **Tool Calling é orquestração**: O modelo apenas emite intenções estrutururadas de chamadas; a execução segura do código é responsabilidade integral da sua aplicação.
 * **Resiliência distribuída**: Retries exponenciais com jitter e controles de cancelamento com `AbortController` são obrigatórios em ambientes de produção.
 * **Prompt Caching**: Estruturar o contexto de forma estável (conteúdo fixo no topo) reduz drasticamente a fatura financeira e a latência de primeiro token.
 * **Loop iterativo**: O padrão agente-ferramenta exige controle rigoroso de estado de mensagens para alimentar o histórico de volta à LLM após a execução da ferramenta.
