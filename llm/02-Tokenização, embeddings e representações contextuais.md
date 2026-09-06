@@ -2,6 +2,23 @@
 
 Para que redes neurais processem a linguagem humana, símbolos alfanuméricos discretos precisam ser convertidos em tensores numéricos contínuos navegáveis geometricamente. No entanto, existe uma distinção crucial frequentemente confundida na literatura introdutória: a diferença entre **input embeddings de vocabulário** (estáticos), **representações contextuais dinâmicas** (internas ao Transformer) e **sentence embeddings** (modelos de busca semântica).
 
+> [!NOTE] Vocabulário antes de começar
+> Este artigo fica muito mais fácil se você separar cinco conceitos:
+> * [[llm/Glossário de LLMs#Token|Token]]: unidade discreta de texto.
+> * [[llm/Glossário de LLMs#Vocabulário|Vocabulário]]: conjunto de tokens possíveis.
+> * [[llm/Glossário de LLMs#Vetor|Vetor]]: lista de números usada como representação.
+> * [[llm/Glossário de LLMs#Embedding|Embedding]]: representação vetorial aprendida.
+> * [[llm/Glossário de LLMs#Representação contextual|Representação contextual]]: vetor de um token depois que o contexto já influenciou sua representação.
+>
+> A distinção mais importante é: **token não é embedding, e token embedding não é a representação final contextualizada do token**. Consulte [[llm/Glossário de LLMs|Glossário de LLMs]] sempre que esses nomes começarem a se misturar.
+
+### O mapa mental deste artigo
+
+O fluxo é:
+
+**texto → tokens → IDs → embeddings iniciais → Transformer → representações contextuais**
+
+A primeira metade transforma linguagem em unidades numéricas. A segunda permite que essas unidades mudem de significado conforme o contexto.
 ---
 
 ## 1. Intuição e analogia: as coordenadas conceituais
