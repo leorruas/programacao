@@ -2,6 +2,22 @@
 
 Integrar modelos de linguagem em aplicações modernas de software vai muito além de enviar uma pergunta via [[javascript/05-assincrono/03-Fetch|Fetch]] e renderizar uma string de texto corrido. Em sistemas corporativos e interfaces interativas, o consumo de APIs de IA exige domínio sobre o **loop agente-ferramenta (*Tool Calling*)**, streaming com separação de eventos, resiliência contra saturação de limites de taxa e otimização de custos via **Prompt Caching**.
 
+> [!NOTE] Vocabulário antes de começar
+> * [[llm/Glossário de LLMs#API|API]]: contrato de comunicação entre softwares.
+> * [[llm/Glossário de LLMs#Tool calling|Tool calling]]: o modelo pede de forma estruturada que a aplicação execute uma ferramenta.
+> * [[llm/Glossário de LLMs#Agente|Agente]]: sistema que usa a LLM dentro de um loop de decisão e execução.
+> * [[llm/Glossário de LLMs#Streaming|Streaming]]: resposta enviada progressivamente em partes.
+> * [[llm/Glossário de LLMs#Rate limit|Rate limit]]: limite de uso imposto pelo serviço.
+> * [[llm/Glossário de LLMs#Retry|Retry]], [[llm/Glossário de LLMs#Backoff exponencial|backoff]] e [[llm/Glossário de LLMs#Jitter|jitter]]: estratégias para lidar com falhas transitórias.
+> * [[llm/Glossário de LLMs#TTFT|TTFT]]: tempo até a primeira parte útil da resposta.
+
+### O sistema antes do código
+
+Antes das classes e schemas, guarde este modelo:
+
+**usuário → sua aplicação → LLM → decisão → sua aplicação executa algo → resultado volta à LLM → resposta**
+
+A LLM é apenas uma parte do sistema. Autenticação, banco de dados, execução de ferramentas, retries, segurança, logs e interface continuam sendo responsabilidades de software tradicional. É exatamente por isso que “usar uma API de LLM” e “construir um sistema com LLM” são problemas de complexidade muito diferente.
 ---
 
 ## 1. Intuição e analogia: o assistente executivo e o catálogo de ferramentas
