@@ -17,11 +17,15 @@ Uma analogia com design é pensar em um elemento do Figma descrito por várias p
 
 **Não confundir com:** um vetor não é necessariamente uma seta visual. A seta é apenas uma forma geométrica de representar um vetor.
 
+Relacionado: [[llm/Fundamentos — vetores, matrizes, tensores e shapes|Vetores, matrizes, tensores e shapes para LLMs]].
+
 ### Matriz
 
 Uma **matriz** é uma tabela de números organizada em linhas e colunas. Redes neurais usam matrizes para transformar vetores: recebem uma representação numérica e produzem outra.
 
 Se um vetor é como um conjunto de propriedades de um componente, uma matriz pode ser imaginada como uma regra de transformação que combina essas propriedades para produzir uma nova representação.
+
+Relacionado: [[llm/Fundamentos — vetores, matrizes, tensores e shapes|Vetores, matrizes, tensores e shapes para LLMs]].
 
 ### Tensor
 
@@ -29,11 +33,15 @@ Um **tensor** é uma generalização de vetores e matrizes para mais dimensões.
 
 Em bibliotecas como PyTorch, praticamente todos os dados que circulam pela rede são tensores.
 
+Relacionado: [[llm/Fundamentos — vetores, matrizes, tensores e shapes|Vetores, matrizes, tensores e shapes para LLMs]].
+
 ### Dimensão
 
 Uma **dimensão** é uma posição ou eixo disponível em uma representação vetorial. Um embedding com 768 dimensões possui 768 números usados em conjunto para representar alguma informação.
 
 Essas dimensões geralmente não correspondem de maneira simples a conceitos humanos como “cor”, “formalidade” ou “tristeza”. O significado costuma estar distribuído entre várias dimensões.
+
+Relacionado: [[llm/Fundamentos — vetores, matrizes, tensores e shapes|Vetores, matrizes, tensores e shapes para LLMs]].
 
 ### Parâmetro
 
