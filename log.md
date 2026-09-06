@@ -7,6 +7,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 * **Fallback gráfico de Mermaid para iPad mini 2 (`assets/mermaid/`, `legacy-ios12.js`, `compat-ios12.css`, `.github/workflows/mermaid-fallbacks.yml`)**:
   * **SVG pré-renderizado antes do código**: o leitor legado passou a procurar um SVG determinístico para cada bloco Mermaid e exibi-lo como imagem navegável; o bloco de código permanece apenas como fallback de último nível se o asset ainda não existir ou falhar ao carregar.
   * **Geração automatizada**: criado `scripts/generate-mermaid-fallbacks.mjs` com Mermaid CLI fixado em `11.17.0`, configuração de Chromium para CI e workflow que regenera e commita os SVGs quando arquivos Markdown ou o gerador mudam.
+  * **Resiliência do CI**: a geração ignora isoladamente diagramas com erro de parsing, preserva o fallback em código nesses casos e usa `git pull --rebase` antes do push para tolerar commits concorrentes na `main`.
   * **Mapeamento estável**: cada SVG usa hash do caminho relativo do artigo mais o índice do diagrama, permitindo que o Safari legado encontre o asset sem manter catálogo paralelo.
   * **Tipografia ampliada no iPad**: aumentada a escala do corpo, artigos, listas e navegação no breakpoint de 768 px, com leitura mais confortável em portrait e landscape.
   * **Interação leve**: SVGs podem ser rolados horizontalmente no artigo e abertos isoladamente em nova aba para aproveitar o zoom nativo do Safari, sem executar Mermaid no dispositivo.
