@@ -6,12 +6,19 @@ on:
     branches: [main]
     paths:
       - "**/*.md"
+      - "!log.md"
+      - "!me.md"
+      - "!AGENTS.md"
       - "scripts/generate-mermaid-fallbacks.mjs"
       - "package.json"
       - ".github/workflows/mermaid-fallbacks.yml"
 
 permissions:
   contents: write
+
+concurrency:
+  group: mermaid-fallbacks-main
+  cancel-in-progress: true
 
 jobs:
   gerar:
