@@ -1,16 +1,22 @@
 (function () {
     function numeroDaPasta(item) {
         var elemento = item.querySelector('.pasta-numero');
-        if (!elemento) return Number.MAX_SAFE_INTEGER;
+        if (!elemento) return 9999;
         var numero = parseInt(elemento.textContent, 10);
-        return Number.isNaN(numero) ? Number.MAX_SAFE_INTEGER : numero;
+        return isNaN(numero) ? 9999 : numero;
+    }
+
+    function obterItens(container) {
+        return Array.prototype.slice.call(container.children).filter(function (item) {
+            return item.classList && item.classList.contains('pasta-item');
+        });
     }
 
     function ordenarPastas() {
         var container = document.getElementById('pastas-container');
         if (!container) return;
 
-        var itens = Array.prototype.slice.call(container.querySelectorAll(':scope > .pasta-item'));
+        var itens = obterItens(container);
         if (itens.length < 2) return;
 
         var ordenados = itens.slice().sort(function (a, b) {
