@@ -2,6 +2,29 @@
 
 Em 2017, o artigo *"Attention Is All You Need"* (Vaswani et al.) transformou o paradigma do processamento de linguagem natural. Embora o artigo original propusesse uma arquitetura codificador-decodificador (*Encoder-Decoder*) voltada para tradução automática, a evolução dos modelos de fundação modernos (como GPT, Llama e Claude) consolidou a variante **Decoder-only autorregressiva** como o padrão dominante para geração de texto e código.
 
+> [!NOTE] Vocabulário antes de começar
+> Para não entrar no Transformer como uma sopa de siglas, localize primeiro estas peças:
+> * [[llm/Glossário de LLMs#Transformer|Transformer]]: arquitetura que transforma sequências de representações.
+> * [[llm/Glossário de LLMs#Camada|Camada]]: uma etapa de transformação empilhada sobre outras.
+> * [[llm/Glossário de LLMs#Atenção|Atenção]]: mecanismo de mistura de informação entre posições.
+> * [[llm/Glossário de LLMs#Q, K e V|Q, K e V]]: representações usadas para calcular quem consulta quem e qual informação é transferida.
+> * [[llm/Glossário de LLMs#Causal mask|Causal mask]]: bloqueio que impede acesso a tokens futuros.
+> * [[llm/Glossário de LLMs#FFN|FFN]]: transformação aplicada individualmente a cada posição.
+>
+> Termos como [[llm/Glossário de LLMs#RoPE|RoPE]], [[llm/Glossário de LLMs#RMSNorm|RMSNorm]] e [[llm/Glossário de LLMs#SwiGLU|SwiGLU]] são importantes, mas são **detalhes de implementação depois que a estrutura principal estiver clara**.
+
+### A caixa-preta antes de ser aberta
+
+```mermaid
+flowchart LR
+    A["Tokens viram<br>vetores"] --> B["Attention mistura<br>informações"]
+    B --> C["FFN transforma<br>cada posição"]
+    C --> D["Bloco é repetido<br>muitas vezes"]
+    D --> E["Representações<br>contextualizadas"]
+    E --> F["Logits para<br>próximo token"]
+```
+
+O objetivo deste artigo é abrir cada caixa desse fluxo. Quando aparecer uma equação, tente primeiro perguntar: **qual seta do diagrama esta equação está implementando?**
 ---
 
 ## 1. Intuição e analogia: o quadro de comunicações do estúdio
