@@ -1,5 +1,11 @@
 # LLM Wiki: conhecimento compilado para humanos e agentes
 
+No artigo anterior, [[llm/05-Sistemas de produção com LLMs, tool calling e streaming|Sistemas de produção com LLMs, tool calling e streaming]], construímos uma aplicação capaz de chamar ferramentas e buscar dados externos sob demanda. Isso resolve bem consultas pontuais, como “qual é o estoque deste SKU?” ou “qual é o status deste pedido?”.
+
+Mas existe uma classe diferente de problema: **conhecimento documental acumulado**. Manuais, atas, normas, repositórios e notas não são apenas registros isolados que queremos consultar; eles formam relações, versões, conceitos recorrentes e dependências históricas. Nesse cenário, chamar uma ferramenta para “pegar um documento” ainda deixa para a LLM todo o trabalho de reconstruir essas relações a cada pergunta.
+
+É aqui que entra a ideia de memória externa estruturada.
+
 Quando lidamos com um grande volume de documentos, notas e códigos, a engenharia de software tradicionalmente oscila entre dois extremos: ou concatenamos o máximo de texto bruto possível na janela de contexto de uma LLM, ou fatiamos tudo em pequenos pedaços (*chunks*) para recuperação vetorial em tempo de execução via RAG (*Retrieval-Augmented Generation*). No entanto, existe uma terceira via arquitetural cada vez mais relevante: o padrão **LLM Wiki**, que transforma previamente o corpus desorganizado em uma base de conhecimento estruturada, persistente e navegável tanto por pessoas quanto por agentes autônomos.
 
 ---
@@ -246,13 +252,21 @@ console.log(paginaFinal);
 
 ---
 
-## 11. Conexão com o próximo módulo: a arquitetura híbrida com RAG
+## 11. Ponte para o próximo artigo: por que qualquer memória externa é necessária
 
-A LLM Wiki não elimina a necessidade de recuperação; ela aprimora a qualidade dos dados que entram no pipeline de busca. Na próxima seção, iniciaremos o estudo aprofundado do RAG:
+A LLM Wiki mostrou **uma forma específica** de organizar conhecimento fora dos pesos do modelo. Antes de entrar no RAG propriamente dito, precisamos recuar um nível e responder uma pergunta mais fundamental: **por que esse conhecimento precisa estar fora do modelo em primeiro lugar?**
 
-$$\text{Fontes Brutas} \xrightarrow{\text{LLM Wiki}} \text{Páginas Estruturadas} \xrightarrow{\text{Chunking \& Embeddings}} \text{Índice RAG} \xrightarrow{\text{Consulta}} \text{Agente}$$
+O próximo artigo, [[llm/07-Por que LLMs precisam de conhecimento externo|Por que LLMs precisam de conhecimento externo]], separa três coisas que agora começam a aparecer juntas:
 
-Essa arquitetura mista utiliza a wiki para garantir coerência conceitual e o RAG para garantir recuperação dinâmica no momento exato da pergunta.
+* conhecimento paramétrico armazenado nos pesos;
+* memória de trabalho temporária na janela de contexto;
+* conhecimento não paramétrico mantido em documentos, bancos, wikis e mecanismos de busca.
+
+Essa distinção prepara o RAG sem tratá-lo como uma técnica mágica. Primeiro entendemos **por que existe a necessidade de recuperação**; só depois, em [[llm/08-O que é RAG e como funciona|O que é RAG e como funciona]], montamos o pipeline completo.
+
+A progressão é:
+
+**sistema chama ferramentas → conhecimento persistente vive fora do modelo → precisamos selecionar o que entra no contexto → RAG automatiza essa seleção em escala**.
 
 ---
 
