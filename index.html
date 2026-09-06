@@ -1,64 +1,89 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>programação — wiki</title>
+    <title>programação</title>
     <link rel="stylesheet" href="style.css?v=estrutura-v35">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="mobile-overrides.css?v=mobile-v1">
+    <link rel="stylesheet" href="legacy-components.css?v=legacy-components-v1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <script defer src="js/home-order.js?v=home-order-v2"></script>
+    <script defer src="legacy-components.js?v=legacy-components-v1"></script>
 </head>
 
 <body>
-    <nav class="sticky-nav">
-        <button class="nav-logo" onclick="scrollToTop()">pesquisa de programação</button>
-        <div class="nav-search-container">
-            <input type="text" id="main-search-input" placeholder="buscar em tudo..." autocomplete="off">
-            <div id="main-search-results" class="nav-search-dropdown"></div>
+    <nav class="sticky-nav" id="sticky-nav">
+        <span class="nav-logo" id="nav-logo">pesquisa de programação</span>
+        <label class="nav-search-container" for="nav-search-input">
+            <span class="sr-only">Pesquisar no vault</span>
+            <input type="search" id="nav-search-input" placeholder="pesquisar..." autocomplete="off">
+        </label>
+        <div class="nav-acoes">
+            <a href="#pastas-container" class="nav-link-pastas" id="nav-link-pastas">pastas</a>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema">modo claro</button>
         </div>
-        <button class="nav-pastas-btn" onclick="scrollToPastas()">pastas</button>
-        <button class="nav-theme-btn" id="theme-toggle" title="alternar tema">◐</button>
     </nav>
 
+    <header class="page-masthead" id="page-masthead">
+        <section class="busca-principal" aria-label="Pesquisar no vault">
+            <div class="busca-campo">
+                <label class="sr-only" for="main-search-input">Pesquisar por assunto ou tecnologia</label>
+                <input type="search" id="main-search-input" placeholder="pesquisar no vault..." autocomplete="off">
+            </div>
+        </section>
+        <div class="masthead-copy">
+            <h1>programação</h1>
+            <p>caderno de estudos e experimentos em desenvolvimento</p>
+        </div>
+    </header>
     <main>
-        <section class="hero page-masthead">
-            <div class="masthead-copy">
-                <p class="eyebrow">wiki pessoal</p>
-                <h1>programação</h1>
-                <p class="intro">
-                    base de conhecimento sobre desenvolvimento de software, organizada para estudo e consulta rápida.
-                </p>
-            </div>
-        </section>
-
-        <section class="explorar-pastas" id="pastas">
-            <div class="section-header">
-                <p class="section-kicker">explorar por assunto</p>
-                <h2>pastas</h2>
-            </div>
+        <section class="explorar-pastas" id="explorar-pastas" aria-labelledby="pastas-titulo">
+            <h2 id="pastas-titulo">áreas de estudo...</h2>
             <div class="pastas-container" id="pastas-container">
-                <div class="loading">carregando pastas...</div>
+            <!-- As pastas serão listadas aqui dinamicamente -->
             </div>
         </section>
-
-        <section class="busca-section" id="busca-section">
-            <div class="section-header">
-                <p class="section-kicker">pesquisa global</p>
-                <h2>buscar</h2>
+        <div class="resultados escondido" id="resultados">
+            <div class="cards-container" id="cards-container">
+                <!-- resultados da busca organizados no padrão suíço -->
             </div>
-            <div class="busca-container">
-                <input type="text" id="busca-input" placeholder="digite um termo..." autocomplete="off">
-            </div>
-            <div id="resultados-container"></div>
+        </div>
+        <section class="disciplina-leitor escondido" id="disciplina-leitor" aria-live="polite">
+            <p class="disciplina-rotulo" id="disciplina-rotulo">área de estudo</p>
+            <h2 id="disciplina-titulo"></h2>
+            <div class="disciplina-acoes" id="disciplina-acoes"></div>
+            <button id="btn-voltar-disciplina" class="btn-voltar">← voltar para as áreas</button>
         </section>
+        <div class="leitor-artigo escondido" id="leitor-artigo">
+            <div class="artigo-layout-container">
+                <aside class="artigo-toc-sidebar" id="artigo-toc-sidebar">
+                    <label class="sidebar-search" for="toc-filter-input">
+                        <span>Filtrar títulos</span>
+                        <input type="search" id="toc-filter-input" placeholder="filtrar seções..." autocomplete="off">
+                    </label>
+                    <div class="toc-header">
+                        <span class="toc-title">Neste artigo</span>
+                    </div>
+                    <nav class="toc-nav" id="toc-nav"></nav>
+                </aside>
+                <div class="artigo-conteudo-wrapper">
+                    <nav class="artigo-breadcrumbs" id="artigo-breadcrumbs" aria-label="Caminho de navegação"></nav>
+                    <h2 id="artigo-titulo"></h2>
+                    <div class="artigo-contexto" id="artigo-contexto" hidden></div>
+                    <div id="artigo-corpo" class="artigo-corpo"></div>
+                    <nav class="artigo-nav-cards" id="artigo-nav-cards" aria-label="Navegação entre artigos"></nav>
+                    <div class="retorno-artigo">
+                        <p>quer continuar estudando?</p>
+                        <button id="btn-voltar" class="btn-voltar">&larr; voltar para a área</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script>
