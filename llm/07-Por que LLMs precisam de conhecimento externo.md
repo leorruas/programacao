@@ -1,5 +1,9 @@
 # Por que LLMs precisam de conhecimento externo: pesos, contexto e limites de inferência
 
+No artigo anterior, [[llm/06-LLM Wiki conhecimento compilado para humanos e agentes|LLM Wiki: conhecimento compilado para humanos e agentes]], vimos uma estratégia concreta para manter conhecimento fora do modelo: compilar documentos em páginas persistentes, auditáveis e interligadas.
+
+Agora vamos recuar um nível. Antes de estudar RAG como técnica, precisamos entender **por que qualquer sistema de conhecimento externo é necessário** e por que “o modelo já aprendeu muita coisa no treinamento” não resolve o problema de dados privados, recentes ou verificáveis.
+
 Modelos de linguagem modernos possuem bilhões de parâmetros e demonstram fluência textual impressionante. No entanto, em ambientes corporativos e de engenharia de software, esperar que uma LLM responda com precisão factual confiando apenas em seus pesos internos é um erro arquitetural fundamental. Para projetar sistemas robustos, é imperativo compreender a fronteira física entre **o que o modelo aprendeu no treinamento**, **a memória de trabalho da inferência** e **o conhecimento externo injetado em tempo de execução (*runtime*)**.
 
 ---
@@ -92,6 +96,22 @@ flowchart TD
 
 * **Separação de responsabilidades na arquitetura**: O pipeline de busca deve ser otimizado para **Revocação (*Recall*)** (trazer toda a evidência necessária), enquanto a LLM deve ser instruída para **Fidelidade (*Faithfulness*)** (restringir-se exclusivamente aos dados fornecidos, recusando-se a especular).
 * **Gestão de custos e latência**: Injetar 3 a 5 fragmentos altamente relevantes (1.500 tokens) atinge latência sub-segundo e precisão factual muito superior a despejar 50 páginas de documentos não filtrados no prompt.
+
+---
+
+## Ponte para o próximo artigo
+
+Agora a necessidade de recuperação está justificada: os pesos são estáticos, a janela de contexto é temporária e o conhecimento externo pode ser grande demais para ser enviado inteiro.
+
+O próximo artigo, [[llm/08-O que é RAG e como funciona|O que é RAG e como funciona]], deixa de perguntar **“por que recuperar?”** e passa a perguntar **“como construir o pipeline que recupera?”**.
+
+A arquitetura começa a se decompor em duas fases:
+
+**offline: preparar documentos → fragmentar → representar → indexar**
+
+**online: receber pergunta → recuperar evidências → inserir no contexto → gerar resposta**.
+
+Essa divisão será a espinha dorsal dos artigos seguintes: cada nota de `09` a `14` abre uma etapa específica desse pipeline.
 
 ---
 
