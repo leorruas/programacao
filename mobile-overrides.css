@@ -1,0 +1,45 @@
+@media (max-width: 768px) {
+    /* No celular, a marca textual disputa espaço com a busca sem acrescentar navegação. */
+    .sticky-nav {
+        justify-content: flex-start;
+        gap: 10px;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .nav-logo {
+        display: none !important;
+    }
+
+    .nav-search-container {
+        flex: 1 1 auto;
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        margin: 0;
+    }
+
+    .nav-search-container input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .nav-acoes {
+        flex: 0 0 auto;
+        gap: 8px;
+    }
+
+    .nav-link-pastas,
+    .theme-toggle {
+        white-space: nowrap;
+    }
+
+    /* Diagramas permanecem visíveis, mas o explorador fullscreen não é útil em telas estreitas. */
+    .mermaid-toolbar {
+        display: none !important;
+    }
+
+    .mermaid-modal {
+        display: none !important;
+    }
+}
