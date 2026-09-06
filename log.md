@@ -4,6 +4,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-06
 
+* **Correção de concorrência no workflow Mermaid (`.github/workflows/mermaid-fallbacks.yml`)**:
+  * **Causa das falhas**: múltiplos commits em sequência disparavam renderizações simultâneas dos mesmos SVGs; ao final, os jobs tentavam fazer `rebase/push` sobre uma `main` já modificada por outra execução e entravam em conflito.
+  * **Serialização**: adicionada chave de `concurrency` com cancelamento de execuções antigas quando uma nova execução da mesma fila é iniciada.
+  * **Menos ruído**: alterações apenas em `log.md`, `me.md` e `AGENTS.md` deixaram de disparar o gerador de SVGs.
+  * **Estado do Pages**: as execuções mais recentes de publicação do GitHub Pages continuam concluindo com sucesso; as notificações observadas eram principalmente do workflow auxiliar de SVGs, não de falha geral do site.
 * **Camada didática da trilha inicial de LLMs (`llm/00–05`, `llm/Glossário de LLMs.md`, `js/vault.js`)**:
   * **Glossário navegável**: criado `[[llm/Glossário de LLMs|Glossário de LLMs]]` com definições Feynman, analogias, distinções de termos próximos e entradas para fundamentos matemáticos, tokenização, Transformer, treinamento, inferência, engenharia de contexto, sistemas e RAG.
   * **WikiLinks com âncoras**: os artigos iniciais agora apontam diretamente para entradas como `#Token`, `#Gradiente`, `#Transformer`, `#Tool calling` e `#TTFT`, aproveitando o suporte do Web App à navegação por seção.
