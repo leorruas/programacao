@@ -1,5 +1,9 @@
 # Embeddings aplicados ao RAG: representação, dimensionalidade e limites de similaridade
 
+No artigo anterior, [[llm/09-Chunking e estratégias de fragmentação|Chunking e estratégias de fragmentação]], transformamos documentos longos em unidades menores e semanticamente coesas. Mas um chunk ainda é apenas texto. Para recuperá-lo por significado, precisamos convertê-lo em uma representação numérica comparável com a pergunta do usuário.
+
+É aqui que os embeddings entram no pipeline de RAG: **chunking define a unidade que será buscada; embedding define como essa unidade será posicionada no espaço de busca**.
+
 No artigo [[llm/02-Tokenização, embeddings e representações contextuais|Tokenização, embeddings e representações contextuais]], estabelecemos a distinção entre a matriz de projeção inicial de vocabulário ($W_E$) e as ativações dinâmicas de uma LLM. Em arquiteturas de RAG (*Retrieval-Augmented Generation*), o foco desloca-se para uma terceira categoria especializada: os **modelos de embeddings densos de sentença (*Dense Retrieval Models*)**. Compreender a matemática e os limites dessa representação é essencial para evitar armadilhas de recuperação semântica.
 
 ---
@@ -150,6 +154,18 @@ resultados.forEach(r => {
 ## 6. Implicações práticas de engenharia
 
 * **Armazenamento de Float32 vs Float16**: Um vetor de 1536 dimensões em ponto flutuante padrão de 32 bits consome 6.144 bytes ($6\text{ KB}$). Multiplicado por 1 milhão de chunks, temos mais de $6\text{ GB}$ apenas em vetores puros na RAM. Converter para Float16 ou quantizar para Int8 (*Scalar Quantization*) reduz pela metade ou a um quarto a pegada de memória com degradação estatística desprezível.
+
+---
+
+## Ponte para o próximo artigo
+
+Agora cada chunk possui uma posição no espaço vetorial e sabemos calcular sua similaridade com uma query. Em uma base pequena, poderíamos comparar a pergunta contra todos os vetores. Em uma base com milhões de chunks, isso se torna caro demais.
+
+O próximo artigo, [[llm/11-Vector stores, índices e algoritmos de busca|Vector stores, índices e algoritmos de busca]], resolve exatamente esse novo gargalo: **como armazenar e localizar os vetores mais próximos sem percorrer a base inteira a cada pergunta?**
+
+A sequência é:
+
+**documento → chunk → embedding → índice vetorial → candidatos recuperados**.
 
 ---
 
