@@ -1,0 +1,180 @@
+/* Componentes adicionais para o leitor legado do iPad mini 2 / Safari 12. */
+
+.legacy-ios12 .artigo-breadcrumbs {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 0;
+    margin: 0 0 18px;
+    padding: 0 0 10px;
+    border-bottom: 1px solid rgba(255, 182, 193, 0.22);
+    color: var(--muted);
+    font-size: 0.76rem;
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.legacy-ios12 .artigo-breadcrumbs a,
+.legacy-ios12 .artigo-breadcrumbs button {
+    display: inline-block;
+    width: auto;
+    max-width: 34%;
+    margin: 0;
+    padding: 2px 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--accent-pink);
+    font: inherit;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.legacy-ios12 .artigo-breadcrumbs .legacy-breadcrumb-separator {
+    display: inline-block;
+    flex: 0 0 auto;
+    margin: 0 8px;
+    color: var(--muted);
+    opacity: 0.65;
+}
+
+.legacy-ios12 .artigo-breadcrumbs .legacy-breadcrumb-current {
+    display: inline-block;
+    min-width: 0;
+    max-width: 46%;
+    color: var(--text);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.legacy-ios12 .obsidian-callout {
+    margin: 24px 0;
+    padding: 16px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-left: 4px solid var(--accent-pink);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.legacy-ios12[data-theme="light"] .obsidian-callout {
+    border-color: rgba(15, 23, 42, 0.15);
+    background: rgba(15, 23, 42, 0.025);
+}
+
+.legacy-ios12 .obsidian-callout .callout-header {
+    display: block;
+    margin: 0 0 10px;
+    color: var(--accent-pink);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.legacy-ios12 .obsidian-callout .callout-content {
+    color: var(--text);
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+
+.legacy-ios12 .obsidian-callout .callout-content > :first-child { margin-top: 0; }
+.legacy-ios12 .obsidian-callout .callout-content > :last-child { margin-bottom: 0; }
+
+/* Famílias semânticas do Obsidian. Cores simples para Safari 12. */
+.legacy-ios12 .callout-note,
+.legacy-ios12 .callout-info,
+.legacy-ios12 .callout-todo,
+.legacy-ios12 .callout-abstract,
+.legacy-ios12 .callout-summary,
+.legacy-ios12 .callout-tldr {
+    border-left-color: #64b5f6;
+}
+.legacy-ios12 .callout-note .callout-header,
+.legacy-ios12 .callout-info .callout-header,
+.legacy-ios12 .callout-todo .callout-header,
+.legacy-ios12 .callout-abstract .callout-header,
+.legacy-ios12 .callout-summary .callout-header,
+.legacy-ios12 .callout-tldr .callout-header { color: #64b5f6; }
+
+.legacy-ios12 .callout-tip,
+.legacy-ios12 .callout-hint,
+.legacy-ios12 .callout-important,
+.legacy-ios12 .callout-success,
+.legacy-ios12 .callout-check,
+.legacy-ios12 .callout-done {
+    border-left-color: #5ad69b;
+}
+.legacy-ios12 .callout-tip .callout-header,
+.legacy-ios12 .callout-hint .callout-header,
+.legacy-ios12 .callout-important .callout-header,
+.legacy-ios12 .callout-success .callout-header,
+.legacy-ios12 .callout-check .callout-header,
+.legacy-ios12 .callout-done .callout-header { color: #5ad69b; }
+
+.legacy-ios12 .callout-question,
+.legacy-ios12 .callout-help,
+.legacy-ios12 .callout-faq {
+    border-left-color: #d6c35a;
+}
+.legacy-ios12 .callout-question .callout-header,
+.legacy-ios12 .callout-help .callout-header,
+.legacy-ios12 .callout-faq .callout-header { color: #d6c35a; }
+
+.legacy-ios12 .callout-warning,
+.legacy-ios12 .callout-caution,
+.legacy-ios12 .callout-attention {
+    border-left-color: #f0a44b;
+}
+.legacy-ios12 .callout-warning .callout-header,
+.legacy-ios12 .callout-caution .callout-header,
+.legacy-ios12 .callout-attention .callout-header { color: #f0a44b; }
+
+.legacy-ios12 .callout-failure,
+.legacy-ios12 .callout-fail,
+.legacy-ios12 .callout-missing,
+.legacy-ios12 .callout-danger,
+.legacy-ios12 .callout-error,
+.legacy-ios12 .callout-bug {
+    border-left-color: #ef6b73;
+}
+.legacy-ios12 .callout-failure .callout-header,
+.legacy-ios12 .callout-fail .callout-header,
+.legacy-ios12 .callout-missing .callout-header,
+.legacy-ios12 .callout-danger .callout-header,
+.legacy-ios12 .callout-error .callout-header,
+.legacy-ios12 .callout-bug .callout-header { color: #ef6b73; }
+
+.legacy-ios12 .callout-example {
+    border-left-color: #b692f6;
+}
+.legacy-ios12 .callout-example .callout-header { color: #b692f6; }
+
+.legacy-ios12 .callout-quote,
+.legacy-ios12 .callout-cite {
+    border-left-color: #9a9a9a;
+}
+.legacy-ios12 .callout-quote .callout-header,
+.legacy-ios12 .callout-cite .callout-header { color: #b7b7b7; }
+
+@media (min-width: 700px) and (max-width: 850px) {
+    .legacy-ios12 .artigo-breadcrumbs {
+        margin-bottom: 22px;
+        font-size: 0.8rem;
+    }
+
+    .legacy-ios12 .obsidian-callout {
+        padding: 18px 20px;
+    }
+
+    .legacy-ios12 .obsidian-callout .callout-content {
+        font-size: 1.04rem;
+        line-height: 1.72;
+    }
+}
