@@ -1,0 +1,11 @@
+{
+  "name": "programacao-vault-pages",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "mermaid:fallbacks": "node scripts/generate-mermaid-fallbacks.mjs"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "11.17.0"
+  }
+}
