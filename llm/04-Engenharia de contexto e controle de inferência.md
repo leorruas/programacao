@@ -1,5 +1,9 @@
 # Engenharia de contexto e controle de inferência: fronteiras, raciocínio e structured outputs
 
+No artigo anterior, [[llm/03-Arquitetura do Transformer e mecanismo de atenção|Arquitetura do Transformer e mecanismo de atenção]], vimos **como o modelo transforma o contexto internamente**: tokens viram representações, attention mistura informação e o Transformer produz estados contextuais que terminam em logits.
+
+Agora mudamos de perspectiva. Em vez de perguntar “como o modelo processa o que recebeu?”, a pergunta passa a ser: **quem decide o que ele recebe, em que ordem, com quais fronteiras e com quais restrições?** Essa é a passagem da arquitetura interna da LLM para a arquitetura da entrada que cerca a LLM.
+
 A expressão "engenharia de prompt" (*Prompt Engineering*) consolidou-se inicialmente como a prática de redigir instruções em linguagem natural para obter textos persuasivos de LLMs. No entanto, na construção de sistemas de software profissionais, essa disciplina evoluiu para a **Engenharia de Contexto (*Context Engineering*)**: a arquitetura sistemática de curadoria, delimitação de dados, garantia de tipos e controle de fluxo da janela de inferência de uma LLM.
 
 > [!NOTE] Vocabulário antes de começar
@@ -149,6 +153,18 @@ console.log("\nValidação da resposta:", resultadoValidacao);
 
 * **Evals automatizados (Avaliações)**: Nunca valide prompts manualmente em interfaces de chat ("olho mágico"). Implemente suítes de *Evals* com scripts que executam 50 a 200 cenários de borda com asserções em código ou LLM-as-a-Judge para medir taxa de precisão, recall e quebras de formatação a cada alteração no texto de instrução.
 * **Orçamento de contexto e truncamento**: Em aplicações reais, implemente estratégias de truncamento estritas. Se a conversa exceder a janela permitida, resuma mensagens antigas antes de enviá-las ao modelo, preservando sempre as mensagens de sistema e as instruções invariantes intactas.
+
+---
+
+## Ponte para o próximo artigo
+
+Até aqui decidimos **o que deve entrar na memória de trabalho da LLM e como essa entrada deve ser estruturada**. Mas uma aplicação real ainda precisa buscar dados, chamar serviços, receber resultados, lidar com erros e entregar a resposta ao usuário.
+
+O próximo artigo, [[llm/05-Sistemas de produção com LLMs, tool calling e streaming|Sistemas de produção com LLMs, tool calling e streaming]], desloca a pergunta novamente: **como transformar esse contexto bem projetado em software que realmente executa coisas?**
+
+A progressão fica:
+
+**Transformer processa contexto → engenharia de contexto monta a entrada → aplicação executa ferramentas e integrações → resultado volta ao modelo**.
 
 ---
 
