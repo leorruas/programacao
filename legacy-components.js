@@ -149,8 +149,10 @@
         observadorCorpo.observe(corpo, { childList: true, subtree: true });
 
         var observadorBreadcrumbs = new MutationObserver(function () {
-            breadcrumbs.removeAttribute("data-legacy-enhanced");
-            processarBreadcrumbs();
+            if (!breadcrumbs.querySelector(".legacy-breadcrumb-current")) {
+                breadcrumbs.removeAttribute("data-legacy-enhanced");
+                processarBreadcrumbs();
+            }
         });
         observadorBreadcrumbs.observe(breadcrumbs, { childList: true });
 
