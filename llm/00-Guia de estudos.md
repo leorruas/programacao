@@ -10,7 +10,7 @@ Use [[llm/Glossário de LLMs|Glossário de LLMs]] como apoio permanente. As entr
 
 > [!NOTE] Ordem de leitura recomendada para a primeira passagem
 > Apesar da numeração histórica dos arquivos, a sequência mais amigável para aprender é:
-> **02 Tokenização → 03 Transformer → 01 Treinamento e inferência → 04 Engenharia de contexto → 05 Sistemas de produção.**
+> **Fundamentos tensoriais → 02 Tokenização → 03 Transformer → 01 Treinamento e inferência → 04 Engenharia de contexto → 05 Sistemas de produção.**
 >
 > O motivo é simples: primeiro você entende **o que entra no modelo**, depois **como o modelo transforma essa informação**, depois **como ele aprende e gera**, e só então parte para o uso do modelo dentro de aplicações.
 
@@ -47,6 +47,7 @@ flowchart TD
 
 ### Camada 1: fundamentos matemáticos e arquitetura interna
 Compreenda o fluxo físico e tensorial que transforma dados discretos em representações latentes contínuas dentro de redes neurais profundas.
+* [[llm/Fundamentos — vetores, matrizes, tensores e shapes|Vetores, matrizes, tensores e shapes para LLMs]] - Base para entender escalar, vetor, matriz, tensor, shape, batch, reshape, transpose e a passagem de `[batch, tokens, embedding]` para `[batch, heads, tokens, head_dim]`.
 * [[llm/02-Tokenização, embeddings e representações contextuais|Tokenização, embeddings e representações contextuais]] - Tokenização via Byte-Pair Encoding (BPE), projeção de vocabulário estático ($W_E$) vs representações contextuais dinâmicas, modelos bi-encoder de sentença e similaridade geométrica.
 * [[llm/03-Arquitetura do Transformer e mecanismo de atenção|Arquitetura do Transformer e mecanismo de atenção]] - Anatomia do bloco Transformer: Residual Streams, RoPE, RMSNorm, atenção multi-cabeça escalada ($QK^T / \sqrt{d_k} \times V$), causal masking triangular, FFNs (SwiGLU) e o papel crítico do KV Cache na inferência.
 
