@@ -1,5 +1,23 @@
 # Tokenização, embeddings e representações contextuais: de BPE ao espaço vetorial
 
+No artigo anterior, [[llm/01-Dinâmica de treino e inferência em LLMs|Dinâmica de treino e inferência em LLMs]], tratamos **token**, **representação contextual** e **logit** como peças de um pipeline já existente: o modelo recebe contexto, transforma esse contexto e produz scores para o próximo token. Agora vamos abrir a primeira caixa-preta desse fluxo.
+
+A pergunta deste artigo é anterior a logits e Softmax: **como texto humano consegue entrar em uma rede neural para ser transformado em números?** Antes de o modelo poder atribuir um logit a `Paris`, `gato` ou qualquer outro token, ele precisa converter caracteres em unidades discretas, IDs e vetores que possam circular pelas camadas.
+
+Isso cria a ponte conceitual:
+
+```mermaid
+flowchart LR
+    A["Texto humano"] --> B["Tokens"]
+    B --> C["IDs"]
+    C --> D["Embeddings<br>iniciais"]
+    D --> E["Transformer"]
+    E --> F["Representações<br>contextuais"]
+    F --> G["Logits"]
+```
+
+O artigo anterior mostrou principalmente o **lado direito** desse fluxo, de representações até a escolha do próximo token. Este artigo volta ao início para explicar de onde vêm as representações que alimentam o Transformer.
+
 Para que redes neurais processem a linguagem humana, símbolos alfanuméricos discretos precisam ser convertidos em tensores numéricos contínuos navegáveis geometricamente. No entanto, existe uma distinção crucial frequentemente confundida na literatura introdutória: a diferença entre **input embeddings de vocabulário** (estáticos), **representações contextuais dinâmicas** (internas ao Transformer) e **sentence embeddings** (modelos de busca semântica).
 
 > [!NOTE] Vocabulário antes de começar
@@ -179,6 +197,18 @@ ranking.forEach(r => {
 
 * **Custos de armazenamento e indexing**: Vetores de float32 em $d = 1536$ consomem 6 KB por documento. Em bases com milhões de registros, técnicas de **Quantização Vetorial** (como quantização escalar de float32 para int8 ou vetores binários) e algoritmos de busca aproximada (HNSW - *Hierarchical Navigable Small World*) são indispensáveis para evitar esgotamento de memória RAM.
 * **Sensibilidade de Chunking em RAG**: Ao construir pipelines de busca semântica, o tamanho do pedaço (*chunk*) enviado para o modelo de embedding afeta a qualidade. Chunks pequenos perdem contexto amplo; chunks excessivamente longos diluem conceitos específicos na média matemática do pooling vetorial.
+
+---
+
+## Ponte para o próximo artigo
+
+Agora já sabemos como o texto vira tokens e como cada token ganha uma representação vetorial inicial. Também vimos que a representação contextual só aparece **depois que esses vetores interagem dentro do Transformer**.
+
+Essa é exatamente a caixa que ainda está fechada. O próximo artigo, [[llm/03-Arquitetura do Transformer e mecanismo de atenção|Arquitetura do Transformer e mecanismo de atenção]], responde: **como um vetor inicialmente estático de `banco` consegue incorporar `decretou` e `falência` e terminar representando banco como instituição financeira?**
+
+A passagem é:
+
+**tokenização cria as peças → embeddings colocam as peças no espaço vetorial → Transformer faz as peças trocarem informação → representação contextual emerge**.
 
 ---
 
