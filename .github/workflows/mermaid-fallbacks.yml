@@ -33,7 +33,7 @@ jobs:
 
       - name: Commitar SVGs atualizados
         run: |
-          if git diff --quiet -- assets/mermaid; then
+          if [ -z "$(git status --porcelain -- assets/mermaid)" ]; then
             echo "Nenhum SVG alterado."
             exit 0
           fi
