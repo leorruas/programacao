@@ -4,6 +4,19 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-06
 
+* **Revisão de continuidade pedagógica da trilha de LLMs (`llm/00`, `02`, `04`, `05`, `06`, `07`, `10`)**:
+  * **Problema identificado**: a trilha possuía artigos individualmente fortes, mas algumas passagens exigiam que o leitor reconstruísse sozinho por que um conceito vinha depois do outro; o caso mais evidente era `01 Dinâmica de treino → 02 Tokenização`.
+  * **Ordem real alinhada ao guia**: o `00-Guia de estudos` deixou de recomendar a sequência paralela `02 → 03 → 01` e passou a assumir `01` como visão panorâmica, seguida de `02`, `03`, `04` e demais artigos em progressão natural.
+  * **Princípio editorial de build-up**: formalizada a regra `apresentar o sistema inteiro → abrir uma caixa-preta → usar o que foi aprendido para criar o próximo problema`, exigindo que cada artigo deixe explícita sua relação narrativa com anterior e seguinte.
+  * **01 → 02**: `02-Tokenização` agora começa retomando tokens, hidden states e logits introduzidos no artigo anterior e explica que a nova pergunta é como texto humano vira as representações numéricas usadas pelo pipeline.
+  * **02 → 03**: adicionada ponte explícita mostrando `tokenização → embeddings iniciais → Transformer → representações contextuais`, preparando attention como a caixa ainda fechada.
+  * **03 → 04**: `04-Engenharia de contexto` agora parte do Transformer já compreendido e muda a pergunta de `como o modelo processa o contexto?` para `quem decide o que entra nesse contexto?`.
+  * **04 → 05**: engenharia de contexto passa explicitamente para a aplicação responsável por buscar dados, executar ferramentas, devolver resultados e lidar com falhas.
+  * **05 → 06 → 07 → 08**: criada progressão entre dado pontual via ferramenta, conhecimento documental persistente via LLM Wiki, necessidade geral de conhecimento externo e, finalmente, arquitetura RAG.
+  * **Correção de sequência no artigo 06**: a seção final deixou de saltar diretamente para RAG e agora aponta corretamente para `07-Por que LLMs precisam de conhecimento externo` antes de `08-O que é RAG e como funciona`.
+  * **09 → 10 → 11**: `10-Embeddings aplicados ao RAG` agora parte dos chunks criados no artigo anterior e termina explicitando o novo gargalo de armazenamento/busca que motiva vector stores e índices ANN.
+  * **Auditoria da segunda metade**: os artigos `11–17` já apresentavam continuidade conceitual forte (`índice → retrieval híbrido → reranking → montagem do contexto → implementação → avaliação → técnicas avançadas`), por isso não receberam reescrita artificial apenas para padronização.
+
 * **Aprofundamento de logits e Softmax (`llm/01-Dinâmica de treino e inferência em LLMs.md`, `llm/Glossário de LLMs.md`)**:
   * **Pipeline de inferência**: expandida a passagem `representação contextual → projeção para vocabulário → logits → temperatura → Softmax → decodificação/amostragem → token`, conectando inferência à camada de fundamentos tensoriais.
   * **Logits por intuição e shape**: explicado que cada logit é um score bruto relativo, não uma porcentagem, e que a saída pode ser lida como `[batch, tokens, vocab_size]`, com um score para cada token possível.
