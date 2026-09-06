@@ -1,6 +1,10 @@
 (function () {
     "use strict";
 
+    function modoLegadoAtivo() {
+        return (" " + document.documentElement.className + " ").indexOf(" legacy-ios12 ") !== -1;
+    }
+
     var TIPOS = {
         NOTE: "NOTA",
         ABSTRACT: "RESUMO",
@@ -139,6 +143,8 @@
     }
 
     function observar() {
+        if (!modoLegadoAtivo()) return;
+
         var corpo = document.getElementById("artigo-corpo");
         var breadcrumbs = document.getElementById("artigo-breadcrumbs");
         if (!corpo || !breadcrumbs || !window.MutationObserver) return;
