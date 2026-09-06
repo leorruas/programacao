@@ -71,20 +71,173 @@ Um modelo apenas pré-treinado (*Base Model*) não responde perguntas como um as
 
 ---
 
-## 3. Dinâmica de inferência e amostragem de logits
+## 3. Dinâmica de inferência: de logits a probabilidades
 
-Na saída da última camada do Transformer, o modelo não emite palavras, mas um vetor de números reais não normalizados chamado **logits** (com tamanho igual ao vocabulário, ex.: 128.000 posições). Para transformar esses logits em probabilidades e escolher o token, aplicam-se operadores matemáticos de filtragem e temperatura:
+Na saída da última camada do Transformer, o modelo ainda não escolheu uma palavra nem produziu uma probabilidade. Ele possui uma [[llm/Fundamentos — vetores, matrizes, tensores e shapes|representação tensorial]] do contexto. Uma projeção final transforma a representação de cada posição em um vetor com uma posição para cada token do vocabulário.
 
-### Temperatura ($T$)
-A temperatura divide os logits antes da aplicação da função Softmax:
+Se o vocabulário tiver 128.000 tokens, a última dimensão da saída terá 128.000 números:
 
-$$P(x_i) = \frac{\exp(z_i / T)}{\sum_{j} \exp(z_j / T)}$$
+```text
+[batch, tokens, vocab_size]
+```
 
-* Quando $T \to 0$ (ArgMax / Greedy): O modelo seleciona puramente o token com maior valor de logit. A saída se torna determinística e ideal para extrações em [[javascript/03-manipulacao/08-JSON|JSON]] e refatoração de código.
-* Quando $T > 1.0$: A distribuição é achatada, aumentando a chance relativa de tokens menos óbvios. Isso eleva a variabilidade estilística, mas introduz risco de desvios lógicos.
+Para a posição que está sendo usada para prever o próximo token, podemos imaginar um vetor simplificado assim:
 
-### Top-$p$ (Amostragem por núcleo ou Nucleus Sampling)
-Em vez de considerar todo o vocabulário, o algoritmo ordena os tokens por probabilidade e corta a lista assim que a soma cumulativa atinge o patamar $p$ (ex.: $p = 0.9$ considera apenas o grupo de tokens que juntos compõem 90% da massa de probabilidade).
+```text
+Contexto: "O gato está..."
+
+dormindo   →  4.2
+comendo    →  2.7
+dirigindo  → -1.3
+azul       → -2.1
+```
+
+Esses números são os **logits**.
+
+### 3.1. O que é um logit
+
+Um [[llm/Glossário de LLMs#Logit|logit]] é uma **pontuação bruta de preferência** produzida pelo modelo para uma possibilidade antes da normalização em probabilidades.
+
+O ponto essencial é que o valor absoluto isolado não possui a interpretação que uma porcentagem possui:
+
+* `4.2` não significa 4,2%;
+* `4.2` não significa 42%;
+* um logit negativo não significa probabilidade negativa;
+* logits não precisam somar 1;
+* logits podem assumir valores positivos ou negativos.
+
+O que inicialmente interessa são as **diferenças relativas**. No exemplo, `dormindo` recebeu uma pontuação maior que `comendo`, que recebeu uma pontuação muito maior que `dirigindo`.
+
+> [!TIP] Analogia com pesquisa e design
+> Imagine uma etapa de scoring de alternativas antes de transformar o resultado em participação percentual. Cada opção recebe uma pontuação segundo vários critérios. Uma opção pode marcar `4.2` e outra `2.7`, mas essas pontuações ainda não dizem “81% dos usuários escolheriam a primeira”. Falta uma regra que transforme os scores em uma distribuição comparável. Na LLM, essa regra é o Softmax.
+
+### 3.2. De onde os logits vêm
+
+Depois que o Transformer construiu uma representação contextual para uma posição, uma camada de saída projeta esse vetor para o tamanho do vocabulário.
+
+O fluxo conceitual é:
+
+```mermaid
+flowchart LR
+    A["Representação<br>contextual"] --> B["Projeção para<br>vocabulário"]
+    B --> C["Um score para<br>cada token"]
+    C --> D["Vetor de<br>logits"]
+```
+
+Se `vocab_size = 128000`, cada posição recebe 128.000 logits. Isso conecta diretamente logits ao conceito de [[llm/Fundamentos — vetores, matrizes, tensores e shapes|shape]]: o modelo produz um eixo inteiro cujo significado é **qual token do vocabulário estamos pontuando**.
+
+### 3.3. Softmax: de scores incomparáveis para uma distribuição
+
+O [[llm/Glossário de LLMs#Softmax|Softmax]] recebe todos os logits juntos e os transforma em valores entre 0 e 1 cuja soma é 1.
+
+A forma básica é:
+
+$$P(x_i) = \frac{\exp(z_i)}{\sum_j \exp(z_j)}$$
+
+Onde:
+
+* $z_i$ é o logit do token que estamos observando;
+* $\exp(z_i)$ transforma a pontuação em um valor positivo;
+* o denominador soma os valores exponenciais de **todos** os candidatos;
+* a divisão normaliza o resultado para que a soma final seja 1.
+
+Por isso, a probabilidade de um token não depende apenas de seu próprio logit. Ela depende de **como seu logit se compara aos logits dos outros tokens**.
+
+Exemplo conceitual:
+
+```text
+logits                         Softmax              probabilidades
+
+dormindo    4.2   ─┐                              alta
+comendo     2.7    ├── transformação ──────────→  menor
+dirigindo  -1.3    │                              muito baixa
+azul       -2.1   ─┘                              ainda menor
+```
+
+O Softmax preserva a ordem: se o logit de `dormindo` é maior que o de `comendo`, sua probabilidade também será maior. Mas ele transforma a distância entre scores em uma distribuição normalizada.
+
+### 3.4. Por que usar exponencial
+
+A exponencial tem duas propriedades úteis aqui:
+
+* qualquer logit, inclusive negativo, vira um número positivo;
+* diferenças entre logits ganham importância relativa: candidatos claramente favorecidos concentram mais massa de probabilidade.
+
+Considere apenas dois logits, `4` e `2`. Depois da exponencial, eles se tornam aproximadamente `54,6` e `7,4`. A diferença original de apenas 2 unidades passa a produzir uma preferência probabilística muito mais clara depois da normalização.
+
+Isso também explica por que **diferenças entre logits importam mais que o valor absoluto**. Somar a mesma constante a todos os logits não altera o resultado do Softmax.
+
+### 3.5. Temperatura atua antes do Softmax
+
+A [[llm/Glossário de LLMs#Temperatura|temperatura]] não cria novos conhecimentos nem muda os parâmetros do modelo. Ela reescala os logits antes do Softmax:
+
+$$P(x_i) = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)}$$
+
+Se `T < 1`, as diferenças entre logits são ampliadas antes do Softmax e a distribuição fica mais concentrada nos candidatos de maior score.
+
+Se `T > 1`, as diferenças são comprimidas e a distribuição fica mais espalhada.
+
+```text
+mesmos logits
+     │
+     ├── temperatura baixa → diferenças maiores → distribuição concentrada
+     │
+     └── temperatura alta  → diferenças menores → distribuição espalhada
+```
+
+> [!IMPORTANT] Temperatura zero
+> Matematicamente, a fórmula com divisão por `T` não aceita `T = 0`. APIs que oferecem `temperature = 0` tratam esse caso por convenção de implementação, normalmente aproximando uma seleção determinística ou muito concentrada. Isso não significa literalmente executar a divisão por zero na equação do Softmax.
+
+### 3.6. Softmax ainda não escolhe o token
+
+Outro detalhe importante: **Softmax não é o mecanismo de escolha**.
+
+Ele produz a distribuição:
+
+```text
+logits → Softmax → probabilidades
+```
+
+Depois disso, uma estratégia de decodificação decide o que fazer com a distribuição:
+
+```text
+probabilidades
+     │
+     ├── greedy / argmax → escolhe o maior
+     ├── top-k           → restringe aos k maiores
+     └── top-p           → restringe pela massa acumulada
+                              ↓
+                          amostragem
+                              ↓
+                         próximo token
+```
+
+Portanto, existem três conceitos diferentes:
+
+* **logit**: score bruto;
+* **Softmax**: transformação dos scores em distribuição;
+* **decoding/amostragem**: regra usada para escolher o próximo token a partir dessa distribuição.
+
+### 3.7. O ciclo autorregressivo completo
+
+Depois que um token é escolhido, ele é acrescentado ao contexto e o processo inteiro acontece novamente:
+
+```mermaid
+flowchart LR
+    A["Contexto<br>atual"] --> B["Transformer"]
+    B --> C["Logits"]
+    C --> D["Temperatura"]
+    D --> E["Softmax"]
+    E --> F["Decodificação e<br>amostragem"]
+    F --> G["Novo token"]
+    G --> A
+```
+
+É isso que significa uma LLM causal ser **autorregressiva**: cada token produzido passa a fazer parte da entrada usada para produzir o seguinte.
+
+### 3.8. Top-p: amostragem por núcleo
+
+Em vez de considerar todo o vocabulário, Top-p ordena os tokens por probabilidade e mantém o menor conjunto cuja soma cumulativa atinge o patamar $p$. Por exemplo, `p = 0.9` considera o grupo de tokens que, juntos, concentra aproximadamente 90% da massa de probabilidade antes da renormalização usada para amostrar.
 
 ---
 
@@ -93,68 +246,74 @@ Em vez de considerar todo o vocabulário, o algoritmo ordena os tokens por proba
 Abaixo está o pipeline matemático completo em [[javascript/Introdução ao JavaScript|JavaScript]] puro simulando a transformação de logits brutos em probabilidades normalizadas com temperatura e corte Top-$p$:
 
 ```javascript
-// Snippet atômico: Softmax termodinâmico com ajuste de temperatura
+// Snippet atômico: Softmax com ajuste de temperatura
 function aplicarSoftmaxComTemperatura(logits, temperatura = 1.0) {
     const tempSegura = Math.max(temperatura, 0.0001);
-    // Subtrai o valor máximo para estabilidade numérica e evitar overflow exponencial
+    // Subtrair o máximo não muda o Softmax e evita overflow exponencial.
     const maxLogit = Math.max(...logits);
-    const exponenciais = logits.map(l => Math.exp((l - maxLogit) / tempSegura));
-    const somaExponenciais = exponenciais.reduce((acc, val) => acc + val, 0);
-    return exponenciais.map(val => val / somaExponenciais);
+    const exponenciais = logits.map(logit =>
+        Math.exp((logit - maxLogit) / tempSegura)
+    );
+    const somaExponenciais = exponenciais.reduce((soma, valor) => soma + valor, 0);
+
+    return exponenciais.map(valor => valor / somaExponenciais);
 }
 ```
 
 ```javascript
-// Exemplo completo e integrado: amostragem probabilística com corte Top-p (Nucleus)
+// Exemplo completo e integrado: amostragem probabilística com corte Top-p
+function aplicarSoftmaxComTemperatura(logits, temperatura = 1.0) {
+    const tempSegura = Math.max(temperatura, 0.0001);
+    const maxLogit = Math.max(...logits);
+    const exponenciais = logits.map(logit =>
+        Math.exp((logit - maxLogit) / tempSegura)
+    );
+    const somaExponenciais = exponenciais.reduce((soma, valor) => soma + valor, 0);
+
+    return exponenciais.map(valor => valor / somaExponenciais);
+}
+
 function selecionarTokenNucleus(candidatos, temperatura = 0.7, topP = 0.9) {
-    const tokens = candidatos.map(c => c.token);
-    const logitsBrutos = candidatos.map(c => c.logit);
+    const tokens = candidatos.map(candidato => candidato.token);
+    const logits = candidatos.map(candidato => candidato.logit);
+    const probabilidades = aplicarSoftmaxComTemperatura(logits, temperatura);
 
-    // 1. Aplicação da temperatura
-    const probabilidades = aplicarSoftmaxComTemperatura(logitsBrutos, temperatura);
+    const paresOrdenados = tokens
+        .map((token, indice) => ({ token, probabilidade: probabilidades[indice] }))
+        .sort((a, b) => b.probabilidade - a.probabilidade);
 
-    // 2. Criação dos pares ordenados por probabilidade decrescente
-    const paresOrdenados = tokens.map((token, idx) => ({
-        token,
-        prob: probabilidades[idx]
-    })).sort((a, b) => b.prob - a.prob);
-
-    // 3. Filtragem Top-p (núcleo cumulativo)
     let somaCumulativa = 0;
-    const nucleoFiltrado = [];
+    const nucleo = [];
 
     for (const par of paresOrdenados) {
-        nucleoFiltrado.push(par);
-        somaCumulativa += par.prob;
+        nucleo.push(par);
+        somaCumulativa += par.probabilidade;
         if (somaCumulativa >= topP) break;
     }
 
-    // 4. Renormalização da probabilidade dentro do núcleo
-    const somaNucleo = nucleoFiltrado.reduce((acc, p) => acc + p.prob, 0);
-    const aleatorio = Math.random() * somaNucleo;
+    const massaDoNucleo = nucleo.reduce(
+        (soma, par) => soma + par.probabilidade,
+        0
+    );
+    const sorteio = Math.random() * massaDoNucleo;
 
-    let acumulador = 0;
-    for (const par of nucleoFiltrado) {
-        acumulador += par.prob;
-        if (aleatorio <= acumulador) {
-            return { tokenEscolhido: par.token, probabilidadeOriginal: par.prob };
-        }
+    let acumulado = 0;
+    for (const par of nucleo) {
+        acumulado += par.probabilidade;
+        if (sorteio <= acumulado) return par.token;
     }
 
-    return { tokenEscolhido: nucleoFiltrado[0].token, probabilidadeOriginal: nucleoFiltrado[0].prob };
+    return nucleo[0].token;
 }
 
-// Demonstração com logits brutos emitidos pela última camada
-const distribuicaoSaida = [
-    { token: "function", logit: 12.4 },
-    { token: "const", logit: 11.8 },
-    { token: "class", logit: 9.1 },
-    { token: "banana", logit: 1.2 },
-    { token: "azul", logit: 0.4 }
+const candidatos = [
+    { token: "dormindo", logit: 4.2 },
+    { token: "comendo", logit: 2.7 },
+    { token: "dirigindo", logit: -1.3 },
+    { token: "azul", logit: -2.1 }
 ];
 
-const resultado = selecionarTokenNucleus(distribuicaoSaida, 0.5, 0.85);
-console.log(`Token selecionado via inferência: "${resultado.tokenEscolhido}" (P: ${(resultado.probabilidadeOriginal * 100).toFixed(2)}%)`);
+console.log(selecionarTokenNucleus(candidatos, 0.7, 0.9));
 ```
 
 ---
@@ -171,9 +330,9 @@ Onde o modelo mental de "apenas um auto-completar" induz a erros graves de julga
 
 ## 6. Implicações práticas de engenharia
 
-* **Previsibilidade e testes**: Para testes de integração automatizados, execute modelos com `temperatura = 0.0`. Variações probabilísticas em pipelines de CI/CD quebram asserções de testes determinísticos.
-* **Alucinação como fenômeno intrínseco**: A alucinação não é um defeito de programação (*bug* de software tradicional); é uma consequência inevitável de um sistema projetado para maximizar fluência probabilística na ausência de validação empírica. Se o modelo não tiver fatos no contexto, a entropia o forçará a gerar uma continuidade plausível.
-* **Custo computacional de inferência**: A complexidade da inferência é dominada pelo tamanho da janela de contexto e pelo número de parâmetros ativos. Manter prompts curtos e enxutos reduz diretamente a latência (*Time To First Token*) e a fatura financeira da API.
+* **Previsibilidade e testes**: Para testes de integração automatizados, configurações de baixa variabilidade podem reduzir diferenças entre execuções, mas determinismo completo depende do modelo, do provedor e da infraestrutura; `temperature = 0` não é uma garantia universal de resultados idênticos.
+* **Alucinação e validação**: O objetivo de next-token prediction favorece continuidades linguisticamente plausíveis, não verificação factual automática. Sistemas que exigem fatos confiáveis precisam de contexto adequado, recuperação, ferramentas, validação ou outras formas de grounding.
+* **Custo computacional de inferência**: O custo e a latência dependem de fatores como tamanho do modelo, comprimento do contexto, quantidade de tokens gerados, arquitetura, batching, cache e infraestrutura. Prompts menores podem ajudar, mas não são o único determinante do TTFT ou do custo de uma API.
 
 ---
 
@@ -187,7 +346,10 @@ Onde o modelo mental de "apenas um auto-completar" induz a erros graves de julga
 
 ## Resumo para memorizar
 
-* **Natureza de compressão**: O pré-treinamento força a rede a descobrir regras fundamentais de lógica e sintaxe para comprimir trilhões de tokens.
-* **SFT e alinhamento**: Transformam um motor bruto de predição em um assistente conversacional estruturado e seguro.
-* **Logits e temperatura**: A temperatura reescala as energias dos logits antes do Softmax, definindo a precisão ou aleatoriedade da amostragem.
-* **Limitações arquiteturais**: A geração autorregressiva avança sem planejamento retrospectivo nativo, exigindo técnicas de engenharia de contexto para garantir consistência lógica.
+* **Natureza de compressão**: O pré-treinamento força a rede a aprender regularidades úteis dos dados para reduzir o erro de previsão do próximo token.
+* **SFT e alinhamento**: Transformam um modelo base de continuação em um sistema mais adequado a seguir instruções e preferências de comportamento.
+* **Logit**: É uma pontuação bruta para um candidato; não é porcentagem nem probabilidade.
+* **Softmax**: Transforma o vetor inteiro de logits em uma distribuição normalizada cuja soma é 1.
+* **Temperatura**: Reescala os logits antes do Softmax e altera a concentração da distribuição.
+* **Decodificação**: Greedy, Top-k e Top-p são estratégias posteriores usadas para escolher ou restringir candidatos.
+* **Ciclo autorregressivo**: O token escolhido volta ao contexto e todo o pipeline é executado novamente para produzir o próximo.
