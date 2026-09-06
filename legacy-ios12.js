@@ -240,10 +240,14 @@
         return partes.join("");
     }
 
-    function substituirMermaid(md) {
-        return String(md || "").replace(/```mermaid\s*\n([\s\S]*?)```/g, function (_, codigo) {
-            return '<div class="legacy-mermaid-fallback"><code>' + escaparHtml(codigo) + "</code></div>";
-        });
+    function estilizarMermaidLegado() {
+        var blocos = artigoCorpo.querySelectorAll("code.language-mermaid");
+        for (var i = 0; i < blocos.length; i += 1) {
+            var pre = blocos[i].parentNode;
+            if (pre && pre.className.indexOf("legacy-mermaid-fallback") === -1) {
+                pre.className += " legacy-mermaid-fallback";
+            }
+        }
     }
 
     function removerFrontmatter(md) {
@@ -251,8 +255,7 @@
     }
 
     function renderizarMarkdown(md) {
-        var preparado = substituirMermaid(removerFrontmatter(md));
-        preparado = converterWikiLinks(preparado);
+        var preparado = converterWikiLinks(removerFrontmatter(md));
         if (window.marked) {
             try {
                 return typeof window.marked.parse === "function" ? window.marked.parse(preparado) : window.marked(preparado);
@@ -324,6 +327,7 @@
             })
             .then(function (md) {
                 artigoCorpo.innerHTML = renderizarMarkdown(md);
+                estilizarMermaidLegado();
                 instalarWikiLinks();
                 if (window.renderMathInElement) {
                     try {
