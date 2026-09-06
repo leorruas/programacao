@@ -9,10 +9,29 @@ A trilha ficou deliberadamente mais técnica, mas você não precisa conhecer to
 Use [[llm/Glossário de LLMs|Glossário de LLMs]] como apoio permanente. As entradas foram escritas para responder três perguntas rápidas: **o que é**, **para que serve** e **com o que não devo confundir**.
 
 > [!NOTE] Ordem de leitura recomendada para a primeira passagem
-> Apesar da numeração histórica dos arquivos, a sequência mais amigável para aprender é:
-> **Fundamentos tensoriais → 02 Tokenização → 03 Transformer → 01 Treinamento e inferência → 04 Engenharia de contexto → 05 Sistemas de produção.**
+> A trilha agora acompanha a ordem natural dos artigos. Use [[llm/Fundamentos — vetores, matrizes, tensores e shapes|Fundamentos tensoriais]] como base paralela e siga:
+> **01 Visão geral → 02 Tokenização → 03 Transformer → 04 Engenharia de contexto → 05 Sistemas → 06 LLM Wiki → 07 Conhecimento externo → 08 RAG → 09 a 17 Pipeline RAG em profundidade.**
 >
-> O motivo é simples: primeiro você entende **o que entra no modelo**, depois **como o modelo transforma essa informação**, depois **como ele aprende e gera**, e só então parte para o uso do modelo dentro de aplicações.
+> O `01` funciona como **mapa panorâmico**: ele apresenta treinamento, inferência, logits, Softmax e temperatura sem exigir que todas as peças internas já estejam abertas. Os artigos seguintes voltam às caixas-pretas citadas ali e explicam, em sequência, de onde tokens, representações contextuais e sistemas externos vêm.
+
+### O princípio de construção da trilha
+
+A lógica agora é sempre:
+
+**apresentar o sistema inteiro → abrir uma caixa-preta → usar o que foi aprendido para criar o próximo problema**.
+
+Por exemplo:
+
+```mermaid
+flowchart LR
+    A["01: modelo aprende<br>e gera tokens"] --> B["02: de onde<br>tokens e vetores vêm"]
+    B --> C["03: como vetores<br>ganham contexto"]
+    C --> D["04: quem escolhe<br>o contexto de entrada"]
+    D --> E["05: qual software<br>orquestra tudo"]
+    E --> F["06-08: como dar<br>conhecimento externo"]
+```
+
+Assim, você não precisa entender cada mecanismo na primeira aparição. A primeira aparição cria a pergunta; o artigo seguinte responde.
 
 ### O mapa mental antes dos nomes técnicos
 
@@ -45,51 +64,59 @@ flowchart TD
 
 ## Sequência de leitura e aprofundamento
 
+### Etapa 0: visão panorâmica do ciclo
+
+Comece entendendo **o que o sistema faz**, sem exigir domínio de toda a implementação interna.
+
+* [[llm/01-Dinâmica de treino e inferência em LLMs|Dinâmica de treino e inferência em LLMs]] - Visão geral do ciclo de aprendizagem e geração: pré-treino, pós-treino, loss, gradiente, hidden state, logits, Softmax, temperatura e amostragem. Ele cria as perguntas que os artigos `02` e `03` abrirão em detalhe.
+
+---
+
 ### Camada 1: fundamentos matemáticos e arquitetura interna
 Compreenda o fluxo físico e tensorial que transforma dados discretos em representações latentes contínuas dentro de redes neurais profundas.
 * [[llm/Fundamentos — vetores, matrizes, tensores e shapes|Vetores, matrizes, tensores e shapes para LLMs]] - Base para entender escalar, vetor, matriz, tensor, shape, batch, reshape, transpose e a passagem de `[batch, tokens, embedding]` para `[batch, heads, tokens, head_dim]`.
-* [[llm/02-Tokenização, embeddings e representações contextuais|Tokenização, embeddings e representações contextuais]] - Tokenização via Byte-Pair Encoding (BPE), projeção de vocabulário estático ($W_E$) vs representações contextuais dinâmicas, modelos bi-encoder de sentença e similaridade geométrica.
-* [[llm/03-Arquitetura do Transformer e mecanismo de atenção|Arquitetura do Transformer e mecanismo de atenção]] - Anatomia do bloco Transformer: Residual Streams, RoPE, RMSNorm, atenção multi-cabeça escalada ($QK^T / \sqrt{d_k} \times V$), causal masking triangular, FFNs (SwiGLU) e o papel crítico do KV Cache na inferência.
+* [[llm/02-Tokenização, embeddings e representações contextuais|Tokenização, embeddings e representações contextuais]] - Abre a primeira caixa-preta do `01`: como texto vira tokens, IDs e vetores antes de existir qualquer logit.
+* [[llm/03-Arquitetura do Transformer e mecanismo de atenção|Arquitetura do Transformer e mecanismo de atenção]] - Abre a segunda caixa-preta: como os vetores trocam informação e se tornam representações contextuais através de attention, residual streams e FFNs.
 
 ---
 
 ### Camada 2: treinamento, dinâmica estatística e inferência
-Descubra como pesos matriciais são ajustados a partir de volumes massivos de dados e como o comportamento de assistente é esculpido pós-treinamento.
-* [[llm/01-Dinâmica de treino e inferência em LLMs|Dinâmica de treino e inferência em LLMs]] - Além do autocomplete simplista: compressão semântica autorregressiva, cross-entropy loss, gradient descent, transição do pré-treino para o pós-treino (SFT e RLHF/DPO), amostragem de logits (temperatura, top-$p$, top-$k$) e alucinações como propriedades estatísticas.
+
+Depois de `02` e `03`, vale retornar ao `01` para uma segunda leitura. Nesse momento, cross-entropy, logits e gradientes deixam de ser peças abstratas porque você já sabe **que estruturas entram no modelo e que tipo de representação chega à saída**.
 
 ---
 
 ### Camada 3: engenharia de contexto e controle formal
 Supere o modelo mental de "escrever um bom briefing" e domine o contexto como uma memória volátil, custosa e com vulnerabilidades de fronteira.
-* [[llm/04-Engenharia de contexto e controle de inferência|Engenharia de contexto e controle de inferência]] - De prompts a Context Engineering: papéis de sistema/desenvolvedor/usuário, injeção de prompt indireta, limites de raciocínio com CoT vs modelos de busca em tempo de teste, e saídas garantidas via decodificação restringida (*Constrained Decoding* / JSON Schema).
+* [[llm/04-Engenharia de contexto e controle de inferência|Engenharia de contexto e controle de inferência]] - Depois de entender como o Transformer processa contexto, o foco passa para quem decide o que entra nessa memória de trabalho, com quais prioridades, fronteiras e contratos de saída.
 
 ---
 
 ### Camada 4: sistemas de software, resiliência e agentes
 Aprenda a construir software de produção conectando LLMs a bancos de dados, ferramentas externas e interfaces em tempo real.
-* [[llm/05-Sistemas de produção com LLMs, tool calling e streaming|Sistemas de produção com LLMs, tool calling e streaming]] - Padrão de integração moderna: chamadas de função (*Tool Calling*), loop completo agente-ferramenta, streaming de Server-Sent Events com deltas estruturados, controle de concorrência com AbortController, retries com backoff exponencial e redução de latência com Prompt Caching.
+* [[llm/05-Sistemas de produção com LLMs, tool calling e streaming|Sistemas de produção com LLMs, tool calling e streaming]] - A engenharia de contexto vira software real: chamadas de função, loop agente-ferramenta, streaming, retries, tracing e resiliência.
 
 ---
 
 ### Camada 5: compilação de conhecimento e memória persistente
 Transforme corpus volumosos e dispersos em representações estruturadas, auditáveis e interligadas antes do momento da consulta.
-* [[llm/06-LLM Wiki conhecimento compilado para humanos e agentes|LLM Wiki: conhecimento compilado para humanos e agentes]] - A terceira via entre contexto direto e RAG: extração prévia, síntese em páginas atômicas com WikiLinks, complementaridade com RAG, analogia do compilador e o risco do erro cristalizado.
+* [[llm/06-LLM Wiki conhecimento compilado para humanos e agentes|LLM Wiki: conhecimento compilado para humanos e agentes]] - O problema deixa de ser buscar um dado pontual com uma ferramenta e passa a ser organizar conhecimento documental persistente em escala.
 
 ---
 
 ### Camada 6: arquitetura RAG (Retrieval-Augmented Generation)
 Aprenda a enriquecer modelos de linguagem com dados proprietários e externos através de pipelines de ingestão, recuperação vetorial e avaliação sistemática.
-* [[llm/07-Por que LLMs precisam de conhecimento externo|Por que LLMs precisam de conhecimento externo]] - Conhecimento paramétrico vs não paramétrico, limites de janelas longas, degradação de atenção (*Lost in the Middle*) e matriz de decisão para RAG.
-* [[llm/08-O que é RAG e como funciona|O que é RAG e como funciona]] - O ciclo completo: separação estrita entre o pipeline offline de ingestão/indexação e o pipeline online de consulta/retrieval.
-* [[llm/09-Chunking e estratégias de fragmentação|Chunking e estratégias de fragmentação]] - Estratégias de particionamento (tamanho fixo, estrutural em Markdown, semântico), overlap, metadados e o dilema chunks pequenos vs grandes.
-* [[llm/10-Embeddings aplicados ao RAG|Embeddings aplicados ao RAG]] - Arquitetura Bi-Encoder, normalização L2, simplificação para produto escalar, Matryoshka Representation Learning (MRL) e pontos cegos de busca semântica.
-* [[llm/11-Vector stores, índices e algoritmos de busca|Vector stores, índices e algoritmos de busca]] - Bancos vetoriais, KNN exato vs busca aproximada (ANN), grafos HNSW em camadas, `pgvector` vs bancos dedicados e pre-filtering.
-* [[llm/12-Estratégias de retrieval e busca híbrida|Estratégias de retrieval e busca híbrida]] - Limitações da busca puramente vetorial, algoritmo BM25 léxico, busca híbrida e fusão de rankings com Reciprocal Rank Fusion (RRF).
-* [[llm/13-Reranking e modelos de pontuação cruzada|Reranking e modelos de pontuação cruzada]] - O pipeline de dois estágios: por que o Top-1 do retrieval não é o melhor resultado, Cross-Encoders com atenção total e refinamento de candidatos.
-* [[llm/14-Engenharia de contexto para RAG|Engenharia de contexto para RAG]] - Seleção, ordenação estratégica em ferradura contra *Lost in the Middle*, citações estritas (*provenance*) e blindagem contra *Context Poisoning*.
-* [[llm/15-Construindo um RAG em JavaScript|Construindo um RAG em JavaScript]] - Implementação didática completa ponta a ponta em JavaScript puro (ES6+) sem frameworks mágicos, consumindo notas Markdown do Obsidian.
-* [[llm/16-Avaliando um sistema RAG|Avaliando um sistema RAG]] - Avaliação formal e desacoplada: métricas de busca (*Hit Rate @ K*, Context Precision) vs métricas de geração (*Faithfulness*, Answer Relevance), datasets de teste e LLM-as-a-Judge.
-* [[llm/17-RAG avançado e limites arquiteturais|RAG avançado e limites arquiteturais]] - Técnicas de fronteira (Query Rewriting, Multi-Query, HyDE, Parent-Child, Contextual Retrieval, Graph RAG, Agentic RAG) e cenários onde RAG é a escolha errada (Text-to-SQL, sumarização global, fine-tuning).
+* [[llm/07-Por que LLMs precisam de conhecimento externo|Por que LLMs precisam de conhecimento externo]] - Generaliza o problema introduzido pela LLM Wiki: pesos, contexto temporário e conhecimento persistente são coisas diferentes.
+* [[llm/08-O que é RAG e como funciona|O que é RAG e como funciona]] - Depois de entender por que recuperar, apresenta o pipeline completo que faz essa recuperação.
+* [[llm/09-Chunking e estratégias de fragmentação|Chunking e estratégias de fragmentação]] - Abre a primeira etapa do pipeline de ingestão: em quais unidades um documento deve ser dividido para poder ser recuperado.
+* [[llm/10-Embeddings aplicados ao RAG|Embeddings aplicados ao RAG]] - Os chunks viram coordenadas numéricas que podem ser comparadas com a pergunta do usuário.
+* [[llm/11-Vector stores, índices e algoritmos de busca|Vector stores, índices e algoritmos de busca]] - Depois de criar vetores, resolve como armazená-los e procurar vizinhos em milhões de registros.
+* [[llm/12-Estratégias de retrieval e busca híbrida|Estratégias de retrieval e busca híbrida]] - Depois de possuir um índice, melhora a estratégia de busca combinando evidência semântica e lexical.
+* [[llm/13-Reranking e modelos de pontuação cruzada|Reranking e modelos de pontuação cruzada]] - Depois de recuperar candidatos rapidamente, usa modelos mais caros para ordenar melhor apenas esse conjunto reduzido.
+* [[llm/14-Engenharia de contexto para RAG|Engenharia de contexto para RAG]] - Depois do reranking, decide quais evidências realmente entram na janela do modelo e em que ordem.
+* [[llm/15-Construindo um RAG em JavaScript|Construindo um RAG em JavaScript]] - Junta as etapas anteriores em uma implementação ponta a ponta em JavaScript puro.
+* [[llm/16-Avaliando um sistema RAG|Avaliando um sistema RAG]] - Depois de construir o sistema, separa avaliação de retrieval e geração para descobrir onde ele falha.
+* [[llm/17-RAG avançado e limites arquiteturais|RAG avançado e limites arquiteturais]] - Só depois de possuir pipeline e métricas introduz estratégias avançadas e pergunta quando o próprio RAG deixa de ser a arquitetura adequada.
 
 ---
 
@@ -101,6 +128,8 @@ Cada nota técnica deste módulo segue rigorosamente cinco etapas de aprendizado
 3. **Implementação mínima executável**: Código compilável e testado demonstrando o cálculo central.
 4. **Limites da analogia**: Onde a metáfora simplificada falha e quais erros conceituais ela pode induzir.
 5. **Implicações práticas de engenharia**: Trade-offs de latência, consumo de memória VRAM, custo financeiro e consistência de software.
+
+Além dessas cinco etapas internas, cada artigo deve deixar clara sua **ponte narrativa**: qual problema veio do artigo anterior e qual novo problema permanece aberto para o seguinte.
 
 ---
 
