@@ -2,6 +2,19 @@
 
 A expressão "engenharia de prompt" (*Prompt Engineering*) consolidou-se inicialmente como a prática de redigir instruções em linguagem natural para obter textos persuasivos de LLMs. No entanto, na construção de sistemas de software profissionais, essa disciplina evoluiu para a **Engenharia de Contexto (*Context Engineering*)**: a arquitetura sistemática de curadoria, delimitação de dados, garantia de tipos e controle de fluxo da janela de inferência de uma LLM.
 
+> [!NOTE] Vocabulário antes de começar
+> * [[llm/Glossário de LLMs#Context window|Context window]]: memória de trabalho temporária disponível em uma execução.
+> * [[llm/Glossário de LLMs#Prompt|Prompt]]: entrada usada para orientar a geração.
+> * [[llm/Glossário de LLMs#Engenharia de contexto|Engenharia de contexto]]: escolha e organização de tudo o que entra nessa memória de trabalho.
+> * [[llm/Glossário de LLMs#Prompt injection|Prompt injection]]: quando dados não confiáveis conseguem influenciar o modelo como se fossem instruções.
+> * [[llm/Glossário de LLMs#Structured output|Structured output]]: saída obrigada a seguir uma estrutura.
+> * [[llm/Glossário de LLMs#Evals|Evals]]: testes sistemáticos do comportamento do sistema.
+
+### O problema central em linguagem simples
+
+Uma LLM não recebe apenas “a pergunta do usuário”. Em produção, ela pode receber instruções do sistema, histórico da conversa, documentos, exemplos, resultados de ferramentas e dados externos ao mesmo tempo.
+
+Engenharia de contexto é decidir **o que entra, em qual ordem, com qual prioridade e com qual fronteira entre instrução e dado**. Pense nisso como arquitetura da informação para a memória de trabalho do modelo: jogar tudo na tela não produz uma boa interface; jogar tudo na janela de contexto também não produz necessariamente uma boa decisão.
 ---
 
 ## 1. Intuição e analogia: o sistema operacional de contexto
