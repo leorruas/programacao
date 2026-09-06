@@ -4,6 +4,13 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-06
 
+* **Criação do artigo de fundamentos tensoriais (`llm/Fundamentos — vetores, matrizes, tensores e shapes.md`)**:
+  * **Progressão Feynman**: o artigo parte de escalar → vetor → matriz → tensor e só depois introduz `shape`, batch, reshape, transpose, broadcasting e dtype.
+  * **Ponte para LLMs**: conecta explicitamente `[tokens, embedding_dim]`, `[batch, tokens, embedding_dim]` e `[batch, heads, tokens, head_dim]`, preparando a leitura de tokenização e multi-head attention.
+  * **Q, K e V por shapes**: mostra como acompanhar dimensões transforma a equação `QKᵀ` em uma operação rastreável (`[tokens, head_dim] × [head_dim, tokens] = [tokens, tokens]`).
+  * **Código didático**: inclui snippet mínimo e exemplo completo em JavaScript para inspecionar shapes, além de exemplo complementar em PyTorch para `shape`, `dtype` e `device`.
+  * **Integração da trilha**: o guia passou a recomendar fundamentos tensoriais antes de `02 Tokenização` e `03 Transformer`; as entradas Vetor, Matriz, Tensor e Dimensão do glossário apontam para o novo artigo.
+  * **Sincronização do app**: o novo artigo foi adicionado ao fallback de `js/vault.js`.
 * **Correção de concorrência no workflow Mermaid (`.github/workflows/mermaid-fallbacks.yml`)**:
   * **Causa das falhas**: múltiplos commits em sequência disparavam renderizações simultâneas dos mesmos SVGs; ao final, os jobs tentavam fazer `rebase/push` sobre uma `main` já modificada por outra execução e entravam em conflito.
   * **Serialização**: adicionada chave de `concurrency` com cancelamento de execuções antigas quando uma nova execução da mesma fila é iniciada.
