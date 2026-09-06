@@ -332,11 +332,14 @@ function abrirArtigo(titulo, conteudoMarkdown, categoria = null, atualizarHash =
         contenedor.appendChild(tabela);
     });
 
-    // 7. Processa WikiLinks do Obsidian com segurança em nós de texto
-    processarLinksObsidian();
-
-    // 8. Processa Callouts do Obsidian ([!NOTE], [!TIP], [!IMPORTANT], etc.)
+    // 7. Processa Callouts do Obsidian antes dos links.
+    // O callout reconstrói seu conteúdo via innerHTML; se os WikiLinks já
+    // tiverem listeners, essa reconstrução os remove.
     processarCalloutsObsidian();
+
+    // 8. Processa WikiLinks depois da estrutura final dos callouts existir,
+    // garantindo que links dentro de NOTE/TIP/etc. mantenham o clique.
+    processarLinksObsidian();
 
     // 9. Formata Checkboxes interativas
     artigoCorpo.querySelectorAll('li input[type="checkbox"]').forEach(checkbox => {
