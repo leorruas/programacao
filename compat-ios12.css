@@ -182,6 +182,41 @@
         font-size: 0.88em;
         padding: 20px 0;
     }
+
+    .legacy-ios12 .leitor-artigo h1,
+    .legacy-ios12 .artigo-corpo h1 {
+        font-size: 2.2em;
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+        margin-top: 0.35em;
+        margin-bottom: 0.65em;
+    }
+
+    .legacy-ios12 .leitor-artigo h2,
+    .legacy-ios12 .artigo-corpo h2 {
+        font-size: 1.72em;
+        line-height: 1.12;
+        letter-spacing: -0.025em;
+        margin-top: 1.45em;
+        margin-bottom: 0.65em;
+    }
+
+    .legacy-ios12 .leitor-artigo h3,
+    .legacy-ios12 .artigo-corpo h3 {
+        font-size: 1.4em;
+        line-height: 1.18;
+        letter-spacing: -0.015em;
+        margin-top: 1.35em;
+        margin-bottom: 0.55em;
+    }
+
+    .legacy-ios12 .leitor-artigo h4,
+    .legacy-ios12 .artigo-corpo h4 {
+        font-size: 1.16em;
+        line-height: 1.25;
+        margin-top: 1.2em;
+        margin-bottom: 0.45em;
+    }
 }
 
 @media (min-width: 851px) and (max-width: 1100px) {
@@ -204,7 +239,6 @@
         max-width: 820px;
     }
 }
-
 
 .legacy-ios12 .artigo-corpo p,
 .legacy-ios12 .artigo-corpo li {
@@ -247,10 +281,6 @@
         line-height: 1.75;
     }
 
-    .legacy-ios12 .leitor-artigo h2 {
-        font-size: 1.65em;
-    }
-
     .legacy-ios12 .legacy-area-link {
         font-size: 1.04rem;
         padding-top: 16px;
@@ -270,5 +300,38 @@
     .legacy-ios12 .artigo-corpo p,
     .legacy-ios12 .artigo-corpo li {
         font-size: 1.04rem;
+    }
+
+    .legacy-ios12 .leitor-artigo h1,
+    .legacy-ios12 .artigo-corpo h1 {
+        font-size: 2.25em;
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+        margin-bottom: 0.65em;
+    }
+
+    .legacy-ios12 .leitor-artigo h2,
+    .legacy-ios12 .artigo-corpo h2 {
+        font-size: 1.7em;
+        line-height: 1.12;
+        letter-spacing: -0.025em;
+        margin-top: 1.45em;
+        margin-bottom: 0.65em;
+    }
+
+    .legacy-ios12 .leitor-artigo h3,
+    .legacy-ios12 .artigo-corpo h3 {
+        font-size: 1.38em;
+        line-height: 1.18;
+        margin-top: 1.3em;
+        margin-bottom: 0.55em;
+    }
+
+    .legacy-ios12 .leitor-artigo h4,
+    .legacy-ios12 .artigo-corpo h4 {
+        font-size: 1.14em;
+        line-height: 1.25;
+        margin-top: 1.15em;
+        margin-bottom: 0.45em;
     }
 }
