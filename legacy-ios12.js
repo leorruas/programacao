@@ -106,6 +106,21 @@
             .replace(/'/g, "&#39;");
     }
 
+    function hashString(valor) {
+        var hash = 2166136261;
+        for (var i = 0; i < valor.length; i += 1) {
+            hash ^= valor.charCodeAt(i);
+            hash = Math.imul(hash, 16777619);
+        }
+        var hex = (hash >>> 0).toString(16);
+        while (hex.length < 8) hex = "0" + hex;
+        return hex;
+    }
+
+    function caminhoRelativoDoArtigo(path) {
+        return decodeURIComponent(String(path || "")).replace(/^\.\//, "");
+    }
+
     function montarCatalogo() {
         artigosPorArea = {};
         var i;
@@ -240,13 +255,43 @@
         return partes.join("");
     }
 
-    function estilizarMermaidLegado() {
+    function estilizarMermaidLegado(pathArtigo) {
         var blocos = artigoCorpo.querySelectorAll("code.language-mermaid");
+        var chave = hashString(caminhoRelativoDoArtigo(pathArtigo));
+
         for (var i = 0; i < blocos.length; i += 1) {
-            var pre = blocos[i].parentNode;
-            if (pre && pre.className.indexOf("legacy-mermaid-fallback") === -1) {
-                pre.className += " legacy-mermaid-fallback";
-            }
+            var code = blocos[i];
+            var pre = code.parentNode;
+            if (!pre || pre.className.indexOf("legacy-mermaid-processado") !== -1) continue;
+
+            pre.className += " legacy-mermaid-fallback legacy-mermaid-processado";
+
+            var figura = document.createElement("figure");
+            figura.className = "legacy-mermaid-svg";
+
+            var link = document.createElement("a");
+            link.href = "./assets/mermaid/" + chave + "-" + (i + 1) + ".svg";
+            link.target = "_blank";
+            link.rel = "noopener";
+
+            var img = document.createElement("img");
+            img.src = link.href;
+            img.alt = "Diagrama Mermaid pré-renderizado";
+            img.onload = (function (preAtual, figuraAtual) {
+                return function () {
+                    preAtual.style.display = "none";
+                    figuraAtual.className += " carregado";
+                };
+            }(pre, figura));
+            img.onerror = (function (figuraAtual) {
+                return function () {
+                    if (figuraAtual.parentNode) figuraAtual.parentNode.removeChild(figuraAtual);
+                };
+            }(figura));
+
+            link.appendChild(img);
+            figura.appendChild(link);
+            pre.parentNode.insertBefore(figura, pre);
         }
     }
 
@@ -327,7 +372,7 @@
             })
             .then(function (md) {
                 artigoCorpo.innerHTML = renderizarMarkdown(md);
-                estilizarMermaidLegado();
+                estilizarMermaidLegado(item.path);
                 instalarWikiLinks();
                 if (window.renderMathInElement) {
                     try {
@@ -361,7 +406,7 @@
 
     function carregarCatalogo() {
         status("Carregando catálogo compatível...");
-        fetch("./js/vault.js?v=ios12-1", { cache: "no-cache" })
+        fetch("./js/vault.js?v=ios12-2", { cache: "no-cache" })
             .then(function (resposta) {
                 if (!resposta.ok) throw new Error("HTTP " + resposta.status);
                 return resposta.text();
