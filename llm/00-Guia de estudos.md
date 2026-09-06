@@ -2,6 +2,30 @@
 
 Este guia organiza os estudos sobre grandes modelos de linguagem (*Large Language Models* ou LLMs) em uma **trilha de maturidade progressiva**, conectando intuições didáticas com os mecanismos matemáticos reais, as restrições físicas de hardware e a arquitetura de sistemas modernos.
 
+## Como ler esta trilha sem conhecer o vocabulário
+
+A trilha ficou deliberadamente mais técnica, mas você não precisa conhecer todos os termos antes de começar. Na primeira leitura, o objetivo é construir um **mapa mental do sistema**; nomes como `RoPE`, `RMSNorm`, `SwiGLU`, `RLHF` ou `KV cache` entram depois como peças específicas desse mapa.
+
+Use [[llm/Glossário de LLMs|Glossário de LLMs]] como apoio permanente. As entradas foram escritas para responder três perguntas rápidas: **o que é**, **para que serve** e **com o que não devo confundir**.
+
+> [!NOTE] Ordem de leitura recomendada para a primeira passagem
+> Apesar da numeração histórica dos arquivos, a sequência mais amigável para aprender é:
+> **02 Tokenização → 03 Transformer → 01 Treinamento e inferência → 04 Engenharia de contexto → 05 Sistemas de produção.**
+>
+> O motivo é simples: primeiro você entende **o que entra no modelo**, depois **como o modelo transforma essa informação**, depois **como ele aprende e gera**, e só então parte para o uso do modelo dentro de aplicações.
+
+### O mapa mental antes dos nomes técnicos
+
+Pense em uma LLM como um pipeline com cinco perguntas:
+
+* **Como o texto entra?** Texto é quebrado em [[llm/Glossário de LLMs#Token|tokens]] e convertido em representações numéricas.
+* **Como os tokens trocam informação?** O [[llm/Glossário de LLMs#Transformer|Transformer]] usa [[llm/Glossário de LLMs#Atenção|atenção]] e outras transformações para atualizar essas representações.
+* **Como o modelo aprende?** Ele faz previsões, mede o erro com uma [[llm/Glossário de LLMs#Função de perda|função de perda]] e ajusta [[llm/Glossário de LLMs#Parâmetro|parâmetros]].
+* **Como ele responde?** A inferência produz [[llm/Glossário de LLMs#Logit|logits]], transforma-os em probabilidades e escolhe novos tokens.
+* **Como isso vira produto?** A aplicação organiza contexto, chama APIs, ferramentas, streaming, recuperação externa e avaliações.
+
+Se essa cadeia estiver clara, os termos avançados deixam de ser uma lista de siglas e passam a ocupar lugares conhecidos dentro do sistema.
+
 ---
 
 ## As seis camadas de conhecimento
