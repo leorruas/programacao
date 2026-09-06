@@ -80,7 +80,7 @@ function renderizar(codigo, destino, temporario) {
     fs.writeFileSync(entrada, codigo, "utf8");
     execFileSync(
         path.join(ROOT, "node_modules", ".bin", "mmdc"),
-        ["-i", entrada, "-o", destino, "-t", "dark", "-b", "transparent"],
+        ["-i", entrada, "-o", destino, "-t", "dark", "-b", "transparent", "-p", path.join(ROOT, "scripts", "puppeteer-config.json")],
         { stdio: "inherit" }
     );
 }
