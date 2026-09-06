@@ -4,6 +4,14 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-06
 
+* **Camada didática da trilha inicial de LLMs (`llm/00–05`, `llm/Glossário de LLMs.md`, `js/vault.js`)**:
+  * **Glossário navegável**: criado `[[llm/Glossário de LLMs|Glossário de LLMs]]` com definições Feynman, analogias, distinções de termos próximos e entradas para fundamentos matemáticos, tokenização, Transformer, treinamento, inferência, engenharia de contexto, sistemas e RAG.
+  * **WikiLinks com âncoras**: os artigos iniciais agora apontam diretamente para entradas como `#Token`, `#Gradiente`, `#Transformer`, `#Tool calling` e `#TTFT`, aproveitando o suporte do Web App à navegação por seção.
+  * **Vocabulário antes de começar**: adicionados callouts nos artigos `01–05` com apenas os conceitos necessários para a primeira leitura, evitando exigir domínio prévio de toda a terminologia avançada.
+  * **Degraus conceituais intermediários**: incluídos mapas mentais antes da formalização matemática e do código, com fluxos simples para treino, tokenização, Transformer, engenharia de contexto e sistemas de produção.
+  * **Treinamento explicado em etapas**: expandida a passagem entre cross-entropy, gradiente, backpropagation, otimizador e atualização de pesos, preservando a matemática formal sem saltar diretamente para o jargão.
+  * **Guia de leitura revisado**: o `00-Guia de estudos` agora diferencia a numeração histórica da ordem pedagógica recomendada (`02 → 03 → 01 → 04 → 05`) e explicita o mapa mental geral do pipeline de uma LLM.
+  * **Sincronização do app**: o glossário foi adicionado à lista de fallback de `js/vault.js` para continuar acessível quando a API de listagem do GitHub não estiver disponível.
 * **Fallback gráfico de Mermaid para iPad mini 2 (`assets/mermaid/`, `legacy-ios12.js`, `compat-ios12.css`, `.github/workflows/mermaid-fallbacks.yml`)**:
   * **SVG pré-renderizado antes do código**: o leitor legado passou a procurar um SVG determinístico para cada bloco Mermaid e exibi-lo como imagem navegável; o bloco de código permanece apenas como fallback de último nível se o asset ainda não existir ou falhar ao carregar.
   * **Geração automatizada**: criado `scripts/generate-mermaid-fallbacks.mjs` com Mermaid CLI fixado em `11.17.0`, configuração de Chromium para CI e workflow que regenera e commita os SVGs quando arquivos Markdown ou o gerador mudam.
