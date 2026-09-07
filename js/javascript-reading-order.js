@@ -114,15 +114,11 @@
         return listaLegada || acoes;
     }
 
-    function ordenarListaJavascript() {
-        if (!estaNaAreaJavascript()) return;
-
+    function obterBotoesOrdenados() {
         var container = encontrarContainer();
-        if (!container) return;
+        if (!container) return [];
 
         var botoes = Array.prototype.slice.call(container.querySelectorAll("button"));
-        if (botoes.length < 2) return;
-
         botoes.sort(function (a, b) {
             var tituloA = tituloDoBotao(a);
             var tituloB = tituloDoBotao(b);
@@ -132,6 +128,17 @@
             if (ordemA !== ordemB) return ordemA - ordemB;
             return tituloA < tituloB ? -1 : tituloA > tituloB ? 1 : 0;
         });
+        return botoes;
+    }
+
+    function ordenarListaJavascript() {
+        if (!estaNaAreaJavascript()) return;
+
+        var container = encontrarContainer();
+        if (!container) return;
+
+        var botoes = obterBotoesOrdenados();
+        if (botoes.length < 2) return;
 
         var precisaReordenar = false;
         for (var i = 0; i < botoes.length; i += 1) {
@@ -155,9 +162,68 @@
         }
     }
 
+    function criarCardNavegacao(botaoAlvo, direcao) {
+        if (!botaoAlvo) return document.createElement("span");
+
+        var botao = document.createElement("button");
+        botao.type = "button";
+        botao.className = "nav-card nav-card-" + direcao;
+        botao.innerHTML = '<span class="nav-card-label">' +
+            (direcao === "anterior" ? "← artigo anterior" : "próximo artigo →") +
+            '</span><strong class="nav-card-title"></strong>';
+        botao.querySelector(".nav-card-title").textContent = botaoAlvo.textContent.replace(/^\s*\d+\s*/, "").trim();
+        botao.onclick = function () {
+            botaoAlvo.click();
+        };
+        return botao;
+    }
+
+    function alinharNavegacaoArtigo() {
+        if (!estaNaAreaJavascript()) return;
+
+        var leitor = document.getElementById("leitor-artigo");
+        var tituloAtual = document.getElementById("artigo-titulo");
+        var navegacao = document.getElementById("artigo-nav-cards");
+        if (!leitor || !tituloAtual || !navegacao) return;
+        if (leitor.className.indexOf("escondido") !== -1) return;
+
+        var atual = normalizarTitulo(tituloAtual.textContent);
+        var botoes = obterBotoesOrdenados();
+        var indice = -1;
+
+        for (var i = 0; i < botoes.length; i += 1) {
+            if (tituloDoBotao(botoes[i]) === atual) {
+                indice = i;
+                break;
+            }
+        }
+
+        if (indice === -1) return;
+
+        var anterior = indice > 0 ? botoes[indice - 1] : null;
+        var proximo = indice < botoes.length - 1 ? botoes[indice + 1] : null;
+        var assinatura = atual + "|" + (anterior ? tituloDoBotao(anterior) : "") + "|" + (proximo ? tituloDoBotao(proximo) : "");
+        if (navegacao.getAttribute("data-js-reading-signature") === assinatura) return;
+
+        navegacao.innerHTML = "";
+        var grade = document.createElement("div");
+        grade.className = "artigo-nav-cards-grid";
+        grade.appendChild(criarCardNavegacao(anterior, "anterior"));
+        grade.appendChild(criarCardNavegacao(proximo, "proximo"));
+        navegacao.appendChild(grade);
+        navegacao.setAttribute("data-js-reading-signature", assinatura);
+    }
+
+    function processarTrilha() {
+        ordenarListaJavascript();
+        alinharNavegacaoArtigo();
+    }
+
     function observarMudancas() {
-        var disciplina = document.getElementById("disciplina-leitor");
-        if (!disciplina || !window.MutationObserver) return;
+        if (!window.MutationObserver) return;
+
+        var raiz = document.body;
+        if (!raiz) return;
 
         var agendado = false;
         var observer = new MutationObserver(function () {
@@ -165,20 +231,20 @@
             agendado = true;
             setTimeout(function () {
                 agendado = false;
-                ordenarListaJavascript();
+                processarTrilha();
             }, 0);
         });
 
-        observer.observe(disciplina, { childList: true, subtree: true, characterData: true });
+        observer.observe(raiz, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ["class"] });
     }
 
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", function () {
             observarMudancas();
-            ordenarListaJavascript();
+            processarTrilha();
         });
     } else {
         observarMudancas();
-        ordenarListaJavascript();
+        processarTrilha();
     }
 }());
