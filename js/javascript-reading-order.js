@@ -133,12 +133,25 @@
             return tituloA < tituloB ? -1 : tituloA > tituloB ? 1 : 0;
         });
 
+        var precisaReordenar = false;
         for (var i = 0; i < botoes.length; i += 1) {
-            container.appendChild(botoes[i]);
-            var numero = botoes[i].querySelector(".disciplina-acao-numero");
-            if (numero) {
-                numero.textContent = String(i + 1).length < 2 ? "0" + (i + 1) : String(i + 1);
+            if (container.children[i] !== botoes[i]) {
+                precisaReordenar = true;
+                break;
             }
+        }
+
+        for (var j = 0; j < botoes.length; j += 1) {
+            var numero = botoes[j].querySelector(".disciplina-acao-numero");
+            if (numero) {
+                numero.textContent = String(j + 1).length < 2 ? "0" + (j + 1) : String(j + 1);
+            }
+        }
+
+        if (!precisaReordenar) return;
+
+        for (var k = 0; k < botoes.length; k += 1) {
+            container.appendChild(botoes[k]);
         }
     }
 
