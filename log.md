@@ -2,6 +2,18 @@
 
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
+## 2026-09-09
+
+* **Correção visual do botão Mermaid no Web App (`mermaid-overrides.css`, `index.html`)**:
+  * **Causa**: a regra global de `button` em `style.css` aplicava `width: 20%` e `border-radius: 100%` também ao botão `ampliar` inserido pela toolbar Mermaid, comprimindo o rótulo e deformando o controle.
+  * **Correção isolada**: criada `mermaid-overrides.css` carregada depois dos estilos gerais para sobrescrever apenas `.mermaid-btn`, com largura automática, altura mínima, padding, raio discreto, `inline-flex`, alinhamento central e `white-space: nowrap`.
+  * **Responsividade**: a toolbar Mermaid permanece oculta abaixo de 850 px, preservando a decisão já adotada para telas pequenas e o modo legado do iPad mini 2.
+  * **Cache**: o novo stylesheet é carregado com `mermaid-ui-v1` para evitar cache antigo no GitHub Pages.
+
+* **Criação de introdução à linguagem R (`r/00-Introdução ao R — origem, propósito e modelo mental.md`)**:
+  * Criada nota introdutória cobrindo origem em S, Ross Ihaka e Robert Gentleman, propósito estatístico, vetores, data frames, operações vetorizadas, tidyverse, `dplyr`, `ggplot2`, comparação com Python, SQL e JavaScript e um exemplo completo de análise de pesquisa.
+  * O artigo conecta o modelo mental vetorial de R aos fundamentos de vetores, matrizes e tensores já existentes no vault.
+
 ## 2026-09-06
 
 * **Revisão de continuidade pedagógica da trilha de LLMs (`llm/00`, `02`, `04`, `05`, `06`, `07`, `10`)**:
