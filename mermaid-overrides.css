@@ -1,0 +1,33 @@
+/* Ajustes específicos da interface Mermaid no Web App. */
+
+.mermaid-toolbar {
+    align-items: center;
+}
+
+.mermaid-btn {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    min-height: 34px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    line-height: 1;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.mermaid-btn span {
+    display: inline-block;
+    line-height: 1;
+}
+
+@media (max-width: 850px) {
+    .mermaid-toolbar {
+        display: none !important;
+    }
+}
