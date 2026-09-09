@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,116 +15,17 @@
     <script defer src="js/home-order.js?v=home-order-v2"></script>
     <script defer src="js/javascript-reading-order.js?v=js-reading-v2"></script>
     <script defer src="legacy-components.js?v=legacy-components-v1"></script>
+    <script defer src="js/article-render-overrides.js?v=article-title-v1"></script>
 </head>
-
 <body>
-    <nav class="sticky-nav" id="sticky-nav">
-        <span class="nav-logo" id="nav-logo">pesquisa de programação</span>
-        <label class="nav-search-container" for="nav-search-input">
-            <span class="sr-only">Pesquisar no vault</span>
-            <input type="search" id="nav-search-input" placeholder="pesquisar..." autocomplete="off">
-        </label>
-        <div class="nav-acoes">
-            <a href="#pastas-container" class="nav-link-pastas" id="nav-link-pastas">pastas</a>
-            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema">modo claro</button>
-        </div>
-    </nav>
-
-    <header class="page-masthead" id="page-masthead">
-        <section class="busca-principal" aria-label="Pesquisar no vault">
-            <div class="busca-campo">
-                <label class="sr-only" for="main-search-input">Pesquisar por assunto ou tecnologia</label>
-                <input type="search" id="main-search-input" placeholder="pesquisar no vault..." autocomplete="off">
-            </div>
-        </section>
-        <div class="masthead-copy">
-            <h1>programação</h1>
-            <p>caderno de estudos e experimentos em desenvolvimento</p>
-        </div>
-    </header>
+    <nav class="sticky-nav" id="sticky-nav"><span class="nav-logo" id="nav-logo">pesquisa de programação</span><label class="nav-search-container" for="nav-search-input"><span class="sr-only">Pesquisar no vault</span><input type="search" id="nav-search-input" placeholder="pesquisar..." autocomplete="off"></label><div class="nav-acoes"><a href="#pastas-container" class="nav-link-pastas" id="nav-link-pastas">pastas</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Alternar tema">modo claro</button></div></nav>
+    <header class="page-masthead" id="page-masthead"><section class="busca-principal" aria-label="Pesquisar no vault"><div class="busca-campo"><label class="sr-only" for="main-search-input">Pesquisar por assunto ou tecnologia</label><input type="search" id="main-search-input" placeholder="pesquisar no vault..." autocomplete="off"></div></section><div class="masthead-copy"><h1>programação</h1><p>caderno de estudos e experimentos em desenvolvimento</p></div></header>
     <main>
-        <section class="explorar-pastas" id="explorar-pastas" aria-labelledby="pastas-titulo">
-            <h2 id="pastas-titulo">áreas de estudo...</h2>
-            <div class="pastas-container" id="pastas-container">
-            <!-- As pastas serão listadas aqui dinamicamente -->
-            </div>
-        </section>
-        <div class="resultados escondido" id="resultados">
-            <div class="cards-container" id="cards-container">
-                <!-- resultados da busca organizados no padrão suíço -->
-            </div>
-        </div>
-        <section class="disciplina-leitor escondido" id="disciplina-leitor" aria-live="polite">
-            <p class="disciplina-rotulo" id="disciplina-rotulo">área de estudo</p>
-            <h2 id="disciplina-titulo"></h2>
-            <div class="disciplina-acoes" id="disciplina-acoes"></div>
-            <button id="btn-voltar-disciplina" class="btn-voltar">← voltar para as áreas</button>
-        </section>
-        <div class="leitor-artigo escondido" id="leitor-artigo">
-            <div class="artigo-layout-container">
-                <aside class="artigo-toc-sidebar" id="artigo-toc-sidebar">
-                    <label class="sidebar-search" for="toc-filter-input">
-                        <span>Filtrar títulos</span>
-                        <input type="search" id="toc-filter-input" placeholder="filtrar seções..." autocomplete="off">
-                    </label>
-                    <div class="toc-header">
-                        <span class="toc-title">Neste artigo</span>
-                    </div>
-                    <nav class="toc-nav" id="toc-nav"></nav>
-                </aside>
-                <div class="artigo-conteudo-wrapper">
-                    <nav class="artigo-breadcrumbs" id="artigo-breadcrumbs" aria-label="Caminho de navegação"></nav>
-                    <h2 id="artigo-titulo"></h2>
-                    <div class="artigo-contexto" id="artigo-contexto" hidden></div>
-                    <div id="artigo-corpo" class="artigo-corpo"></div>
-                    <nav class="artigo-nav-cards" id="artigo-nav-cards" aria-label="Navegação entre artigos"></nav>
-                    <div class="retorno-artigo">
-                        <p>quer continuar estudando?</p>
-                        <button id="btn-voltar" class="btn-voltar">&larr; voltar para a área</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <section class="explorar-pastas" id="explorar-pastas" aria-labelledby="pastas-titulo"><h2 id="pastas-titulo">áreas de estudo...</h2><div class="pastas-container" id="pastas-container"></div></section>
+        <div class="resultados escondido" id="resultados"><div class="cards-container" id="cards-container"></div></div>
+        <section class="disciplina-leitor escondido" id="disciplina-leitor" aria-live="polite"><p class="disciplina-rotulo" id="disciplina-rotulo">área de estudo</p><h2 id="disciplina-titulo"></h2><div class="disciplina-acoes" id="disciplina-acoes"></div><button id="btn-voltar-disciplina" class="btn-voltar">← voltar para as áreas</button></section>
+        <div class="leitor-artigo escondido" id="leitor-artigo"><div class="artigo-layout-container"><aside class="artigo-toc-sidebar" id="artigo-toc-sidebar"><label class="sidebar-search" for="toc-filter-input"><span>Filtrar títulos</span><input type="search" id="toc-filter-input" placeholder="filtrar seções..." autocomplete="off"></label><div class="toc-header"><span class="toc-title">Neste artigo</span></div><nav class="toc-nav" id="toc-nav"></nav></aside><div class="artigo-conteudo-wrapper"><nav class="artigo-breadcrumbs" id="artigo-breadcrumbs" aria-label="Caminho de navegação"></nav><h2 id="artigo-titulo"></h2><div class="artigo-contexto" id="artigo-contexto" hidden></div><div id="artigo-corpo" class="artigo-corpo"></div><nav class="artigo-nav-cards" id="artigo-nav-cards" aria-label="Navegação entre artigos"></nav><div class="retorno-artigo"><p>quer continuar estudando?</p><button id="btn-voltar" class="btn-voltar">&larr; voltar para a área</button></div></div></div></div>
     </main>
-
-    <script>
-        (function () {
-            function suportaAppModerno() {
-                try {
-                    new Function("var x = { a: { b: 1 } }; return x?.a?.b;");
-                    new Function("return /(?<!a)b/.test(\"b\");");
-                    return true;
-                } catch (erro) {
-                    return false;
-                }
-            }
-
-            function carregarScript(src, tipo, aoCarregar) {
-                var script = document.createElement("script");
-                script.src = src;
-                if (tipo) script.type = tipo;
-                if (aoCarregar) script.onload = aoCarregar;
-                document.body.appendChild(script);
-            }
-
-            function carregarCss(href) {
-                var link = document.createElement("link");
-                link.rel = "stylesheet";
-                link.href = href;
-                document.head.appendChild(link);
-            }
-
-            if (suportaAppModerno()) {
-                carregarScript("https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js", null, function () {
-                    carregarScript("script.js?v=estrutura-v36", "module");
-                });
-            } else {
-                document.documentElement.className += " legacy-ios12";
-                carregarCss("compat-ios12.css?v=ios12-3");
-                carregarScript("legacy-ios12.js?v=ios12-2");
-            }
-        }());
-    </script>
+    <script>(function(){function suportaAppModerno(){try{new Function("var x = { a: { b: 1 } }; return x?.a?.b;");new Function("return /(?<!a)b/.test(\"b\");");return true;}catch(erro){return false;}}function carregarScript(src,tipo,aoCarregar){var script=document.createElement("script");script.src=src;if(tipo)script.type=tipo;if(aoCarregar)script.onload=aoCarregar;document.body.appendChild(script);}function carregarCss(href){var link=document.createElement("link");link.rel="stylesheet";link.href=href;document.head.appendChild(link);}if(suportaAppModerno()){carregarScript("https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.min.js",null,function(){carregarScript("script.js?v=estrutura-v36","module");});}else{document.documentElement.className+=" legacy-ios12";carregarCss("compat-ios12.css?v=ios12-3");carregarScript("legacy-ios12.js?v=ios12-2");}}());</script>
 </body>
-
 </html>
