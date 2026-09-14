@@ -2,7 +2,7 @@
 
 Esta trilha organiza o aprendizado de [[javascript/Introdução ao JavaScript|JavaScript]] do fundamento até a arquitetura, priorizando compreensão conceitual, prática real de interface e conexões com design, produto e navegador.
 
-A lógica pedagógica é simples: primeiro entender **valores e decisões**, depois **funções e estruturas de dados**, então **DOM e eventos**, em seguida **assincronismo**, e só depois aprofundar **arquitetura, modelo de objetos e TypeScript**. A ordem do vault não precisa ser a ordem da aprendizagem.
+A lógica pedagógica é simples: primeiro entender **valores e decisões**, depois **funções e estruturas de dados**, então **DOM e eventos**, em seguida **assincronismo**, e só depois aprofundar **arquitetura, modelo de objetos e TypeScript**. A ordem do vault não precisa ser a ordem da aprendizagem. Depois dessa base, trilhas aplicadas como [[javascript/07-threejs/00-Guia de estudos de Three.js|Three.js]] permitem usar os mesmos fundamentos em problemas visuais mais específicos.
 
 ---
 
@@ -17,11 +17,14 @@ flowchart TD
     E --> F["6. Escopo,<br>módulos e erros"]
     F --> G["7. Modelo de<br>objetos e classes"]
     G --> H["8. TypeScript<br>e ponte para React"]
+    H --> I["9. Trilha aplicada:<br>Three.js e 3D"]
 
     classDef core fill:#1f1f1f,stroke:#f1a7b5,color:#fff,stroke-width:2px;
     classDef component fill:#242424,stroke:#888,color:#fff;
+    classDef applied fill:#242424,stroke:#8fa6c9,color:#fff,stroke-width:2px;
     class A,H core;
     class B,C,D,E,F,G component;
+    class I applied;
 ```
 
 A pergunta central que acompanha toda a trilha é: **como um valor entra no programa, é transformado, produz uma decisão e finalmente altera alguma coisa observável na interface?**
@@ -273,7 +276,42 @@ React não substitui JavaScript. Ele pressupõe JavaScript. Quanto mais claros e
 
 ---
 
-## 11. Pontos de confusão para revisar
+## 11. Trilha aplicada — Three.js e 3D na web
+
+Depois da base da linguagem e do navegador, Three.js pode ser estudado como uma aplicação concreta desses fundamentos. Aqui o objetivo não é decorar uma API 3D inteira. É aprender a ler uma cena, entender por que ela funciona ou fica visualmente ruim e conseguir dirigir ferramentas como Codex sem depender de tentativa e erro.
+
+A trilha recomendada é:
+
+* [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] — visão geral, ordem pedagógica e critérios para avançar.
+* [[javascript/07-threejs/01-Three.js e o modelo mental de uma cena 3D|Three.js e o modelo mental de uma cena 3D]] — compreender cena, objetos e renderização como sistema.
+* [[javascript/07-threejs/02-Cena, câmera, renderer e coordenadas|Cena, câmera, renderer e coordenadas]] — entender espaço 3D, enquadramento e como a imagem chega ao canvas.
+* [[javascript/07-threejs/03-Geometria, material, mesh e luz|Geometria, material, mesh e luz]] — separar forma, aparência e iluminação.
+* [[javascript/07-threejs/04-Loop de renderização, tempo e animação|Loop de renderização, tempo e animação]] — tratar movimento como mudança de estado ao longo do tempo.
+* [[javascript/07-threejs/05-Interação, raycasting e relação com o DOM|Interação, raycasting e relação com o DOM]] — conectar ponteiro, objetos 3D e interface HTML.
+* [[javascript/07-threejs/06-Composição visual, performance e diagnóstico de cenas 3D|Composição visual, performance e diagnóstico de cenas 3D]] — diagnosticar cenas que funcionam tecnicamente, mas não funcionam visualmente.
+* [[javascript/07-threejs/07-React Three Fiber no Next.js|React Three Fiber no Next.js]] — transportar o modelo mental do Three.js para componentes React e projetos em Next.js.
+
+A sequência conceitual pode ser lida assim:
+
+```mermaid
+flowchart LR
+    A["Cena e<br>coordenadas"] --> B["Geometria,<br>material e luz"]
+    B --> C["Tempo e<br>animação"]
+    C --> D["Interação e<br>raycasting"]
+    D --> E["Composição e<br>performance"]
+    E --> F["React Three Fiber<br>no Next.js"]
+
+    classDef core fill:#1f1f1f,stroke:#f1a7b5,color:#fff,stroke-width:2px;
+    classDef component fill:#242424,stroke:#888,color:#fff;
+    class A,F core;
+    class B,C,D,E component;
+```
+
+Essa trilha é aplicada e não substitui os blocos fundamentais de JavaScript. Ela existe para transformar conceitos já estudados, como objetos, módulos, eventos, tempo e renderização, em um domínio visual específico.
+
+---
+
+## 12. Pontos de confusão para revisar
 
 Antes de considerar a trilha consolidada, verifique se você consegue explicar sem consultar:
 
@@ -293,7 +331,7 @@ Essas distinções são mais importantes do que memorizar sintaxe isolada porque
 
 ---
 
-## 12. Projetos de consolidação
+## 13. Projetos de consolidação
 
 A trilha fica muito mais forte se cada bloco terminar em um artefato observável.
 
@@ -307,12 +345,13 @@ A trilha fica muito mais forte se cada bloco terminar em um artefato observável
 | Arquitetura | Separar catálogo em módulos | `import`, `export`, escopo, responsabilidades |
 | Tipagem | Tipar o catálogo anterior | TypeScript, contratos, tipos de domínio |
 | Ponte para React | Recriar o catálogo em componentes | props, estado, eventos e composição |
+| Three.js | Cena 3D editorial interativa | cena, câmera, mesh, materiais, luz, animação, interação |
 
-A ideia não é construir oito aplicativos grandes. É usar o mesmo domínio de UI e acrescentar uma camada conceitual de cada vez.
+A ideia não é construir nove aplicativos grandes. É usar domínios de UI e visualização para acrescentar uma camada conceitual de cada vez.
 
 ---
 
-## 13. Critério de domínio
+## 14. Critério de domínio
 
 Você não precisa decorar toda a API da linguagem. Considere um bloco dominado quando consegue:
 
@@ -329,6 +368,6 @@ Se alguma dessas etapas falhar, a lacuna está localizada e pode ser revisada se
 
 ## Resumo para memorizar
 
-JavaScript fica mais simples quando você o lê como uma sequência de camadas: **valores → decisões → funções → estruturas de dados → DOM → eventos → assincronismo → módulos → modelo de objetos → tipos → React**.
+JavaScript fica mais simples quando você o lê como uma sequência de camadas: **valores → decisões → funções → estruturas de dados → DOM → eventos → assincronismo → módulos → modelo de objetos → tipos → React**. Depois dessa base, trilhas aplicadas como **Three.js → renderização 3D → interação → React Three Fiber** mostram como os mesmos fundamentos operam em problemas mais especializados.
 
 A sintaxe muda de assunto para assunto, mas o mecanismo permanece: dados entram, alguma regra os transforma e um efeito observável acontece. O objetivo desta trilha é fazer você enxergar esse mecanismo antes de decorar a forma específica de escrevê-lo.
