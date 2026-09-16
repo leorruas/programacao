@@ -7,6 +7,7 @@
         "css": "CSS",
         "git": "Git",
         "javascript": "JavaScript",
+        "threejs": "Three.js",
         "llm": "LLMs",
         "mermaid": "Mermaid",
         "python": "Python",
@@ -50,6 +51,7 @@
 
     function extrairArea(path) {
         var limpo = decodeURIComponent(String(path || "")).replace(/^\.\//, "");
+        if (limpo.indexOf("javascript/07-threejs/") === 0) return "threejs";
         var partes = limpo.split("/");
         return partes.length > 1 ? partes[0] : "Geral";
     }
@@ -132,7 +134,7 @@
             artigosPorArea[area].push(item);
         }
 
-        var ordem = ["Geral", "csharp", "javascript", "react", "css", "git", "python", "mermaid", "llm", "tutoriais", "web"];
+        var ordem = ["Geral", "csharp", "javascript", "threejs", "react", "css", "git", "python", "mermaid", "llm", "tutoriais", "web"];
         pastas.innerHTML = "";
 
         for (i = 0; i < ordem.length; i += 1) {
