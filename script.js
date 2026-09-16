@@ -57,6 +57,9 @@ async function carregarTodosArquivosEmCache() {
 
 function extrairCategoria(caminho) {
     const caminhoLimpo = decodeURIComponent(caminho).replace(/^\.\//, "");
+    if (caminhoLimpo.startsWith("javascript/07-threejs/")) {
+        return "threejs";
+    }
     const partes = caminhoLimpo.split("/");
     if (partes.length > 1) {
         return partes[0];
@@ -113,6 +116,7 @@ const nomesDeAreas = {
     css: "CSS",
     git: "Git",
     javascript: "JavaScript",
+    threejs: "Three.js",
     mermaid: "Mermaid",
     llm: "LLMs",
     python: "Python",
@@ -127,6 +131,7 @@ const descricoesDeAreas = {
     css: "Layouts, responsividade, seletores, animações e acabamento visual para a web.",
     git: "Versionamento, GitHub, fluxo de trabalho e integração com APIs.",
     javascript: "Fundamentos da linguagem, DOM, eventos, APIs e projetos práticos no navegador.",
+    threejs: "Renderização 3D, geometria, câmera, animação, shaders e React Three Fiber.",
     mermaid: "Diagramas em texto para explicar fluxos, estruturas e decisões técnicas.",
     llm: "Grandes modelos de linguagem, Transformers, embeddings, engenharia de prompt e integrações de IA.",
     python: "Fundamentos, sintaxe e experimentos com a linguagem Python.",
