@@ -123,7 +123,7 @@ export const arquivosFallback = [
     { titulo: "Switch", path: "./javascript/01-fundamentos/06-Switch.md" },
     { titulo: "Truthy e falsy", path: "./javascript/01-fundamentos/07-Truthy%20e%20falsy.md" },
     { titulo: "Hoisting", path: "./javascript/01-fundamentos/08-Hoisting.md" },
-    { titulo: "Estruturas de repetição (for e while)", path: "./javascript/01-fundamentos/09-Estruturas%20de%20repeti%C3%A7%C3%A3o%20%28for%20e%20while%29.md" },
+    { titulo: "Estruturas de repetição (for e while)", path: "./javascript/01-fundamentos/09-Estruturas%20de%20repeti%C3%A7%C3%A3o%20%28for-while%29.md" },
     { titulo: "Debug (depuração)", path: "./javascript/01-fundamentos/10-Debug%20%28depura%C3%A7%C3%A3o%29.md" },
     { titulo: "Funções", path: "./javascript/02-funcoes-e-objetos/01-Fun%C3%A7%C3%B5es.md" },
     { titulo: "Arrow functions", path: "./javascript/02-funcoes-e-objetos/02-Arrow%20functions.md" },
@@ -194,6 +194,8 @@ export const arquivosFallback = [
     { titulo: "10-BufferGeometry e geometria paramétrica em Three.js", path: "./javascript/07-threejs/10-BufferGeometry%20e%20geometria%20param%C3%A9trica%20em%20Three.js.md" },
     { titulo: "11-InstancedMesh e desenho eficiente de muitas formas", path: "./javascript/07-threejs/11-InstancedMesh%20e%20desenho%20eficiente%20de%20muitas%20formas.md" },
     { titulo: "12-Shaders, GLSL e materiais customizados", path: "./javascript/07-threejs/12-Shaders%2C%20GLSL%20e%20materiais%20customizados.md" },
+    { titulo: "13-Câmera, projeção e leitura espacial em Three.js", path: "./javascript/07-threejs/13-C%C3%A2mera%2C%20proje%C3%A7%C3%A3o%20e%20leitura%20espacial%20em%20Three.js.md" },
+    { titulo: "14-GSAP, interpolação de estados e animação dirigida em Three.js", path: "./javascript/07-threejs/14-GSAP%2C%20interpola%C3%A7%C3%A3o%20de%20estados%20e%20anima%C3%A7%C3%A3o%20dirigida%20em%20Three.js.md" },
     // mermaid
     { titulo: "00-Guia de estudos", path: "./mermaid/00-Guia%20de%20estudos.md" },
     { titulo: "01-Mermaid como linguagem de modelagem visual", path: "./mermaid/01-Mermaid%20como%20linguagem%20de%20modelagem%20visual.md" },
