@@ -55,6 +55,11 @@ export const informacoesAreas = {
         numero: "11",
         nome: "Web",
         descricao: "Internet, domínios, protocolos e fundamentos da publicação de aplicações."
+    },
+    "threejs": {
+        numero: "12",
+        nome: "Three.js",
+        descricao: "Renderização 3D, geometria, câmera, animação, shaders e React Three Fiber."
     }
 };
 
@@ -175,6 +180,20 @@ export const arquivosFallback = [
     { titulo: "Projeto Lista de Tarefas (DOM)", path: "./javascript/07-projetos-praticos/01-Projeto%20Lista%20de%20Tarefas%20%28DOM%29.md" },
     { titulo: "Projeto Mini E-commerce (Array e DOM)", path: "./javascript/07-projetos-praticos/02-Projeto%20Mini%20E-commerce%20%28Array%20e%20DOM%29.md" },
     { titulo: "Projeto Consumo de API (GitHub Users)", path: "./javascript/07-projetos-praticos/03-Projeto%20Consumo%20de%20API%20%28GitHub%20Users%29.md" },
+    // threejs
+    { titulo: "00-Guia de estudos de Three.js", path: "./javascript/07-threejs/00-Guia%20de%20estudos%20de%20Three.js.md" },
+    { titulo: "01-Three.js e o modelo mental de uma cena 3D", path: "./javascript/07-threejs/01-Three.js%20e%20o%20modelo%20mental%20de%20uma%20cena%203D.md" },
+    { titulo: "02-Cena, câmera, renderer e coordenadas", path: "./javascript/07-threejs/02-Cena%2C%20c%C3%A2mera%2C%20renderer%20e%20coordenadas.md" },
+    { titulo: "03-Geometria, material, mesh e luz", path: "./javascript/07-threejs/03-Geometria%2C%20material%2C%20mesh%20e%20luz.md" },
+    { titulo: "04-Loop de renderização, tempo e animação", path: "./javascript/07-threejs/04-Loop%20de%20renderiza%C3%A7%C3%A3o%2C%20tempo%20e%20anima%C3%A7%C3%A3o.md" },
+    { titulo: "05-Interação, raycasting e relação com o DOM", path: "./javascript/07-threejs/05-Intera%C3%A7%C3%A3o%2C%20raycasting%20e%20rela%C3%A7%C3%A3o%20com%20o%20DOM.md" },
+    { titulo: "06-Composição visual, performance e diagnóstico de cenas 3D", path: "./javascript/07-threejs/06-Composi%C3%A7%C3%A3o%20visual%2C%20performance%20e%20diagn%C3%B3stico%20de%20cenas%203D.md" },
+    { titulo: "07-React Three Fiber no Next.js", path: "./javascript/07-threejs/07-React%20Three%20Fiber%20no%20Next.js.md" },
+    { titulo: "08-Ordem prática para dominar Three.js", path: "./javascript/07-threejs/08-Ordem%20pr%C3%A1tica%20para%20dominar%20Three.js.md" },
+    { titulo: "09-Transformações locais, globais e hierarquia em Three.js", path: "./javascript/07-threejs/09-Transforma%C3%A7%C3%B5es%20locais%2C%20globais%20e%20hierarquia%20em%20Three.js.md" },
+    { titulo: "10-BufferGeometry e geometria paramétrica em Three.js", path: "./javascript/07-threejs/10-BufferGeometry%20e%20geometria%20param%C3%A9trica%20em%20Three.js.md" },
+    { titulo: "11-InstancedMesh e desenho eficiente de muitas formas", path: "./javascript/07-threejs/11-InstancedMesh%20e%20desenho%20eficiente%20de%20muitas%20formas.md" },
+    { titulo: "12-Shaders, GLSL e materiais customizados", path: "./javascript/07-threejs/12-Shaders%2C%20GLSL%20e%20materiais%20customizados.md" },
     // mermaid
     { titulo: "00-Guia de estudos", path: "./mermaid/00-Guia%20de%20estudos.md" },
     { titulo: "01-Mermaid como linguagem de modelagem visual", path: "./mermaid/01-Mermaid%20como%20linguagem%20de%20modelagem%20visual.md" },
