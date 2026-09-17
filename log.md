@@ -4,6 +4,18 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-17
 
+* **Conclusão da Fase 9 da trilha avançada de Three.js (`javascript/07-threejs/00`, `20`, `js/vault.js`)**:
+  * **Artigo 20**: criado [[javascript/07-threejs/20-Partículas, curvas, campos e geometria procedural em Three.js|Partículas, curvas, campos e geometria procedural em Three.js]], cobrindo geração procedural, `THREE.Points`, distribuições aleatórias com intenção, seed/reprodutibilidade, atualização de partículas em CPU e GPU, curvas `CatmullRomCurve3`, tangentes, `TubeGeometry`, campos radiais e vetoriais, ruído coerente, integração numérica, geometria procedural, normais, bounds, instancing, pooling e diagnóstico de performance.
+  * **Modelo mental procedural**: formalizada a ideia `parâmetros → regra → estrutura visual`, distinguindo procedural de animação e separando geração inicial, simulação e deformação visual.
+  * **CPU e GPU**: explicitado quando manter lógica na CPU, quando usar atributos dinâmicos e quando migrar cálculos massivos e repetitivos para shaders, conectando a fase aos artigos de `BufferGeometry`, `InstancedMesh` e GLSL.
+  * **Curvas e campos**: adicionada a leitura de curvas como funções contínuas de posição e tangente, e de campos como funções que devolvem força ou direção em cada ponto do espaço.
+  * **Performance**: registrados limites de quantidade, lifetime, resolução, atualização parcial de buffers, `DynamicDrawUsage`, pooling e escolha entre `Points`, `InstancedMesh` e geometria única.
+  * **Código didático**: incluídos snippets atômicos e exemplos completos em Three.js e React Three Fiber, preservando a separação entre geração inicial e estado visual por frame.
+  * **Guia atualizado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] passa a marcar a Fase 9 como concluída, incorpora o artigo 20 à ordem recomendada, ao mapa mental, aos critérios de domínio e às prioridades práticas.
+  * **Web App**: `js/vault.js` foi sincronizado com o artigo 20 para manter o fallback da área Three.js completo quando a listagem dinâmica do GitHub falhar.
+  * **Validação editorial**: o artigo preserva WikiLinks, método Feynman, sentence case e seção `Resumo para memorizar`; a nova nota não introduz Mermaid próprio, enquanto o diagrama já existente do guia foi apenas estendido com um nó compatível com o padrão atual. Não foi realizada validação local completa de execução/lint nesta sessão.
+  * **Próxima etapa**: a Fase 10 fica reservada a picking avançado, raycasting em escala, seleção e drag; nenhum conteúdo da Fase 10 foi iniciado neste fechamento.
+
 * **Conclusão da Fase 8 da trilha avançada de Three.js (`javascript/07-threejs/00`, `19`, `js/vault.js`)**:
   * **Artigo 19**: criado [[javascript/07-threejs/19-Post-processing, render targets, depth e stencil em Three.js|Post-processing, render targets, depth e stencil em Three.js]], cobrindo `WebGLRenderTarget`, `EffectComposer`, `RenderPass`, `ShaderPass`, bloom, selective bloom, depth buffer, `DepthTexture`, stencil, viewport/scissor, múltiplas câmeras, ping-pong buffers, antialiasing e integração com React Three Fiber.
   * **Pipeline de composição**: formalizada a cadeia `cena base → buffers auxiliares → passes → composição → saída`, separando problemas que pertencem à geometria, materiais, luz e câmera daqueles que realmente exigem composição em screen space.
