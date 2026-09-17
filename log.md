@@ -4,6 +4,17 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-17
 
+* **Conclusão da Fase 10 da trilha avançada de Three.js (`javascript/07-threejs/00`, `21`, `js/vault.js`)**:
+  * **Artigo 21**: criado [[javascript/07-threejs/21-Picking, raycasting, seleção e drag em Three.js|Picking, raycasting, seleção e drag em Three.js]], cobrindo conversão de pointer para NDC, `Raycaster`, dados de interseção, seleção semântica, `userData`, hover, seleção persistente, layers, listas de pickables, bounds, `InstancedMesh.instanceId`, thresholds de `Points`/`Line`, drag por plano/eixo, offset de clique, espaços global/local, pointer capture, seleção por área, GPU picking e integração com React Three Fiber.
+  * **Modelo mental de interação**: formalizada a cadeia `ponteiro → NDC → raycaster → interseção → entidade semântica → estado de interação → feedback visual`, separando hit físico de identidade de domínio.
+  * **Drag espacial**: registrado que movimento 2D precisa de uma restrição 3D explícita, como plano ou eixo, e que o offset inicial e a conversão entre espaço global e local devem ser preservados.
+  * **Escala e performance**: a fase prioriza reduzir o conjunto de objetos testados, usar layers e mapear `instanceId` antes de considerar GPU picking ou estruturas espaciais mais complexas.
+  * **Código didático**: adicionados snippets atômicos e exemplos completos em Three.js e React Three Fiber com hover, seleção e drag em plano.
+  * **Guia atualizado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] passa a marcar a Fase 10 como concluída, incorpora o artigo 21 à ordem recomendada, ao mapa mental, aos critérios de domínio e às prioridades práticas.
+  * **Web App**: `js/vault.js` foi sincronizado com o artigo 21 para manter o fallback da área Three.js completo quando a listagem dinâmica do GitHub falhar.
+  * **Validação editorial**: o artigo preserva WikiLinks, método Feynman, sentence case e seção `Resumo para memorizar`; o diagrama já existente do guia foi estendido com um nó de interação. Não foi realizada validação local completa de execução/lint nesta sessão.
+  * **Próxima etapa**: a Fase 11 fica reservada a profiling de CPU/GPU, draw calls, memória, DPR e diagnóstico de gargalos; nenhum conteúdo da Fase 11 foi iniciado neste fechamento.
+
 * **Conclusão da Fase 9 da trilha avançada de Three.js (`javascript/07-threejs/00`, `20`, `js/vault.js`)**:
   * **Artigo 20**: criado [[javascript/07-threejs/20-Partículas, curvas, campos e geometria procedural em Three.js|Partículas, curvas, campos e geometria procedural em Three.js]], cobrindo geração procedural, `THREE.Points`, distribuições aleatórias com intenção, seed/reprodutibilidade, atualização de partículas em CPU e GPU, curvas `CatmullRomCurve3`, tangentes, `TubeGeometry`, campos radiais e vetoriais, ruído coerente, integração numérica, geometria procedural, normais, bounds, instancing, pooling e diagnóstico de performance.
   * **Modelo mental procedural**: formalizada a ideia `parâmetros → regra → estrutura visual`, distinguindo procedural de animação e separando geração inicial, simulação e deformação visual.
