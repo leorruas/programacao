@@ -4,6 +4,15 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-17
 
+* **Conclusão da Fase 6 da trilha avançada de Three.js (`javascript/07-threejs/00`, `17`, `js/vault.js`)**:
+  * **Artigo 17**: criado [[javascript/07-threejs/17-glTF e pipeline Blender para Three.js|glTF e pipeline Blender para Three.js]], cobrindo a diferença entre arquivo de autoria e asset de runtime, `.glb` vs `.gltf`, hierarquia, unidades, nomes de objetos, materiais PBR, UVs, exportação pelo Blender, `GLTFLoader`, animações, `userData`, Draco, KTX2 e integração com React Three Fiber.
+  * **Pipeline de autoria → runtime**: formalizada a separação entre problemas que pertencem ao Blender e problemas que pertencem à composição no Three.js, evitando correções arbitrárias de escala, rotação, materiais ou hierarquia no código.
+  * **Código didático**: adicionados snippets atômicos e dois exemplos completos, um em Three.js puro e outro em React Three Fiber com `useGLTF` e `useAnimations`.
+  * **Guia atualizado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] passa a marcar a Fase 6 como concluída, incorpora o artigo 17 à ordem recomendada e move a próxima etapa para superfície e iluminação avançada.
+  * **Web App**: `js/vault.js` foi sincronizado com o artigo 17 para manter o fallback da área Three.js completo quando a listagem dinâmica do GitHub falhar.
+  * **Validação editorial**: o artigo usa apenas WikiLinks para notas existentes da trilha, não adiciona Mermaid novo e referencia documentação oficial do Three.js, Khronos e Blender para os pontos de pipeline e formato.
+  * **Próxima etapa**: a Fase 7 fica reservada a UVs, texturas, materiais PBR e environment maps; nenhum conteúdo da Fase 7 foi iniciado neste fechamento.
+
 * **Conclusão da Fase 5 da trilha avançada de Three.js (`javascript/07-threejs/00`, `16`)**:
   * **Revisão do artigo 16**: [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|Arquitetura avançada de React Three Fiber para cenas complexas]] foi revisado como bloco autônomo de arquitetura, mantendo a separação entre modelo geométrico, estado narrativo, interpolação, renderização, câmera e controles de debug.
   * **Critério de fechamento**: a fase consolida o uso de estados canônicos como dados, funções de amostragem, refs e `useFrame` para estado visual por frame, `InstancedMesh` para famílias grandes, `CameraRig` separado e organização modular de pastas.
