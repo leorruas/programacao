@@ -4,6 +4,15 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-17
 
+* **Conclusão da Fase 7 da trilha avançada de Three.js (`javascript/07-threejs/00`, `18`, `js/vault.js`)**:
+  * **Artigo 18**: criado [[javascript/07-threejs/18-UVs, texturas, PBR e environment maps em Three.js|UVs, texturas, PBR e environment maps em Three.js]], cobrindo UVs, unwrap, texel density, texturas de cor vs dados, `colorSpace`, `MeshStandardMaterial`, metalness, roughness, normal maps, displacement, AO, channel packing, wrapping, mipmaps, filtros, anisotropy, memória de GPU, KTX2, HDR, environment maps, PMREM e tone mapping.
+  * **Pipeline de superfície**: formalizada a cadeia `geometria → UV → textura → material → iluminação → renderer → pixels`, com diagnóstico por camada para evitar corrigir problema de UV com material, material com luz ou luz com exposição.
+  * **Código didático**: adicionados snippets atômicos e exemplos completos em Three.js e React Three Fiber, incluindo `TextureLoader`, `RGBELoader`, `useTexture`, `Environment` e materiais PBR.
+  * **Guia atualizado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] passa a marcar a Fase 7 como concluída, incorpora o artigo 18 à ordem recomendada e move a próxima etapa para composição gráfica avançada.
+  * **Web App**: `js/vault.js` foi sincronizado com o artigo 18 para manter o fallback da área Three.js completo quando a listagem dinâmica do GitHub falhar.
+  * **Validação editorial**: o artigo usa WikiLinks para notas existentes da trilha, não introduz Mermaid novo e preserva a separação entre color management, mapas PBR, iluminação e pós-processamento.
+  * **Próxima etapa**: a Fase 8 fica reservada a post-processing, render targets e técnicas com depth/stencil; nenhum conteúdo da Fase 8 foi iniciado neste fechamento.
+
 * **Conclusão da Fase 6 da trilha avançada de Three.js (`javascript/07-threejs/00`, `17`, `js/vault.js`)**:
   * **Artigo 17**: criado [[javascript/07-threejs/17-glTF e pipeline Blender para Three.js|glTF e pipeline Blender para Three.js]], cobrindo a diferença entre arquivo de autoria e asset de runtime, `.glb` vs `.gltf`, hierarquia, unidades, nomes de objetos, materiais PBR, UVs, exportação pelo Blender, `GLTFLoader`, animações, `userData`, Draco, KTX2 e integração com React Three Fiber.
   * **Pipeline de autoria → runtime**: formalizada a separação entre problemas que pertencem ao Blender e problemas que pertencem à composição no Three.js, evitando correções arbitrárias de escala, rotação, materiais ou hierarquia no código.
