@@ -4,6 +4,17 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-17
 
+* **Conclusão da Fase 8 da trilha avançada de Three.js (`javascript/07-threejs/00`, `19`, `js/vault.js`)**:
+  * **Artigo 19**: criado [[javascript/07-threejs/19-Post-processing, render targets, depth e stencil em Three.js|Post-processing, render targets, depth e stencil em Three.js]], cobrindo `WebGLRenderTarget`, `EffectComposer`, `RenderPass`, `ShaderPass`, bloom, selective bloom, depth buffer, `DepthTexture`, stencil, viewport/scissor, múltiplas câmeras, ping-pong buffers, antialiasing e integração com React Three Fiber.
+  * **Pipeline de composição**: formalizada a cadeia `cena base → buffers auxiliares → passes → composição → saída`, separando problemas que pertencem à geometria, materiais, luz e câmera daqueles que realmente exigem composição em screen space.
+  * **Depth e stencil**: registrada a diferença entre `depthTest` e `depthWrite`, o uso de depth textures para efeitos dependentes de distância e o stencil como regra de permissão por pixel para máscaras, portais e recortes.
+  * **Performance**: enfatizado que passes fullscreen escalam com a quantidade de pixels, que DPR e resolução de render targets afetam o custo de forma forte e que efeitos auxiliares podem trabalhar em resolução reduzida.
+  * **Código didático**: o artigo inclui snippets atômicos e exemplos completos em Three.js e React Three Fiber, incluindo `EffectComposer`, `UnrealBloomPass`, `OutputPass` e `@react-three/postprocessing`.
+  * **Guia atualizado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] passa a marcar a Fase 8 como concluída, incorpora o artigo 19 ao mapa mental, à ordem recomendada e aos critérios de domínio e move a próxima etapa para sistemas procedurais.
+  * **Web App**: `js/vault.js` foi sincronizado com o artigo 19 para manter o fallback da área Three.js completo quando a listagem dinâmica do GitHub falhar.
+  * **Validação editorial**: o artigo preserva WikiLinks para notas existentes, método Feynman, exemplos duais e seção `Resumo para memorizar`; não foi realizada validação local completa de execução/lint nesta sessão.
+  * **Próxima etapa**: a Fase 9 fica reservada a partículas, curvas, campos e geometria procedural; nenhum conteúdo da Fase 9 foi iniciado neste fechamento.
+
 * **Conclusão da Fase 7 da trilha avançada de Three.js (`javascript/07-threejs/00`, `18`, `js/vault.js`)**:
   * **Artigo 18**: criado [[javascript/07-threejs/18-UVs, texturas, PBR e environment maps em Three.js|UVs, texturas, PBR e environment maps em Three.js]], cobrindo UVs, unwrap, texel density, texturas de cor vs dados, `colorSpace`, `MeshStandardMaterial`, metalness, roughness, normal maps, displacement, AO, channel packing, wrapping, mipmaps, filtros, anisotropy, memória de GPU, KTX2, HDR, environment maps, PMREM e tone mapping.
   * **Pipeline de superfície**: formalizada a cadeia `geometria → UV → textura → material → iluminação → renderer → pixels`, com diagnóstico por camada para evitar corrigir problema de UV com material, material com luz ou luz com exposição.
@@ -82,7 +93,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * **Glossário interligado**: as entradas Logit e Softmax foram ampliadas e agora apontam diretamente para as subseções correspondentes do artigo.
 
 * **Correção de WikiLinks dentro de callouts (`script.js`, `index.html`)**:
-  * **Causa**: `processarLinksObsidian()` instalava os eventos de clique antes de `processarCalloutsObsidian()`. Como o callout reconstrói o conteúdo via `innerHTML`, os listeners dos links eram descartados.
+  * **Causa**: `processarLinksObsidian()` instalava os eventos de clique antes de `processarCalloutsObsidian()`. Como o callout reconstrói seu conteúdo via `innerHTML`, os listeners dos links eram descartados.
   * **Correção**: invertida a ordem do pipeline para montar primeiro os callouts e somente depois converter/ativar os WikiLinks.
   * **Efeito**: links como Token, Parâmetro, Gradiente, Inferência e Glossário dentro de blocos `[!NOTE]` passam a manter navegação ativa.
   * **Cache**: cache buster do `script.js` atualizado para `estrutura-v36` no `index.html`.
