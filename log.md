@@ -4,6 +4,13 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-17
 
+* **Conclusão da Fase 5 da trilha avançada de Three.js (`javascript/07-threejs/00`, `16`)**:
+  * **Revisão do artigo 16**: [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|Arquitetura avançada de React Three Fiber para cenas complexas]] foi revisado como bloco autônomo de arquitetura, mantendo a separação entre modelo geométrico, estado narrativo, interpolação, renderização, câmera e controles de debug.
+  * **Critério de fechamento**: a fase consolida o uso de estados canônicos como dados, funções de amostragem, refs e `useFrame` para estado visual por frame, `InstancedMesh` para famílias grandes, `CameraRig` separado e organização modular de pastas.
+  * **Guia atualizado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] passa a marcar a Fase 5 como concluída e explicita a transição entre arquitetura interna de cenas e o próximo bloco de pipeline de assets.
+  * **Web App**: o artigo 16 já estava sincronizado no fallback de `js/vault.js`, portanto nenhum ajuste adicional de catálogo foi necessário neste fechamento.
+  * **Próxima etapa**: a Fase 6 fica reservada a assets e pipeline 3D, com `glTF` e integração Blender → Three.js; nenhum conteúdo da Fase 6 foi iniciado neste fechamento.
+
 * **Reorganização das fases avançadas de Three.js (`javascript/07-threejs/00`, `15`, `16`)**:
   * **Fase 4 concluída**: [[javascript/07-threejs/15-Perspectiva forçada, oclusão e objetos impossíveis em Three.js|Perspectiva forçada, oclusão e objetos impossíveis em Three.js]] passa a constituir sozinho o bloco de perspectiva, projeção e oclusão.
   * **Fase 5 separada**: [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|Arquitetura avançada de React Three Fiber para cenas complexas]] deixa de ser agrupado com a Fase 4 e passa a compor a fase seguinte, dedicada exclusivamente à arquitetura de cenas complexas em React Three Fiber.
@@ -13,7 +20,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 * **Conclusão da Fase 3 da trilha avançada de Three.js (`javascript/07-threejs/`, `js/vault.js`)**:
   * **Artigo 13**: criado [[javascript/07-threejs/13-Câmera, projeção e leitura espacial em Three.js|Câmera, projeção e leitura espacial em Three.js]], cobrindo `PerspectiveCamera`, `OrthographicCamera`, `fov`, distância, projeção para NDC, `unproject`, framing responsivo, camera rigs, parallax, near/far e diagnóstico de enquadramento.
-  * **Artigo 14**: criado [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|GSAP, interpolação de estados e animação dirigida em Three.js]], cobrindo estados canônicos, interpolação, GSAP como controle temporal, ranges perceptivos, easing, holds, timeline mestre, scrubber, identidade persistente e integração com câmera.
+  * **Artigo 14**: criado [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|GSAP, interpolação de estados]], cobrindo estados canônicos, interpolação, GSAP como controle temporal, ranges perceptivos, easing, holds, timeline mestre, scrubber, identidade persistente e integração com câmera.
   * **Guia revisado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] agora incorpora explicitamente os artigos `09–14`, organiza as três fases avançadas já concluídas e atualiza o mapa mental, critérios de domínio, prioridades práticas e próximos blocos.
   * **Fases consolidadas**: Fase 1 = estrutura espacial (`09–10`), Fase 2 = GPU e escala (`11–12`) e Fase 3 = câmera e movimento (`13–14`).
   * **Web App**: a área Three.js permanece apresentada como área própria no leitor, embora os arquivos continuem fisicamente em `javascript/07-threejs/`; os artigos `13` e `14` foram incluídos no fallback de `js/vault.js`.
