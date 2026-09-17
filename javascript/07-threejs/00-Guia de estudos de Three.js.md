@@ -145,7 +145,9 @@ A expansão avançada foi dividida em blocos menores para que cada fase tenha um
 * **Fase 2, GPU e escala, concluída**: [[javascript/07-threejs/11-InstancedMesh e desenho eficiente de muitas formas|11]] e [[javascript/07-threejs/12-Shaders, GLSL e materiais customizados|12]].
 * **Fase 3, câmera e movimento, concluída**: [[javascript/07-threejs/13-Câmera, projeção e leitura espacial em Three.js|13]] e [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|14]].
 * **Fase 4, perspectiva, projeção e oclusão, concluída**: [[javascript/07-threejs/15-Perspectiva forçada, oclusão e objetos impossíveis em Three.js|15]].
-* **Fase 5, arquitetura de cenas complexas em R3F, conteúdo criado e fechamento pendente**: [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|16]].
+* **Fase 5, arquitetura de cenas complexas em R3F, concluída**: [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|16]].
+
+A Fase 5 fecha o bloco dedicado à construção de cenas customizadas e narrativas: a partir daqui, a trilha passa da organização interna da cena para o pipeline de assets, superfícies, composição gráfica, interação e performance.
 
 A partir daqui, uma fase deve corresponder preferencialmente a um artigo avançado grande. Só temas naturalmente inseparáveis devem compartilhar a mesma fase.
 
