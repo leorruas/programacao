@@ -26,6 +26,7 @@ A ordem recomendada é:
 * [[javascript/07-threejs/18-UVs, texturas, PBR e environment maps em Three.js|UVs, texturas, PBR e environment maps em Three.js]]: conectar UVs, mapas de textura, `colorSpace`, materiais PBR, iluminação por ambiente, HDR e tone mapping.
 * [[javascript/07-threejs/19-Post-processing, render targets, depth e stencil em Three.js|Post-processing, render targets, depth e stencil em Three.js]]: compreender composição em múltiplas passagens, imagens intermediárias, depth textures, stencil, múltiplas câmeras e custos de efeitos em screen space.
 * [[javascript/07-threejs/20-Partículas, curvas, campos e geometria procedural em Three.js|Partículas, curvas, campos e geometria procedural em Three.js]]: gerar sistemas visuais por regras, escolher entre CPU e GPU e controlar partículas, trajetórias, campos e superfícies procedurais.
+* [[javascript/07-threejs/21-Picking, raycasting, seleção e drag em Three.js|Picking, raycasting, seleção e drag em Three.js]]: transformar entrada 2D em seleção semântica e manipulação espacial previsível, inclusive em cenas grandes e instanciadas.
 
 ---
 
@@ -49,11 +50,12 @@ flowchart LR
     N --> O["UVs, PBR e<br>environment maps"]
     O --> P["Post-processing,<br>depth e stencil"]
     P --> Q["Partículas, curvas<br>e procedural"]
+    Q --> R["Picking, seleção<br>e drag"]
 
     classDef core fill:#1f1f1f,stroke:#f1a7b5,color:#fff,stroke-width:2px;
     classDef component fill:#242424,stroke:#888,color:#fff;
-    class A,Q core;
-    class B,C,D,E,F,G,H,I,J,K,L,M,N,O,P component;
+    class A,R core;
+    class B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q component;
 ```
 
 Three.js fica muito mais simples quando você percebe que boa parte do trabalho se repete em quatro perguntas:
@@ -63,7 +65,7 @@ Three.js fica muito mais simples quando você percebe que boa parte do trabalho 
 3. **De onde estamos olhando?**
 4. **Como o renderer transforma isso em pixels?**
 
-Na parte avançada surgem outras perguntas: **como manter identidade, desempenho e intenção visual enquanto tudo muda ao longo do tempo?**, **como organizar uma cena complexa para que projeção, oclusão, câmera e código continuem legíveis?**, **como integrar assets produzidos fora do código sem transformar o runtime em uma coleção de correções de exportação?**, **como fazer uma superfície responder de forma coerente a texturas, luz e ambiente sem compensar um erro com outro?**, **quando a imagem final precisa passar por buffers e passes adicionais antes de chegar à tela?** e **quando vale gerar forma e comportamento por regras em vez de modelar cada elemento manualmente?**
+Na parte avançada surgem outras perguntas: **como manter identidade, desempenho e intenção visual enquanto tudo muda ao longo do tempo?**, **como organizar uma cena complexa para que projeção, oclusão, câmera e código continuem legíveis?**, **como integrar assets produzidos fora do código sem transformar o runtime em uma coleção de correções de exportação?**, **como fazer uma superfície responder de forma coerente a texturas, luz e ambiente sem compensar um erro com outro?**, **quando a imagem final precisa passar por buffers e passes adicionais antes de chegar à tela?**, **quando vale gerar forma e comportamento por regras em vez de modelar cada elemento manualmente?** e **como converter um gesto 2D em seleção e movimento espacial sem confundir mesh física, entidade semântica e estado da aplicação?**
 
 ---
 
@@ -78,7 +80,7 @@ Não é necessário dominar matemática avançada para começar. Para a base, ba
 * [[javascript/04-dom-e-browser/17-Canvas e gráficos|Canvas e gráficos]];
 * `requestAnimationFrame` ou a ideia de executar código repetidamente ao longo do tempo.
 
-Para os artigos 09 a 20, passa a ser importante reconhecer vetores, matrizes, hierarquia de transforms, interpolação, projeção, depth buffer, a diferença entre estado de aplicação e estado visual, a distinção entre arquivo de autoria e asset de runtime, a diferença entre texturas de cor e texturas de dados, a ideia de renderizar uma imagem para uma textura intermediária e a diferença entre gerar um sistema na CPU e delegar cálculos repetitivos à GPU. Esses conceitos são introduzidos progressivamente dentro da própria trilha.
+Para os artigos 09 a 21, passa a ser importante reconhecer vetores, matrizes, hierarquia de transforms, interpolação, projeção, depth buffer, a diferença entre estado de aplicação e estado visual, a distinção entre arquivo de autoria e asset de runtime, a diferença entre texturas de cor e texturas de dados, a ideia de renderizar uma imagem para uma textura intermediária, a diferença entre gerar um sistema na CPU e delegar cálculos repetitivos à GPU e a conversão entre coordenadas de tela, NDC, espaço global e espaço local. Esses conceitos são introduzidos progressivamente dentro da própria trilha.
 
 ---
 
@@ -131,6 +133,10 @@ Considere esta trilha consolidada quando você conseguir olhar para uma cena e r
 * como distinguir aleatoriedade de ruído coerente e usar seed quando a reprodutibilidade importa;
 * como curvas, tangentes e campos transformam regras matemáticas em trajetórias e movimento;
 * quando uma atualização deve permanecer na CPU e quando vale migrá-la para a GPU;
+* como converter pointer em NDC e usar `Raycaster` com a câmera ativa;
+* como separar interseção física, entidade selecionável e identidade de domínio;
+* como usar `instanceId`, layers e listas de pickables para interação em escala;
+* como transformar movimento do cursor em drag restrito a plano ou eixo sem misturar espaço global e local;
 * que mudança deve ser feita sem pedir ao Codex para reconstruir o sistema inteiro.
 
 O objetivo prático é **ganhar capacidade de direção técnica e visual**.
@@ -155,9 +161,10 @@ Priorize:
 10. integrar glTF e Blender quando a forma, os materiais ou as animações forem melhor produzidos como asset externo;
 11. refinar UVs, texturas, PBR, environment maps e color management quando a forma e o pipeline de asset já estiverem previsíveis;
 12. adicionar post-processing, render targets, depth ou stencil somente quando a cena base já estiver correta e o problema realmente pertencer à composição da imagem;
-13. criar sistemas procedurais somente depois de definir regra base, representação visual, orçamento de elementos e local correto de atualização entre CPU e GPU.
+13. criar sistemas procedurais somente depois de definir regra base, representação visual, orçamento de elementos e local correto de atualização entre CPU e GPU;
+14. implementar interação espacial definindo primeiro entidade semântica, conjunto de pickables, regra de oclusão e graus de liberdade do drag antes de otimizar o raycasting.
 
-A nota [[javascript/07-threejs/08-Ordem prática para dominar Three.js|Ordem prática para dominar Three.js]] transforma a base dessa sequência em exercícios pequenos. Os artigos 09–20 formam a trilha avançada para cenas mais dirigidas, complexas, integradas a pipelines de produção 3D, composição gráfica e geração procedural.
+A nota [[javascript/07-threejs/08-Ordem prática para dominar Three.js|Ordem prática para dominar Three.js]] transforma a base dessa sequência em exercícios pequenos. Os artigos 09–21 formam a trilha avançada para cenas mais dirigidas, complexas, integradas a pipelines de produção 3D, composição gráfica, geração procedural e interação espacial.
 
 ---
 
@@ -174,8 +181,9 @@ A expansão avançada foi dividida em blocos menores para que cada fase tenha um
 * **Fase 7, superfície e iluminação avançada, concluída**: [[javascript/07-threejs/18-UVs, texturas, PBR e environment maps em Three.js|18]].
 * **Fase 8, composição gráfica avançada, concluída**: [[javascript/07-threejs/19-Post-processing, render targets, depth e stencil em Three.js|19]].
 * **Fase 9, sistemas procedurais, concluída**: [[javascript/07-threejs/20-Partículas, curvas, campos e geometria procedural em Three.js|20]].
+* **Fase 10, interação espacial, concluída**: [[javascript/07-threejs/21-Picking, raycasting, seleção e drag em Three.js|21]].
 
-A Fase 9 fecha o bloco de geração procedural: a trilha passa a tratar partículas, trajetórias, campos e superfícies como sistemas derivados de regras, com escolha explícita entre CPU, buffers dinâmicos, instancing e GPU. A próxima etapa muda o foco de gerar muitos elementos para interagir com eles de forma eficiente.
+A Fase 10 fecha o bloco de interação espacial: a trilha passa a distinguir hit físico de entidade semântica, hover de seleção, pointer 2D de movimento 3D e raycasting correto de raycasting escalável. A próxima etapa deixa de perguntar “como interagir?” e passa a perguntar “onde está o custo real da cena?”.
 
 A partir daqui, uma fase deve corresponder preferencialmente a um artigo avançado grande. Só temas naturalmente inseparáveis devem compartilhar a mesma fase.
 
@@ -185,7 +193,6 @@ A partir daqui, uma fase deve corresponder preferencialmente a um artigo avança
 
 A sequência editorial prevista é:
 
-* **Fase 10, interação espacial**: picking avançado, raycasting em escala, seleção e drag.
 * **Fase 11, performance profissional**: profiling de CPU/GPU, draw calls, memória, DPR e gargalos.
 * **Fase 12, WebGPU e próximos pipelines**: modelo de renderização moderno e evolução além de WebGL.
 
@@ -211,11 +218,13 @@ Esses blocos entram separadamente para que cada etapa possa ser estudada, revisa
 * [Three.js Points](https://threejs.org/docs/pages/Points.html)
 * [Three.js Curve](https://threejs.org/docs/pages/Curve.html)
 * [Three.js BufferGeometry](https://threejs.org/docs/pages/BufferGeometry.html)
+* [Three.js Raycaster](https://threejs.org/docs/pages/Raycaster.html)
+* [React Three Fiber events](https://r3f.docs.pmnd.rs/api/events)
 
 ---
 
 ## Resumo para memorizar
 
-Three.js não é principalmente uma biblioteca de "efeitos 3D". É uma forma de descrever uma **cena**, posicionar uma **câmera**, criar ou carregar **objetos** e pedir a um **renderer** que transforme esse estado em pixels. Aprender essa arquitetura primeiro torna animação, interação, React Three Fiber, integração com assets, direção de materiais, composição final e geração procedural muito menos misteriosos.
+Three.js não é principalmente uma biblioteca de "efeitos 3D". É uma forma de descrever uma **cena**, posicionar uma **câmera**, criar ou carregar **objetos**, permitir que o usuário interaja com eles e pedir a um **renderer** que transforme esse estado em pixels. Aprender essa arquitetura primeiro torna animação, interação, React Three Fiber, integração com assets, direção de materiais, composição final e geração procedural muito menos misteriosos.
 
-Para trabalho aplicado, a prioridade é: **hierarquia e transformações → espaços local/global → câmera e projeção → geometria → React Three Fiber → animação → instancing e shaders → oclusão/perspectiva forçada → arquitetura de cena → pipeline de assets → superfícies e iluminação PBR → post-processing e buffers auxiliares → sistemas procedurais**. Resolva estados estáticos antes de animar, trate a câmera como parte da composição, mantenha matemática, estado e renderização separáveis, não use o runtime para mascarar problemas que pertencem ao asset de autoria, não use luz ou exposição para compensar UVs, mapas ou `colorSpace` incorretos, não use pós-processamento para esconder uma cena base que ainda está errada e não use complexidade procedural quando uma representação mais simples entrega o mesmo resultado.
+Para trabalho aplicado, a prioridade é: **hierarquia e transformações → espaços local/global → câmera e projeção → geometria → React Three Fiber → animação → instancing e shaders → oclusão/perspectiva forçada → arquitetura de cena → pipeline de assets → superfícies e iluminação PBR → post-processing e buffers auxiliares → sistemas procedurais → picking, seleção e drag**. Resolva estados estáticos antes de animar, trate a câmera como parte da composição, mantenha matemática, estado e renderização separáveis, não use o runtime para mascarar problemas que pertencem ao asset de autoria, não use luz ou exposição para compensar UVs, mapas ou `colorSpace` incorretos, não use pós-processamento para esconder uma cena base que ainda está errada, não use complexidade procedural quando uma representação mais simples entrega o mesmo resultado e não trate toda mesh atingida como se já fosse a entidade de aplicação que o usuário pretende manipular.
