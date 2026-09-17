@@ -20,6 +20,8 @@ A ordem recomendada é:
 * [[javascript/07-threejs/12-Shaders, GLSL e materiais customizados|Shaders, GLSL e materiais customizados]]: entender o que a GPU executa por vértice e por fragmento e quando um material customizado realmente vale a pena.
 * [[javascript/07-threejs/13-Câmera, projeção e leitura espacial em Three.js|Câmera, projeção e leitura espacial em Three.js]]: tratar `fov`, distância, alvo, parallax e enquadramento como parte da composição.
 * [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|GSAP, interpolação de estados e animação dirigida em Three.js]]: separar estados canônicos, interpolação e controle temporal em sequências complexas.
+* [[javascript/07-threejs/15-Perspectiva forçada, oclusão e objetos impossíveis em Three.js|Perspectiva forçada, oclusão e objetos impossíveis em Three.js]]: resolver silhueta, encontros projetados, sweet spot da câmera e ciclos locais de oclusão.
+* [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|Arquitetura avançada de React Three Fiber para cenas complexas]]: separar modelo geométrico, estado narrativo, interpolação, renderização, câmera e debug em cenas grandes.
 
 ---
 
@@ -37,11 +39,13 @@ flowchart LR
     H --> I["Instancing e<br>shaders"]
     I --> J["Câmera e<br>projeção"]
     J --> K["GSAP, estados e<br>timing"]
+    K --> L["Perspectiva forçada<br>e oclusão"]
+    L --> M["Arquitetura R3F<br>para cenas complexas"]
 
     classDef core fill:#1f1f1f,stroke:#f1a7b5,color:#fff,stroke-width:2px;
     classDef component fill:#242424,stroke:#888,color:#fff;
-    class A,K core;
-    class B,C,D,E,F,G,H,I,J component;
+    class A,M core;
+    class B,C,D,E,F,G,H,I,J,K,L component;
 ```
 
 Three.js fica muito mais simples quando você percebe que boa parte do trabalho se repete em quatro perguntas:
@@ -51,7 +55,7 @@ Three.js fica muito mais simples quando você percebe que boa parte do trabalho 
 3. **De onde estamos olhando?**
 4. **Como o renderer transforma isso em pixels?**
 
-Na parte avançada surge uma quinta pergunta: **como manter identidade, desempenho e intenção visual enquanto tudo isso muda ao longo do tempo?**
+Na parte avançada surgem mais duas perguntas: **como manter identidade, desempenho e intenção visual enquanto tudo muda ao longo do tempo?** e **como organizar uma cena complexa para que projeção, oclusão, câmera e código continuem legíveis?**
 
 ---
 
@@ -66,7 +70,7 @@ Não é necessário dominar matemática avançada para começar. Para a base, ba
 * [[javascript/04-dom-e-browser/17-Canvas e gráficos|Canvas e gráficos]];
 * `requestAnimationFrame` ou a ideia de executar código repetidamente ao longo do tempo.
 
-Para os artigos 09 a 14, passa a ser importante reconhecer vetores, matrizes, hierarquia de transforms, interpolação e a diferença entre CPU e GPU. Esses conceitos são introduzidos progressivamente dentro da própria trilha.
+Para os artigos 09 a 16, passa a ser importante reconhecer vetores, matrizes, hierarquia de transforms, interpolação, projeção, depth buffer e a diferença entre estado de aplicação e estado visual. Esses conceitos são introduzidos progressivamente dentro da própria trilha.
 
 ---
 
@@ -84,13 +88,13 @@ const material = new THREE.MeshStandardMaterial();
 const mesh = new THREE.Mesh(geometry, material);
 ```
 
-A ideia é parecida com usar componentes de interface em vez de desenhar cada pixel manualmente. Nos níveis avançados, você começa a atravessar essa abstração quando precisa controlar topologia, buffers, shaders, projeção e timing com mais precisão.
+A ideia é parecida com usar componentes de interface em vez de desenhar cada pixel manualmente.
 
 ---
 
 ## 4. Critério de domínio
 
-Considere a base consolidada quando você conseguir olhar para uma cena e responder:
+Considere esta trilha consolidada quando você conseguir olhar para uma cena e responder:
 
 * qual é a câmera e qual é seu `fov`;
 * onde a câmera está posicionada;
@@ -100,20 +104,14 @@ Considere a base consolidada quando você conseguir olhar para uma cena e respon
 * o que está sendo alterado a cada frame;
 * se um efeito pertence ao Three.js, ao React Three Fiber ou ao CSS/DOM;
 * qual parte provavelmente está deixando a cena pesada;
-* por que uma composição parece achatada, genérica ou confusa.
-
-Considere a parte avançada consolidada quando você também conseguir responder:
-
-* em qual espaço uma transformação está sendo aplicada;
-* se um pivô ou uma hierarquia de `Group` está causando um movimento inesperado;
-* quando construir `BufferGeometry` própria em vez de combinar primitivas;
-* quando `InstancedMesh` reduz draw calls de forma útil;
-* o que pertence ao vertex shader e o que pertence ao fragment shader;
-* como `fov`, distância e alvo alteram a leitura de uma forma sem mudar a geometria;
-* como medir ou projetar pontos 3D na tela;
-* quais propriedades definem um estado visual canônico;
-* como interpolar entre estados sem destruir a identidade dos objetos;
-* quando um problema de ritmo vem de duração, hold ou easing.
+* por que uma composição parece achatada, genérica ou confusa;
+* como converter pontos entre espaços local, global e projetado;
+* quando usar `BufferGeometry`, `InstancedMesh` ou shader customizado;
+* como separar estados canônicos da timeline que os conecta;
+* como distinguir uma falha de geometria de uma falha de câmera/projeção;
+* como construir uma relação de oclusão local sem exigir conexão física em 3D;
+* como estruturar uma cena R3F para que matemática, renderização e câmera não fiquem acopladas;
+* que mudança deve ser feita sem pedir ao Codex para reconstruir o sistema inteiro.
 
 O objetivo prático é **ganhar capacidade de direção técnica e visual**.
 
@@ -121,61 +119,49 @@ O objetivo prático é **ganhar capacidade de direção técnica e visual**.
 
 ## 5. Ordem prática de prioridade
 
-Para cenas com muitas peças, câmera dirigida e animação, a ordem eficiente é:
+Para cenas com muitas peças, câmera dirigida e animação, a ordem mais eficiente não é começar por shaders ou efeitos avançados.
+
+Priorize:
 
 1. `Object3D`, `Group`, posição, rotação, escala e pivô;
 2. `Vector3`, matrizes e conversão entre espaços local e global;
 3. câmera, `fov`, perspectiva e projeção em tela;
 4. geometria, `BoxGeometry` e depois `BufferGeometry`;
 5. React Three Fiber, `useThree`, refs e `useFrame`;
-6. estados estáticos e identidade persistente das peças;
-7. animação e interpolação de estados com GSAP;
-8. `InstancedMesh` quando há repetição em escala;
-9. shaders quando o efeito precisa realmente ser calculado na GPU.
+6. animação e interpolação de estados com GSAP;
+7. `InstancedMesh` e shaders quando o problema realmente exigir;
+8. perspectiva forçada e oclusão apenas depois de os estados estáticos básicos estarem resolvidos;
+9. separar matemática, estado, câmera e JSX antes de ampliar a complexidade da cena.
 
-A nota [[javascript/07-threejs/08-Ordem prática para dominar Three.js|Ordem prática para dominar Three.js]] transforma essa sequência em exercícios pequenos. Os artigos 09 a 14 aprofundam justamente os pontos em que cenas mais complexas deixam de ser resolvidas apenas por tentativa e erro.
-
----
-
-## 6. Blocos avançados já concluídos
-
-A expansão avançada foi organizada em três blocos até aqui.
-
-**Fase 1, estrutura espacial:**
-
-* [[javascript/07-threejs/09-Transformações locais, globais e hierarquia em Three.js|Transformações locais, globais e hierarquia em Three.js]];
-* [[javascript/07-threejs/10-BufferGeometry e geometria paramétrica em Three.js|BufferGeometry e geometria paramétrica em Three.js]].
-
-**Fase 2, GPU e escala:**
-
-* [[javascript/07-threejs/11-InstancedMesh e desenho eficiente de muitas formas|InstancedMesh e desenho eficiente de muitas formas]];
-* [[javascript/07-threejs/12-Shaders, GLSL e materiais customizados|Shaders, GLSL e materiais customizados]].
-
-**Fase 3, câmera e movimento:**
-
-* [[javascript/07-threejs/13-Câmera, projeção e leitura espacial em Three.js|Câmera, projeção e leitura espacial em Three.js]];
-* [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|GSAP, interpolação de estados e animação dirigida em Three.js]].
-
-Essa ordem não significa que shaders devam ser dominados antes de câmera e timing em todo projeto. Ela organiza a trilha editorial. Na prática, a prioridade continua sendo resolver forma, espaço e câmera antes de adicionar complexidade gráfica.
+A nota [[javascript/07-threejs/08-Ordem prática para dominar Three.js|Ordem prática para dominar Three.js]] transforma a base dessa sequência em exercícios pequenos. Os artigos 09–16 formam a trilha avançada para cenas mais dirigidas e complexas.
 
 ---
 
-## 7. O que fica para as próximas fases
+## 6. Fases avançadas concluídas
 
-Depois da Fase 3, a trilha pode avançar para problemas de composição e pipeline profissional:
+A expansão avançada foi organizada em blocos para que cada fase resolva um tipo de problema diferente.
 
-* perspectiva forçada, oclusão e objetos impossíveis;
-* arquitetura avançada de React Three Fiber com separação entre matemática, estado e JSX;
+* **Fase 1, estrutura espacial**: [[javascript/07-threejs/09-Transformações locais, globais e hierarquia em Three.js|09]] e [[javascript/07-threejs/10-BufferGeometry e geometria paramétrica em Three.js|10]].
+* **Fase 2, GPU e escala**: [[javascript/07-threejs/11-InstancedMesh e desenho eficiente de muitas formas|11]] e [[javascript/07-threejs/12-Shaders, GLSL e materiais customizados|12]].
+* **Fase 3, câmera e movimento**: [[javascript/07-threejs/13-Câmera, projeção e leitura espacial em Three.js|13]] e [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|14]].
+* **Fase 4, composição complexa**: [[javascript/07-threejs/15-Perspectiva forçada, oclusão e objetos impossíveis em Three.js|15]] e [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|16]].
+
+---
+
+## 7. O que fica para depois
+
+Depois dessa base e da composição complexa, a trilha pode crescer com artigos específicos sobre:
+
 * carregamento de modelos `glTF`;
-* texturas, UVs e environment maps;
+* UVs, texturas e environment maps;
 * post-processing;
 * partículas e sistemas procedurais;
 * integração Blender → Three.js;
-* WebGPU;
-* picking e interação avançada;
-* profiling de CPU, GPU, memória e draw calls.
+* profiling de GPU e diagnóstico de gargalos;
+* picking avançado e interação espacial;
+* WebGPU e a evolução do pipeline gráfico.
 
-Esses assuntos entram em fases separadas para que cada bloco resolva um tipo claro de problema.
+Esses assuntos não devem entrar todos de uma vez. Cada um resolve um problema diferente.
 
 ---
 
@@ -191,8 +177,6 @@ Esses assuntos entram em fases separadas para que cada bloco resolva um tipo cla
 
 ## Resumo para memorizar
 
-Three.js não é principalmente uma biblioteca de "efeitos 3D". É uma forma de descrever uma **cena**, posicionar uma **câmera**, criar **objetos** e pedir a um **renderer** que transforme esse estado em pixels.
+Three.js não é principalmente uma biblioteca de "efeitos 3D". É uma forma de descrever uma **cena**, posicionar uma **câmera**, criar **objetos** e pedir a um **renderer** que transforme esse estado em pixels. Aprender essa arquitetura primeiro torna animação, interação e React Three Fiber muito menos misteriosos.
 
-A progressão da trilha agora é: **cena e objetos → geometria e renderização → interação → composição → React Three Fiber → hierarquia e espaços → BufferGeometry → instancing e shaders → câmera e projeção → estados e animação dirigida**.
-
-Para trabalho aplicado, resolva primeiro os estados estáticos e a leitura espacial. Depois escolha a arquitetura de animação. Só então acrescente otimizações ou efeitos de GPU que o problema realmente exija.
+Para trabalho aplicado, a prioridade é: **hierarquia e transformações → espaços local/global → câmera e projeção → geometria → React Three Fiber → animação → instancing e shaders → oclusão/perspectiva forçada → arquitetura de cena**. Resolva estados estáticos antes de animar, trate a câmera como parte da composição e mantenha matemática, estado e renderização separáveis.
