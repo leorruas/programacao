@@ -4,6 +4,18 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-17
 
+* **Conclusão da Fase 11 da trilha avançada de Three.js (`javascript/07-threejs/00`, `22`, `js/vault.js`)**:
+  * **Artigo 22**: criado [[javascript/07-threejs/22-Performance profissional, profiling e diagnóstico de gargalos em Three.js|Performance profissional, profiling e diagnóstico de gargalos em Three.js]], cobrindo frame budget, frame time, distinção CPU/GPU, `renderer.info`, draw calls, triângulos, fill rate, DPR, pós-processamento, sombras, texturas e memória de GPU, garbage collection, alocações por frame, atualização de buffers, culling, LOD, raycasting, React Three Fiber e profiling com DevTools.
+  * **Modelo mental de performance**: formalizada a cadeia `frame budget → medir → localizar CPU/GPU → formular hipótese → mudar uma variável → medir novamente`, substituindo otimização por heurística por experimentos reproduzíveis.
+  * **Diagnóstico por sintomas**: registrada uma matriz prática relacionando redução de DPR, passes, draw calls, sombras, raycasting, texturas e alocações aos gargalos mais prováveis.
+  * **Performance em escala**: conectados instancing, shaders, sistemas procedurais, interação e assets às métricas que justificam cada técnica, incluindo o princípio de não adicionar complexidade sem ganho medido.
+  * **Código didático**: adicionados snippets atômicos, checklist de diagnóstico e exemplos completos em Three.js e React Three Fiber com frame time, `renderer.info` e limite de DPR.
+  * **Guia atualizado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] passa a marcar a Fase 11 como concluída, incorpora o artigo 22 à ordem recomendada, ao mapa mental, aos critérios de domínio e às prioridades práticas.
+  * **Web App**: `js/vault.js` foi sincronizado com o artigo 22 para manter o fallback da área Three.js completo quando a listagem dinâmica do GitHub falhar; `script.js` não possui catálogo manual correspondente e não exigiu alteração.
+  * **Validação editorial**: o artigo preserva WikiLinks, método Feynman, sentence case e seção `Resumo para memorizar`; o diagrama já existente do guia foi apenas estendido com um nó de profiling. Não foi realizada validação local completa de execução/lint nesta sessão.
+  * **Correção histórica**: restaurado no registro da Fase 3 o rótulo completo do artigo 14 para `GSAP, interpolação de estados e animação dirigida em Three.js`, sem alterar o destino do WikiLink.
+  * **Próxima etapa**: a Fase 12 fica reservada a WebGPU e próximos pipelines; nenhum conteúdo da Fase 12 foi iniciado neste fechamento.
+
 * **Conclusão da Fase 10 da trilha avançada de Three.js (`javascript/07-threejs/00`, `21`, `js/vault.js`)**:
   * **Artigo 21**: criado [[javascript/07-threejs/21-Picking, raycasting, seleção e drag em Three.js|Picking, raycasting, seleção e drag em Three.js]], cobrindo conversão de pointer para NDC, `Raycaster`, dados de interseção, seleção semântica, `userData`, hover, seleção persistente, layers, listas de pickables, bounds, `InstancedMesh.instanceId`, thresholds de `Points`/`Line`, drag por plano/eixo, offset de clique, espaços global/local, pointer capture, seleção por área, GPU picking e integração com React Three Fiber.
   * **Modelo mental de interação**: formalizada a cadeia `ponteiro → NDC → raycaster → interseção → entidade semântica → estado de interação → feedback visual`, separando hit físico de identidade de domínio.
@@ -72,7 +84,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 * **Conclusão da Fase 3 da trilha avançada de Three.js (`javascript/07-threejs/`, `js/vault.js`)**:
   * **Artigo 13**: criado [[javascript/07-threejs/13-Câmera, projeção e leitura espacial em Three.js|Câmera, projeção e leitura espacial em Three.js]], cobrindo `PerspectiveCamera`, `OrthographicCamera`, `fov`, distância, projeção para NDC, `unproject`, framing responsivo, camera rigs, parallax, near/far e diagnóstico de enquadramento.
-  * **Artigo 14**: criado [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|GSAP, interpolação de estados]], cobrindo estados canônicos, interpolação, GSAP como controle temporal, ranges perceptivos, easing, holds, timeline mestre, scrubber, identidade persistente e integração com câmera.
+  * **Artigo 14**: criado [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|GSAP, interpolação de estados e animação dirigida em Three.js]], cobrindo estados canônicos, interpolação, GSAP como controle temporal, ranges perceptivos, easing, holds, timeline mestre, scrubber, identidade persistente e integração com câmera.
   * **Guia revisado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] agora incorpora explicitamente os artigos `09–14`, organiza as três fases avançadas já concluídas e atualiza o mapa mental, critérios de domínio, prioridades práticas e próximos blocos.
   * **Fases consolidadas**: Fase 1 = estrutura espacial (`09–10`), Fase 2 = GPU e escala (`11–12`) e Fase 3 = câmera e movimento (`13–14`).
   * **Web App**: a área Three.js permanece apresentada como área própria no leitor, embora os arquivos continuem fisicamente em `javascript/07-threejs/`; os artigos `13` e `14` foram incluídos no fallback de `js/vault.js`.
