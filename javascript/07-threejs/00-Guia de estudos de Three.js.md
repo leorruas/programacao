@@ -28,6 +28,7 @@ A ordem recomendada é:
 * [[javascript/07-threejs/20-Partículas, curvas, campos e geometria procedural em Three.js|Partículas, curvas, campos e geometria procedural em Three.js]]: gerar sistemas visuais por regras, escolher entre CPU e GPU e controlar partículas, trajetórias, campos e superfícies procedurais.
 * [[javascript/07-threejs/21-Picking, raycasting, seleção e drag em Three.js|Picking, raycasting, seleção e drag em Three.js]]: transformar entrada 2D em seleção semântica e manipulação espacial previsível, inclusive em cenas grandes e instanciadas.
 * [[javascript/07-threejs/22-Performance profissional, profiling e diagnóstico de gargalos em Three.js|Performance profissional, profiling e diagnóstico de gargalos em Three.js]]: medir frame time, separar gargalos de CPU/GPU e escolher otimizações a partir de evidência em vez de heurísticas soltas.
+* [[javascript/07-threejs/23-WebGPU, TSL e próximos pipelines em Three.js|WebGPU, TSL e próximos pipelines em Three.js]]: entender a transição arquitetural de WebGL para `WebGPURenderer`, Node Materials, TSL, compute, storage buffers e pipelines modernos.
 
 ---
 
@@ -53,11 +54,12 @@ flowchart LR
     P --> Q["Partículas, curvas<br>e procedural"]
     Q --> R["Picking, seleção<br>e drag"]
     R --> S["Profiling, frame time<br>e gargalos"]
+    S --> T["WebGPU, TSL<br>e compute"]
 
     classDef core fill:#1f1f1f,stroke:#f1a7b5,color:#fff,stroke-width:2px;
     classDef component fill:#242424,stroke:#888,color:#fff;
-    class A,S core;
-    class B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R component;
+    class A,T core;
+    class B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S component;
 ```
 
 Three.js fica muito mais simples quando você percebe que boa parte do trabalho se repete em quatro perguntas:
@@ -67,7 +69,7 @@ Three.js fica muito mais simples quando você percebe que boa parte do trabalho 
 3. **De onde estamos olhando?**
 4. **Como o renderer transforma isso em pixels?**
 
-Na parte avançada surgem outras perguntas: **como manter identidade, desempenho e intenção visual enquanto tudo muda ao longo do tempo?**, **como organizar uma cena complexa para que projeção, oclusão, câmera e código continuem legíveis?**, **como integrar assets produzidos fora do código sem transformar o runtime em uma coleção de correções de exportação?**, **como fazer uma superfície responder de forma coerente a texturas, luz e ambiente sem compensar um erro com outro?**, **quando a imagem final precisa passar por buffers e passes adicionais antes de chegar à tela?**, **quando vale gerar forma e comportamento por regras em vez de modelar cada elemento manualmente?**, **como converter um gesto 2D em seleção e movimento espacial sem confundir mesh física, entidade semântica e estado da aplicação?** e **como descobrir onde está o gargalo real antes de escolher uma técnica de otimização?**
+Na parte avançada surgem outras perguntas: **como manter identidade, desempenho e intenção visual enquanto tudo muda ao longo do tempo?**, **como organizar uma cena complexa para que projeção, oclusão, câmera e código continuem legíveis?**, **como integrar assets produzidos fora do código sem transformar o runtime em uma coleção de correções de exportação?**, **como fazer uma superfície responder de forma coerente a texturas, luz e ambiente sem compensar um erro com outro?**, **quando a imagem final precisa passar por buffers e passes adicionais antes de chegar à tela?**, **quando vale gerar forma e comportamento por regras em vez de modelar cada elemento manualmente?**, **como converter um gesto 2D em seleção e movimento espacial sem confundir mesh física, entidade semântica e estado da aplicação?**, **como descobrir onde está o gargalo real antes de escolher uma técnica de otimização?** e **quando uma evolução de pipeline como WebGPU realmente resolve um limite arquitetural em vez de apenas trocar tecnologia?**
 
 ---
 
@@ -82,13 +84,13 @@ Não é necessário dominar matemática avançada para começar. Para a base, ba
 * [[javascript/04-dom-e-browser/17-Canvas e gráficos|Canvas e gráficos]];
 * `requestAnimationFrame` ou a ideia de executar código repetidamente ao longo do tempo.
 
-Para os artigos 09 a 22, passa a ser importante reconhecer vetores, matrizes, hierarquia de transforms, interpolação, projeção, depth buffer, a diferença entre estado de aplicação e estado visual, a distinção entre arquivo de autoria e asset de runtime, a diferença entre texturas de cor e texturas de dados, a ideia de renderizar uma imagem para uma textura intermediária, a diferença entre gerar um sistema na CPU e delegar cálculos repetitivos à GPU, a conversão entre coordenadas de tela, NDC, espaço global e espaço local e a leitura de frame time como orçamento de renderização. Esses conceitos são introduzidos progressivamente dentro da própria trilha.
+Para os artigos 09 a 23, passa a ser importante reconhecer vetores, matrizes, hierarquia de transforms, interpolação, projeção, depth buffer, a diferença entre estado de aplicação e estado visual, a distinção entre arquivo de autoria e asset de runtime, a diferença entre texturas de cor e texturas de dados, a ideia de renderizar uma imagem para uma textura intermediária, a diferença entre gerar um sistema na CPU e delegar cálculos repetitivos à GPU, a conversão entre coordenadas de tela, NDC, espaço global e espaço local, a leitura de frame time como orçamento de renderização e a diferença entre API gráfica, renderer, backend, linguagem de shader e grafo de nós. Esses conceitos são introduzidos progressivamente dentro da própria trilha.
 
 ---
 
 ## 3. O que Three.js resolve
 
-O navegador já possui APIs gráficas de baixo nível, como WebGL. Elas dão acesso à GPU, mas exigem que você cuide de muitos detalhes técnicos. Three.js cria uma camada mais amigável sobre esse processo.
+O navegador já possui APIs gráficas de baixo nível, como WebGL e WebGPU. Elas dão acesso à GPU, mas exigem que você cuide de muitos detalhes técnicos. Three.js cria uma camada mais amigável sobre esse processo.
 
 Em vez de programar diretamente cada etapa gráfica, você trabalha com objetos como:
 
@@ -100,7 +102,7 @@ const material = new THREE.MeshStandardMaterial();
 const mesh = new THREE.Mesh(geometry, material);
 ```
 
-A ideia é parecida com usar componentes de interface em vez de desenhar cada pixel manualmente.
+A ideia é parecida com usar componentes de interface em vez de desenhar cada pixel manualmente. Na arquitetura mais nova, `WebGPURenderer` e TSL ampliam essa abstração para backends modernos, shaders por nós, compute e pipelines de composição mais declarativos.
 
 ---
 
@@ -141,6 +143,10 @@ Considere esta trilha consolidada quando você conseguir olhar para uma cena e r
 * como transformar movimento do cursor em drag restrito a plano ou eixo sem misturar espaço global e local;
 * como usar frame time, `renderer.info`, DPR, passes, sombras e alocações para separar gargalos de CPU e GPU;
 * como comparar uma baseline com uma hipótese de otimização antes de manter a mudança;
+* como distinguir WebGPU, `WebGPURenderer`, TSL, WGSL e o backend efetivamente ativo;
+* quando TSL pode permanecer portável e quando um recurso exige WebGPU de verdade;
+* como compute e storage buffers reduzem transferências repetitivas entre CPU e GPU;
+* por que `ShaderMaterial`, `onBeforeCompile()` e `EffectComposer` exigem revisão arquitetural ao migrar para o novo pipeline;
 * que mudança deve ser feita sem pedir ao Codex para reconstruir o sistema inteiro.
 
 O objetivo prático é **ganhar capacidade de direção técnica e visual**.
@@ -167,9 +173,10 @@ Priorize:
 12. adicionar post-processing, render targets, depth ou stencil somente quando a cena base já estiver correta e o problema realmente pertencer à composição da imagem;
 13. criar sistemas procedurais somente depois de definir regra base, representação visual, orçamento de elementos e local correto de atualização entre CPU e GPU;
 14. implementar interação espacial definindo primeiro entidade semântica, conjunto de pickables, regra de oclusão e graus de liberdade do drag antes de otimizar o raycasting;
-15. otimizar apenas depois de medir frame time, registrar uma baseline e identificar se o custo dominante está em CPU, GPU, memória, pixels, draw calls ou interação.
+15. otimizar apenas depois de medir frame time, registrar uma baseline e identificar se o custo dominante está em CPU, GPU, memória, pixels, draw calls ou interação;
+16. migrar para `WebGPURenderer` por camadas, reconstruindo shaders em TSL, pós-processamento em `RenderPipeline` e compute apenas onde houver benefício arquitetural ou de performance mensurável.
 
-A nota [[javascript/07-threejs/08-Ordem prática para dominar Three.js|Ordem prática para dominar Three.js]] transforma a base dessa sequência em exercícios pequenos. Os artigos 09–22 formam a trilha avançada para cenas mais dirigidas, complexas, integradas a pipelines de produção 3D, composição gráfica, geração procedural, interação espacial e profiling profissional.
+A nota [[javascript/07-threejs/08-Ordem prática para dominar Three.js|Ordem prática para dominar Three.js]] transforma a base dessa sequência em exercícios pequenos. Os artigos 09–23 formam a trilha avançada completa para cenas dirigidas, complexas, integradas a pipelines de produção 3D, composição gráfica, geração procedural, interação espacial, profiling profissional e evolução para WebGPU.
 
 ---
 
@@ -188,20 +195,21 @@ A expansão avançada foi dividida em blocos menores para que cada fase tenha um
 * **Fase 9, sistemas procedurais, concluída**: [[javascript/07-threejs/20-Partículas, curvas, campos e geometria procedural em Three.js|20]].
 * **Fase 10, interação espacial, concluída**: [[javascript/07-threejs/21-Picking, raycasting, seleção e drag em Three.js|21]].
 * **Fase 11, performance profissional, concluída**: [[javascript/07-threejs/22-Performance profissional, profiling e diagnóstico de gargalos em Three.js|22]].
+* **Fase 12, WebGPU e próximos pipelines, concluída**: [[javascript/07-threejs/23-WebGPU, TSL e próximos pipelines em Three.js|23]].
 
-A Fase 11 fecha o bloco de performance com uma mudança de método: a trilha deixa de tratar otimização como coleção de truques e passa a exigir baseline, frame budget, separação CPU/GPU, hipótese isolada e medição antes/depois. A próxima etapa muda o foco do diagnóstico dentro do pipeline WebGL para a evolução do próprio pipeline gráfico.
+A Fase 12 fecha a expansão planejada conectando o modelo mental construído desde `Object3D` e `BufferGeometry` a uma arquitetura gráfica moderna: `WebGPURenderer` como renderer multi-backend, TSL como linguagem de composição de nós, compute e storage como novas fronteiras de execução e `RenderPipeline` como evolução da composição final.
 
-A partir daqui, uma fase deve corresponder preferencialmente a um artigo avançado grande. Só temas naturalmente inseparáveis devem compartilhar a mesma fase.
+A partir daqui, novos blocos só devem ser adicionados quando houver um problema de aprendizagem realmente novo e coeso, em vez de prolongar a trilha apenas para acompanhar APIs pontuais.
 
 ---
 
-## 7. Próximas fases planejadas
+## 7. Trilha avançada concluída
 
-A sequência editorial prevista é:
+As 12 fases avançadas planejadas estão concluídas. A sequência agora forma um percurso completo entre fundamentos espaciais e evolução de pipeline:
 
-* **Fase 12, WebGPU e próximos pipelines**: modelo de renderização moderno e evolução além de WebGL.
+`estrutura espacial → GPU e escala → câmera e movimento → projeção e oclusão → arquitetura R3F → assets → superfícies → composição → procedural → interação → profiling → WebGPU`
 
-Esse bloco entra separadamente para que a evolução de WebGL para pipelines gráficos mais modernos seja estudada como mudança arquitetural, e não como apenas mais uma técnica de otimização.
+O próximo passo pedagógico não é abrir automaticamente uma Fase 13. É aplicar a trilha em projetos reais, voltar aos artigos conforme surgirem gargalos concretos e criar novas fases apenas se aparecer um domínio grande o suficiente para justificar um bloco próprio.
 
 ---
 
@@ -227,11 +235,16 @@ Esse bloco entra separadamente para que a evolução de WebGL para pipelines gr�
 * [React Three Fiber events](https://r3f.docs.pmnd.rs/api/events)
 * [Three.js WebGLRenderer.info](https://threejs.org/docs/pages/WebGLRenderer.html#info)
 * [Chrome DevTools Performance](https://developer.chrome.com/docs/devtools/performance/)
+* [Three.js WebGPURenderer](https://threejs.org/docs/pages/WebGPURenderer.html)
+* [Three.js TSL](https://threejs.org/docs/pages/TSL.html)
+* [Three.js RenderPipeline](https://threejs.org/docs/pages/RenderPipeline.html)
+* [Three.js StorageBufferNode](https://threejs.org/docs/pages/StorageBufferNode.html)
+* [React Three Fiber Canvas](https://r3f.docs.pmnd.rs/api/canvas)
 
 ---
 
 ## Resumo para memorizar
 
-Three.js não é principalmente uma biblioteca de "efeitos 3D". É uma forma de descrever uma **cena**, posicionar uma **câmera**, criar ou carregar **objetos**, permitir que o usuário interaja com eles, medir o custo desse sistema e pedir a um **renderer** que transforme esse estado em pixels. Aprender essa arquitetura primeiro torna animação, interação, React Three Fiber, integração com assets, direção de materiais, composição final, geração procedural e profiling muito menos misteriosos.
+Three.js não é principalmente uma biblioteca de "efeitos 3D". É uma forma de descrever uma **cena**, posicionar uma **câmera**, criar ou carregar **objetos**, permitir que o usuário interaja com eles, medir o custo desse sistema e pedir a um **renderer** que transforme esse estado em pixels. A trilha avançada amplia esse modelo até shaders, composição, dados massivos e pipelines modernos sem abandonar a mesma pergunta central: onde o estado vive, quem o transforma e qual etapa realmente produz o custo ou o efeito visual observado.
 
-Para trabalho aplicado, a prioridade é: **hierarquia e transformações → espaços local/global → câmera e projeção → geometria → React Three Fiber → animação → instancing e shaders → oclusão/perspectiva forçada → arquitetura de cena → pipeline de assets → superfícies e iluminação PBR → post-processing e buffers auxiliares → sistemas procedurais → picking, seleção e drag → profiling e otimização medida**. Resolva estados estáticos antes de animar, trate a câmera como parte da composição, mantenha matemática, estado e renderização separáveis, não use o runtime para mascarar problemas que pertencem ao asset de autoria, não use luz ou exposição para compensar UVs, mapas ou `colorSpace` incorretos, não use pós-processamento para esconder uma cena base que ainda está errada, não use complexidade procedural quando uma representação mais simples entrega o mesmo resultado, não trate toda mesh atingida como se já fosse a entidade de aplicação que o usuário pretende manipular e não otimize sem uma baseline que mostre qual gargalo você está tentando reduzir.
+Para trabalho aplicado, a prioridade é: **hierarquia e transformações → espaços local/global → câmera e projeção → geometria → React Three Fiber → animação → instancing e shaders → oclusão/perspectiva forçada → arquitetura de cena → pipeline de assets → superfícies e iluminação PBR → post-processing e buffers auxiliares → sistemas procedurais → picking, seleção e drag → profiling e otimização medida → WebGPU, TSL e compute quando o problema justificar**. Resolva estados estáticos antes de animar, trate a câmera como parte da composição, mantenha matemática, estado e renderização separáveis, não use o runtime para mascarar problemas que pertencem ao asset de autoria, não use pós-processamento para esconder uma cena base incorreta, não use complexidade procedural quando uma representação mais simples entrega o mesmo resultado, não otimize sem uma baseline e não migre de pipeline apenas porque uma tecnologia nova existe.
