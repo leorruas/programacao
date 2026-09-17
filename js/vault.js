@@ -198,6 +198,7 @@ export const arquivosFallback = [
     { titulo: "14-GSAP, interpolação de estados e animação dirigida em Three.js", path: "./javascript/07-threejs/14-GSAP%2C%20interpola%C3%A7%C3%A3o%20de%20estados%20e%20anima%C3%A7%C3%A3o%20dirigida%20em%20Three.js.md" },
     { titulo: "15-Perspectiva forçada, oclusão e objetos impossíveis em Three.js", path: "./javascript/07-threejs/15-Perspectiva%20for%C3%A7ada%2C%20oclus%C3%A3o%20e%20objetos%20imposs%C3%ADveis%20em%20Three.js.md" },
     { titulo: "16-Arquitetura avançada de React Three Fiber para cenas complexas", path: "./javascript/07-threejs/16-Arquitetura%20avan%C3%A7ada%20de%20React%20Three%20Fiber%20para%20cenas%20complexas.md" },
+    { titulo: "17-glTF e pipeline Blender para Three.js", path: "./javascript/07-threejs/17-glTF%20e%20pipeline%20Blender%20para%20Three.js.md" },
     // mermaid
     { titulo: "00-Guia de estudos", path: "./mermaid/00-Guia%20de%20estudos.md" },
     { titulo: "01-Mermaid como linguagem de modelagem visual", path: "./mermaid/01-Mermaid%20como%20linguagem%20de%20modelagem%20visual.md" },
