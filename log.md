@@ -4,6 +4,13 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-17
 
+* **Reorganização das fases avançadas de Three.js (`javascript/07-threejs/00`, `15`, `16`)**:
+  * **Fase 4 concluída**: [[javascript/07-threejs/15-Perspectiva forçada, oclusão e objetos impossíveis em Three.js|Perspectiva forçada, oclusão e objetos impossíveis em Three.js]] passa a constituir sozinho o bloco de perspectiva, projeção e oclusão.
+  * **Fase 5 separada**: [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|Arquitetura avançada de React Three Fiber para cenas complexas]] deixa de ser agrupado com a Fase 4 e passa a compor a fase seguinte, dedicada exclusivamente à arquitetura de cenas complexas em React Three Fiber.
+  * **Granularidade editorial**: a partir da Fase 4, um artigo avançado grande corresponde preferencialmente a uma fase; apenas temas naturalmente inseparáveis devem compartilhar o mesmo bloco.
+  * **Guia atualizado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] agora diferencia explicitamente Fase 4 concluída e Fase 5 com conteúdo criado, mas fechamento ainda pendente, e planeja as Fases 6–12 em blocos menores.
+  * **Próximo passo**: a Fase 5 não é considerada encerrada neste registro, mesmo com o artigo 16 já existente; seu fechamento será tratado separadamente após revisão própria.
+
 * **Conclusão da Fase 3 da trilha avançada de Three.js (`javascript/07-threejs/`, `js/vault.js`)**:
   * **Artigo 13**: criado [[javascript/07-threejs/13-Câmera, projeção e leitura espacial em Three.js|Câmera, projeção e leitura espacial em Three.js]], cobrindo `PerspectiveCamera`, `OrthographicCamera`, `fov`, distância, projeção para NDC, `unproject`, framing responsivo, camera rigs, parallax, near/far e diagnóstico de enquadramento.
   * **Artigo 14**: criado [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|GSAP, interpolação de estados e animação dirigida em Three.js]], cobrindo estados canônicos, interpolação, GSAP como controle temporal, ranges perceptivos, easing, holds, timeline mestre, scrubber, identidade persistente e integração com câmera.
