@@ -4,6 +4,19 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-09-17
 
+* **Conclusão da Fase 12 e fechamento da trilha avançada de Three.js (`javascript/07-threejs/00`, `23`, `js/vault.js`)**:
+  * **Artigo 23**: criado [[javascript/07-threejs/23-WebGPU, TSL e próximos pipelines em Three.js|WebGPU, TSL e próximos pipelines em Three.js]], cobrindo a diferença entre WebGPU, `WebGPURenderer`, TSL e WGSL, entry point `three/webgpu`, inicialização assíncrona, fallback WebGL 2, Node Materials, migração de shaders customizados, compute, storage buffers, readback, `RenderPipeline`, MRT e integração com React Three Fiber.
+  * **Modelo mental de pipeline moderno**: formalizada a separação `API gráfica → renderer → backend → grafo TSL → WGSL/GLSL → GPU`, evitando tratar WebGPU como simples substituição de renderer ou como modo automático de performance.
+  * **Compute e dados residentes na GPU**: registrada a cadeia `CPU agenda → compute processa → storage buffer mantém dados → renderização consome`, com ênfase em evitar uploads e readbacks desnecessários quando grandes conjuntos de dados podem permanecer na GPU.
+  * **Migração segura**: estruturado o processo `baseline → troca de renderer → migração de shaders para TSL → migração de post-processing para RenderPipeline → compute apenas onde fizer sentido → nova medição`, preservando o método de profiling consolidado na Fase 11.
+  * **Compatibilidade**: distinguido fallback transparente, enhancement progressivo e WebGPU obrigatório; `forceWebGL` é tratado como teste de portabilidade do novo renderer, não como validação de recursos WebGPU exclusivos.
+  * **Código didático**: adicionados snippets atômicos, exemplo de compute com `instancedArray()`/`computeAsync()`, composição com `RenderPipeline` e exemplos completos em Three.js e React Three Fiber usando TSL.
+  * **Verificação técnica**: conteúdo alinhado à documentação atual do Three.js para `WebGPURenderer`, TSL, `RenderPipeline`, `StorageBufferNode` e compute, e à documentação atual do React Three Fiber para inicialização assíncrona do renderer via `Canvas.gl`.
+  * **Guia atualizado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] passa a incorporar o artigo 23, estender o mapa mental até WebGPU/TSL/compute, marcar a Fase 12 como concluída e substituir a seção de próximas fases pelo fechamento explícito das 12 fases planejadas.
+  * **Web App**: `js/vault.js` foi sincronizado com o artigo 23; `script.js` continua obtendo o catálogo dinamicamente de `js/vault.js` e não exigiu alteração manual.
+  * **Validação editorial**: o artigo preserva WikiLinks, método Feynman, sentence case e seção `Resumo para memorizar`; não introduz Mermaid próprio. O diagrama do guia foi apenas estendido com o nó final de WebGPU/TSL/compute.
+  * **Encerramento**: a expansão avançada planejada de Three.js está concluída nas Fases 1–12. Nenhuma Fase 13 foi criada; novos blocos só devem surgir a partir de um problema de aprendizagem novo e coeso.
+
 * **Conclusão da Fase 11 da trilha avançada de Three.js (`javascript/07-threejs/00`, `22`, `js/vault.js`)**:
   * **Artigo 22**: criado [[javascript/07-threejs/22-Performance profissional, profiling e diagnóstico de gargalos em Three.js|Performance profissional, profiling e diagnóstico de gargalos em Three.js]], cobrindo frame budget, frame time, distinção CPU/GPU, `renderer.info`, draw calls, triângulos, fill rate, DPR, pós-processamento, sombras, texturas e memória de GPU, garbage collection, alocações por frame, atualização de buffers, culling, LOD, raycasting, React Three Fiber e profiling com DevTools.
   * **Modelo mental de performance**: formalizada a cadeia `frame budget → medir → localizar CPU/GPU → formular hipótese → mudar uma variável → medir novamente`, substituindo otimização por heurística por experimentos reproduzíveis.
