@@ -23,6 +23,7 @@ A ordem recomendada é:
 * [[javascript/07-threejs/15-Perspectiva forçada, oclusão e objetos impossíveis em Three.js|Perspectiva forçada, oclusão e objetos impossíveis em Three.js]]: resolver silhueta, encontros projetados, sweet spot da câmera e ciclos locais de oclusão.
 * [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|Arquitetura avançada de React Three Fiber para cenas complexas]]: separar modelo geométrico, estado narrativo, interpolação, renderização, câmera e debug em cenas grandes.
 * [[javascript/07-threejs/17-glTF e pipeline Blender para Three.js|glTF e pipeline Blender para Three.js]]: organizar assets externos, exportação, hierarquia, materiais, animações, carregamento e integração Blender → Three.js.
+* [[javascript/07-threejs/18-UVs, texturas, PBR e environment maps em Three.js|UVs, texturas, PBR e environment maps em Three.js]]: conectar UVs, mapas de textura, `colorSpace`, materiais PBR, iluminação por ambiente, HDR e tone mapping.
 
 ---
 
@@ -43,11 +44,12 @@ flowchart LR
     K --> L["Perspectiva forçada<br>e oclusão"]
     L --> M["Arquitetura R3F<br>para cenas complexas"]
     M --> N["glTF e pipeline<br>Blender para web"]
+    N --> O["UVs, PBR e<br>environment maps"]
 
     classDef core fill:#1f1f1f,stroke:#f1a7b5,color:#fff,stroke-width:2px;
     classDef component fill:#242424,stroke:#888,color:#fff;
-    class A,N core;
-    class B,C,D,E,F,G,H,I,J,K,L,M component;
+    class A,O core;
+    class B,C,D,E,F,G,H,I,J,K,L,M,N component;
 ```
 
 Three.js fica muito mais simples quando você percebe que boa parte do trabalho se repete em quatro perguntas:
@@ -57,7 +59,7 @@ Three.js fica muito mais simples quando você percebe que boa parte do trabalho 
 3. **De onde estamos olhando?**
 4. **Como o renderer transforma isso em pixels?**
 
-Na parte avançada surgem outras perguntas: **como manter identidade, desempenho e intenção visual enquanto tudo muda ao longo do tempo?**, **como organizar uma cena complexa para que projeção, oclusão, câmera e código continuem legíveis?** e **como integrar assets produzidos fora do código sem transformar o runtime em uma coleção de correções de exportação?**
+Na parte avançada surgem outras perguntas: **como manter identidade, desempenho e intenção visual enquanto tudo muda ao longo do tempo?**, **como organizar uma cena complexa para que projeção, oclusão, câmera e código continuem legíveis?**, **como integrar assets produzidos fora do código sem transformar o runtime em uma coleção de correções de exportação?** e **como fazer uma superfície responder de forma coerente a texturas, luz e ambiente sem compensar um erro com outro?**
 
 ---
 
@@ -72,7 +74,7 @@ Não é necessário dominar matemática avançada para começar. Para a base, ba
 * [[javascript/04-dom-e-browser/17-Canvas e gráficos|Canvas e gráficos]];
 * `requestAnimationFrame` ou a ideia de executar código repetidamente ao longo do tempo.
 
-Para os artigos 09 a 17, passa a ser importante reconhecer vetores, matrizes, hierarquia de transforms, interpolação, projeção, depth buffer, a diferença entre estado de aplicação e estado visual e a distinção entre arquivo de autoria e asset de runtime. Esses conceitos são introduzidos progressivamente dentro da própria trilha.
+Para os artigos 09 a 18, passa a ser importante reconhecer vetores, matrizes, hierarquia de transforms, interpolação, projeção, depth buffer, a diferença entre estado de aplicação e estado visual, a distinção entre arquivo de autoria e asset de runtime e a diferença entre texturas de cor e texturas de dados. Esses conceitos são introduzidos progressivamente dentro da própria trilha.
 
 ---
 
@@ -115,6 +117,9 @@ Considere esta trilha consolidada quando você conseguir olhar para uma cena e r
 * como estruturar uma cena R3F para que matemática, renderização e câmera não fiquem acopladas;
 * quando uma correção pertence ao Blender e quando pertence ao Three.js;
 * como inspecionar hierarquia, nomes, materiais e animações de um asset glTF;
+* como distinguir texturas de cor de texturas de dados e atribuir `colorSpace` coerente;
+* como UVs, texel density, normal maps, roughness e metalness alteram a leitura de uma superfície;
+* por que environment maps e HDR são parte da iluminação PBR e não apenas um fundo visual;
 * que mudança deve ser feita sem pedir ao Codex para reconstruir o sistema inteiro.
 
 O objetivo prático é **ganhar capacidade de direção técnica e visual**.
@@ -136,9 +141,10 @@ Priorize:
 7. `InstancedMesh` e shaders quando o problema realmente exigir;
 8. perspectiva forçada e oclusão apenas depois de os estados estáticos básicos estarem resolvidos;
 9. separar matemática, estado, câmera e JSX antes de ampliar a complexidade da cena;
-10. integrar glTF e Blender quando a forma, os materiais ou as animações forem melhor produzidos como asset externo.
+10. integrar glTF e Blender quando a forma, os materiais ou as animações forem melhor produzidos como asset externo;
+11. refinar UVs, texturas, PBR, environment maps e color management quando a forma e o pipeline de asset já estiverem previsíveis.
 
-A nota [[javascript/07-threejs/08-Ordem prática para dominar Three.js|Ordem prática para dominar Three.js]] transforma a base dessa sequência em exercícios pequenos. Os artigos 09–17 formam a trilha avançada para cenas mais dirigidas, complexas e integradas a pipelines de produção 3D.
+A nota [[javascript/07-threejs/08-Ordem prática para dominar Three.js|Ordem prática para dominar Three.js]] transforma a base dessa sequência em exercícios pequenos. Os artigos 09–18 formam a trilha avançada para cenas mais dirigidas, complexas e integradas a pipelines de produção 3D.
 
 ---
 
@@ -152,8 +158,9 @@ A expansão avançada foi dividida em blocos menores para que cada fase tenha um
 * **Fase 4, perspectiva, projeção e oclusão, concluída**: [[javascript/07-threejs/15-Perspectiva forçada, oclusão e objetos impossíveis em Three.js|15]].
 * **Fase 5, arquitetura de cenas complexas em R3F, concluída**: [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|16]].
 * **Fase 6, assets e pipeline 3D, concluída**: [[javascript/07-threejs/17-glTF e pipeline Blender para Three.js|17]].
+* **Fase 7, superfície e iluminação avançada, concluída**: [[javascript/07-threejs/18-UVs, texturas, PBR e environment maps em Three.js|18]].
 
-A Fase 6 fecha a passagem entre autoria 3D e runtime web: o foco deixa de ser apenas a cena construída em código e passa a incluir assets externos com escala, hierarquia, materiais, texturas, animações e metadados previsíveis.
+A Fase 7 fecha o bloco de superfície e iluminação: a partir daqui, a trilha já distingue geometria real de relevo aparente, cor de dados físicos, luz direta de image-based lighting e problemas de material de problemas de color management.
 
 A partir daqui, uma fase deve corresponder preferencialmente a um artigo avançado grande. Só temas naturalmente inseparáveis devem compartilhar a mesma fase.
 
@@ -163,7 +170,6 @@ A partir daqui, uma fase deve corresponder preferencialmente a um artigo avança
 
 A sequência editorial prevista é:
 
-* **Fase 7, superfície e iluminação avançada**: UVs, texturas e environment maps.
 * **Fase 8, composição gráfica avançada**: post-processing, render targets e técnicas com depth/stencil.
 * **Fase 9, sistemas procedurais**: partículas, curvas, campos e geometria procedural.
 * **Fase 10, interação espacial**: picking avançado, raycasting em escala, seleção e drag.
@@ -183,11 +189,14 @@ Esses blocos entram separadamente para que cada etapa possa ser estudada, revisa
 * [GSAP documentation](https://gsap.com/docs/v3/)
 * [Khronos glTF 2.0 specification](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html)
 * [Blender manual: glTF 2.0](https://docs.blender.org/manual/en/dev/addons/scene_gltf2.html)
+* [Three.js Texture](https://threejs.org/docs/pages/Texture.html)
+* [Three.js MeshStandardMaterial](https://threejs.org/docs/pages/MeshStandardMaterial.html)
+* [Three.js PMREMGenerator](https://threejs.org/docs/pages/PMREMGenerator.html)
 
 ---
 
 ## Resumo para memorizar
 
-Three.js não é principalmente uma biblioteca de "efeitos 3D". É uma forma de descrever uma **cena**, posicionar uma **câmera**, criar ou carregar **objetos** e pedir a um **renderer** que transforme esse estado em pixels. Aprender essa arquitetura primeiro torna animação, interação, React Three Fiber e integração com assets muito menos misteriosos.
+Three.js não é principalmente uma biblioteca de "efeitos 3D". É uma forma de descrever uma **cena**, posicionar uma **câmera**, criar ou carregar **objetos** e pedir a um **renderer** que transforme esse estado em pixels. Aprender essa arquitetura primeiro torna animação, interação, React Three Fiber, integração com assets e direção de materiais muito menos misteriosos.
 
-Para trabalho aplicado, a prioridade é: **hierarquia e transformações → espaços local/global → câmera e projeção → geometria → React Three Fiber → animação → instancing e shaders → oclusão/perspectiva forçada → arquitetura de cena → pipeline de assets**. Resolva estados estáticos antes de animar, trate a câmera como parte da composição, mantenha matemática, estado e renderização separáveis e não use o runtime para mascarar problemas que pertencem ao asset de autoria.
+Para trabalho aplicado, a prioridade é: **hierarquia e transformações → espaços local/global → câmera e projeção → geometria → React Three Fiber → animação → instancing e shaders → oclusão/perspectiva forçada → arquitetura de cena → pipeline de assets → superfícies e iluminação PBR**. Resolva estados estáticos antes de animar, trate a câmera como parte da composição, mantenha matemática, estado e renderização separáveis, não use o runtime para mascarar problemas que pertencem ao asset de autoria e não use luz ou exposição para compensar UVs, mapas ou `colorSpace` incorretos.
