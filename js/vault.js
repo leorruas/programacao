@@ -88,7 +88,7 @@ export const arquivosFallback = [
     { titulo: "17-Lista, pilha e fila", path: "./csharp/17-Lista%2C%20pilha%20e%20fila.md" },
     { titulo: "18-Métodos (funções)", path: "./csharp/18-M%C3%A9todos%20%28fun%C3%A7%C3%B5es%29.md" },
     { titulo: "19-Programação orientada a objetos", path: "./csharp/19-Programa%C3%A7%C3%A3o%20orientada%20a%20objetos.md" },
-    { titulo: "20-Herança e interfaces", path: "./csharp/20-Heran%C3%A7a%20e%20interfaces.md" },
+    { titulo: "20-Herança e interfaces", path: "./csharp/20-Heran%C3%A7%C3%A7a%20e%20interfaces.md" },
     { titulo: "21-Tratamento de erros", path: "./csharp/21-Tratamento%20de%20erros.md" },
     { titulo: "22-Manipulação de arquivos", path: "./csharp/22-Manipula%C3%A7%C3%A3o%20de%20arquivos.md" },
     { titulo: "23-LINQ buscas e filtros", path: "./csharp/23-LINQ%20buscas%20e%20filtros.md" },
@@ -204,6 +204,7 @@ export const arquivosFallback = [
     { titulo: "20-Partículas, curvas, campos e geometria procedural em Three.js", path: "./javascript/07-threejs/20-Part%C3%ADculas%2C%20curvas%2C%20campos%20e%20geometria%20procedural%20em%20Three.js.md" },
     { titulo: "21-Picking, raycasting, seleção e drag em Three.js", path: "./javascript/07-threejs/21-Picking%2C%20raycasting%2C%20sele%C3%A7%C3%A3o%20e%20drag%20em%20Three.js.md" },
     { titulo: "22-Performance profissional, profiling e diagnóstico de gargalos em Three.js", path: "./javascript/07-threejs/22-Performance%20profissional%2C%20profiling%20e%20diagn%C3%B3stico%20de%20gargalos%20em%20Three.js.md" },
+    { titulo: "23-WebGPU, TSL e próximos pipelines em Three.js", path: "./javascript/07-threejs/23-WebGPU%2C%20TSL%20e%20pr%C3%B3ximos%20pipelines%20em%20Three.js.md" },
     // mermaid
     { titulo: "00-Guia de estudos", path: "./mermaid/00-Guia%20de%20estudos.md" },
     { titulo: "01-Mermaid como linguagem de modelagem visual", path: "./mermaid/01-Mermaid%20como%20linguagem%20de%20modelagem%20visual.md" },
