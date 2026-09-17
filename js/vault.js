@@ -209,7 +209,7 @@ export const arquivosFallback = [
     { titulo: "01-Mermaid como linguagem de modelagem visual", path: "./mermaid/01-Mermaid%20como%20linguagem%20de%20modelagem%20visual.md" },
     { titulo: "02-Flowcharts e fundamentos de grafos", path: "./mermaid/02-Flowcharts%20e%20fundamentos%20de%20grafos.md" },
     { titulo: "03-Direção, hierarquia e organização espacial", path: "./mermaid/03-Dire%C3%A7%C3%A3o%2C%20hierarquia%20e%20organiza%C3%A7%C3%A3o%20espacial.md" },
-    { titulo: "04-Nós, relações, subgraphs e semântica visual", path: "./mermaid/04-N%C3%B3s%2C%20rela%C3%A7%C3%A3o%20e%20subgraphs%20e%20sem%C3%A2ntica%20visual.md" },
+    { titulo: "04-Nós, relações, subgraphs e semântica visual", path: "./mermaid/04-N%C3%B3s%2C%20rela%C3%A7%C3%B5es%2C%20subgraphs%20e%20sem%C3%A2ntica%20visual.md" },
     { titulo: "05-Como escolher o tipo de diagrama", path: "./mermaid/05-Como%20escolher%20o%20tipo%20de%20diagrama.md" },
     { titulo: "06-Diagramas de sequência", path: "./mermaid/06-Diagramas%20de%20sequ%C3%AAncia.md" },
     { titulo: "07-Diagramas de classes e UML com Mermaid", path: "./mermaid/07-Diagramas%20de%20classes%20e%20UML%20com%20Mermaid.md" },
