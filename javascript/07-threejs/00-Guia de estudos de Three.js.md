@@ -137,31 +137,33 @@ A nota [[javascript/07-threejs/08-Ordem prática para dominar Three.js|Ordem pr�
 
 ---
 
-## 6. Fases avançadas concluídas
+## 6. Fases avançadas
 
-A expansão avançada foi organizada em blocos para que cada fase resolva um tipo de problema diferente.
+A expansão avançada foi dividida em blocos menores para que cada fase tenha um único problema central e possa ser encerrada antes de a próxima começar.
 
-* **Fase 1, estrutura espacial**: [[javascript/07-threejs/09-Transformações locais, globais e hierarquia em Three.js|09]] e [[javascript/07-threejs/10-BufferGeometry e geometria paramétrica em Three.js|10]].
-* **Fase 2, GPU e escala**: [[javascript/07-threejs/11-InstancedMesh e desenho eficiente de muitas formas|11]] e [[javascript/07-threejs/12-Shaders, GLSL e materiais customizados|12]].
-* **Fase 3, câmera e movimento**: [[javascript/07-threejs/13-Câmera, projeção e leitura espacial em Three.js|13]] e [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|14]].
-* **Fase 4, composição complexa**: [[javascript/07-threejs/15-Perspectiva forçada, oclusão e objetos impossíveis em Three.js|15]] e [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|16]].
+* **Fase 1, estrutura espacial, concluída**: [[javascript/07-threejs/09-Transformações locais, globais e hierarquia em Three.js|09]] e [[javascript/07-threejs/10-BufferGeometry e geometria paramétrica em Three.js|10]].
+* **Fase 2, GPU e escala, concluída**: [[javascript/07-threejs/11-InstancedMesh e desenho eficiente de muitas formas|11]] e [[javascript/07-threejs/12-Shaders, GLSL e materiais customizados|12]].
+* **Fase 3, câmera e movimento, concluída**: [[javascript/07-threejs/13-Câmera, projeção e leitura espacial em Three.js|13]] e [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|14]].
+* **Fase 4, perspectiva, projeção e oclusão, concluída**: [[javascript/07-threejs/15-Perspectiva forçada, oclusão e objetos impossíveis em Three.js|15]].
+* **Fase 5, arquitetura de cenas complexas em R3F, conteúdo criado e fechamento pendente**: [[javascript/07-threejs/16-Arquitetura avançada de React Three Fiber para cenas complexas|16]].
+
+A partir daqui, uma fase deve corresponder preferencialmente a um artigo avançado grande. Só temas naturalmente inseparáveis devem compartilhar a mesma fase.
 
 ---
 
-## 7. O que fica para depois
+## 7. Próximas fases planejadas
 
-Depois dessa base e da composição complexa, a trilha pode crescer com artigos específicos sobre:
+A sequência editorial prevista é:
 
-* carregamento de modelos `glTF`;
-* UVs, texturas e environment maps;
-* post-processing;
-* partículas e sistemas procedurais;
-* integração Blender → Three.js;
-* profiling de GPU e diagnóstico de gargalos;
-* picking avançado e interação espacial;
-* WebGPU e a evolução do pipeline gráfico.
+* **Fase 6, assets e pipeline 3D**: `glTF` e integração Blender → Three.js.
+* **Fase 7, superfície e iluminação avançada**: UVs, texturas e environment maps.
+* **Fase 8, composição gráfica avançada**: post-processing, render targets e técnicas com depth/stencil.
+* **Fase 9, sistemas procedurais**: partículas, curvas, campos e geometria procedural.
+* **Fase 10, interação espacial**: picking avançado, raycasting em escala, seleção e drag.
+* **Fase 11, performance profissional**: profiling de CPU/GPU, draw calls, memória, DPR e gargalos.
+* **Fase 12, WebGPU e próximos pipelines**: modelo de renderização moderno e evolução além de WebGL.
 
-Esses assuntos não devem entrar todos de uma vez. Cada um resolve um problema diferente.
+Esses blocos entram separadamente para que cada etapa possa ser estudada, revisada e encerrada antes da próxima.
 
 ---
 
