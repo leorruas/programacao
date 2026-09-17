@@ -2,6 +2,16 @@
 
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
+## 2026-09-17
+
+* **Conclusão da Fase 3 da trilha avançada de Three.js (`javascript/07-threejs/`, `js/vault.js`)**:
+  * **Artigo 13**: criado [[javascript/07-threejs/13-Câmera, projeção e leitura espacial em Three.js|Câmera, projeção e leitura espacial em Three.js]], cobrindo `PerspectiveCamera`, `OrthographicCamera`, `fov`, distância, projeção para NDC, `unproject`, framing responsivo, camera rigs, parallax, near/far e diagnóstico de enquadramento.
+  * **Artigo 14**: criado [[javascript/07-threejs/14-GSAP, interpolação de estados e animação dirigida em Three.js|GSAP, interpolação de estados e animação dirigida em Three.js]], cobrindo estados canônicos, interpolação, GSAP como controle temporal, ranges perceptivos, easing, holds, timeline mestre, scrubber, identidade persistente e integração com câmera.
+  * **Guia revisado**: [[javascript/07-threejs/00-Guia de estudos de Three.js|Guia de estudos de Three.js]] agora incorpora explicitamente os artigos `09–14`, organiza as três fases avançadas já concluídas e atualiza o mapa mental, critérios de domínio, prioridades práticas e próximos blocos.
+  * **Fases consolidadas**: Fase 1 = estrutura espacial (`09–10`), Fase 2 = GPU e escala (`11–12`) e Fase 3 = câmera e movimento (`13–14`).
+  * **Web App**: a área Three.js permanece apresentada como área própria no leitor, embora os arquivos continuem fisicamente em `javascript/07-threejs/`; os artigos `13` e `14` foram incluídos no fallback de `js/vault.js`.
+  * **Próxima etapa**: a Fase 4 fica reservada para composição complexa, com perspectiva forçada, oclusão, objetos impossíveis e arquitetura avançada de React Three Fiber. Nenhum conteúdo da Fase 4 foi iniciado neste fechamento.
+
 ## 2026-09-09
 
 * **Correção visual do botão Mermaid no Web App (`mermaid-overrides.css`, `index.html`)**:
@@ -50,7 +60,7 @@ Este arquivo registra o histórico de criações, modificações, edições e re
   * **Q, K e V por shapes**: mostra como acompanhar dimensões transforma a equação `QKᵀ` em uma operação rastreável (`[tokens, head_dim] × [head_dim, tokens] = [tokens, tokens]`).
   * **Código didático**: inclui snippet mínimo e exemplo completo em JavaScript para inspecionar shapes, além de exemplo complementar em PyTorch para `shape`, `dtype` e `device`.
   * **Integração da trilha**: o guia passou a recomendar fundamentos tensoriais antes de `02 Tokenização` e `03 Transformer`; as entradas Vetor, Matriz, Tensor e Dimensão do glossário apontam para o novo artigo.
-  * **Sincronização do app**: o novo artigo foi adicionado ao fallback de `js/vault.js`.
+  * **Sincronização do app**: o novo artigo foi adicionado à lista de fallback de `js/vault.js`.
 * **Correção de concorrência no workflow Mermaid (`.github/workflows/mermaid-fallbacks.yml`)**:
   * **Causa das falhas**: múltiplos commits em sequência disparavam renderizações simultâneas dos mesmos SVGs; ao final, os jobs tentavam fazer `rebase/push` sobre uma `main` já modificada por outra execução e entravam em conflito.
   * **Serialização**: adicionada chave de `concurrency` com cancelamento de execuções antigas quando uma nova execução da mesma fila é iniciada.
