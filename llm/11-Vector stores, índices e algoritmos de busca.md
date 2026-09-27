@@ -68,6 +68,61 @@ Um banco vetorial de produção não guarda apenas matrizes numéricas; ele oper
 | **Filtros por Metadados** | Excelente (executa joins SQL nativos entre dados relacionais e vetores). | Variável (requer filtragem pós ou pré-índice específica de cada engine). |
 | **Escala Típica Recomendada** | Perfeito para até alguns milhões de vetores por tabela. | Indicado para dezenas ou centenas de milhões de vetores com altíssima concorrência. |
 
+
+### 4.1. Onde o Chroma entra
+
+**Chroma** é uma implementação concreta de infraestrutura de retrieval. Ele consegue armazenar documentos, embeddings e metadados e executar busca vetorial e filtros. Também possui recursos de busca densa, esparsa, híbrida e textual.
+
+A distinção conceitual é mais importante do que o produto escolhido:
+
+**modelo de embedding cria a representação → Chroma armazena e pesquisa → LLM gera a resposta**
+
+Portanto:
+
+* **Chroma não é um embedding**: ele pode receber embeddings já calculados ou trabalhar com uma função de embedding configurada.
+* **Chroma não é uma LLM**: ele não redige a resposta final.
+* **Chroma não é sinônimo de RAG**: é apenas uma possível implementação da camada de armazenamento e retrieval.
+* **Chroma não é obrigatório**: em uma base pequena, podemos manter vetores em um array e calcular similaridade diretamente, como em [[llm/15-Construindo um RAG em JavaScript|Construindo um RAG em JavaScript]].
+
+Para desenvolvimento, Chroma pode rodar localmente; também pode ser executado como servidor separado ou usado como serviço gerenciado. No SDK JavaScript/TypeScript, o cliente se conecta a um servidor Chroma e trabalha com **collections**, que agrupam IDs, documentos, embeddings e metadados.
+
+Um exemplo mínimo do papel dessa camada seria:
+
+```javascript
+import { ChromaClient } from "chromadb";
+
+const client = new ChromaClient({
+    host: "localhost",
+    port: 8000
+});
+
+const collection = await client.getOrCreateCollection({
+    name: "vault-programacao"
+});
+
+await collection.add({
+    ids: ["rag-01"],
+    documents: ["RAG recupera contexto antes de pedir que a LLM gere a resposta."],
+    embeddings: [[0.12, -0.31, 0.77]],
+    metadatas: [{ arquivo: "llm/08-O que é RAG e como funciona.md" }]
+});
+
+const resultados = await collection.query({
+    queryEmbeddings: [[0.10, -0.28, 0.81]],
+    nResults: 3
+});
+```
+
+Os vetores acima são fictícios. O exemplo serve para mostrar a fronteira da ferramenta: o Chroma recebe registros, mantém o índice e devolve os itens mais próximos. Em uma aplicação real, o vetor seria produzido por um modelo de embedding descrito em [[llm/10-Embeddings aplicados ao RAG|Embeddings aplicados ao RAG]].
+
+### 4.2. Uma escolha de infraestrutura, não uma decisão semântica
+
+Trocar Chroma por `pgvector`, Qdrant, Pinecone ou outro mecanismo pode mudar persistência, filtros, operação e desempenho, mas **não corrige sozinho um embedding ruim ou um chunk mal construído**. A qualidade do retrieval depende do conjunto inteiro:
+
+**chunking → embedding → metadados → índice → estratégia de busca → reranking**
+
+Esse encadeamento evita atribuir ao banco vetorial uma capacidade de "entender o significado" que pertence, em grande parte, ao modelo de representação e à estratégia de recuperação.
+
 ---
 
 ## 5. Implementação mínima executável: busca linear exata vs particionamento conceitual
@@ -174,4 +229,5 @@ resultados.forEach(r => {
 * **KNN vs ANN**: KNN é exato mas lento $O(N)$; ANN é aproximado mas opera em tempo logarítmico $O(\log N)$.
 * **HNSW**: A estrutura de grafos navegáveis em múltiplas camadas que domina a busca vetorial moderna.
 * **Metadados acoplados**: Um vector store de produção deve persistir o texto original e seus metadados de filtro junto com os vetores numéricos.
+* **Chroma como exemplo**: Chroma é uma implementação de infraestrutura de retrieval; ele organiza e pesquisa representações, mas não substitui o modelo de embedding nem a LLM.
 * **Escolha pragmática**: Para a maioria das aplicações até 2 milhões de vetores, `pgvector` no PostgreSQL existente elimina a sobrecarga de operar um banco de dados novo.
