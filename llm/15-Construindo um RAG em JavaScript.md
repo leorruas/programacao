@@ -30,6 +30,58 @@ flowchart TD
     F5 -.->|Consulta| Q3
 ```
 
+
+### 1.1. Requisitos de sistema: o que realmente precisa rodar localmente
+
+Construir um RAG e executar uma LLM local são problemas diferentes. O peso de hardware depende de **onde cada etapa roda**.
+
+**Cenário A: embeddings e LLM por API**
+
+O computador local fica responsável por ler Markdown, fazer chunking, guardar ou consultar o índice e montar requisições HTTP. Nesse cenário:
+
+* Node.js e espaço em disco para o projeto são suficientes para a aplicação;
+* GPU dedicada não é requisito do RAG;
+* memória é consumida principalmente pelo índice local, pelos documentos e pelo processo Node.js;
+* a carga pesada de inferência fica no serviço externo.
+
+Para aprender a arquitetura, este é o caminho mais simples porque deixa chunking e retrieval visíveis sem transformar configuração de modelos locais no problema principal.
+
+**Cenário B: embeddings locais e LLM por API**
+
+O modelo de embedding também roda no computador. A exigência de RAM e CPU aumenta conforme o modelo escolhido, mas continua muito abaixo do custo de executar uma LLM generativa grande. Esse desenho pode ser útil quando os documentos não devem sair da máquina durante a indexação.
+
+**Cenário C: tudo local**
+
+Além do índice e dos embeddings, uma LLM precisa ficar carregada em memória. Aqui os requisitos passam a depender fortemente de:
+
+* quantidade de parâmetros do modelo;
+* quantização dos pesos;
+* tamanho da janela de contexto;
+* memória unificada, RAM ou VRAM disponível;
+* quantidade de aplicações concorrendo pela mesma memória.
+
+Portanto, um computador que executa perfeitamente um RAG com APIs pode não ser adequado para uma LLM local grande. **O vector store raramente é a parte mais pesada de um projeto didático pequeno; o modelo generativo costuma dominar o uso de memória.**
+
+### 1.2. Caminho de implementação recomendado para aprender
+
+A implementação deste artigo começa deliberadamente com um array em memória. Isso permite enxergar a matemática antes de introduzir infraestrutura.
+
+A progressão pode ser:
+
+**Markdown → chunking em JavaScript → embeddings reais → busca em memória → Chroma local → LLM por API → avaliação**
+
+A troca da busca em memória por Chroma não altera o conceito central. Ela apenas substitui a camada que persiste e recupera os vetores, como explicado em [[llm/11-Vector stores, índices e algoritmos de busca|Vector stores, índices e algoritmos de busca]].
+
+Uma primeira arquitetura prática pode usar:
+
+* **Node.js** para ingestão, chunking e orquestração;
+* **API de embeddings** para gerar os vetores;
+* **Chroma local** ou o próprio índice em memória durante os testes iniciais;
+* **API de LLM** para geração;
+* arquivos Markdown do vault como corpus.
+
+Só depois de medir se o retrieval encontra bons trechos faz sentido substituir peças por alternativas locais. Isso preserva uma regra de diagnóstico importante: **testar retrieval antes de testar geração**. Se os chunks errados chegam ao prompt, trocar a LLM pode apenas produzir uma resposta mais convincente com evidência ruim.
+
 ---
 
 ## 2. Snippets atômicos do motor
@@ -269,3 +321,4 @@ executarDemonstracao();
 * **Sem caixas-pretas**: Implementar um RAG básico em JavaScript puro exige apenas manipulação de strings, vetores unitários e produtos escalares.
 * **Metadados vivos**: Preservar o caminho do arquivo e o heading no chunk é o que garante citações auditáveis no final.
 * **Arquitetura modular**: O motor separa a ingestão estática em lote da consulta dinâmica em runtime.
+* **Hardware proporcional à inferência**: Usar embeddings e LLM por API mantém o RAG local leve; executar modelos generativos localmente é que muda de forma relevante os requisitos de memória e processamento.
