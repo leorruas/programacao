@@ -2,6 +2,18 @@
 
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
+
+## 2026-09-27
+
+* **Complemento didático da trilha RAG (`llm/08`, `10`, `11`, `15`)**:
+  * **Modelo mental de RAG**: [[llm/08-O que é RAG e como funciona|O que é RAG e como funciona]] agora separa explicitamente RAG de treinamento e fine-tuning e formaliza os papéis de retrieval, contexto, modelo de embedding, vector store e LLM geradora.
+  * **Embeddings**: [[llm/10-Embeddings aplicados ao RAG|Embeddings aplicados ao RAG]] passa a explicar como aprendizado contrastivo organiza consultas e documentos em uma geometria útil para retrieval, reforçando que embedding é uma representação com perdas e não uma compressão reversível do texto.
+  * **Consistência vetorial**: registrada a necessidade de manter documentos e queries no mesmo espaço de representação, evitando comparar vetores apenas porque possuem dimensionalidade semelhante.
+  * **Chroma**: [[llm/11-Vector stores, índices e algoritmos de busca|Vector stores, índices e algoritmos de busca]] passa a situar Chroma como implementação opcional da camada de retrieval, diferenciando claramente banco vetorial, modelo de embedding, LLM e arquitetura RAG; incluído exemplo mínimo com o SDK JavaScript/TypeScript.
+  * **Requisitos de sistema**: [[llm/15-Construindo um RAG em JavaScript|Construindo um RAG em JavaScript]] passa a distinguir RAG com APIs, embeddings locais e execução totalmente local, deixando explícito que GPU não é requisito da arquitetura quando a inferência pesada ocorre externamente.
+  * **Caminho de implementação**: formalizada a progressão didática `Markdown → chunking em JavaScript → embeddings reais → busca em memória → Chroma local → LLM por API → avaliação`, mantendo retrieval visível antes de introduzir mais infraestrutura.
+  * **Validação editorial**: nenhum arquivo foi criado, movido ou renomeado; os novos WikiLinks apontam para notas já existentes e os diagramas Mermaid existentes não foram alterados. O repositório não expõe um script de lint de links no `package.json`, portanto a validação desta sessão foi feita pela conferência dos destinos adicionados.
+
 ## 2026-09-17
 
 * **Conclusão da Fase 12 e fechamento da trilha avançada de Three.js (`javascript/07-threejs/00`, `23`, `js/vault.js`)**:
