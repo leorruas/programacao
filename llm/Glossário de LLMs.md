@@ -531,6 +531,14 @@ Um **chunk** é um fragmento de documento usado como unidade de indexação ou r
 
 Um **vector store** é uma infraestrutura destinada a armazenar embeddings e recuperar vetores semelhantes de forma eficiente.
 
+Relacionado: [[llm/11-Vector stores, índices e algoritmos de busca|Vector stores, índices e algoritmos de busca]].
+
+### Chroma
+
+**Chroma** é uma implementação de infraestrutura de retrieval que pode armazenar documentos, embeddings e metadados e executar buscas sobre esse conjunto. É uma ferramenta possível para a camada de vector store de um RAG, não um componente conceitualmente obrigatório da arquitetura.
+
+Relacionado: [[llm/11-Vector stores, índices e algoritmos de busca|Vector stores, índices e algoritmos de busca]].
+
 ### Grounding
 
 **Grounding** é o grau em que uma resposta está apoiada em evidência fornecida ou recuperada, em vez de depender apenas do conhecimento paramétrico do modelo.
