@@ -21,6 +21,31 @@ Imagine a redação de um grande jornal de notícias:
 * **O Arquivista (Sistema de Recuperação)**: Passa o dia inteiro recortando jornais antigos, organizando artigos em pastas temáticas e catalogando fichas de índice por palavra-chave e assunto. Ele não escreve a matéria final; sua especialidade é saber exatamente em qual gaveta está a reportagem de 2018 sobre a fusão de duas empresas.
 * **O Redator (LLM)**: Possui excelente estilo de escrita, vocabulário rico e capacidade de síntese. Quando o editor pede uma matéria sobre o histórico da empresa, o Redator não tenta puxar fatos da memória; ele pede as fichas ao Arquivista, lê os 3 recortes entregues e redige um texto fluído e embasado.
 
+
+### 2.1. O que o RAG não é: treinamento do modelo
+
+RAG não altera os pesos da LLM e não ensina permanentemente novos fatos ao modelo. Ele cria uma etapa de **consulta antes da geração**. A informação recuperada entra temporariamente na janela de contexto daquela resposta.
+
+Isso produz uma distinção útil:
+
+* **Treinamento ou fine-tuning**: altera o comportamento do modelo por meio de aprendizagem adicional.
+* **RAG**: mantém o modelo como está e busca informação externa quando a pergunta chega.
+* **Contexto**: é o espaço temporário onde os trechos recuperados são apresentados à LLM.
+
+O fluxo mínimo pode ser lido assim:
+
+**pergunta → retrieval → contexto recuperado → LLM → resposta**
+
+> [!NOTE] Separação das responsabilidades
+> Em um RAG baseado em busca vetorial, três peças cumprem papéis diferentes:
+> * **Modelo de embedding**: transforma texto em vetores comparáveis e define o espaço semântico usado pela busca. Veja [[llm/10-Embeddings aplicados ao RAG|Embeddings aplicados ao RAG]].
+> * **Vector store**: armazena ou indexa vetores, textos e metadados e encontra vizinhos próximos. Chroma, Qdrant e `pgvector` são exemplos de implementações possíveis; nenhuma delas é o RAG em si. Veja [[llm/11-Vector stores, índices e algoritmos de busca|Vector stores, índices e algoritmos de busca]].
+> * **LLM geradora**: recebe os trechos encontrados e redige a resposta.
+>
+> O **RAG é a arquitetura que coordena essas peças**. Em bases pequenas, nem sequer é obrigatório usar um banco vetorial: os vetores podem ser comparados em memória por força bruta, como na implementação didática de [[llm/15-Construindo um RAG em JavaScript|Construindo um RAG em JavaScript]].
+
+Essa separação também ajuda no diagnóstico. Se a resposta final está errada, a primeira pergunta não deveria ser apenas "a LLM falhou?". É preciso verificar se o retrieval encontrou a fonte certa. Uma LLM excelente continua limitada pelo contexto que recebeu.
+
 ---
 
 ## 3. Funcionamento técnico real: a separação em duas fases
