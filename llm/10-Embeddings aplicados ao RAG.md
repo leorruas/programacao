@@ -26,6 +26,44 @@ Pense em uma biblioteca onde cada livro ou parágrafo é catalogado como uma **e
 1. **O espaço não é estático nem objetivo**: O vetor não "captura o significado absoluto e divino da frase". Ele captura apenas as correlações estatísticas aprendidas pelo modelo de embedding a partir dos pares de texto em que foi treinado.
 2. **Compressão com perdas inevitável**: Comprimir um parágrafo denso de 300 palavras em uma lista de 1536 números de ponto flutuante inevitavelmente perde detalhes finos, negações lógicas sutis e especificidades numéricas.
 
+
+### 2.1. Como o modelo aprende esse mapa semântico
+
+Os números de um embedding não são definidos manualmente. Não existe uma dimensão reservada para "SQL", outra para "animal" e outra para "tecnologia". A representação é **aprendida durante o treinamento** e distribuída entre muitas dimensões.
+
+Uma forma importante de treinar modelos de retrieval é o **aprendizado contrastivo**. O treinamento apresenta exemplos que deveriam ficar próximos e exemplos que deveriam ficar distantes.
+
+Considere a consulta:
+
+> "O que acontece se uma transação falhar no meio?"
+
+Um trecho positivo poderia ser:
+
+> "Atomicidade garante que uma transação seja confirmada integralmente ou revertida como uma unidade."
+
+Um trecho negativo poderia falar sobre renderização com WebGPU.
+
+Durante o treinamento, o erro calculado pelo modelo empurra o vetor da consulta e o vetor do trecho relevante para regiões mais próximas, enquanto afasta pares pouco úteis. Repetido em grandes conjuntos de exemplos, esse processo cria uma geometria na qual **proximidade significa utilidade aprendida para determinada tarefa**, e não um "significado verdadeiro" armazenado objetivamente.
+
+Isso também explica por que dois modelos de embedding podem organizar o mesmo conjunto de textos de maneiras diferentes. Um modelo treinado para pergunta e resposta pode ser melhor em retrieval do que outro treinado para agrupar textos apenas por assunto.
+
+### 2.2. Embedding não é um arquivo comprimido
+
+Um embedding funciona como um **endereço semântico aproximado**, não como um ZIP reversível do texto. A partir do vetor, não esperamos reconstruir palavra por palavra o chunk original.
+
+Por isso um sistema RAG normalmente preserva os dois:
+
+* **vetor**: usado para localizar candidatos por proximidade;
+* **texto original**: usado como evidência que será entregue à LLM;
+* **metadados**: usados para rastrear arquivo, seção, data, categoria e outras restrições.
+
+A cadeia conceitual fica:
+
+**texto original → embedding para localizar → vector store para recuperar → texto original volta ao contexto → LLM gera a resposta**.
+
+> [!IMPORTANT] O mesmo espaço vetorial
+> Documentos e consultas precisam ser representados em um espaço compatível. Na implementação mais simples, isso significa usar o **mesmo modelo e a mesma configuração de embedding** na indexação e na consulta. Vetores produzidos por modelos independentes não se tornam comparáveis apenas porque possuem a mesma quantidade de dimensões.
+
 ---
 
 ## 3. Funcionamento técnico real: a arquitetura Bi-Encoder
@@ -179,6 +217,7 @@ A sequência é:
 
 ## Resumo para memorizar
 
+* **Geometria aprendida**: O embedding não contém categorias definidas manualmente; o treinamento organiza textos e consultas em um espaço útil para comparação.
 * **Bi-Encoders**: A arquitetura padrão de embeddings para RAG, gerando vetores independentes para chunks e queries.
 * **Normalização L2**: Transforma o cálculo de similaridade de cosseno em um produto escalar direto, acelerando drasticamente a busca vetorial.
 * **Limites semânticos**: Embeddings tropeçam em negações lógicas, números exatos e palavras com sintaxe rígida.
