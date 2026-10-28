@@ -2,6 +2,7 @@
     "use strict";
 
     var AREAS = {
+        "sintaxe-multilinguagem": "Sintaxe multilinguagem",
         "Geral": "Geral",
         "csharp": "C#",
         "css": "CSS",
@@ -134,7 +135,7 @@
             artigosPorArea[area].push(item);
         }
 
-        var ordem = ["Geral", "csharp", "javascript", "threejs", "react", "css", "git", "python", "mermaid", "llm", "tutoriais", "web"];
+        var ordem = ["sintaxe-multilinguagem", "Geral", "csharp", "javascript", "threejs", "react", "css", "git", "python", "mermaid", "llm", "tutoriais", "web"];
         pastas.innerHTML = "";
 
         for (i = 0; i < ordem.length; i += 1) {

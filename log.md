@@ -5,6 +5,11 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-10-28
 
+* **Área transversal de sintaxe multilinguagem**: criados [[sintaxe-multilinguagem/00-Guia de estudos|Guia de estudos]] e [[sintaxe-multilinguagem/01-API|O que é uma API e como funciona]], com exemplos comparados em JavaScript, C#, Python e Java.
+* **API centralizada**: preservado o endereço [[javascript/05-assincrono/02-API|API em JavaScript]] como artigo de aplicação, com link à explicação comum; atualizadas as referências no guia de JavaScript e no artigo Fetch.
+* **Navegação do web app**: adicionada a nova categoria no `js/vault.js`, `script.js`, `legacy-ios12.js` e atualizados os parâmetros de cache em `index.html`; nenhuma área existente foi renomeada.
+* **Diretrizes**: `AGENTS.md` passa a diferenciar conceito transversal de implementação específica e a exigir expansão de siglas na primeira ocorrência. Links dos artigos novos validados por destinos conhecidos; renderização visual não testada nesta sessão.
+
 * **Correção da busca no web app**: `style.css` agora organiza `.resultados .cards-container` em bloco, fazendo o total de artigos aparecer acima dos grupos de resultados, em largura integral, sem alterar a numeração individual.
 * **Título único no leitor**: `js/article-render-overrides.js` identifica o primeiro `H1` do Markdown, transfere o texto para o cabeçalho do leitor e remove a duplicação do corpo mesmo quando o nome do arquivo é diferente do título. O observador ignora remoções para evitar apagar outros títulos sequenciais.
 * **Atualização de cache**: `index.html` incrementa as versões dos arquivos CSS e JavaScript alterados para que o navegador carregue os ajustes. Validação estrutural e dos seletores realizada; não houve inspeção visual em navegador nesta sessão.

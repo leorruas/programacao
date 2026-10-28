@@ -1,6 +1,11 @@
 // js/vault.js - Gerenciamento de Dados, Áreas e Fallback do Vault de Programação
 
 export const informacoesAreas = {
+    "sintaxe-multilinguagem": {
+        numero: "00",
+        nome: "Sintaxe multilinguagem",
+        descricao: "Conceitos comuns e implementações comparadas em JavaScript, C#, Python e Java."
+    },
     "Geral": {
         numero: "01",
         nome: "Geral",
@@ -64,6 +69,9 @@ export const informacoesAreas = {
 };
 
 export const arquivosFallback = [
+    // sintaxe multilinguagem
+    { titulo: "00-Guia de estudos", path: "./sintaxe-multilinguagem/00-Guia%20de%20estudos.md" },
+    { titulo: "01-API", path: "./sintaxe-multilinguagem/01-API.md" },
     { titulo: "Atalhos VS Code", path: "./Atalhos%20VS%20Code.md" },
     { titulo: "Evolução da Programação", path: "./Evolu%C3%A7%C3%A3o%20da%20Programa%C3%A7%C3%A3o.md" },
     { titulo: "ASP e SQL Server", path: "./ASP%20e%20SQL%20Server.md" },

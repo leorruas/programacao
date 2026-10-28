@@ -187,7 +187,8 @@ A pergunta agora é: **o que acontece quando o resultado não está disponível 
 Ordem recomendada:
 
 * [[javascript/05-assincrono/01-Callbacks|Callbacks]] — função executada em outro momento ou por outra rotina.
-* [[javascript/05-assincrono/02-API|API]] — contrato de comunicação entre sistemas.
+* [[sintaxe-multilinguagem/01-API|O que é uma API]] — contrato compartilhado entre linguagens.
+* [[javascript/05-assincrono/02-API|API em JavaScript]] — aplicação do conceito com `fetch()`.
 * [[javascript/03-manipulacao/08-JSON|JSON]] — representação frequente dos dados transportados.
 * [[javascript/05-assincrono/03-Fetch|Fetch]] — iniciar uma requisição HTTP no navegador.
 * [[javascript/05-assincrono/04-Async await|Async e await]] — escrever fluxo assíncrono com aparência sequencial.

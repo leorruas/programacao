@@ -100,3 +100,9 @@ Este documento centraliza todas as regras de desenvolvimento, manutenção de no
 - **Codificação de URLs Especiais**: Garanta que requisições e rotas com caracteres como `#` (ex.: notas de `C#`) usem `encodeURIComponent` para evitar erros HTTP 404.
 - **Rolagem Obrigatória ao Topo**: Toda transição de área ou artigo deve reposicionar o leitor no topo exato da tela (`scroll(0, 0)`).
 
+## 9. Referência transversal e siglas
+
+- **Conceitos compartilhados**: assuntos como API que se aplicam a várias linguagens devem ter artigo central em `sintaxe-multilinguagem/`. Notas específicas devem explicar a implementação na linguagem e apontar para a referência central, sem duplicar integralmente a teoria.
+- **Comparações**: quando útil, explicar a mesma tarefa em JavaScript, C#, Python e Java, indicando versões e bibliotecas. Separar conceitos e protocolos de construções de sintaxe de uma linguagem.
+- **Siglas**: escrever e explicar o significado de cada sigla ao menos uma vez por artigo, na primeira ocorrência.
+- **Compatibilidade**: preservar caminhos antigos com nota de transição quando necessário, ou atualizar todos os links que apontavam para o destino alterado.

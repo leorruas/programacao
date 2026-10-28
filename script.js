@@ -1,5 +1,5 @@
 // script.js - Coordenador Principal da Aplicação
-import { informacoesAreas, obterListaDeArquivos } from "./js/vault.js";
+import { informacoesAreas, obterListaDeArquivos } from "./js/vault.js?v=multilinguagem-v1";
 import { renderizarDiagramasMermaid } from "./js/mermaid.js?v=estrutura-v26";
 
 // Cache global para armazenar os conteúdos dos arquivos em memória
@@ -112,6 +112,7 @@ const btnVoltar = document.getElementById("btn-voltar");
 const btnVoltarDisciplina = document.getElementById("btn-voltar-disciplina");
 
 const nomesDeAreas = {
+    "sintaxe-multilinguagem": "Sintaxe multilinguagem",
     csharp: "C#",
     css: "CSS",
     git: "Git",
@@ -126,6 +127,7 @@ const nomesDeAreas = {
 };
 
 const descricoesDeAreas = {
+    "sintaxe-multilinguagem": "Conceitos compartilhados e comparação de implementações entre linguagens.",
     "Geral": "Conceitos-base, atalhos e referências para o dia a dia do desenvolvimento.",
     csharp: "Lógica, orientação a objetos, coleções, LINQ e integração de aplicações.",
     css: "Layouts, responsividade, seletores, animações e acabamento visual para a web.",
