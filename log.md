@@ -3,6 +3,12 @@
 Este arquivo registra o histórico de criações, modificações, edições e reorganizações estruturais realizadas no vault em **ordem cronológica decrescente (mais recente no topo)**.
 
 
+## 2026-10-28
+
+* **Ampliação do artigo introdutório sobre API**: [[javascript/05-assincrono/02-API|O que é uma API e como ela funciona]] passou a explicar contrato, APIs locais e web, ciclo cliente-servidor, requisição e resposta HTTP, endpoints, métodos, status, JSON, frontend/backend, banco de dados, segurança, REST e diferenças de outros estilos; incluído diagrama de sequência, exemplo mínimo e página HTML funcional com tratamento de estados e erros.
+* **Correções na nota de Fetch**: [[javascript/05-assincrono/03-Fetch|Fetch]] agora aponta para a introdução correta, utiliza WikiLinks válidos fora de tabelas e verifica `resposta.ok` antes de interpretar JSON, distinguindo falhas de HTTP de falhas de rede.
+* **Compatibilidade editorial**: os caminhos dos artigos foram mantidos, preservando a navegação existente. Links incluídos foram confrontados com a árvore do repositório; os exemplos usam API pública e não incluem credenciais privadas. O diagrama de sequência usa sintaxe Mermaid padrão; renderização visual em navegador não executada nesta sessão.
+
 ## 2026-09-27
 
 * **Complemento didático da trilha RAG (`llm/08`, `10`, `11`, `15`)**:
