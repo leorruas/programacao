@@ -974,9 +974,14 @@ mark.obsidian-highlight, mark:not(.highlight) {
     padding-left: 10px;
 }
 
-/* Resultados da Busca Suíça */
+/* Resultados da busca: contagem e grupos sempre em linhas próprias. */
 .resultados {
     margin: 30px 0 64px;
+}
+
+.resultados .cards-container {
+    display: block;
+    width: 100%;
 }
 
 .resumo-busca,

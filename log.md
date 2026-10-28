@@ -5,6 +5,10 @@ Este arquivo registra o histórico de criações, modificações, edições e re
 
 ## 2026-10-28
 
+* **Correção da busca no web app**: `style.css` agora organiza `.resultados .cards-container` em bloco, fazendo o total de artigos aparecer acima dos grupos de resultados, em largura integral, sem alterar a numeração individual.
+* **Título único no leitor**: `js/article-render-overrides.js` identifica o primeiro `H1` do Markdown, transfere o texto para o cabeçalho do leitor e remove a duplicação do corpo mesmo quando o nome do arquivo é diferente do título. O observador ignora remoções para evitar apagar outros títulos sequenciais.
+* **Atualização de cache**: `index.html` incrementa as versões dos arquivos CSS e JavaScript alterados para que o navegador carregue os ajustes. Validação estrutural e dos seletores realizada; não houve inspeção visual em navegador nesta sessão.
+
 * **Ampliação do artigo introdutório sobre API**: [[javascript/05-assincrono/02-API|O que é uma API e como ela funciona]] passou a explicar contrato, APIs locais e web, ciclo cliente-servidor, requisição e resposta HTTP, endpoints, métodos, status, JSON, frontend/backend, banco de dados, segurança, REST e diferenças de outros estilos; incluído diagrama de sequência, exemplo mínimo e página HTML funcional com tratamento de estados e erros.
 * **Correções na nota de Fetch**: [[javascript/05-assincrono/03-Fetch|Fetch]] agora aponta para a introdução correta, utiliza WikiLinks válidos fora de tabelas e verifica `resposta.ok` antes de interpretar JSON, distinguindo falhas de HTTP de falhas de rede.
 * **Compatibilidade editorial**: os caminhos dos artigos foram mantidos, preservando a navegação existente. Links incluídos foram confrontados com a árvore do repositório; os exemplos usam API pública e não incluem credenciais privadas. O diagrama de sequência usa sintaxe Mermaid padrão; renderização visual em navegador não executada nesta sessão.
